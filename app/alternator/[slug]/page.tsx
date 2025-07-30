@@ -5,15 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import AddToBuildButton from "@/app/component/AddToBuildButton";
 
-// Correct type definition
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
-
-// Metadata generator
-export async function generateMetadata({ params }: PageProps) {
+// ✅ No custom PageProps needed
+export async function generateMetadata({ params }: { params: { slug: string } }) {
   const product = alternatorProducts.find((p) => p.slug === params.slug);
   return {
     title: product?.title || "Alternator Details",
@@ -21,15 +14,14 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-// Page Component
-export default function Page({ params }: PageProps) {
+export default function Page({ params }: { params: { slug: string } }) {
   const product = alternatorProducts.find((p) => p.slug === params.slug);
 
   if (!product) return notFound();
 
   return (
     <section>
-      {/* Hero */}
+      {/* Hero Section */}
       <div className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden">
         <div className="container absolute inset-0 flex items-end justify-start">
           <h1 className="font-normal italic text-[var(--background)] mb-4 text-2xl">
@@ -55,6 +47,7 @@ export default function Page({ params }: PageProps) {
             {product.title}
           </h1>
 
+          {/* Short Specs */}
           <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-[var(--foreground)] pb-4">
             {product.shortSpecs.map((spec, i) => (
               <div key={i} className="flex gap-2">
@@ -64,6 +57,7 @@ export default function Page({ params }: PageProps) {
             ))}
           </dl>
 
+          {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 cursor-pointer">
             <AddToBuildButton
               id={product.slug}
@@ -83,7 +77,6 @@ export default function Page({ params }: PageProps) {
       {/* Description + Specs */}
       <div className="container mt-12 text-lg leading-relaxed text-gray-700 max-w-4xl space-y-10">
         <p>{product.description}</p>
-
         {product.specs.map((section, index) => (
           <section key={index}>
             <h3 className="text-xl text-[var(--foreground)] mb-4">{section.group}</h3>
