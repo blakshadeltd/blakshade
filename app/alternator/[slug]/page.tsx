@@ -4,29 +4,31 @@ import SpecItem from "@/app/component/SpecItem";
 import Image from "next/image";
 import Link from "next/link";
 import AddToBuildButton from "@/app/component/AddToBuildButton";
+import type { Metadata, ResolvingMetadata } from 'next';
 
-// Define the props type with intersection types to satisfy Next.js requirements
+// Define the proper type for params as a Promise
 type ProductPageProps = {
-  params: {
-    slug: string;
-  };
-} & {
-  then?: never;
-  catch?: never;
-  finally?: never;
-  [Symbol.toStringTag]?: never;
+  params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata({ params }: ProductPageProps) {
-  const product = alternatorProducts.find((p) => p.slug === params.slug);
+export async function generateMetadata(
+  { params }: ProductPageProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // Await the params promise to resolve
+  const resolvedParams = await params;
+  const product = alternatorProducts.find((p) => p.slug === resolvedParams.slug);
+  
   return {
     title: product?.title || "Alternator Details",
     description: product?.description || "Explore detailed alternator specs.",
   };
 }
 
-export default function Page({ params }: ProductPageProps) {
-  const product = alternatorProducts.find((p) => p.slug === params.slug);
+export default async function Page({ params }: ProductPageProps) {
+  // Await the params promise to resolve
+  const resolvedParams = await params;
+  const product = alternatorProducts.find((p) => p.slug === resolvedParams.slug);
 
   if (!product) return notFound();
 
