@@ -5,14 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import AddToBuildButton from "@/app/component/AddToBuildButton";
 
-// ✅ No custom PageProps needed
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const product = alternatorProducts.find((p) => p.slug === params.slug);
-  return {
-    title: product?.title || "Alternator Details",
-    description: product?.description || "Explore detailed alternator specs.",
-  };
-}
 
 export default function Page({ params }: { params: { slug: string } }) {
   const product = alternatorProducts.find((p) => p.slug === params.slug);
