@@ -1,3 +1,5 @@
+// app/alternator/[slug]/page.tsx
+
 import { notFound } from "next/navigation";
 import { alternatorProducts } from "@/data/alternator/alternatorProducts";
 import SpecItem from "@/app/component/SpecItem";
@@ -5,16 +7,21 @@ import Image from "next/image";
 import Link from "next/link";
 import AddToBuildButton from "@/app/component/AddToBuildButton";
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const product = alternatorProducts.find((p) => p.slug === params.slug);
-  if (!product) return { title: "Not Found" };
-
-  return {
-    title: product.title,
+interface PageProps {
+  params: {
+    slug: string;
   };
 }
 
-export default function AlternatorSpecPage({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: PageProps) {
+  const product = alternatorProducts.find((p) => p.slug === params.slug);
+  return {
+    title: product?.title || "Alternator Details",
+    description: product?.description || "Explore detailed alternator specs.",
+  };
+}
+
+export default function AlternatorSpecPage({ params }: PageProps) {
   const product = alternatorProducts.find((p) => p.slug === params.slug);
 
   if (!product) return notFound();
