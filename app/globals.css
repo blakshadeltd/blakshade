@@ -1,0 +1,206 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #f4f3f3;
+    --foreground: #2b2926;
+    --hover: #4a4b52;
+
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  color: var(--hover);
+  font-family: Milling Duplex 1mm;
+}
+
+
+
+nav:not(.sticky-nav)::after,
+nav:not(.sticky-nav)::before {
+  @apply content-[""] absolute bg-transparent h-10 w-5 shadow-[0_-20px_0_0_var(--background)] top-0;
+}
+
+nav:not(.sticky-nav)::after {
+  @apply rounded-tl-[20px] left-full;
+}
+
+nav:not(.sticky-nav)::before {
+  @apply rounded-tr-[20px] right-full;
+}
+
+
+
+@layer utilities {
+  .shine-effect {
+    @apply relative;
+  }
+
+  .shine-effect::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg,
+        transparent 25%,
+        var(--background) 50%,
+        transparent 75%,
+        transparent);
+    background-size: 250% 250%;
+    background-position: 200% 0;
+    background-repeat: no-repeat;
+    pointer-events: none;
+  }
+
+  .shine-effect:hover::before {
+    animation: shine-move 1.5s forwards;
+  }
+
+  @keyframes shine-move {
+    0% {
+      background-position: 200% 0;
+    }
+
+    100% {
+      background-position: -100% 0;
+    }
+  }
+}
+
+
+.curved-grid {
+  list-style: none;
+  margin: 20px;
+  padding-inline-start: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  --x: 60;
+  --y: 100;
+  transform-style: preserve-3d;
+  perspective: calc(var(--x) * 1vw);
+  perspective-origin: center;
+  animation: animate-perspective-origin linear 2s;
+  animation-play-state: paused;
+  animation-delay: calc(var(--scroll, 0) * -1s);
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+@supports (animation-timeline: view()) {
+  .curved-grid {
+    animation: animate-perspective-origin-timeline linear 2s;
+    animation-play-state: revert;
+    animation-timeline: view();
+  }
+}
+
+.curved-grid li {
+  aspect-ratio: 16/9;
+  border: 1px var(--hover) ridge;
+  background: var(--background);
+  border-radius: 15px;
+  overflow: hidden;
+  transform-origin: center center;
+  transition: transform 0.5s ease-in-out;
+}
+
+.curved-grid li:nth-child(4n-3) {
+  --theta: 35deg;
+  --angle: 35deg;
+}
+
+.curved-grid li:nth-child(4n-2) {
+  --theta: 20deg;
+  --angle: 15deg;
+}
+
+.curved-grid li:nth-child(4n-1) {
+  --theta: -20deg;
+  --angle: -15deg;
+}
+
+.curved-grid li:nth-child(4n) {
+  --theta: -35deg;
+  --angle: -35deg;
+}
+
+.curved-grid li {
+  --translatez: calc((var(--x) * cos(var(--theta)) / (cos(atan(var(--y) / (2 * var(--x))))) - var(--x)) * -1vw);
+  transform: translateZ(var(--translatez)) rotateY(var(--angle));
+}
+
+.curved-grid li:hover {
+  transform: none;
+}
+
+@keyframes animate-perspective-origin {
+  0% {
+    perspective-origin: 50% 0%;
+  }
+
+  100% {
+    perspective-origin: 50% 150%;
+  }
+}
+
+@keyframes animate-perspective-origin-timeline {
+  0% {
+    perspective-origin: 50% -10%;
+  }
+
+  100% {
+    perspective-origin: 50% 110%;
+  }
+}
+
+.spacer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 70% 20%,
+      rgba(100, 100, 100, 0.5) 0%,
+      transparent 100%),
+    radial-gradient(circle at 30% 80%,
+      rgba(210, 210, 210, 0.5) 0%,
+      transparent 50%);
+  pointer-events: none;
+}
+
+.spacer {
+  position: relative;
+  background: radial-gradient(circle at 20% 30%, #e8e8e8 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, #e0e0e0 0%, transparent 40%),
+    linear-gradient(135deg, #e6e6e6 0%, #d9d9d9 50%, #e2e2e2 100%),
+    linear-gradient(to bottom, #ebebeb 0%, #dedede 100%);
+  background-blend-mode: normal;
+  overflow: hidden;
+}
+
+.btn-primary {
+  @apply rounded-[10px] font-normal shadow-md transition-all duration-500 ease-in-out bg-[var(--foreground)] text-[var(--background)];
+}
+
+.btn-second {
+  @apply rounded-[10px] font-normal shadow-md transition-all duration-500 ease-in-out bg-gray-300 text-[var(--foreground)];
+}
+
