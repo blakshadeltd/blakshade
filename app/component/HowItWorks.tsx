@@ -27,24 +27,6 @@ const steps = [
 ];
 
 // Hook to track if element is in view with threshold
-function useIsInView(ref: React.RefObject<Element | null>, threshold = 0.5) {
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsInView(entry.isIntersecting),
-      { threshold }
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, [ref, threshold]);
-
-  return isInView;
-}
 
 export default function HowItWorks() {
   // Create refs once, on initial render

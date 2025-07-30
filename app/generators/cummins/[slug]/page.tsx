@@ -11,7 +11,7 @@ import Script from "next/script";
 export default function GeneratorSpecPage(props: { params: Promise<{ slug: string }> }) {
     const { slug } = use(props.params);
     const product: CumminsProduct | undefined = products.find((p) => p.slug === slug);
-    const [showEnquiry, setShowEnquiry] = useState(false);
+    const [, setShowEnquiry] = useState(false);
 
     if (!product) return notFound();
 

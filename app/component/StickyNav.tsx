@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
 import { menuData } from './menuData';
+import Image from 'next/image';
 
 type MenuKey = 'Generators' | 'Components' | 'Search';
 
@@ -71,7 +72,7 @@ const StickyNav = () => {
                 onMouseEnter={clearHideTimeout}
             >
                 <div className="flex items-center justify-between px-6">
-                    <img src="/favicon.ico" alt="Company Logo" className="h-8 w-auto" />
+                    <Image src="/favicon.ico" alt="Company Logo" className="h-8 w-auto" />
 
                     <div className="flex gap-5">
                         <Link

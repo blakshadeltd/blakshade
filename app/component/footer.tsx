@@ -7,7 +7,7 @@ export default function Footer() {
             <div className="container mx-auto flex">
                 <div className="w-full justify-center text-center flex items-end z-0 h-[100vh]">
                     <h2 className="text-[24px] sm:text-[80px] font-normal leading-tight reveal-text">
-                        WE DON'T HAVE BOTTOM
+                        WE DON&apos;T HAVE BOTTOM
                     </h2>
                 </div>
             </div>

@@ -1,5 +1,3 @@
-import AnimateTextOnScroll from "./component/AnimateTextOnScroll";
-import Casestudy from "./component/Casestudy";
 import HowItWorks from "./component/HowItWorks";
 
 export default function Home() {
@@ -15,7 +13,7 @@ export default function Home() {
                   BlakShade Ltd
                 </h1>
                 <p className="font-nornal text-[var(--background)] mb-8 sm:text-[20px] lg:text-[28px]">
-                  We're redefining energy resilience with cleaner solutions for individuals, businesses and communities.
+                  We&apos;re redefining energy resilience with cleaner solutions for individuals, businesses and communities.
                 </p>
               </div>
             </div>
@@ -31,7 +29,7 @@ export default function Home() {
                 Powering the World
               </h2>
               <p className="text-base sm:text-lg lg:text-xl font-normal leading-relaxed reveal-text">
-                At BlakShade, we don’t just sell generators — we engineer energy resilience.
+                At BlakShade, we don&apos;t just sell generators — we engineer energy resilience.
                 From disaster relief zones to remote industrial outposts, we deliver consistent
                 and customizable power solutions that keep the world running.
               </p>
@@ -58,9 +56,9 @@ export default function Home() {
                 Powering the World <br /> with Unrivaled Reliability
               </h2>
               <p className="text-base sm:text-lg lg:text-xl font-normal leading-relaxed reveal-text">
-                At BlakShade, we don’t just sell generators — we engineer energy resilience.
+                At BlakShade, we don&apos;t just sell generators — we engineer energy resilience.
                 From disaster relief to remote industries, our solutions ensure power flows uninterrupted,
-                no matter the conditions. We’re committed to delivering diesel generator systems that combine performance,
+                no matter the conditions. We&apos;re committed to delivering diesel generator systems that combine performance,
                 efficiency, and uncompromising quality — globally.
               </p>
             </div>

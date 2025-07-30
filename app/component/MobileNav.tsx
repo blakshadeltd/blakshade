@@ -32,7 +32,7 @@ const MobileNav = () => {
     const inputRef = useRef<HTMLInputElement>(null);
     const [activeCategory, setActiveCategory] = useState<'Generators' | 'Components'>('Generators');
     const [activeTab, setActiveTab] = useState<string>('Brand');
-    const [prevTab, setPrevTab] = useState<string>('');
+    const [, setPrevTab] = useState<string>('');
 
     const getLinks = (): LinkItem[] => {
         const categoryTabs = menuData[activeCategory];

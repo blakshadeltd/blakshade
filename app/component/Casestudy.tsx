@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import React, { useEffect } from 'react';
 
 const imageItems = [
@@ -46,7 +47,7 @@ const Casestudy = () => {
                 {imageItems.map((item, index) => (
                     <li key={index}>
                         <a href={item.link}>
-                            <img
+                            <Image
                                 src={item.src}
                                 alt={`Project ${index + 1}`}
                                 className="w-full h-full object-cover"

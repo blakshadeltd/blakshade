@@ -5,6 +5,7 @@ import { RootState } from '@/store';
 import { useState, useEffect } from 'react';
 import { removeComponent } from '@/store/gensetSlice';
 import clsx from 'clsx';
+import Image from 'next/image';
 
 function useIsMobile(breakpoint = 768) {
     const [isMobile, setIsMobile] = useState(false);
@@ -93,7 +94,7 @@ export default function BuildGensetPage() {
                                     <div className="flex items-center gap-4">
                                         <div className="w-16 h-16 rounded-md bg-gray-50 border flex items-center justify-center text-2xl">
                                             {selected ? (
-                                                <img
+                                                <Image
                                                     src={`/components/${key}/${selected.id}.png`}
                                                     alt={selected.name}
                                                     className="w-full h-full object-contain"
