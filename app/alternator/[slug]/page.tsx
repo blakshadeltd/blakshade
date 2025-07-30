@@ -4,31 +4,29 @@ import SpecItem from "@/app/component/SpecItem";
 import Image from "next/image";
 import Link from "next/link";
 import AddToBuildButton from "@/app/component/AddToBuildButton";
-import type { Metadata, ResolvingMetadata } from 'next';
+import { use } from 'react'; // Import the 'use' hook for synchronous components
 
-// Define the proper type for params as a Promise
-type ProductPageProps = {
+// Define the expected type for params, which is now a Promise
+interface PageProps {
   params: Promise<{ slug: string }>;
-};
+}
 
-export async function generateMetadata(
-  { params }: ProductPageProps,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  // Await the params promise to resolve
+export async function generateMetadata({ params }: PageProps) {
+  // Await params as it's a Promise
   const resolvedParams = await params;
   const product = alternatorProducts.find((p) => p.slug === resolvedParams.slug);
-  
   return {
     title: product?.title || "Alternator Details",
     description: product?.description || "Explore detailed alternator specs.",
   };
 }
 
-export default async function Page({ params }: ProductPageProps) {
-  // Await the params promise to resolve
-  const resolvedParams = await params;
-  const product = alternatorProducts.find((p) => p.slug === resolvedParams.slug);
+// Your Page component. Since it's a client component or a server component that you want to keep synchronous,
+// you need to use the `use` hook to unwrap the Promise.
+export default function Page(props: PageProps) {
+  // Use the 'use' hook to unwrap the params Promise
+  const params = use(props.params);
+  const product = alternatorProducts.find((p) => p.slug === params.slug);
 
   if (!product) return notFound();
 
