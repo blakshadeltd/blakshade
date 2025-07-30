@@ -5,11 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import AddToBuildButton from "@/app/component/AddToBuildButton";
 
-// Define custom type
+// Define the props type with intersection types to satisfy Next.js requirements
 type ProductPageProps = {
   params: {
     slug: string;
   };
+} & {
+  then?: never;
+  catch?: never;
+  finally?: never;
+  [Symbol.toStringTag]?: never;
 };
 
 export async function generateMetadata({ params }: ProductPageProps) {
