@@ -72,7 +72,13 @@ const StickyNav = () => {
                 onMouseEnter={clearHideTimeout}
             >
                 <div className="flex items-center justify-between px-6">
-                    <Image src="/favicon.ico" alt="Company Logo" className="h-8 w-auto" />
+                    <Image
+  src="/favicon.ico"
+  alt="Logo"
+  width={32}
+  height={32}
+/>
+
 
                     <div className="flex gap-5">
                         <Link

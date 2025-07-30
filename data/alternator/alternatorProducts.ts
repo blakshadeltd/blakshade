@@ -19,7 +19,7 @@ export interface AlternatorProduct {
   }[];
 }
 
-export const alternatorProducts: AlternatorProduct[] = [
+export const alternators: AlternatorProduct[] = [
   {
     title: "Stamford UC22",
     slug: "stamford-uc22",

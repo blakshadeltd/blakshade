@@ -1,16 +1,7 @@
-export interface ControlPanelSpecItem {
-  label: string;
-  value: string;
-}
-
-export interface ControlPanelSpecGroup {
-  group: string;
-  items: ControlPanelSpecItem[];
-}
-
 export interface ControlPanelProduct {
   title: string;
   slug: string;
+  category: "control-panel";
   image: string;
   type: string;
   brand: string;
@@ -21,13 +12,20 @@ export interface ControlPanelProduct {
   dimensions: string;
   weight: string;
   description: string;
-  specs: ControlPanelSpecGroup[];
+
+  shortSpecs: { label: string; value: string }[];
+
+  specs: {
+    group: string;
+    items: { label: string; value: string }[];
+  }[];
 }
 
-export const controlPanelProducts = [
+export const controlPanels: ControlPanelProduct[] = [
   {
-    slug: "control-panel-abc",
     title: "Control Panel ABC",
+    slug: "control-panel-abc",
+    category: "control-panel",
     image: "/controlpanel1.png",
     type: "Automatic",
     brand: "BlakShade",
@@ -37,7 +35,14 @@ export const controlPanelProducts = [
     enclosureType: "Metal",
     dimensions: "600 x 400 x 250 mm",
     weight: "150 kg",
-    description: "Its a Control Panel",
+    description:
+      "The Control Panel ABC is a reliable automatic control solution designed for industrial and commercial generator systems, offering high protection and durable enclosure.",
+    shortSpecs: [
+      { label: "Type", value: "Automatic" },
+      { label: "Voltage", value: "400V" },
+      { label: "Current", value: "150A" },
+      { label: "Protection", value: "IP54" },
+    ],
     specs: [
       {
         group: "Electrical",
@@ -53,7 +58,12 @@ export const controlPanelProducts = [
         items: [
           { label: "Dimensions", value: "600 x 400 x 250 mm" },
           { label: "Weight", value: "150 kg" },
+          { label: "Enclosure Type", value: "Metal" },
         ],
+      },
+      {
+        group: "Protection",
+        items: [{ label: "Protection Class", value: "IP54" }],
       },
     ],
   },

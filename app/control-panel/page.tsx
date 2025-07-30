@@ -2,20 +2,20 @@
 
 import { useState } from "react";
 import ControlPanelCard from "./ControlPanelCard";
-import { controlPanelProducts } from "@/data/control-panel/controlPanelProducts";
+import { controlpanels } from "@/data/control-panel/controlPanelProducts";
 
 export default function ControlPanelPage() {
   const [selectedType, setSelectedType] = useState<string>("All");
 
   // Get unique panel types for filters
   const types = Array.from(
-    new Set(controlPanelProducts.map((p) => p.type))
+    new Set(controlpanels.map((p) => p.type))
   ).sort();
 
   const filteredProducts =
     selectedType === "All"
-      ? controlPanelProducts
-      : controlPanelProducts.filter((p) => p.type === selectedType);
+      ? controlpanels
+      : controlpanels.filter((p) => p.type === selectedType);
 
   return (
     <section>

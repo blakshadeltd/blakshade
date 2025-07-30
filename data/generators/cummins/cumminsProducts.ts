@@ -30,7 +30,7 @@ export interface CumminsProduct {
   specs: { group: string; items: { label: string; value: string }[] }[];
 }
 
-export const products: CumminsProduct[] = [
+export const cummins: CumminsProduct[] = [
   {
     name: "Cummins C22D5",
     slug: "cummins-c22d5",

@@ -5,12 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import SpecItem from "@/app/component/SpecItem";
 import { notFound } from "next/navigation";
-import { products, CumminsProduct } from "@/data/generators/cummins/cumminsProducts";
+import { CumminsProduct, cummins } from "@/data/generators/cummins/cumminsProducts";
 import Script from "next/script";
 
 export default function GeneratorSpecPage(props: { params: Promise<{ slug: string }> }) {
     const { slug } = use(props.params);
-    const product: CumminsProduct | undefined = products.find((p) => p.slug === slug);
+    const product: CumminsProduct | undefined = cummins.find((p) => p.slug === slug);
     const [, setShowEnquiry] = useState(false);
 
     if (!product) return notFound();

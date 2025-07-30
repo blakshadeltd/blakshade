@@ -3,7 +3,7 @@
 "use client";
 
 import { useState } from "react";
-import { alternatorProducts } from "@/data/alternator/alternatorProducts";
+import { alternators } from "@/data/alternator/alternatorProducts";
 import AlternatorCard from "./AlternatorCard";
 
 export default function AlternatorPage() {
@@ -11,7 +11,7 @@ export default function AlternatorPage() {
     const [itemsPerPage, setItemsPerPage] = useState(16);
     const [currentPage, setCurrentPage] = useState(1);
 
-    const sortedProducts = alternatorProducts
+    const sortedProducts = alternators
         .slice()
         .sort((a, b) =>
             sortOrder === "asc" ? a.size - b.size : b.size - a.size

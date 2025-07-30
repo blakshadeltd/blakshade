@@ -3,7 +3,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { engineProducts } from "@/data/engine/engineProducts";
+import { engines } from "@/data/engine/engineProducts";
 import ProductCardDetailed from "@/app/engine/EngineCard";
 
 export default function EnginePage() {
@@ -12,7 +12,7 @@ export default function EnginePage() {
   const [currentPage, setCurrentPage] = useState(1);
 
   const sortedProducts = useMemo(() => {
-    const sorted = [...engineProducts].sort((a, b) =>
+    const sorted = [...engines].sort((a, b) =>
       sortOrder === "asc" ? a.size - b.size : b.size - a.size
     );
     return sorted;

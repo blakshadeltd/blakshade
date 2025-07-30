@@ -1,7 +1,7 @@
 // app/alternator/[slug]/page.tsx
 
 import { notFound } from "next/navigation";
-import { AlternatorProduct, alternatorProducts } from "@/data/alternator/alternatorProducts";
+import { AlternatorProduct, alternators } from "@/data/alternator/alternatorProducts";
 import SpecItem from "@/app/component/SpecItem";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,7 +10,7 @@ import { use } from "react";
 
 export default function AlternatorSpecPage(props: { params: Promise<{ slug: string }> }) {
     const { slug } = use(props.params);
-    const product: AlternatorProduct | undefined = alternatorProducts.find((p) => p.slug === slug);
+    const product: AlternatorProduct | undefined = alternators.find((p) => p.slug === slug);
 
     if (!product) return notFound();
 

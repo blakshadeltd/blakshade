@@ -1,4 +1,31 @@
-export const engineProducts = [
+export interface EngineProduct {
+  title: string;
+  slug: string;
+  category: "engine";
+  brand: string;
+  size: number;
+  image: string;
+  standbyPower: string;
+  primePower: string;
+  description: string;
+
+  details: {
+    rpm: string;
+    frequency: string;
+    fuel: string;
+    emissions: string;
+    cylinders: number;
+  };
+
+  shortSpecs: { label: string; value: string }[];
+
+  specs: {
+    group: string;
+    items: { label: string; value: string }[];
+  }[];
+}
+
+export const engines: EngineProduct[] = [
   {
     title: "Cummins X2.5-G1",
     slug: "cummins-x25-g1",
