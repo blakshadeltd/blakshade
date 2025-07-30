@@ -1,12 +1,22 @@
-import { alternatorProducts } from "@/data/alternator/alternatorProducts";
 import { notFound } from "next/navigation";
+import { alternatorProducts } from "@/data/alternator/alternatorProducts";
 import SpecItem from "@/app/component/SpecItem";
 import Image from "next/image";
 import Link from "next/link";
 import AddToBuildButton from "@/app/component/AddToBuildButton";
 
-export default function AlternatorPage({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: { slug: string } }) {
   const product = alternatorProducts.find((p) => p.slug === params.slug);
+  if (!product) return { title: "Not Found" };
+
+  return {
+    title: product.title,
+  };
+}
+
+export default function AlternatorSpecPage({ params }: { params: { slug: string } }) {
+  const product = alternatorProducts.find((p) => p.slug === params.slug);
+
   if (!product) return notFound();
 
   return (
