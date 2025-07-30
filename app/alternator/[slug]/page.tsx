@@ -1,30 +1,18 @@
 // app/alternator/[slug]/page.tsx
 
 import { notFound } from "next/navigation";
-import { alternatorProducts } from "@/data/alternator/alternatorProducts";
+import { AlternatorProduct, alternatorProducts } from "@/data/alternator/alternatorProducts";
 import SpecItem from "@/app/component/SpecItem";
 import Image from "next/image";
 import Link from "next/link";
 import AddToBuildButton from "@/app/component/AddToBuildButton";
+import { use } from "react";
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
+export default function AlternatorSpecPage(props: { params: Promise<{ slug: string }> }) {
+    const { slug } = use(props.params);
+    const product: AlternatorProduct | undefined = alternatorProducts.find((p) => p.slug === slug);
 
-export async function generateMetadata({ params }: PageProps) {
-  const product = alternatorProducts.find((p) => p.slug === params.slug);
-  return {
-    title: product?.title || "Alternator Details",
-    description: product?.description || "Explore detailed alternator specs.",
-  };
-}
-
-export default function AlternatorSpecPage({ params }: PageProps) {
-  const product = alternatorProducts.find((p) => p.slug === params.slug);
-
-  if (!product) return notFound();
+    if (!product) return notFound();
 
   return (
     <section>
