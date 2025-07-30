@@ -4,35 +4,32 @@ import SpecItem from "@/app/component/SpecItem";
 import Image from "next/image";
 import Link from "next/link";
 import AddToBuildButton from "@/app/component/AddToBuildButton";
-import { use } from 'react'; // Import the 'use' hook for synchronous components
 
-// Define the expected type for params, which is now a Promise
+// Correct type definition
 interface PageProps {
-  params: Promise<{ slug: string }>;
+  params: {
+    slug: string;
+  };
 }
 
+// Metadata generator
 export async function generateMetadata({ params }: PageProps) {
-  // Await params as it's a Promise
-  const resolvedParams = await params;
-  const product = alternatorProducts.find((p) => p.slug === resolvedParams.slug);
+  const product = alternatorProducts.find((p) => p.slug === params.slug);
   return {
     title: product?.title || "Alternator Details",
     description: product?.description || "Explore detailed alternator specs.",
   };
 }
 
-// Your Page component. Since it's a client component or a server component that you want to keep synchronous,
-// you need to use the `use` hook to unwrap the Promise.
-export default function Page(props: PageProps) {
-  // Use the 'use' hook to unwrap the params Promise
-  const params = use(props.params);
+// Page Component
+export default function Page({ params }: PageProps) {
   const product = alternatorProducts.find((p) => p.slug === params.slug);
 
   if (!product) return notFound();
 
   return (
     <section>
-      {/* Hero Section */}
+      {/* Hero */}
       <div className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden">
         <div className="container absolute inset-0 flex items-end justify-start">
           <h1 className="font-normal italic text-[var(--background)] mb-4 text-2xl">
@@ -43,7 +40,6 @@ export default function Page(props: PageProps) {
 
       {/* Image + Info */}
       <div className="container py-12 flex flex-col md:flex-row mt-3 gap-6 items-start">
-        {/* Image */}
         <div className="w-full md:w-[50%]">
           <Image
             src={product.image}
@@ -54,13 +50,11 @@ export default function Page(props: PageProps) {
           />
         </div>
 
-        {/* Content */}
         <div className="w-full space-y-6">
           <h1 className="text-[var(--foreground)] text-xl md:text-2xl lg:text-3xl">
             {product.title}
           </h1>
 
-          {/* Short Specs */}
           <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-[var(--foreground)] pb-4">
             {product.shortSpecs.map((spec, i) => (
               <div key={i} className="flex gap-2">
@@ -70,7 +64,6 @@ export default function Page(props: PageProps) {
             ))}
           </dl>
 
-          {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 cursor-pointer">
             <AddToBuildButton
               id={product.slug}
