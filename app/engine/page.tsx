@@ -4,7 +4,7 @@
 
 import { useState, useMemo } from "react";
 import { engines } from "@/data/engine/engineProducts";
-import ProductCardDetailed from "@/app/engine/EngineCard";
+import EngineCard from "@/app/engine/EngineCard";
 
 export default function EnginePage() {
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
@@ -41,7 +41,7 @@ export default function EnginePage() {
         </div>
       </div>
 
-      <div className="py-12 flex flex-col lg:flex-row gap-10 mx-4">
+      <div className="container py-12 flex flex-col lg:flex-row gap-10 mx-4">
         {/* Sidebar */}
         <aside className="w-full lg:w-[20%] border rounded-xl p-4 overflow-hidden border-gray-200 bg-white shadow-sm">
           <h2 className="text-lg mb-4 text-[var(--foreground)]">Filters</h2>
@@ -91,9 +91,9 @@ export default function EnginePage() {
                 onChange={handleItemsPerPageChange}
                 className="border rounded px-2 py-1 text-sm"
               >
-                <option value={4}>4</option>
-                <option value={8}>8</option>
-                <option value={12}>12</option>
+                <option value={16}>16</option>
+                <option value={24}>24</option>
+                <option value={48}>48</option>
               </select>
             </div>
           </div>
@@ -101,7 +101,7 @@ export default function EnginePage() {
           {/* Product Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
             {paginatedProducts.map((product) => (
-              <ProductCardDetailed key={product.slug} product={product} />
+              <EngineCard key={product.slug} product={product} />
             ))}
           </div>
 

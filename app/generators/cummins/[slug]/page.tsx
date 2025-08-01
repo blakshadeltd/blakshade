@@ -54,19 +54,12 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
         "@graph": [
             {
                 "@type": "Product",
-                name: product.name,
+                name: product.metaTitle,
                 image: `https://blakshade.com${product.image}`,
-                description: product.description,
+                description: product.metaDescription,
                 brand: {
                     "@type": "Brand",
-                    name: product.brand?.split(" ")[0] || "Cummins",
-                },
-                aggregateRating: {
-                    "@type": "AggregateRating",
-                    ratingValue: "5",
-                    bestRating: "5",
-                    worstRating: "1",
-                    ratingCount: "4",
+                    name: product.brand,
                 },
             },
             {
@@ -87,8 +80,8 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                     {
                         "@type": "ListItem",
                         position: 3,
-                        name: "Cummins",
-                        item: "https://blakshade.com/generators/cummins/",
+                        name: product.brand,
+                        item: `https://blakshade.com/generators/${product.brand}`,
                     },
                 ],
             },
@@ -115,7 +108,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                 <div className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden">
                     <div className="container absolute inset-0 flex items-end justify-start">
                         <h1 className="font-normal italic text-[var(--background)] mb-4 text-2xl">
-                            {product.name}
+                            {product.metaTitle}
                         </h1>
                     </div>
                 </div>
@@ -126,7 +119,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                     <div className="w-full md:w-[50%]">
                         <Image
                             src={product.image}
-                            alt={product.name}
+                            alt={product.title}
                             width={800}
                             height={600}
                             className="rounded-xl shadow-md w-full object-cover"
@@ -136,7 +129,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                     {/* Content */}
                     <div className="w-full space-y-6">
                         <h1 className="text-[var(--foreground)] text-xl md:text-2xl lg:text-4xl">
-                            {product.name}
+                            {product.title}
                         </h1>
                         <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-0 text-base text-[var(--foreground)] pb-4 max-w-4xl mx-auto"></dl>
 
@@ -170,7 +163,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                                 Enquiry
                             </button>
                             <Link
-                                href="/get-started"
+                                href={product.fullspec}
                                 className="w-full lg:w-1/2 px-6 md:px-8 lg:px-10 py-3 text-left btn-second shine-effect"
                             >
                                 Full Specification
@@ -179,25 +172,29 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                     </div>
                 </div>
 
-                {/* Description + Specs */}
-                <div className="container mt-16 text-[var(--foreground)] max-w-4xl space-y-14">
-                    <p className="text-lg leading-relaxed">{product.description}</p>
+{/* Description + Specs */}
+<div className="container mt-16 text-[var(--foreground)] max-w-4xl space-y-14">
+  <div
+    className="text-base leading-relaxed"
+    dangerouslySetInnerHTML={{ __html: product.description }}
+  />
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                        {product.specs.map((section, i) => (
-                            <section key={i}>
-                                <h3 className="text-xl font-base text-[var(--foreground)] mb-4 border-b pb-2">
-                                    {section.group}
-                                </h3>
-                                <div className="grid grid-cols-1 gap-4">
-                                    {section.items.map((item, idx) => (
-                                        <SpecItem key={idx} label={item.label} value={item.value} />
-                                    ))}
-                                </div>
-                            </section>
-                        ))}
-                    </div>
-                </div>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+    {product.specs.map((section, i) => (
+      <section key={i}>
+        <h3 className="text-xl font-base text-[var(--foreground)] mb-4 border-b pb-2">
+          {section.group}
+        </h3>
+        <div className="grid grid-cols-1 gap-4">
+          {section.items.map((item, idx) => (
+            <SpecItem key={idx} label={item.label} value={item.value} />
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</div>
+
 
             </section>
         </>

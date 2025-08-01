@@ -21,7 +21,7 @@ export interface ControlPanelProduct {
   }[];
 }
 
-export const controlPanels: ControlPanelProduct[] = [
+export const controlpanels: ControlPanelProduct[] = [
   {
     title: "Control Panel ABC",
     slug: "control-panel-abc",

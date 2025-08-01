@@ -52,7 +52,7 @@ const DesktopNav = () => {
             <nav
                 className={clsx(
                     'absolute top-0 left-1/2 -translate-x-1/2 z-20 px-4 hidden lg:block py-6 rounded-b-[30px] duration-500 w-full',
-                    activeMenu === 'Components' ? 'max-w-[50%]' : 'max-w-[40%]'
+                    activeMenu === 'Components' ? 'max-w-[900px]' : 'max-w-[800px]'
                 )}
                 style={{ backgroundColor: 'var(--background)' }}
                 onMouseLeave={() => {
@@ -122,7 +122,7 @@ const DesktopNav = () => {
                         </button>
                         <Link
                             href="/build-genset"
-                            className="px-6 py-2 rounded-[10px] font-normal shadow-md transition-all duration-500 ease-in-out bg-[var(--foreground)] text-[var(--background)] shine-effect hover:rounded-[15px] hover:bg-[var(--hover)]"
+                            className="px-6 py-2 btn-primary shine-effect"
                         >
                             Build Genset
                         </Link>

@@ -41,7 +41,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-
+        <HowItWorks/>
         {/* Section 4: Generator Range */}
         <section className="py-24 bg-gray-300 text-[var(--foreground)] rounded-[30px] mx-4">
           <div className="container mx-auto max-w-6xl flex flex-col lg:flex-row items-stretch gap-12 h-full">
@@ -64,7 +64,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <HowItWorks/>
       </main>
     </>
   );

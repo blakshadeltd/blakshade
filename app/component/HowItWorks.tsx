@@ -63,7 +63,7 @@ export default function HowItWorks() {
 
   return (
     // ...same as before, but use stepRefs.current[i] instead of stepRefs[i]
-    <section className="relative py-32 bg-white text-[var(--foreground)]">
+    <section className="relative py-32 bg-[var(--background)] text-[var(--foreground)]">
       {/* ...header and other content unchanged */}
 
       <div className="relative max-w-6xl mx-auto px-4">
@@ -71,7 +71,7 @@ export default function HowItWorks() {
         <div className="absolute left-1/2 top-0 w-1 h-full -translate-x-1/2 bg-gray-300 z-0 rounded-full" />
         {/* Center line progress */}
         <div
-          className="absolute left-1/2 top-0 w-1 -translate-x-1/2 bg-indigo-600 z-10 rounded-full transition-[height] duration-700 ease-out"
+          className="absolute left-1/2 top-0 w-1 -translate-x-1/2 bg-[var(--foreground)] z-10 rounded-full transition-[height] duration-700 ease-out"
           style={{ height: `${progressHeightPercent}%` }}
         />
 
@@ -122,10 +122,7 @@ export default function HowItWorks() {
                 <div
                   tabIndex={0}
                   className="w-12 h-12 bg-[var(--foreground)] text-[var(--background)] rounded-full flex items-center justify-center mx-auto shadow-lg font-semibold text-lg select-none
-                    transition-colors duration-300 ease-in-out z-20
-                    hover:bg-indigo-600 hover:text-white
-                    focus:outline-none focus:ring-4 focus:ring-indigo-400 focus:bg-indigo-600 focus:text-white
-                  "
+                    transition-colors duration-300 ease-in-out z-20"
                 >
                   {i + 1}
                 </div>

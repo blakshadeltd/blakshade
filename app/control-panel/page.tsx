@@ -28,7 +28,7 @@ export default function ControlPanelPage() {
         </div>
       </div>
 
-      <div className="py-12 flex flex-col lg:flex-row gap-10 mx-4">
+      <div className="container py-12 flex flex-col lg:flex-row gap-10 mx-4">
         {/* Sidebar */}
         <aside className="w-full lg:w-[20%] border rounded-xl p-4 overflow-hidden border-gray-200 bg-white shadow-sm">
           <h2 className="text-lg mb-4 text-[var(--foreground)]">Filter by Type</h2>

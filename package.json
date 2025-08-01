@@ -11,9 +11,7 @@
   "dependencies": {
     "@formspree/react": "^3.0.0",
     "@reduxjs/toolkit": "^2.8.2",
-    "@studio-freight/lenis": "^1.0.42",
     "clsx": "^2.1.1",
-    "gsap": "^3.13.0",
     "lodash": "^4.17.21",
     "next": "15.4.5",
     "react": "19.1.1",

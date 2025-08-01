@@ -31,9 +31,9 @@ export default function AddToBuildButton({ id, name, category }: AddToBuildButto
     return (
         <button
             onClick={handleAddToBuild}
-            className="w-full lg:w-1/2 px-6 md:px-8 lg:px-10 py-3 text-left rounded-[10px] font-normal shadow-md transition-all duration-500 ease-in-out bg-[var(--foreground)] text-[var(--background)] shine-effect hover:rounded-[15px] hover:bg-[var(--hover)]"
+            className="w-full lg:w-1/2 px-6 md:px-8 lg:px-10 py-3 text-left btn-primary shine-effect"
         >
-            ADD TO BUILD
+            Add To Build
         </button>
     );
 }

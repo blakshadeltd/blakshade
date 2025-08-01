@@ -12,7 +12,7 @@ export default function Custom404() {
                 </p>
                 <Link
                     href="/"
-                    className="px-6 py-3 rounded-[10px] font-normal shadow-md transition-all duration-500 ease-in-out bg-[var(--foreground)] text-[var(--background)] shine-effect hover:rounded-[15px] hover:bg-[var(--hover)]"
+                    className="px-6 py-3 btn-primary shine-effect"
                 >
                     Return to Home
                 </Link>

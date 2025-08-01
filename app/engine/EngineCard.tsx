@@ -7,102 +7,88 @@ import { setComponent } from "@/store/gensetSlice";
 import Link from "next/link";
 
 interface Product {
-    title: string;
-    slug: string;
-    image: string;
-    standbyPower: string;
-    primePower: string;
-    rating?: number;
-    details: {
-        rpm: string;
-        frequency: string;
-        fuel: string;
-        emissions: string;
-        cylinders: number;
-    };
+  title: string;
+  slug: string;
+  image: string;
+  standbyPower: string;
+  primePower: string;
+  rpm: string;
+  frequency: string;
+  fuel: string;
+  emissions: string;
+  cylinders: number;
 }
 
 export default function EngineCard({ product }: { product: Product }) {
-    const dispatch = useAppDispatch();
-    const router = useRouter();
+  const dispatch = useAppDispatch();
+  const router = useRouter();
 
-    const handleAddToBuild = (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.stopPropagation(); // Prevents bubbling to Link
-        e.preventDefault(); // Prevents the link default action just in case
+  const handleAddToBuild = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
 
-        dispatch(
-            setComponent({
-                category: "engine",
-                product: {
-                    id: product.slug,
-                    name: product.title,
-                },
-            })
-        );
-        router.push("/build-genset");
-    };
-
-
-    return (
-        <Link href={`/engine/${product.slug}`} className="block">
-            <div className="cursor-pointer rounded-xl overflow-hidden border border-gray-200 bg-white shadow-sm transition group hover:shadow-lg font-normal">
-                {/* Image with Overlay */}
-                <div className="relative w-full h-48">
-                    <Image
-                        src={product.image}
-                        alt={product.title}
-                        fill
-                        className="object-contain bg-white p-4"
-                    />
-                    <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between">
-                        <button
-                            onClick={handleAddToBuild}
-                            className="m-4 px-6 py-2 rounded-[10px] shadow-md transition-all duration-500 ease-in-out bg-[var(--foreground)] text-[var(--background)] hover:rounded-[15px] hover:bg-[var(--hover)] cursor-pointer"
-                        >
-                            ADD TO BUILD
-                        </button>
-                    </div>
-                </div>
-
-                {/* Power Ratings */}
-                <div className="bg-[var(--foreground)] text-[var(--background)] text-center py-3 text-md">
-                    {product.title}
-                </div>
-                <div className="grid grid-cols-2 text-center text-sm border-b border-gray-300">
-                    <div className="py-3 border-r border-gray-300">
-                        <div className="text-[var(--foreground)] text-base italic">{product.standbyPower}</div>
-                        <div className="text-xs text-gray-600">Standby</div>
-                    </div>
-                    <div className="py-3">
-                        <div className="text-[var(--foreground)] text-base italic">{product.primePower}</div>
-                        <div className="text-xs text-gray-600">Prime</div>
-                    </div>
-                </div>
-
-                {/* Key Features */}
-                <div className="text-sm text-gray-700 p-4 space-y-2">
-                    <div className="flex justify-between">
-                        <span className="text-gray-600">RPM:</span>
-                        <span className="text-[var(--foreground)]">{product.details.rpm}</span>
-                    </div>
-                    <div className="flex justify-between">
-                        <span className="text-gray-600">Frequency:</span>
-                        <span className="text-[var(--foreground)]">{product.details.frequency}</span>
-                    </div>
-                    <div className="flex justify-between">
-                        <span className="text-gray-600">Fuel:</span>
-                        <span className="font-bold text-green-700">{product.details.fuel}</span>
-                    </div>
-                    <div className="flex justify-between">
-                        <span className="text-gray-600">Emissions:</span>
-                        <span className="text-[var(--foreground)]">{product.details.emissions}</span>
-                    </div>
-                    <div className="flex justify-between">
-                        <span className="text-gray-600">Cylinders:</span>
-                        <span className="text-[var(--foreground)]">{product.details.cylinders}</span>
-                    </div>
-                </div>
-            </div>
-        </Link>
+    dispatch(
+      setComponent({
+        category: "engine",
+        product: {
+          id: product.slug,
+          name: product.title,
+        },
+      })
     );
+    router.push("/build-genset");
+  };
+
+  return (
+    <Link
+      href={`/engine/${product.slug}`}
+      className="group block rounded-2xl overflow-hidden border bg-white hover:shadow-xl transition"
+    >
+      <div className="p-4 flex flex-col h-full">
+        {/* Image */}
+        <div className="relative w-full h-40 mb-4">
+          <Image
+            src={product.image}
+            alt={product.title}
+            fill
+            className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
+
+        {/* Title */}
+        <h3 className="text-xl text-center text-[var(--foreground)] mb-6">
+          {product.title}
+        </h3>
+
+        {/* Power Ratings */}
+        <div className="grid grid-cols-2 gap-2 text-sm mb-6">
+          <div className="bg-gray-100 rounded-lg p-2 text-center">
+            <div className="text-[var(--foreground)]">{product.standbyPower}</div>
+            <div className="text-xs text-gray-500">Standby</div>
+          </div>
+          <div className="bg-gray-100 rounded-lg p-2 text-center">
+            <div className="text-[var(--foreground)]">{product.primePower}</div>
+            <div className="text-xs text-gray-500">Prime</div>
+          </div>
+        </div>
+
+        {/* Specs */}
+        <div className="text-sm text-gray-700 space-y-2 mb-6">
+          <div className="flex justify-between"><span>RPM:</span><span>{product.rpm}</span></div>
+          <div className="flex justify-between"><span>Frequency:</span><span>{product.frequency}</span></div>
+          <div className="flex justify-between"><span>Fuel:</span><span className="font-medium text-green-700">{product.fuel}</span></div>
+          <div className="flex justify-between"><span>Emissions:</span><span>{product.emissions}</span></div>
+          <div className="flex justify-between"><span>Cylinders:</span><span>{product.cylinders}</span></div>
+        </div>
+
+        {/* Add to Build Button */}
+        <button
+          onClick={handleAddToBuild}
+          className="w-full py-2 btn-primary shine-effect"
+        >
+          Add to Build
+        </button>
+      </div>
+    </Link>
+  );
 }

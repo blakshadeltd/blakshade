@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface Product {
-    name: string;
+    title: string;
     slug: string;
     image: string;
     brand: string;
@@ -22,36 +22,38 @@ interface Product {
 
 export default function GeneratorsCard({ product }: { product: Product }) {
     return (
-        <Link href={`/generators/${product.brand}/${product.slug}`} className="block group">
+        <Link href={`/generators/${product.brand}/${product.slug}`} className="group block rounded-2xl overflow-hidden border bg-white hover:shadow-xl transition">
 
-            <div className="rounded-2xl border border-gray-200 bg-white shadow-md transition-all duration-300 group-hover:shadow-lg overflow-hidden flex flex-col h-full">
-                {/* Image */}
-                <div className="relative w-full h-48">
-                    <Image
+            <div className="p-4 flex flex-col h-full">
+                    {/* Image */}
+                    <div className="relative w-full h-40 mb-4">
+                      <Image
                         src={product.image}
-                        alt={product.name}
+                        alt={product.title}
                         fill
-                        className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
-                    />
-                </div>
-
-                {/* Power Rating */}
-                <div className="bg-[var(--foreground)] text-[var(--background)] text-center py-3 text-md">
-                    {product.name}
-                </div>
-                <div className="grid grid-cols-2 text-center text-sm border-b border-gray-300">
-                    <div className="py-3 border-r border-gray-300">
-                        <div className="text-[var(--foreground)] text-base italic">{product.standbyPower}</div>
-                        <div className="text-xs text-gray-600">Standby</div>
+                        className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+                      />
                     </div>
-                    <div className="py-3">
-                        <div className="text-[var(--foreground)] text-base italic">{product.primePower}</div>
-                        <div className="text-xs text-gray-600">Prime</div>
+            
+                    {/* Title */}
+                    <h3 className="text-xl font-md text-center text-[var(--foreground)] mb-6">
+                      {product.title}
+                    </h3>
+            
+                    {/* Power Ratings */}
+                    <div className="grid grid-cols-2 gap-2 text-sm mb-6">
+                      <div className="bg-gray-100 rounded-lg p-2 text-center">
+                        <div className="text-[var(--foreground)]">{product.standbyPower}</div>
+                        <div className="text-xs text-gray-500">Standby</div>
+                      </div>
+                      <div className="bg-gray-100 rounded-lg p-2 text-center">
+                        <div className="text-[var(--foreground)]">{product.primePower}</div>
+                        <div className="text-xs text-gray-500">Prime</div>
+                      </div>
                     </div>
-                </div>
 
                 {/* Key Features */}
-                <div className="text-sm text-gray-700 p-4 space-y-2">
+                <div className="text-sm text-gray-700 space-y-2 mb-6">
                     <div className="flex justify-between">
                         <span className="text-gray-600">Engine:</span>
                         <span className="text-[var(--foreground)]">{product.brand}</span>
@@ -73,6 +75,11 @@ export default function GeneratorsCard({ product }: { product: Product }) {
                         <span className="text-[var(--foreground)]">{product.buildType}</span>
                     </div>
                 </div>
+
+                {/* View Details Button */}
+                <button className="w-full py-2 btn-primary shine-effect">
+                View Details
+                </button>
             </div>
         </Link>
     );

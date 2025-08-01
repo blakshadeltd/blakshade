@@ -62,7 +62,7 @@ const StickyNav = () => {
                     showSticky
                         ? 'opacity-100 translate-y-0 pointer-events-auto'
                         : 'opacity-0 -translate-y-4 pointer-events-none',
-                    activeMenu === 'Components' ? 'max-w-[50%]' : 'max-w-[40%]'
+                    activeMenu === 'Components' ? 'max-w-[900px]' : 'max-w-[800px]'
                 )}
 
                 style={{ backgroundColor: 'var(--background)' }}
@@ -137,7 +137,7 @@ const StickyNav = () => {
                         </button>
                         <Link
                             href="/build-genset"
-                            className="px-6 py-2 rounded-[10px] font-normal shadow-md transition-all duration-500 ease-in-out bg-[var(--foreground)] text-[var(--background)] shine-effect hover:rounded-[15px] hover:bg-[var(--hover)]"
+                            className="px-6 py-2 btn-primary shine-effect"
                         >
                             Build Genset
                         </Link>

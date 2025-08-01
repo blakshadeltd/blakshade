@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useEffect } from "react";
 import { FaSlidersH } from "react-icons/fa";
-import { products } from "@/data/generators/cummins/cumminsProducts";
+import { cummins } from "@/data/generators/cummins/cumminsProducts";
 import GeneratorsCard from "@/app/generators/GeneratorsCard";
 
 export default function GeneratorsPage() {
@@ -25,7 +25,7 @@ export default function GeneratorsPage() {
   behavior: "smooth"});
 
   const sortedProducts = useMemo(() => {
-    return [...products].sort((a, b) =>
+    return [...cummins].sort((a, b) =>
       sortOrder === "asc" ? a.size - b.size : b.size - a.size
     );
   }, [sortOrder]);
@@ -86,7 +86,6 @@ export default function GeneratorsPage() {
           </h1>
         </div>
       </div>
-
       {/* Mobile Filter Toggle & Sort */}
       <div className="flex justify-between items-center mx-4 mt-6 lg:hidden">
         <button
@@ -106,7 +105,7 @@ export default function GeneratorsPage() {
         </select>
       </div>
 
-      <div className="py-12 flex flex-col lg:flex-row gap-10 mx-4">
+      <div className="container py-12 flex flex-col lg:flex-row gap-10 mx-4">
         {/* Sidebar Filters */}
         {(showFilters || (typeof window !== "undefined" && window.innerWidth >= 1024)) && (
           <aside className="w-full lg:w-[20%] border rounded-xl p-4 overflow-hidden border-gray-200 bg-white shadow-sm">
