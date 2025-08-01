@@ -9,6 +9,7 @@ export interface CumminsProduct {
   image: string;
   fullspec: string;
   brand: string;
+  category: string;
   alternator: string;
   frequency: string;
   fuelType: string;
@@ -41,7 +42,8 @@ export const cummins: CumminsProduct[] = [
     slug: "c22d5",
     image: "/generators/cummins/22kva-28kva-cummins-silent-diesel-generator.webp",
     fullspec:"/generators/cummins/cummins-c22d5-data-sheet.pdf",
-    brand: "cummins",
+    brand: "Cummins",
+    category:"cummins",
     engine: "Cummins X2.5-G2",
     ampsperphase: "3",
     controlpanel: "Cummins PowerStart 0600",

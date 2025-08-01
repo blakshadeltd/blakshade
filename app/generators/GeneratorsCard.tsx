@@ -8,6 +8,7 @@ interface Product {
     slug: string;
     image: string;
     brand: string;
+    category: string;
     alternator: string;
     frequency: string;
     fuelType: string;
@@ -22,7 +23,7 @@ interface Product {
 
 export default function GeneratorsCard({ product }: { product: Product }) {
     return (
-        <Link href={`/generators/${product.brand}/${product.slug}`} className="group block rounded-2xl overflow-hidden border bg-white hover:shadow-xl transition">
+        <Link href={`/generators/${product.category}/${product.slug}`} className="group block rounded-2xl overflow-hidden border bg-white hover:shadow-xl transition">
 
             <div className="p-4 flex flex-col h-full">
                     {/* Image */}
