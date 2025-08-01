@@ -81,7 +81,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                         "@type": "ListItem",
                         position: 3,
                         name: product.brand,
-                        item: `https://blakshade.com/generators/${product.brand}`,
+                        item: `https://blakshade.com/generators/${product.category}`,
                     },
                 ],
             },
