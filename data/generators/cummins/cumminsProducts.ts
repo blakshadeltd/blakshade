@@ -159,7 +159,7 @@ export const cummins: CumminsProduct[] = [
   {
     title: "Cummins C22D5Q",
     metaTitle: "Cummins C22D5Q Silent Diesel Generator",
-    metaDescription: "Cummins C22D5Q 22 kVA (Standby) / 20 kVA (Prime), 50 Hz silent diesel generator with Cummins X2.5‑G2 engine & Stamford S0L2‑G1 alternator. Reliable three‑phase power.",
+    metaDescription: "Cummins C22D5Q 22 kVA (Standby) / 20 kVA (Prime), 50Hz silent diesel generator with Cummins X2.5‑G2 engine & Stamford S0L2‑G1 alternator. Reliable three‑phase power.",
     slug: "c22d5q",
     image: "/generators/cummins/22kva-28kva-cummins-q-range-silent-diesel-generator.webp",
     fullspec: "/generators/cummins/cummins-c22d5q-data-sheet.pdf",
@@ -181,7 +181,7 @@ export const cummins: CumminsProduct[] = [
     description: `
 <p>The Cummins C22D5Q is a compact yet robust 22 kVA silent diesel generator from the Q‑Range, designed for stationary, standby and prime power applications.</p>
 
-<p>Powered by the Cummins X2.5‑G2 naturally aspirated 3‑cylinder engine running at 1 500 rpm, this genset delivers prime output of 20 kVA (16 kW) and standby output of 22 kVA (18 kW) with reliable voltage regulation (± 2.5%) and droop frequency control. The Stamford S0L2‑G1 alternator provides consistent 400 V three‑phase output at 50 Hz. Integrated microprocessor‑based PowerStart 0600 controls offer automatic start/stop, comprehensive fault protection, and digital metering.</p>
+<p>Powered by the Cummins X2.5‑G2 naturally aspirated 3‑cylinder engine running at 1 500 rpm, this genset delivers prime output of 20 kVA (16 kW) and standby output of 22 kVA (18 kW) with reliable voltage regulation (± 2.5%) and droop frequency control. The Stamford S0L2‑G1 alternator provides consistent 400 V three‑phase output at 50Hz. Integrated microprocessor‑based PowerStart 0600 controls offer automatic start/stop, comprehensive fault protection, and digital metering.</p>
 
 <p>Built in Europe and certified CE/UKCA, the C22D5Q features a standard 55 L fuel tank (≈ 13 h autonomy at 75 % PRP), coolant heater, battery charger and SLI battery system. Its compact and stackable silent canopy design ensures ease of transport, storage, and low noise levels (≈ 77 dB(A) at 1 m, 65 dB(A) at 7 m).</p>
 `,
@@ -261,7 +261,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C28D5",
   metaTitle: "Cummins C28D5 Silent Diesel Generator",
-  metaDescription: "Cummins C28D5 27.5 kVA standby / 25 kVA prime, 50 Hz silent diesel generator with Cummins X2.5‑G2 engine & Stamford S0L2‑P1 alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C28D5 27.5 kVA standby / 25 kVA prime, 50Hz silent diesel generator with Cummins X2.5‑G2 engine & Stamford S0L2‑P1 alternator. Reliable three‑phase power.",
   slug: "c28d5",
   image: "/generators/cummins/22kva-28kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c28d5-data-sheet.pdf",
@@ -374,7 +374,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C33D5",
   metaTitle: "Cummins C33D5 Silent Diesel Generator",
-  metaDescription: "Cummins C33D5 33 kVA standby / 30 kVA prime, 50 Hz silent diesel generator with Cummins X3.3‑G1 engine & Stamford S0L2‑P1 alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C33D5 33 kVA standby / 30 kVA prime, 50Hz silent diesel generator with Cummins X3.3‑G1 engine & Stamford S0L2‑P1 alternator. Reliable three‑phase power.",
   slug: "c33d5",
   image: "/generators/cummins/33kva-38kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c33d5-data-sheet.pdf",
@@ -931,7 +931,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C55D5EQ",
   metaTitle: "Cummins C55D5EQ Silent Diesel Generator",
-  metaDescription: "Cummins C55D5EQ 55 kVA standby / 50 kVA prime, 50 Hz silent diesel generator with Cummins 4BTAA3.3‑G14 engine & Stamford UC224D alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C55D5EQ 55 kVA standby / 50 kVA prime, 50Hz silent diesel generator with Cummins 4BTAA3.3‑G14 engine & Stamford UC224D alternator. Reliable three‑phase power.",
   slug: "c55d5eq",
   image: "/generators/cummins/22kva-28kva-cummins-q-range-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c55d5eq-data-sheet.pdf",
@@ -942,7 +942,7 @@ export const cummins: CumminsProduct[] = [
   ampsperphase: "79.5",
   controlpanel: "Cummins PowerStart 0600",
   alternator: "Stamford UC224D",
-  frequency: "50 Hz",
+  frequency: "50Hz",
   fuelType: "Diesel",
   phase: "Three Phase",
   voltage: "400 / 230 V",
@@ -1042,7 +1042,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C66D5E",
   metaTitle: "Cummins C66D5E Silent Diesel Generator",
-  metaDescription: "Cummins C66D5E 66 kVA standby / 60 kVA prime, 50 Hz silent diesel generator with Cummins 4BTAA3.3‑G14 engine & Stamford UCI22 4F alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C66D5E 66 kVA standby / 60 kVA prime, 50Hz silent diesel generator with Cummins 4BTAA3.3‑G14 engine & Stamford UCI22 4F alternator. Reliable three‑phase power.",
   slug: "c66d5e",
   image: "/generators/cummins/44kva-55kva-66kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c66d5e-data-sheet.pdf",
@@ -1053,7 +1053,7 @@ export const cummins: CumminsProduct[] = [
   ampsperphase: "95",
   controlpanel: "Cummins PowerStart 0600",
   alternator: "Stamford UCI22 4F",
-  frequency: "50 Hz",
+  frequency: "50Hz",
   fuelType: "Diesel",
   phase: "Three Phase",
   voltage: "380‑415 V",
@@ -1096,7 +1096,7 @@ export const cummins: CumminsProduct[] = [
         { label: "Model", value: "Stamford UCI22 4F" },
         { label: "Insulation Class", value: "H" },
         { label: "Voltage Regulation", value: "± 1 %" },
-        { label: "Frequency Regulation", value: "Droop control (50 Hz)" },
+        { label: "Frequency Regulation", value: "Droop control (50Hz)" },
       ],
     },
     {
@@ -1153,7 +1153,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C66D5EQ",
   metaTitle: "Cummins C66D5EQ Silent Diesel Generator",
-  metaDescription: "Cummins C66D5EQ 66 kVA standby / 60 kVA prime, 50 Hz silent diesel generator with Cummins 4BTAA3.3‑G14 engine & Stamford UC224F alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C66D5EQ 66 kVA standby / 60 kVA prime, 50Hz silent diesel generator with Cummins 4BTAA3.3‑G14 engine & Stamford UC224F alternator. Reliable three‑phase power.",
   slug: "c66d5eq",
   image: "/generators/cummins/22kva-28kva-cummins-q-range-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c66d5eq-data-sheet.pdf",
@@ -1164,7 +1164,7 @@ export const cummins: CumminsProduct[] = [
   ampsperphase: "95.4",
   controlpanel: "Cummins PowerStart 0600",
   alternator: "Stamford UC224F",
-  frequency: "50 Hz",
+  frequency: "50Hz",
   fuelType: "Diesel",
   phase: "Three Phase",
   voltage: "400 V",
@@ -1262,7 +1262,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C90D5",
   metaTitle: "Cummins C90D5 Silent Diesel Generator",
-  metaDescription: "Cummins C90D5 90 kVA standby / 82 kVA prime, 50 Hz silent diesel generator with Cummins 6BTA5.9‑G5 engine & Stamford UCI224G alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C90D5 90 kVA standby / 82 kVA prime, 50Hz silent diesel generator with Cummins 6BTA5.9‑G5 engine & Stamford UCI224G alternator. Reliable three‑phase power.",
   slug: "c90d5",
   image: "/generators/cummins/90kva-110kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c90d5-data-sheet.pdf",
@@ -1273,7 +1273,7 @@ export const cummins: CumminsProduct[] = [
   ampsperphase: "129.6",
   controlpanel: "Cummins PowerCommand 1.2",
   alternator: "Stamford UCI224G",
-  frequency: "50 Hz",
+  frequency: "50Hz",
   fuelType: "Diesel",
   phase: "Three Phase",
   voltage: "380‑415 V",
@@ -1283,7 +1283,7 @@ export const cummins: CumminsProduct[] = [
   standbyPower: "90 kVA",
   primePower: "82 kVA",
   description: `
-<p>The Cummins C90D5 is a 90 kVA (72 kW) standby / 82 kVA (66 kW) prime 50 Hz silent diesel generator, ideal for demanding industrial and commercial applications.</p>
+<p>The Cummins C90D5 is a 90 kVA (72 kW) standby / 82 kVA (66 kW) prime 50Hz silent diesel generator, ideal for demanding industrial and commercial applications.</p>
 
 <p>Powered by a rugged Cummins 6BTA5.9-G5 inline‑6 turbocharged & after‑cooled engine running at 1500 rpm, it delivers dependable performance under load. The brushless Stamford UCI224G alternator ensures stable three‑phase voltage with ±1 % regulation. The PowerCommand 1.2 control system offers auto/start, diagnostics and full protection features.</p>
 
@@ -1316,7 +1316,7 @@ export const cummins: CumminsProduct[] = [
         { label: "Model", value: "Stamford UCI224G" },
         { label: "Insulation Class", value: "H" },
         { label: "Voltage Regulation", value: "± 1 %" },
-        { label: "Frequency Regulation", value: "Droop control (50 Hz)" },
+        { label: "Frequency Regulation", value: "Droop control (50Hz)" },
       ],
     },
     {
@@ -1372,7 +1372,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C110D5",
   metaTitle: "Cummins C110D5 Silent Diesel Generator",
-  metaDescription: "Cummins C110D5 110 kVA standby / 100 kVA prime, 50 Hz silent diesel generator with Cummins 6BTA5.9‑G5 engine & Stamford UCI274C alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C110D5 110 kVA standby / 100 kVA prime, 50Hz silent diesel generator with Cummins 6BTA5.9‑G5 engine & Stamford UCI274C alternator. Reliable three‑phase power.",
   slug: "c110d5",
   image: "/generators/cummins/90kva-110kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c110d5-data-sheet.pdf",
@@ -1383,7 +1383,7 @@ export const cummins: CumminsProduct[] = [
   ampsperphase: "159.6",
   controlpanel: "Cummins PowerCommand 1.2",
   alternator: "Stamford UCI274C",
-  frequency: "50 Hz",
+  frequency: "50Hz",
   fuelType: "Diesel",
   phase: "Three Phase",
   voltage: "380‑415 V",
@@ -1393,7 +1393,7 @@ export const cummins: CumminsProduct[] = [
   standbyPower: "110 kVA",
   primePower: "100 kVA",
   description: `
-<p>The Cummins C110D5 is a 110 kVA (88 kW) standby / 100 kVA (80 kW) prime 50 Hz silent diesel generator, designed for high-demand commercial and industrial power applications.</p>
+<p>The Cummins C110D5 is a 110 kVA (88 kW) standby / 100 kVA (80 kW) prime 50Hz silent diesel generator, designed for high-demand commercial and industrial power applications.</p>
 
 <p>Powered by a robust turbocharged and after‑cooled Cummins 6BTA5.9‑G5 inline‑6 engine running at 1500 rpm, it delivers dependable performance. The Stamford UCI274C alternator provides stable three‑phase voltage with ±1 % regulation. The PowerCommand 1.2 control system supports auto/manual start, diagnostics, fault protection, and metering.</p>
 
@@ -1427,7 +1427,7 @@ export const cummins: CumminsProduct[] = [
         { label: "Model", value: "Stamford UCI274C" },
         { label: "Insulation Class", value: "H" },
         { label: "Voltage Regulation", value: "± 1 %" },
-        { label: "Frequency Regulation", value: "Droop control (50 Hz)" },
+        { label: "Frequency Regulation", value: "Droop control (50Hz)" },
       ],
     },
     {
@@ -1485,7 +1485,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C110D5Q",
   metaTitle: "Cummins C110D5Q Q‑Range Silent Diesel Generator",
-  metaDescription: "Cummins C110D5Q 110 kVA standby / 100 kVA prime, 50 Hz silent diesel generator with Cummins 6BTA5.9‑G5 engine & Stamford UC274C alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C110D5Q 110 kVA standby / 100 kVA prime, 50Hz silent diesel generator with Cummins 6BTA5.9‑G5 engine & Stamford UC274C alternator. Reliable three‑phase power.",
   slug: "c110d5q",
   image: "/generators/cummins/110kva-170kva-cummins-q-range-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c110d5q-data-sheet.pdf",
@@ -1496,7 +1496,7 @@ export const cummins: CumminsProduct[] = [
   ampsperphase: "158.4",
   controlpanel: "Cummins PowerStart 0600",
   alternator: "Stamford UC274C",
-  frequency: "50 Hz",
+  frequency: "50Hz",
   fuelType: "Diesel",
   phase: "Three Phase",
   voltage: "400 V",
@@ -1506,7 +1506,7 @@ export const cummins: CumminsProduct[] = [
   standbyPower: "110 kVA",
   primePower: "100 kVA",
   description: `
-<p>The Cummins C110D5Q is a 110 kVA (88 kW) standby / 100 kVA (80 kW) 50 Hz sound‑attenuated generator from the Q‑Range. Powered by the 6BTA5.9‑G5 turbocharged and after‑cooled engine running at 1500 rpm, it ensures reliable performance with efficient fuel consumption. The Stamford UC274C alternator delivers steady three‑phase output with ± 1 % voltage regulation. Controlled via the PowerStart 0600 microprocessor panel for automatic start, diagnostics, fault protection, and metering.</p>
+<p>The Cummins C110D5Q is a 110 kVA (88 kW) standby / 100 kVA (80 kW) 50Hz sound‑attenuated generator from the Q‑Range. Powered by the 6BTA5.9‑G5 turbocharged and after‑cooled engine running at 1500 rpm, it ensures reliable performance with efficient fuel consumption. The Stamford UC274C alternator delivers steady three‑phase output with ± 1 % voltage regulation. Controlled via the PowerStart 0600 microprocessor panel for automatic start, diagnostics, fault protection, and metering.</p>
 
 <p>Includes a CE/UKCA‑approved canopy, with options like battery charger, coolant heater, extended fuel tank and ATS. Emissions level is unregulated for this Q‑Range model.</p>
 `,
@@ -1594,7 +1594,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C150D5",
   metaTitle: "Cummins C150D5 Silent Diesel Generator",
-  metaDescription: "Cummins C150D5 150 kVA standby / 136 kVA prime, 50 Hz silent diesel generator with Cummins 6BTA5.9‑G6 engine & Stamford UCI274E alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C150D5 150 kVA standby / 136 kVA prime, 50Hz silent diesel generator with Cummins 6BTA5.9‑G6 engine & Stamford UCI274E alternator. Reliable three‑phase power.",
   slug: "c150d5",
   image: "/generators/cummins/150kva-170kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c150d5-data-sheet.pdf",
@@ -1605,7 +1605,7 @@ export const cummins: CumminsProduct[] = [
   ampsperphase: "217",
   controlpanel: "Cummins PowerCommand 1.2",
   alternator: "Stamford UCI274E",
-  frequency: "50 Hz",
+  frequency: "50Hz",
   fuelType: "Diesel",
   phase: "Three Phase",
   voltage: "380‑415 V",
@@ -1615,7 +1615,7 @@ export const cummins: CumminsProduct[] = [
   standbyPower: "150 kVA",
   primePower: "136 kVA",
   description: `
-<p>The Cummins C150D5 is a robust 150 kVA (120 kW) standby / 136 kVA (109 kW) prime 50 Hz silent diesel generator, ideal for industrial and commercial backup applications.</p>
+<p>The Cummins C150D5 is a robust 150 kVA (120 kW) standby / 136 kVA (109 kW) prime 50Hz silent diesel generator, ideal for industrial and commercial backup applications.</p>
 
 <p>Equipped with the turbocharged and charge‑air cooled Cummins 6BTA5.9‑G6 inline‑6 engine running at 1500 rpm, it delivers dependable performance under load. The Stamford UCI274E alternator ensures stable three‑phase output with ±1 % voltage regulation. The PowerCommand 1.2 control system offers automatic start/stop, diagnostics, protection, and full metering.</p>
 
@@ -1649,7 +1649,7 @@ export const cummins: CumminsProduct[] = [
         { label: "Model", value: "Stamford UCI274E" },
         { label: "Insulation Class", value: "H" },
         { label: "Voltage Regulation", value: "± 1 %" },
-        { label: "Frequency Regulation", value: "Droop control (50 Hz)" },
+        { label: "Frequency Regulation", value: "Droop control (50Hz)" },
       ],
     },
     {
@@ -1707,7 +1707,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C170D5",
   metaTitle: "Cummins C170D5 Silent Diesel Generator",
-  metaDescription: "Cummins C170D5 170 kVA standby / 155 kVA prime, 50 Hz silent diesel generator with Cummins 6BTAA5.9‑G7 engine & Stamford UCI274F alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C170D5 170 kVA standby / 155 kVA prime, 50Hz silent diesel generator with Cummins 6BTAA5.9‑G7 engine & Stamford UCI274F alternator. Reliable three‑phase power.",
   slug: "c170d5",
   image: "/generators/cummins/150kva-170kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c170d5-data-sheet.pdf",
@@ -1718,7 +1718,7 @@ export const cummins: CumminsProduct[] = [
   ampsperphase: "245",
   controlpanel: "Cummins PowerCommand 1.2",
   alternator: "Stamford UCI274F",
-  frequency: "50 Hz",
+  frequency: "50Hz",
   fuelType: "Diesel",
   phase: "Three Phase",
   voltage: "380‑415 V",
@@ -1728,7 +1728,7 @@ export const cummins: CumminsProduct[] = [
   standbyPower: "170 kVA",
   primePower: "155 kVA",
   description: `
-<p>The Cummins C170D5 is a robust 170 kVA (136 kW) standby / 155 kVA (124 kW) 50 Hz sound‑attenuated generator, ideal for industrial and commercial backup applications.</p>
+<p>The Cummins C170D5 is a robust 170 kVA (136 kW) standby / 155 kVA (124 kW) 50Hz sound‑attenuated generator, ideal for industrial and commercial backup applications.</p>
 
 <p>Powered by the turbocharged and charge‑air cooled Cummins 6BTAA5.9‑G7 inline‑6 engine running at 1500 rpm, it delivers dependable performance under load. The Stamford UCI274F alternator ensures stable three‑phase output with ±1 % voltage regulation. The PowerCommand 1.2 control system offers automatic start/stop, diagnostics, protection, and full metering.</p>
 
@@ -1762,7 +1762,7 @@ export const cummins: CumminsProduct[] = [
         { label: "Model", value: "Stamford UCI274F" },
         { label: "Insulation Class", value: "H" },
         { label: "Voltage Regulation", value: "± 1 %" },
-        { label: "Frequency Regulation", value: "Droop control (50 Hz)" },
+        { label: "Frequency Regulation", value: "Droop control (50Hz)" },
       ],
     },
     {
@@ -1820,7 +1820,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C170D5Q",
   metaTitle: "Cummins C170D5Q Silent Diesel Generator",
-  metaDescription: "Cummins C170D5Q 170 kVA standby / 155 kVA prime, 50 Hz silent diesel generator with Cummins 6BTAA5.9‑G7 engine & Stamford UC274F alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C170D5Q 170 kVA standby / 155 kVA prime, 50Hz silent diesel generator with Cummins 6BTAA5.9‑G7 engine & Stamford UC274F alternator. Reliable three‑phase power.",
   slug: "c170d5q",
   image: "/generators/cummins/110kva-170kva-cummins-q-range-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c170d5q-data-sheet.pdf",
@@ -1831,7 +1831,7 @@ export const cummins: CumminsProduct[] = [
   ampsperphase: "245",
   controlpanel: "Cummins PowerStart PS0600",
   alternator: "Stamford UC274F",
-  frequency: "50 Hz",
+  frequency: "50Hz",
   fuelType: "Diesel",
   phase: "Three Phase",
   voltage: "400/230 V",
@@ -1841,7 +1841,7 @@ export const cummins: CumminsProduct[] = [
   standbyPower: "170 kVA",
   primePower: "155 kVA",
   description: `
-<p>The Cummins C170D5Q is a robust 170 kVA (136 kW) standby / 155 kVA (124 kW) prime 50 Hz silent diesel generator, ideal for industrial and commercial backup applications.</p>
+<p>The Cummins C170D5Q is a robust 170 kVA (136 kW) standby / 155 kVA (124 kW) prime 50Hz silent diesel generator, ideal for industrial and commercial backup applications.</p>
 
 <p>Powered by the turbocharged and charge‑air cooled Cummins 6BTAA5.9‑G7 inline‑6 engine running at 1500 rpm, it delivers dependable performance under load. The Stamford UC274F alternator ensures stable three‑phase output with ±1 % voltage regulation. The PowerStart PS0600 control system offers automatic start/stop, diagnostics, protection, and full metering.</p>
 
@@ -1875,7 +1875,7 @@ export const cummins: CumminsProduct[] = [
         { label: "Model", value: "Stamford UC274F" },
         { label: "Insulation Class", value: "H" },
         { label: "Voltage Regulation", value: "± 1 %" },
-        { label: "Frequency Regulation", value: "Droop control (50 Hz)" },
+        { label: "Frequency Regulation", value: "Droop control (50Hz)" },
       ],
     },
     {
@@ -1932,7 +1932,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C220D5E",
   metaTitle: "Cummins C220D5E Silent Diesel Generator",
-  metaDescription: "Cummins C220D5E 220 kVA standby / 200 kVA prime, 50 Hz silent diesel generator with Cummins QSB7‑G5 engine & Stamford UCI274H alternator. Stage IIIa certified reliable three‑phase power.",
+  metaDescription: "Cummins C220D5E 220 kVA standby / 200 kVA prime, 50Hz silent diesel generator with Cummins QSB7‑G5 engine & Stamford UCI274H alternator. Stage IIIa certified reliable three‑phase power.",
   slug: "c220d5e",
   image: "/generators/cummins/175kva-200kva-220kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c220d5e-data-sheet.pdf",
@@ -1953,7 +1953,7 @@ export const cummins: CumminsProduct[] = [
   standbyPower: "220 kVA",
   primePower: "200 kVA",
   description: `
-<p>The Cummins C220D5E is a certified Stage IIIa diesel generator offering 220 kVA (176 kW) standby / 200 kVA (160 kW) prime output at 50 Hz. Powered by the Cummins QSB7‑G5 inline‑6 engine (turbocharged and charge‑air cooled) and Stamford UCI274H alternator, it delivers precise ± 1 % voltage regulation under load. The PowerCommand 1.2 control panel provides automated start/stop, diagnostics, protection, and full metering.</p>
+<p>The Cummins C220D5E is a certified Stage IIIa diesel generator offering 220 kVA (176 kW) standby / 200 kVA (160 kW) prime output at 50Hz. Powered by the Cummins QSB7‑G5 inline‑6 engine (turbocharged and charge‑air cooled) and Stamford UCI274H alternator, it delivers precise ± 1 % voltage regulation under load. The PowerCommand 1.2 control panel provides automated start/stop, diagnostics, protection, and full metering.</p>
 
 <p>Designed for robust industrial and commercial standby applications, it comes in a sound‑attenuated and weather‑protective canopy compliant with CE/UKCA. Optional features include extended fuel tanks, coolant heater, battery charger, and ATS integration.</p>
 `,
@@ -1984,7 +1984,7 @@ export const cummins: CumminsProduct[] = [
         { label: "Model", value: "Stamford UCI274H" },
         { label: "Insulation Class", value: "H" },
         { label: "Voltage Regulation", value: "± 1 %" },
-        { label: "Frequency Regulation", value: "Droop control (50 Hz)" },
+        { label: "Frequency Regulation", value: "Droop control (50Hz)" },
       ],
     },
     {
@@ -2042,7 +2042,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C220D5EQ",
   metaTitle: "Cummins C220D5EQ Q‑Range Silent Diesel Generator",
-  metaDescription: "Cummins C220D5EQ 220 kVA standby / 200 kVA prime, 50 Hz Q‑Range silent diesel generator with Cummins QSB7‑G5 engine & Stamford UC274H alternator. Stage IIIa compliant reliable three‑phase power.",
+  metaDescription: "Cummins C220D5EQ 220 kVA standby / 200 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins QSB7‑G5 engine & Stamford UC274H alternator. Stage IIIa compliant reliable three‑phase power.",
   slug: "c220d5eq",
   image: "/generators/cummins/220kva-cummins-q-range-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c220d5eq-data-sheet.pdf",
@@ -2063,7 +2063,7 @@ export const cummins: CumminsProduct[] = [
   standbyPower: "220 kVA",
   primePower: "200 kVA",
   description: `
-<p>The Cummins C220D5EQ from the Q‑Range delivers 220 kVA (176 kW) standby and 200 kVA (160 kW) prime power at 50 Hz. It is powered by the Stage IIIa compliant Cummins QSB7‑G5 turbocharged & charge‑air cooled engine running at 1500 rpm, coupled with a Stamford UC274H alternator offering ±1 % voltage regulation.</p>
+<p>The Cummins C220D5EQ from the Q‑Range delivers 220 kVA (176 kW) standby and 200 kVA (160 kW) prime power at 50Hz. It is powered by the Stage IIIa compliant Cummins QSB7‑G5 turbocharged & charge‑air cooled engine running at 1500 rpm, coupled with a Stamford UC274H alternator offering ±1 % voltage regulation.</p>
 
 <p>Controlled via the PowerCommand 1.2 microprocessor panel with automatic start/stop, diagnostics, fault protection, and full metering. The weather‑protective sound‑attenuated canopy is CE/UKCA certified, with options such as extended fuel tanks, battery charger, coolant heater, and ATS.</p>
 `,
@@ -2094,7 +2094,7 @@ export const cummins: CumminsProduct[] = [
         { label: "Model", value: "Stamford UC274H" },
         { label: "Insulation Class", value: "H" },
         { label: "Voltage Regulation", value: "± 1 %" },
-        { label: "Frequency Regulation", value: "Isochronous / Droop control (50 Hz)" },
+        { label: "Frequency Regulation", value: "Isochronous / Droop control (50Hz)" },
       ],
     },
     {
@@ -2150,7 +2150,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C275D5E",
   metaTitle: "Cummins C275D5E Silent Diesel Generator",
-  metaDescription: "Cummins C275D5E 275 kVA standby / 250 kVA prime, 50 Hz silent diesel generator with Cummins QSL9‑G5 engine & Stamford UCD274K alternator. Reliable three-phase power.",
+  metaDescription: "Cummins C275D5E 275 kVA standby / 250 kVA prime, 50Hz silent diesel generator with Cummins QSL9‑G5 engine & Stamford UCD274K alternator. Reliable three-phase power.",
   slug: "c275d5e",
   image: "/generators/cummins/275kva-300kva-330kva-350kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c275d5e-data-sheet.pdf",
@@ -2171,7 +2171,7 @@ export const cummins: CumminsProduct[] = [
   standbyPower: "275 kVA",
   primePower: "250 kVA",
   description: `
-<p>The Cummins C275D5E is a strong 275 kVA (220 kW) standby / 250 kVA (200 kW) prime 50 Hz silent diesel generator. Equipped with the electronic-governed, turbocharged and charge‑air cooled Cummins QSL9‑G5 engine and Stamford UCD274K alternator, it delivers ±1 % voltage regulation for stable output.</p>
+<p>The Cummins C275D5E is a strong 275 kVA (220 kW) standby / 250 kVA (200 kW) prime 50Hz silent diesel generator. Equipped with the electronic-governed, turbocharged and charge‑air cooled Cummins QSL9‑G5 engine and Stamford UCD274K alternator, it delivers ±1 % voltage regulation for stable output.</p>
 
 <p>Featuring PowerCommand 1.2 control for auto/manual start, diagnostics, protection and metering. Designed with a sound‑attenuated and weather‑protective enclosure compliant with CE/UKCA. Options include extended fuel tanks, coolant heater, battery charger and ATS integration.</p>
 `,
@@ -2261,7 +2261,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C275D5EQ",
   metaTitle: "Cummins C275D5EQ Q‑Range Silent Diesel Generator",
-  metaDescription: "Cummins C275D5EQ 275 kVA standby / 250 kVA prime, 50 Hz Q‑Range silent diesel generator with Cummins QSL9‑G7 engine & Stamford UCD274K alternator. Stage IIIa certified three‑phase power.",
+  metaDescription: "Cummins C275D5EQ 275 kVA standby / 250 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins QSL9‑G7 engine & Stamford UCD274K alternator. Stage IIIa certified three‑phase power.",
   slug: "c275d5eq",
   image: "/generators/cummins/275kva-330kva-450kva-cummins-q-range-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c275d5eq-data-sheet.pdf",
@@ -2282,7 +2282,7 @@ export const cummins: CumminsProduct[] = [
   standbyPower: "275 kVA",
   primePower: "250 kVA",
   description: `
-<p>The Cummins C275D5EQ Q‑Range generator delivers 275 kVA (220 kW) standby and 250 kVA (200 kW) prime power at 50 Hz. Powered by the turbocharged and charge‑air cooled Cummins QSL9‑G7 Stage IIIa engine running at 1500 rpm and paired with a Stamford UCD274K alternator offering ±1 % voltage regulation.</p>
+<p>The Cummins C275D5EQ Q‑Range generator delivers 275 kVA (220 kW) standby and 250 kVA (200 kW) prime power at 50Hz. Powered by the turbocharged and charge‑air cooled Cummins QSL9‑G7 Stage IIIa engine running at 1500 rpm and paired with a Stamford UCD274K alternator offering ±1 % voltage regulation.</p>
 <p>Equipped with the PowerCommand 1.2 microprocessor control system—with automatic start/stop, diagnostics, fault protection, and metering. The weather‑protected and sound‑attenuated canopy is CE/UKCA compliant. Optional extras include extended fuel tanks, coolant heater, battery charger, and ATS.</p>
 `,
   compressionRatio: "16.8 : 1",
@@ -2371,7 +2371,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C330D5",
   metaTitle: "Cummins C330D5 Silent Diesel Generator",
-  metaDescription: "Cummins C330D5 330 kVA standby / 300 kVA prime, 50 Hz silent diesel generator with Cummins QSL9‑G5 engine & Stamford HC4D alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C330D5 330 kVA standby / 300 kVA prime, 50Hz silent diesel generator with Cummins QSL9‑G5 engine & Stamford HC4D alternator. Reliable three‑phase power.",
   slug: "c330d5",
   image: "/generators/cummins/275kva-300kva-330kva-350kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c330d5-data-sheet.pdf",
@@ -2392,7 +2392,7 @@ export const cummins: CumminsProduct[] = [
   standbyPower: "330 kVA",
   primePower: "300 kVA",
   description: `
-<p>The Cummins C330D5 is a high‑performance 330 kVA (264 kW) standby / 300 kVA (240 kW) prime 50 Hz silent diesel generator. Powered by a rugged Cummins QSL9‑G5 turbocharged & charge‑air cooled inline‑6 engine running at 1500 rpm, it delivers dependable output and efficiency. The Stamford HC4D alternator ensures stable three‑phase voltage with ± 1 % regulation, while the PowerCommand 1.2 controller offers automatic start/stop, diagnostics, protection, and full monitoring.</p>
+<p>The Cummins C330D5 is a high‑performance 330 kVA (264 kW) standby / 300 kVA (240 kW) prime 50Hz silent diesel generator. Powered by a rugged Cummins QSL9‑G5 turbocharged & charge‑air cooled inline‑6 engine running at 1500 rpm, it delivers dependable output and efficiency. The Stamford HC4D alternator ensures stable three‑phase voltage with ± 1 % regulation, while the PowerCommand 1.2 controller offers automatic start/stop, diagnostics, protection, and full monitoring.</p>
 
 <p>Designed for demanding industrial and commercial applications, this generator features a sound‑attenuated, weather‑protective canopy compliant with CE/UKCA. Optional extras include extended fuel tanks, battery charger, coolant heater, and ATS.</p>
 `,
@@ -2482,7 +2482,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C330D5EQ",
   metaTitle: "Cummins C330D5EQ Q‑Range Silent Diesel Generator",
-  metaDescription: "Cummins C330D5EQ 330 kVA standby / 300 kVA prime, 50 Hz Q‑Range silent diesel generator with Cummins QSL9‑G7 engine & Stamford HC444D alternator. Stage IIIa compliant three‑phase power.",
+  metaDescription: "Cummins C330D5EQ 330 kVA standby / 300 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins QSL9‑G7 engine & Stamford HC444D alternator. Stage IIIa compliant three‑phase power.",
   slug: "c330d5eq",
   image: "/generators/cummins/275kva-330kva-450kva-cummins-q-range-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c330d5eq-data-sheet.pdf",
@@ -2503,7 +2503,7 @@ export const cummins: CumminsProduct[] = [
   standbyPower: "330 kVA",
   primePower: "300 kVA",
   description: `
-<p>The Cummins C330D5EQ Q‑Range generator delivers 330 kVA (264 kW) standby and 300 kVA (240 kW) prime power at 50 Hz. It is powered by the Stage IIIa‑certified Cummins QSL9‑G7 turbocharged & charge‑air cooled engine running at 1500 rpm, paired with a Stamford HC444D alternator offering ± 1 % voltage regulation.</p>
+<p>The Cummins C330D5EQ Q‑Range generator delivers 330 kVA (264 kW) standby and 300 kVA (240 kW) prime power at 50Hz. It is powered by the Stage IIIa‑certified Cummins QSL9‑G7 turbocharged & charge‑air cooled engine running at 1500 rpm, paired with a Stamford HC444D alternator offering ± 1 % voltage regulation.</p>
 
 <p>Controlled via the PowerCommand 1.2 microprocessor panel with automatic start/stop, diagnostics, fault protection, and metering. The weather‑protected sound‑attenuated canopy is CE/UKCA certified. Optional extras include additional fuel tanks, battery charger, coolant heater, and ATS.</p>
 `,
