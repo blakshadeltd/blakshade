@@ -8,7 +8,7 @@ import Script from "next/script";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const product = cummins.find((p) => p.slug === params.slug);
+  const product: CumminsProduct | undefined = cummins.find((p) => p.slug === params.slug);
 
   if (!product) {
     return {
@@ -47,11 +47,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 
 
-export default function GeneratorSpecPage(props: { params: Promise<{ slug: string }> }) {
-    const { slug } = use(props.params);
-    const product: CumminsProduct | undefined = cummins.find((p) => p.slug === slug);
+export default function GeneratorSpecPage(props: { params: { slug: string } }) {
+  const { slug } = props.params;
+  const product = cummins.find(p => p.slug === slug);
 
-    if (!product) return notFound();
+  if (!product) return notFound();
 
     // Schema Data
     const orgSchema = {
