@@ -69,7 +69,7 @@ export default function GeneratorsPage() {
   const currentPageClamped = Math.min(currentPage, totalPages);
   const startIdx = (currentPageClamped - 1) * itemsPerPage;
   const endIdx = Math.min(startIdx + itemsPerPage, totalItems);
-  const paginatedProducts = sortedProducts.slice(startIdx, endIdx);
+  const paginatedProducts = filteredCummins.slice(startIdx, endIdx);
 
   const handleItemsPerPageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setItemsPerPage(Number(e.target.value));

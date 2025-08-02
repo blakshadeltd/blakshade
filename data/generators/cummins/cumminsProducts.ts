@@ -2585,7 +2585,549 @@ export const cummins: CumminsProduct[] = [
       ],
     },
   ],
-}
+},
+
+{
+  title: "Cummins C450D5Q",
+  metaTitle: "Cummins C450D5Q Q‑Range Silent Diesel Generator",
+  metaDescription: "Cummins C450D5Q 450 kVA standby / 409 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins QSG12‑G4 engine & Stamford S4L1D‑G41 alternator. Unregulated emissions, reliable three‑phase power.",
+  slug: "c450d5q",
+  image: "/generators/cummins/275kva-330kva-450kva-cummins-q-range-silent-diesel-generator.webp",
+  fullspec: "/generators/cummins/cummins-c450d5q-data-sheet.pdf",
+  brand: "Cummins",
+  category: "cummins",
+  engine: "Cummins QSG12‑G4",
+  emissions: "Unregulated",
+  ampsperphase: "650",
+  controlpanel: "Cummins PowerCommand 2.2",
+  alternator: "Stamford S4L1D‑G41",
+  frequency: "50Hz",
+  fuelType: "Diesel",
+  phase: "Three Phase",
+  voltage: "400 V",
+  buildType: "Silent",
+  startType: "Auto Start (24 V DC)",
+  size: 450,
+  standbyPower: "450 kVA",
+  primePower: "409 kVA",
+  description: `
+<p>The Cummins C450D5Q Q‑Range generator delivers 450 kVA (360 kW) standby and 409 kVA (327 kW) prime power at 50Hz. It is powered by the Cummins QSG12‑G4 turbocharged and after‑cooled engine coupled with a Stamford S4L1D‑G41 alternator, providing ± 1 % voltage regulation.</p>
+
+<p>Managed by the PowerCommand 2.2 control panel offering auto/manual start/stop, diagnostics, fault protection and digital metering. The weather‑protective, sound‑attenuated canopy is CE/UKCA compliant. Optional features include extended fuel tank, coolant heater, battery charger and ATS.</p>
+`,
+  compressionRatio: "17 : 1",
+  ratedSpeed: "1500 rpm",
+  aspiration: "Turbocharged & After‑Cooled",
+  fuelSystem: "XPI Direct Injection",
+  governorType: "Electronic",
+  displacement: "12.0 L",
+  boreStroke: "132 × 144 mm",
+  lubeOilCapacity: "34.1 L",
+  coolingSystem: "Water‑cooled radiator",
+  specs: [
+    {
+      group: "Engine Specs",
+      items: [
+        { label: "Engine Model", value: "QSG12‑G4 (inline‑6, turbocharged & after‑cooled)" },
+        { label: "Rated Speed", value: "1500 rpm" },
+        { label: "Bore × Stroke", value: "132 × 144 mm" },
+        { label: "Compression Ratio", value: "17 : 1" },
+        { label: "Lube Oil Capacity", value: "34.1 L" },
+        { label: "Overspeed Limit", value: "1725 rpm" },
+        { label: "Governor Type", value: "Electronic" },
+      ],
+    },
+    {
+      group: "Alternator Specs",
+      items: [
+        { label: "Model", value: "Stamford S4L1D‑G41" },
+        { label: "Insulation Class", value: "H" },
+        { label: "Voltage Regulation", value: "± 1 %" },
+        { label: "Frequency Regulation", value: "Isochronous" },
+      ],
+    },
+    {
+      group: "Control Panel Specs",
+      items: [
+        { label: "Controller Model", value: "PowerCommand 2.2" },
+        { label: "Display", value: "LCD + LED metering" },
+        { label: "Functions", value: "Auto/manual start, AMF, diagnostics, metering" },
+        { label: "Starting Voltage", value: "24 V DC" },
+      ],
+    },
+    {
+      group: "Fuel & Consumption",
+      items: [
+        { label: "Fuel Tank Capacity", value: "≈ 995 L" },
+        { label: "Fuel Consumption @ Full Load", value: "≈ 91.6 L/hr (standby), ≈ 81.7 L/hr (prime)" },
+      ],
+    },
+    {
+      group: "Cooling & Air",
+      items: [
+        { label: "Coolant Capacity", value: "≈ 48 L" },
+        { label: "Combustion Air Flow", value: "≈ 1524 m³/hr (~25.4 m³/min)" },
+        { label: "Ambient Rating", value: "50 °C (open), 40 °C (enclosed)" },
+      ],
+    },
+    {
+      group: "Exhaust",
+      items: [
+        { label: "Exhaust Temp", value: "≈ 524 °C (standby), ≈ 507 °C (prime)" },
+        { label: "Exhaust Flow", value: "≈ 61.7 m³/min (standby), ≈ 53.2 m³/min (prime)" },
+        { label: "Max Back Pressure", value: "≈ 10.2 kPa" },
+      ],
+    },
+    {
+      group: "Dimensions & Weight",
+      items: [
+        { label: "Open Set (L×W×H)", value: "3686 × 1100 × 2180 mm" },
+        { label: "Enclosed Set (L×W×H)", value: "5093 × 1564 × 2375 mm" },
+        { label: "Dry Weight (Open)", value: "3,116 kg" },
+        { label: "Dry Weight (Enclosed)", value: "4,436 kg" },
+      ],
+    },
+    {
+      group: "Standards & Accessories",
+      items: [
+        { label: "Certifications", value: "Unregulated / CE / UKCA" },
+        { label: "Optional Features", value: "Battery charger, coolant heater, extended tank, ATS" },
+        { label: "Warranty", value: "2 years or 500 h standby / 1 year unlimited prime" },
+      ],
+    },
+  ],
+},
+
+{
+  title: "Cummins C450D5",
+  metaTitle: "Cummins C450D5 Silent Diesel Generator",
+  metaDescription: "Cummins C450D5 450 kVA standby / 410 kVA prime, 50Hz silent diesel generator with Cummins QSG12‑G2 engine & Stamford S4G alternator. Reliable three‑phase power.",
+  slug: "c450d5",
+  image: "/generators/cummins/400kva-450kva-500kva-550kva-cummins-silent-diesel-generator.webp",
+  fullspec: "/generators/cummins/cummins-c450d5-data-sheet.pdf",
+  brand: "Cummins",
+  category: "cummins",
+  engine: "Cummins QSG12‑G2",
+  emissions: "Unregulated",
+  ampsperphase: "648",
+  controlpanel: "Cummins PowerCommand 2.2",
+  alternator: "Stamford S4G",
+  frequency: "50Hz",
+  fuelType: "Diesel",
+  phase: "Three Phase",
+  voltage: "380‑440 V",
+  buildType: "Silent",
+  startType: "Auto Start (24 V DC)",
+  size: 450,
+  standbyPower: "450 kVA",
+  primePower: "410 kVA",
+  description: `
+<p>The Cummins C450D5 is a powerful 450 kVA (360 kW) standby / 410 kVA (328 kW) 50Hz silent diesel generator. It is driven by a Cummins QSG12‑G2 turbocharged and after‑cooled inline‑6 engine and paired with a Stamford S4G alternator delivering ± 1 % voltage regulation across the load range.</p>
+
+<p>Equipped with the PowerCommand 2.2 control panel for auto/manual start, diagnostics, fault protection, and detailed metering. Designed in a sound‑attenuated, weather‑protective canopy compliant with CE/UKCA.</p>
+`,
+  compressionRatio: "17 : 1",
+  ratedSpeed: "1500 rpm",
+  aspiration: "Turbocharged & After‑Cooled",
+  fuelSystem: "Direct Injection",
+  governorType: "Electronic",
+  displacement: "12.0 L",
+  boreStroke: "132 × 144 mm",
+  lubeOilCapacity: "34.1 L",
+  coolingSystem: "Water‑cooled with radiator",
+  specs: [
+    {
+      group: "Engine Specs",
+      items: [
+        { label: "Engine Model", value: "QSG12‑G2 (inline‑6, turbocharged & after‑cooled)" },
+        { label: "Rated Speed", value: "1500 rpm" },
+        { label: "Bore × Stroke", value: "132 × 144 mm" },
+        { label: "Compression Ratio", value: "17 : 1" },
+        { label: "Lube Oil Capacity", value: "34.1 L" },
+        { label: "Overspeed Limit", value: "1725 rpm" },
+        { label: "Governor Type", value: "Electronic" },
+      ],
+    },
+    {
+      group: "Alternator Specs",
+      items: [
+        { label: "Model", value: "Stamford S4G" },
+        { label: "Insulation Class", value: "H" },
+        { label: "Voltage Regulation", value: "± 1 %" },
+        { label: "Frequency Regulation", value: "Droop control (50Hz)" },
+      ],
+    },
+    {
+      group: "Control Panel Specs",
+      items: [
+        { label: "Controller Model", value: "PowerCommand 2.2" },
+        { label: "Display", value: "LCD + LED metering" },
+        { label: "Functions", value: "Auto/manual start, AMF, diagnostics, metering" },
+        { label: "Starting Voltage", value: "24 V DC" },
+      ],
+    },
+    {
+      group: "Fuel & Consumption",
+      items: [
+        { label: "Fuel Tank Capacity", value: "≈ 834 L" },
+        { label: "Fuel Consumption @ Full Load", value: "≈ 92 L/hr (standby), ≈ 82 L/hr (prime)" },
+      ],
+    },
+    {
+      group: "Cooling & Air",
+      items: [
+        { label: "Coolant Capacity", value: "≈ 48 L" },
+        { label: "Combustion Air Flow", value: "≈ 424 L/sec (382 L/sec prime = ~25.4 m³/min, ~23.5 prime)" },
+        { label: "Ambient Rating", value: "50 °C" },
+      ],
+    },
+    {
+      group: "Exhaust",
+      items: [
+        { label: "Exhaust Temp", value: "≈ 524 °C (standby), ≈ 507 °C (prime)" },
+        { label: "Exhaust Flow", value: "≈ 1029 L/sec (~61.7 m³/min standby), 936 L/sec (~56.2 m³/min prime)" },
+        { label: "Max Back Pressure", value: "≈ 10.2 kPa" },
+      ],
+    },
+    {
+      group: "Dimensions & Weight",
+      items: [
+        { label: "Enclosed Set (L×W×H)", value: "5093 × 1564 × 2375 mm" },
+        { label: "Dry Weight (Enclosed)", value: "4,436 kg" },
+      ],
+    },
+    {
+      group: "Standards & Accessories",
+      items: [
+        { label: "Certifications", value: "Unregulated / CE / UKCA" },
+        { label: "Optional Features", value: "Battery charger, coolant heater, extended tank, ATS" },
+        { label: "Warranty", value: "2 years or 500 h standby / 1 year unlimited prime" },
+      ],
+    },
+  ],
+},
+
+{
+  title: "Cummins C550D5",
+  metaTitle: "Cummins C550D5 Silent Diesel Generator",
+  metaDescription: "Cummins C550D5 550 kVA standby / 500 kVA prime, 50Hz silent diesel generator with Cummins QSZ13‑G10 engine & Stamford S5E alternator. Reliable three‑phase power.",
+  slug: "c550d5",
+  image: "/generators/cummins/400kva-450kva-500kva-550kva-cummins-silent-diesel-generator.webp",
+  fullspec: "/generators/cummins/cummins-c550d5-data-sheet.pdf",
+  brand: "Cummins",
+  category: "cummins",
+  engine: "Cummins QSZ13‑G10",
+  emissions: "Unregulated",
+  ampsperphase: "792",
+  controlpanel: "Cummins PowerCommand 2.2",
+  alternator: "Stamford S5E",
+  frequency: "50Hz",
+  fuelType: "Diesel",
+  phase: "Three Phase",
+  voltage: "380‑440 V",
+  buildType: "Silent",
+  startType: "Auto Start (24 V DC)",
+  size: 550,
+  standbyPower: "550 kVA",
+  primePower: "500 kVA",
+  description: `
+<p>The Cummins C550D5 is a heavy-duty diesel generator offering 550 kVA standby and 500 kVA prime power at 50Hz. Powered by the QSZ13‑G10 turbocharged and charge‑air cooled inline‑6 engine and a Stamford S5E alternator with ± 1 % voltage regulation.</p>
+
+<p>Managed with PowerCommand 2.2 control panel for automatic start/stop, diagnostics, protection, and metering. Designed in a sound‑attenuated, weather‑protective canopy compliant with CE/UKCA. Options include extended base fuel tanks, coolant heater, battery charger, ATS, and more.</p>
+`,
+  compressionRatio: "17 : 1",
+  ratedSpeed: "1500 rpm",
+  aspiration: "Turbocharged & Charge‑Air‑Cooled",
+  fuelSystem: "Direct Injection",
+  governorType: "Electronic",
+  displacement: "≈ 15 L",
+  boreStroke: "130 × 163 mm",
+  lubeOilCapacity: "≈ 75 L",
+  coolingSystem: "Water‑cooled with radiator",
+  specs: [
+    {
+      group: "Engine Specs",
+      items: [
+        { label: "Engine Model", value: "QSZ13‑G10 (inline‑6, turbocharged & charge‑air cooled)" },
+        { label: "Rated Speed", value: "1500 rpm" },
+        { label: "Bore × Stroke", value: "130 × 163 mm" },
+        { label: "Compression Ratio", value: "17 : 1" },
+        { label: "Lube Oil Capacity", value: "≈ 75.3 L" },
+        { label: "Overspeed Limit", value: "1500 ± 10 %" },
+        { label: "Governor Type", value: "Electronic" },
+      ],
+    },
+    {
+      group: "Alternator Specs",
+      items: [
+        { label: "Model", value: "Stamford S5E" },
+        { label: "Insulation Class", value: "H" },
+        { label: "Voltage Regulation", value: "± 1 %" },
+        { label: "Frequency Regulation", value: "Droop control (50Hz)" },
+      ],
+    },
+    {
+      group: "Control Panel Specs",
+      items: [
+        { label: "Controller Model", value: "PowerCommand 2.2" },
+        { label: "Display", value: "LED + LCD metering" },
+        { label: "Functions", value: "Auto/manual start, AMF, diagnostics, metering" },
+        { label: "Starting Voltage", value: "24 V DC" },
+      ],
+    },
+    {
+      group: "Fuel & Consumption",
+      items: [
+        { label: "Fuel Tank Capacity", value: "≈ 820 L" },
+        { label: "Fuel Consumption @ Full Load", value: "≈ 103.4 L/hr (standby), ≈ 93.1 L/hr (prime)" },
+      ],
+    },
+    {
+      group: "Cooling & Air",
+      items: [
+        { label: "Coolant Capacity", value: "≈ 77.1 L" },
+        { label: "Combustion Air Flow", value: "≈ 30.72 m³/min (standby), ≈ 29.82 m³/min (prime)" },
+        { label: "Ambient Rating", value: "50 °C" },
+      ],
+    },
+    {
+      group: "Exhaust",
+      items: [
+        { label: "Exhaust Temp", value: "≈ 547 °C (standby), ≈ 520 °C (prime)" },
+        { label: "Exhaust Flow", value: "≈ 82.02 m³/min (standby), ≈ 73.02 m³/min (prime)" },
+        { label: "Max Back Pressure", value: "≈ 13 kPa" },
+      ],
+    },
+    {
+      group: "Dimensions & Weight",
+      items: [
+        { label: "Open Set (L×W×H)", value: "3376 × 1500 × 2191 mm" },
+        { label: "Enclosed Set (L×W×H)", value: "5095 × 1564 × 2441 mm" },
+        { label: "Dry Weight (Open)", value: "4120 kg" },
+        { label: "Dry Weight (Enclosed)", value: "5439 kg" },
+      ],
+    },
+    {
+      group: "Standards & Accessories",
+      items: [
+        { label: "Certifications", value: "Unregulated / CE / UKCA" },
+        { label: "Optional Features", value: "Extended base tank, battery charger, coolant heater, ATS" },
+        { label: "Warranty", value: "2 years or 500 h standby / 1 year unlimited prime" },
+      ],
+    },
+  ],
+},
+
+{
+  title: "Cummins C550D5QB",
+  metaTitle: "Cummins C550D5QB Q‑Range Silent Diesel Generator",
+  metaDescription: "Cummins C550D5QB 550 kVA standby / 500 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins M15‑G8 engine & Stamford S5L1S‑D4 alternator. Reliable three‑phase power, unregulated emissions.",
+  slug: "c550d5qb",
+  image: "/generators/cummins/550kva-cummins-q-range-silent-diesel-generator.webp",
+  fullspec: "/generators/cummins/cummins-c550d5qb-data-sheet.pdf",
+  brand: "Cummins",
+  category: "cummins",
+  engine: "Cummins M15‑G8",
+  emissions: "Unregulated",
+  ampsperphase: "792",
+  controlpanel: "Cummins PowerCommand 2.2",
+  alternator: "Stamford S5L1S‑D4",
+  frequency: "50Hz",
+  fuelType: "Diesel",
+  phase: "Three Phase",
+  voltage: "400 V",
+  buildType: "Silent",
+  startType: "Auto Start (24 V DC)",
+  size: 550,
+  standbyPower: "550 kVA",
+  primePower: "500 kVA",
+  description: `
+<p>The Cummins C550D5QB Q‑Range generator delivers 550 kVA (440 kW) standby and 500 kVA (400 kW) prime power at 50Hz. Powered by the Cummins M15‑G8 turbocharged, charge‑air cooled engine and a Stamford S5L1S‑D4 alternator with ±1 % voltage regulation.</p>
+<p>Controlled by the PowerCommand 2.2 microprocessor system for auto start/stop, diagnostics, protection, and full metering. Enclosed in a sound‑attenuated, weatherproof canopy compliant with CE/UKCA. Optional extras include extended fuel tank (995 L), battery charger, coolant heater, and ATS.</p>
+`,
+  compressionRatio: "17 : 1",
+  ratedSpeed: "1500 rpm",
+  aspiration: "Turbocharged & Charge‑Air‑Cooled",
+  fuelSystem: "Direct Injection",
+  governorType: "Electronic (PGI)",
+  displacement: "15 L",
+  boreStroke: "130 × 163 mm",
+  lubeOilCapacity: "≈ 75 L",
+  coolingSystem: "Water‑cooled with radiator",
+  specs: [
+    {
+      group: "Engine Specs",
+      items: [
+        { label: "Engine Model", value: "M15‑G8 (inline‑6, turbocharged & charge‑air cooled)" },
+        { label: "Rated Speed", value: "1500 rpm" },
+        { label: "Bore × Stroke", value: "130 × 163 mm" },
+        { label: "Compression Ratio", value: "17 : 1" },
+        { label: "Lube Oil Capacity", value: "≈ 75 L" },
+        { label: "Governor Type", value: "Electronic (PGI)" },
+      ],
+    },
+    {
+      group: "Alternator Specs",
+      items: [
+        { label: "Model", value: "Stamford S5L1S‑D4" },
+        { label: "Insulation Class", value: "H" },
+        { label: "Voltage Regulation", value: "± 1 %" },
+        { label: "Frequency Regulation", value: "Isochronous control" },
+      ],
+    },
+    {
+      group: "Control Panel Specs",
+      items: [
+        { label: "Controller Model", value: "PowerCommand 2.2" },
+        { label: "Display", value: "LED + LCD metering" },
+        { label: "Functions", value: "Auto/manual start, AMF, diagnostics, metering" },
+        { label: "Starting Voltage", value: "24 V DC" },
+      ],
+    },
+    {
+      group: "Fuel & Consumption",
+      items: [
+        { label: "Fuel Tank Capacity", value: "995 L (base tank)" },
+        { label: "Fuel Consumption @ Full Load", value: "≈ 91.8 L/hr" },
+      ],
+    },
+    {
+      group: "Cooling & Air",
+      items: [
+        { label: "Combustion Air Flow", value: "≈ 31.7 m³/min (standby), ≈ 29 m³/min (prime)" },
+        { label: "Ambient Rating", value: "50 °C" },
+      ],
+    },
+    {
+      group: "Exhaust",
+      items: [
+        { label: "Guaranteed Sound Power Level (Enclosed)", value: "106 dB(A)" },
+        { label: "Sound Pressure Level at 1 m / 7 m", value: "≈ 85 / 75 dB(A)" },
+      ],
+    },
+    {
+      group: "Standards & Accessories",
+      items: [
+        { label: "Certifications", value: "Unregulated / CE / UKCA" },
+        { label: "Optional Features", value: "Battery charger, coolant heater, extended tank, ATS" },
+        { label: "Warranty", value: "2 years or 500 h standby / 1 year unlimited prime" },
+      ],
+    },
+  ],
+},
+
+{
+  title: "Cummins C640D5",
+  metaTitle: "Cummins C640D5 Diesel Generator",
+  metaDescription: "Cummins C640D5 640 kVA standby / 582 kVA prime, 50Hz diesel generator with Cummins KTAA19-G6 engine & Stamford HCI534E alternator. Reliable three-phase power.",
+  slug: "c640d5",
+  image: "/generators/cummins/640kva-cummins-open-diesel-generator.webp",
+  fullspec: "/generators/cummins/cummins-c640d5-data-sheet.pdf",
+  brand: "Cummins",
+  category: "cummins",
+  engine: "Cummins KTAA19-G6",
+  emissions: "Unregulated",
+  ampsperphase: "928",
+  controlpanel: "Cummins PowerCommand 1.2",
+  alternator: "Stamford HCI534E",
+  frequency: "50Hz",
+  fuelType: "Diesel",
+  phase: "Three Phase",
+  voltage: "400 V",
+  buildType: "Open",
+  startType: "Auto Start (24 V DC)",
+  size: 640,
+  standbyPower: "640 kVA",
+  primePower: "582 kVA",
+  description: `
+<p>The Cummins C640D5 is a heavy-duty diesel generator offering 640 kVA standby and 582 kVA prime power at 50Hz. Powered by the KTAA19-G6 turbocharged, charge-air cooled inline-6 engine and a Stamford HCI534E alternator with ± 1 % voltage regulation.</p>
+
+<p>Managed with PowerCommand 1.2 control panel for automatic start/stop, diagnostics, protection, and metering. Designed as an open set suitable for various industrial applications. Options include extended base fuel tanks, battery charger, coolant heater, ATS, and more.</p>
+`,
+  compressionRatio: "13.9 : 1",
+  ratedSpeed: "1500 rpm",
+  aspiration: "Turbocharged & Charge-Air-Cooled",
+  fuelSystem: "Direct Injection",
+  governorType: "Electronic",
+  displacement: "19 L",
+  boreStroke: "159 × 159 mm",
+  lubeOilCapacity: "50 L",
+  coolingSystem: "Water-cooled with radiator",
+  specs: [
+    {
+      group: "Engine Specs",
+      items: [
+        { label: "Engine Model", value: "KTAA19-G6 (inline-6, turbocharged & charge-air cooled)" },
+        { label: "Rated Speed", value: "1500 rpm" },
+        { label: "Bore × Stroke", value: "159 × 159 mm" },
+        { label: "Compression Ratio", value: "13.9 : 1" },
+        { label: "Lube Oil Capacity", value: "50 L" },
+        { label: "Governor Type", value: "Electronic" },
+      ],
+    },
+    {
+      group: "Alternator Specs",
+      items: [
+        { label: "Model", value: "Stamford HCI534E" },
+        { label: "Insulation Class", value: "H" },
+        { label: "Voltage Regulation", value: "± 1 %" },
+        { label: "Frequency Regulation", value: "Isochronous control" },
+      ],
+    },
+    {
+      group: "Control Panel Specs",
+      items: [
+        { label: "Controller Model", value: "PowerCommand 1.2" },
+        { label: "Display", value: "LED + LCD metering" },
+        { label: "Functions", value: "Auto/manual start, AMF, diagnostics, metering" },
+        { label: "Starting Voltage", value: "24 V DC" },
+      ],
+    },
+    {
+      group: "Fuel & Consumption",
+      items: [
+        { label: "Fuel Tank Capacity", value: "Not specified" },
+        { label: "Fuel Consumption @ Full Load", value: "≈ 143 L/hr (standby), ≈ 131 L/hr (prime)" },
+      ],
+    },
+    {
+      group: "Cooling & Air",
+      items: [
+        { label: "Combustion Air Flow", value: "≈ 42.18 m³/min (standby), ≈ 37.38 m³/min (prime)" },
+        { label: "Ambient Rating", value: "45 °C" },
+      ],
+    },
+    {
+      group: "Exhaust",
+      items: [
+        { label: "Exhaust Temp", value: "≈ 457 °C (standby), ≈ 433 °C (prime)" },
+        { label: "Exhaust Flow", value: "≈ 119.1 m³/min (standby), ≈ 111.6 m³/min (prime)" },
+        { label: "Max Back Pressure", value: "10 kPa" },
+      ],
+    },
+    {
+      group: "Dimensions & Weight",
+      items: [
+        { label: "Open Set (L×W×H)", value: "3680 × 1450 × 2050 mm" },
+        { label: "Dry Weight (Open)", value: "4645 kg" },
+        { label: "Wet Weight (Open)", value: "4784 kg" },
+      ],
+    },
+    {
+      group: "Standards & Accessories",
+      items: [
+        { label: "Certifications", value: "Unregulated / CE / UKCA" },
+        { label: "Optional Features", value: "Extended base tank, battery charger, coolant heater, ATS" },
+        { label: "Warranty", value: "2 years or 500 h standby / 1 year unlimited prime" },
+      ],
+    },
+  ],
+},
+
+
+
+
+
 
 
 
