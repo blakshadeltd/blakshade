@@ -1,5 +1,5 @@
-
 import "./globals.css";
+
 import HeaderMobileNav from "./component/MobileNav";
 import DesktopNav from "./component/DesktopNav";
 import StickyNav from "./component/StickyNav";
