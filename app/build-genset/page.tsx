@@ -116,14 +116,14 @@ export default function BuildGensetPage() {
                                     <div className="flex flex-col sm:flex-row gap-2">
                                         <a
                                             href={`/${key}`}
-                                            className="px-4 py-2 rounded bg-[var(--foreground)] text-[var(--background)] text-sm shadow hover:bg-[var(--hover)] transition"
+                                            className="px-4 py-2 btn-primary shine-effect"
                                         >
                                             {selected ? 'Change' : 'Choose'}
                                         </a>
                                         {selected && (
                                             <button
                                                 onClick={() => dispatch(removeComponent(key))}
-                                                className="px-4 py-2 rounded bg-gray-200 text-gray-700 text-sm hover:bg-gray-300"
+                                                className="px-4 py-2 btn-second shine-effect"
                                             >
                                                 Remove
                                             </button>
@@ -159,10 +159,10 @@ export default function BuildGensetPage() {
                                         key={t}
                                         onClick={() => setType(t as 'Silent' | 'Open')}
                                         className={clsx(
-                                            'px-4 py-2 rounded border text-sm transition',
+                                            'px-4 py-2',
                                             type === t
-                                                ? 'bg-[var(--foreground)] text-[var(--background)]'
-                                                : 'bg-white border-gray-300 text-gray-600 hover:border-gray-400'
+                                                ? 'btn-primary shine-effect'
+                                                : 'btn-second shine-effect'
                                         )}
                                     >
                                         {t}
