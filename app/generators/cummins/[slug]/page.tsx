@@ -7,15 +7,11 @@ import { CumminsProduct, cummins } from "@/data/generators/cummins/cumminsProduc
 import Script from "next/script";
 import type { Metadata } from "next";
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const product: CumminsProduct | undefined = cummins.find((p) => p.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const product = cummins.find((p) => p.slug === resolvedParams.slug);
 
-  if (!product) {
-    return {
-      title: "Product Not Found - BlakShade Ltd",
-      description: "The requested product could not be found.",
-    };
-  }
+  if (!product) return notFound();
 
   return {
     title: product.metaTitle,
@@ -47,11 +43,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 
 
-export default function GeneratorSpecPage(props: { params: { slug: string } }) {
-  const { slug } = props.params;
-  const product = cummins.find(p => p.slug === slug);
+export default function GeneratorSpecPage(props: { params: Promise<{ slug: string }> }) {
+    const { slug } = use(props.params);
+    const product: CumminsProduct | undefined = cummins.find((p) => p.slug === slug);
 
-  if (!product) return notFound();
+    if (!product) return notFound();
 
     // Schema Data
     const orgSchema = {
