@@ -5,6 +5,7 @@ export interface CumminsProduct {
   emissions: string;
   title: string;
   metaTitle: string;
+  keywords: string[];
   metaDescription: string;
   slug: string;
   image: string;
@@ -22,15 +23,6 @@ export interface CumminsProduct {
   standbyPower: string;
   primePower: string;
   description: string;
-  ratedSpeed: string;
-  aspiration: string;
-  fuelSystem: string;
-  governorType: string;
-  displacement: string;
-  boreStroke: string;
-  compressionRatio: string;
-  lubeOilCapacity: string;
-  coolingSystem: string;
 
   specs: { group: string; items: { label: string; value: string }[] }[];
 }
@@ -40,12 +32,19 @@ export const cummins: CumminsProduct[] = [
     title: "Cummins C22D5",
     metaTitle: "Cummins C22D5 Silent Diesel Generator",
     metaDescription: "Cummins C22D5 22 kVA 50Hz silent diesel generator with auto start, X2.5-G2 engine & Stamford S0L2-M1 alternator. Reliable three-phase power.",
+    keywords: [
+  "Cummins C22D5",
+  "22 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 22 kVA"
+],
     slug: "c22d5",
     image: "/generators/cummins/22kva-28kva-cummins-silent-diesel-generator.webp",
     fullspec: "/generators/cummins/cummins-c22d5-data-sheet.pdf",
     brand: "Cummins",
     category: "cummins",
     engine: "Cummins X2.5-G2",
+    emissions: "Unregulated",
     ampsperphase: "3",
     controlpanel: "Cummins PowerStart 0600",
     alternator: "Stamford S0L2‑M1",
@@ -65,18 +64,6 @@ export const cummins: CumminsProduct[] = [
 
 <p>Ideal for backup power and continuous prime power needs, the Cummins C22D5 silent diesel generator combines robust performance, low emissions, and ease of maintenance. Its compact design and low noise profile make it suitable for use in both indoor and outdoor environments, providing peace of mind during power outages and operational demands.</p>
 `,
-
-
-    // New properties:
-    ratedSpeed: "1 500 rpm",
-    aspiration: "Naturally Aspirated",
-    fuelSystem: "Direct Injection",
-    governorType: "Mechanical",
-    displacement: "2.5 L",
-    boreStroke: "91.4 × 127 mm",
-    compressionRatio: "18.5 : 1",
-    lubeOilCapacity: "7.3 L",
-    coolingSystem: "Water Cooled",
 
     specs: [
       {
@@ -154,120 +141,131 @@ export const cummins: CumminsProduct[] = [
         ],
       },
     ],
-    emissions: ""
+
   },
   {
-    title: "Cummins C22D5Q",
-    metaTitle: "Cummins C22D5Q Silent Diesel Generator",
-    metaDescription: "Cummins C22D5Q 22 kVA (Standby) / 20 kVA (Prime), 50Hz silent diesel generator with Cummins X2.5‑G2 engine & Stamford S0L2‑G1 alternator. Reliable three‑phase power.",
-    slug: "c22d5q",
-    image: "/generators/cummins/22kva-28kva-cummins-q-range-silent-diesel-generator.webp",
-    fullspec: "/generators/cummins/cummins-c22d5q-data-sheet.pdf",
-    brand: "Cummins",
-    category: "cummins",
-    engine: "Cummins X2.5‑G2",
-    ampsperphase: "31.8",
-    controlpanel: "Cummins PowerStart 0600",
-    alternator: "Stamford S0L2‑G1",
-    frequency: "50Hz",
-    fuelType: "Diesel",
-    phase: "Three Phase",
-    voltage: "400 V",
-    buildType: "Silent",
-    startType: "Auto Start (12 V DC)",
-    size: 22,
-    standbyPower: "22 kVA",
-    primePower: "20 kVA",
-    description: `
-<p>The Cummins C22D5Q is a compact yet robust 22 kVA silent diesel generator from the Q‑Range, designed for stationary, standby and prime power applications.</p>
+  title: "Cummins C22D5Q",
+  metaTitle: "Cummins C22D5Q Silent Diesel Generator",
+  metaDescription: "Cummins C22D5Q 22 kVA (Standby) / 20 kVA (Prime), 50Hz silent diesel generator with Cummins X2.5-G2 engine & Stamford S0L2-G1 alternator. Reliable three-phase power.",
+  keywords: [
+  "Cummins C22D5Q",
+  "22 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 22 kVA"
+],
+  slug: "c22d5q",
+  image: "/generators/cummins/22kva-28kva-cummins-q-range-silent-diesel-generator.webp",
+  fullspec: "/generators/cummins/cummins-c22d5q-data-sheet.pdf",
+  brand: "Cummins",
+  category: "cummins",
+  engine: "Cummins X2.5-G2",
+  emissions: "Unregulated",
+  ampsperphase: "31.8",
+  controlpanel: "Cummins PowerStart 0600",
+  alternator: "Stamford S0L2-G1",
+  frequency: "50Hz",
+  fuelType: "Diesel",
+  phase: "Three Phase",
+  voltage: "400V",
+  buildType: "Silent",
+  startType: "Auto Start",
+  size: 22,
+  standbyPower: "22 kVA",
+  primePower: "20 kVA",
+  description: "<p>The Cummins C22D5Q is a compact yet robust 22 kVA silent diesel generator from the Q-Range, designed for stationary, standby and prime power applications.</p><p>Powered by the Cummins X2.5-G2 naturally aspirated 3-cylinder engine running at 1,500 rpm, this genset delivers prime output of 20 kVA (16 kW) and standby output of 22 kVA (17.6 kW) with reliable voltage regulation (± 2.5%) and droop frequency control. The Stamford S0L2-G1 alternator provides consistent 400V three-phase output at 50Hz. Integrated microprocessor-based PowerStart 0600 controls offer automatic start/stop, comprehensive fault protection, and digital metering.</p><p>Built in the UK and certified CE/UKCA, the C22D5Q features a standard 55 L fuel tank (≈ 13 h autonomy at 75% PRP), coolant heater, battery charger and SLI battery system. Its compact and stackable silent canopy design ensures ease of transport, storage, and low noise levels (≈ 77 dB(A) at 1 m, 65 dB(A) at 7 m).</p>",
+  specs: [
+    {
+      group: "Engine Specs",
+      items: [
+        { label: "Engine Model", value: "Cummins X2.5-G2" },
+        { label: "Engine Type", value: "Diesel, 4-Cycle" },
+        { label: "Aspiration", value: "Naturally Aspirated" },
+        { label: "Cylinders", value: "3" },
+        { label: "Bore × Stroke", value: "91.4 mm × 127 mm" }
+      ]
+    },
+    {
+      group: "Alternator Specs",
+      items: [
+        { label: "Alternator Model", value: "Stamford S0L2-G1" },
+        { label: "IP Rating", value: "IP23" },
+        { label: "Insulation Class", value: "H" },
+        { label: "Voltage Regulation", value: "± 2.5%" },
+        { label: "Cooling", value: "Direct Drive Centrifugal Fan" }
+      ]
+    },
+    {
+      group: "Control Panel Specs",
+      items: [
+        { label: "Controller Model", value: "PowerStart 0600" },
+        { label: "Display", value: "128×64 Monochrome LCD" },
+        { label: "Operation", value: "Auto & Manual Start" },
+        { label: "Functions", value: "AMF, Remote Start/Stop" },
+        { label: "Battery System", value: "12V DC" }
+      ]
+    },
+    {
+      group: "Fuel & Consumption",
+      items: [
+        { label: "Fuel Tank Capacity", value: "55 L" },
+        { label: "Consumption @ 75% Prime", value: "4.3 L/hr" },
+        { label: "Autonomy @ 75% Prime", value: "12.8 hours" }
+      ]
+    },
+    {
+      group: "Cooling & Air",
+      items: [
+        { label: "Coolant Capacity", value: "6.1 L" },
+        { label: "Max Air Intake Restriction", value: "3.7 kPa" },
+        { label: "Combustion Air Flow @ Standby", value: "1.4 m³/min" }
+      ]
+    },
+    {
+      group: "Exhaust",
+      items: [
+        { label: "Exhaust Gas Flow @ Standby", value: "3.8 m³/min" },
+        { label: "Exhaust Gas Temperature @ Standby", value: "515 °C" },
+        { label: "Max Back Pressure", value: "10.2 kPa" }
+      ]
+    },
+    {
+      group: "Dimensions & Weight",
+      items: [
+        { label: "Length (Enclosed)", value: "1960 mm" },
+        { label: "Width (Enclosed)", value: "820 mm" },
+        { label: "Height (Enclosed)", value: "1285 mm" },
+        { label: "Dry Weight (Enclosed)", value: "715 kg" }
+      ]
+    },
+    {
+      group: "Standards & Accessories",
+      items: [
+        { label: "Noise @ 7m (75% Load)", value: "65 dB(A)" },
+        { label: "Certifications", value: "CE / UKCA" },
+        { label: "Standard Features", value: "Coolant Heater, Battery Charger" },
+        { label: "Warranty", value: "2 years / 500 hrs (Standby)" }
+      ]
+    }
+  ]
+},
 
-<p>Powered by the Cummins X2.5‑G2 naturally aspirated 3‑cylinder engine running at 1 500 rpm, this genset delivers prime output of 20 kVA (16 kW) and standby output of 22 kVA (18 kW) with reliable voltage regulation (± 2.5%) and droop frequency control. The Stamford S0L2‑G1 alternator provides consistent 400 V three‑phase output at 50Hz. Integrated microprocessor‑based PowerStart 0600 controls offer automatic start/stop, comprehensive fault protection, and digital metering.</p>
-
-<p>Built in Europe and certified CE/UKCA, the C22D5Q features a standard 55 L fuel tank (≈ 13 h autonomy at 75 % PRP), coolant heater, battery charger and SLI battery system. Its compact and stackable silent canopy design ensures ease of transport, storage, and low noise levels (≈ 77 dB(A) at 1 m, 65 dB(A) at 7 m).</p>
-`,
-    ratedSpeed: "1500 rpm",
-    aspiration: "Naturally Aspirated",
-    fuelSystem: "Direct Injection",
-    governorType: "Mechanical",
-    displacement: "2.5 L",
-    boreStroke: "91.4 × 127 mm",
-    compressionRatio: "18.5 : 1",
-    lubeOilCapacity: "7.3 / 8.0 L",
-    coolingSystem: "Water Cooled with radiator",
-    specs: [
-      {
-        group: "Engine Specs",
-        items: [
-          { label: "Engine Model", value: "X2.5‑G2 (3‑cyl, naturally aspirated)" },
-          { label: "Rated Speed", value: "1 500 rpm" },
-          { label: "Bore × Stroke", value: "91.4 × 127 mm" },
-          { label: "Displacement", value: "2.5 L" },
-          { label: "Lube Oil Capacity", value: "7.3 L (pan) / 8.0 L (total)" }
-        ]
-      },
-      {
-        group: "Alternator Specs",
-        items: [
-          { label: "Model", value: "Stamford S0L2‑G1" },
-          { label: "Insulation Class", value: "H" },
-          { label: "Voltage Regulation", value: "± 2.5 % (no load to full load)" },
-          { label: "Frequency Regulation", value: "Droop, ± 0.75 % random" }
-        ]
-      },
-      {
-        group: "Control Panel Specs",
-        items: [
-          { label: "Controller Model", value: "PowerStart 0600" },
-          { label: "Display", value: "128×64 monochrome LCD with LED indicators" },
-          { label: "Battery Operation", value: "12 V DC (SLI battery & charger included)" },
-          { label: "Functions", value: "Auto/Manual start, metering, fault annunciation, AMF, remote start" }
-        ]
-      },
-      {
-        group: "Fuel & Consumption",
-        items: [
-          { label: "Fuel Tank Capacity", value: "55 L" },
-          { label: "Autonomy @ 75 % PRP", value: "≈ 13 h" },
-          { label: "Fuel Consumption @ 100 %", value: "≈ 5.2 L/hr" }
-        ]
-      },
-      {
-        group: "Noise & Sound",
-        items: [
-          { label: "Sound Power Level (Enclosed)", value: "94 dB(A) measured / 96 dB(A) guaranteed" },
-          { label: "Sound Pressure @1 m", value: "77 dB(A)" },
-          { label: "Sound Pressure @7 m", value: "65 dB(A)" }
-        ]
-      },
-      {
-        group: "Dimensions & Weight",
-        items: [
-          { label: "Enclosed Set (L×W×H)", value: "1 960 × 820 × 1 285 mm" },
-          { label: "Dry Weight", value: "≈ 715 kg" }
-        ]
-      },
-      {
-        group: "Standards & Accessories",
-        items: [
-          { label: "Certifications", value: "CE / UKCA" },
-          { label: "Coolant Heater", value: "230 VAC, standard" },
-          { label: "Battery System", value: "Flooded SLI with charger & disconnector" },
-          { label: "Warranty", value: "2 years or 500 h standby / 1 year unlimited prime" }
-        ]
-      }
-    ],
-    emissions: ""
-  },
 {
   title: "Cummins C28D5",
   metaTitle: "Cummins C28D5 Silent Diesel Generator",
   metaDescription: "Cummins C28D5 27.5 kVA standby / 25 kVA prime, 50Hz silent diesel generator with Cummins X2.5‑G2 engine & Stamford S0L2‑P1 alternator. Reliable three‑phase power.",
+  keywords: [
+  "Cummins C28D5",
+  "28 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 28 kVA"
+],
   slug: "c28d5",
   image: "/generators/cummins/22kva-28kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c28d5-data-sheet.pdf",
   brand: "Cummins",
   category: "cummins",
   engine: "Cummins X2.5‑G2",
+  emissions: "unregulated",
   ampsperphase: "39.6",
   controlpanel: "Cummins PowerStart 0600",
   alternator: "Stamford S0L2‑P1",
@@ -287,15 +285,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Designed for silent operation under enclosed or open configurations, the C28D5 features a large 150 L base fuel tank, low noise canopy (~77 dB(A) at 1 m), and meets ISO, CE standards. It’s ideal for commercial, industrial, and data center usage.</p>
 `,
-  compressionRatio: "18.5 : 1",
-  ratedSpeed: "1 500 rpm",
-  aspiration: "Naturally Aspirated",
-  fuelSystem: "Direct Injection",
-  governorType: "Mechanical",
-  displacement: "2.5 L",
-  boreStroke: "91.4 × 127 mm",
-  lubeOilCapacity: "7.3 L",
-  coolingSystem: "Water Cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -369,18 +359,24 @@ export const cummins: CumminsProduct[] = [
       ]
     }
   ],
-  emissions: ""
 },
 {
   title: "Cummins C33D5",
   metaTitle: "Cummins C33D5 Silent Diesel Generator",
   metaDescription: "Cummins C33D5 33 kVA standby / 30 kVA prime, 50Hz silent diesel generator with Cummins X3.3‑G1 engine & Stamford S0L2‑P1 alternator. Reliable three‑phase power.",
+  keywords: [
+  "Cummins C33D5",
+  "33 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 33 kVA"
+],
   slug: "c33d5",
   image: "/generators/cummins/33kva-38kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c33d5-data-sheet.pdf",
   brand: "Cummins",
   category: "cummins",
   engine: "Cummins X3.3‑G1",
+  emissions: "unregulated",
   ampsperphase: "47.5",
   controlpanel: "Cummins PowerCommand 1.1",
   alternator: "Stamford S0L2‑P1",
@@ -400,15 +396,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Available in silent or weather‑protected enclosures, base fuel tank capacity is 175 L. Noise levels are approximately 77 dB(A) at 1 m. Certified to CE/ISO standards, the C33D5 includes optional features such as coolant heaters, battery chargers, and extended fuel tanks.</p>
 `,
-  compressionRatio: "18.5 : 1",
-  ratedSpeed: "1 500 rpm",
-  aspiration: "Naturally Aspirated",
-  fuelSystem: "Direct Injection",
-  governorType: "Mechanical",
-  displacement: "3.3 L",
-  boreStroke: "91.4 × 127 mm",
-  lubeOilCapacity: "6.8 L",
-  coolingSystem: "Water Cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -481,18 +469,25 @@ export const cummins: CumminsProduct[] = [
       ]
     }
   ],
-  emissions: ""
+
 },
 {
   title: "Cummins C38D5",
   metaTitle: "Cummins C38D5 Silent Diesel Generator",
   metaDescription: "Cummins C38D5 38 kVA standby / 35 kVA prime, 50Hz silent diesel generator with Cummins X3.3-G1 engine & Stamford S1L2-J1 alternator. Reliable three-phase power.",
+  keywords: [
+  "Cummins C38D5",
+  "38 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 38 kVA"
+],
   slug: "c38d5",
   image: "/generators/cummins/33kva-38kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c38d5-data-sheet.pdf",
   brand: "Cummins",
   category: "cummins",
   engine: "Cummins X3.3-G1",
+  emissions: "unregulated",
   ampsperphase: "54.7",
   controlpanel: "Cummins PowerCommand 1.1",
   alternator: "Stamford S1L2-J1",
@@ -512,15 +507,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Equipped with a 175 L base fuel tank, sound‑attenuated enclosure (~77 dB(A) at 1 m), and optional accessories like battery charger and coolant heater, this CE/ISO compliant genset is ideal for demanding industrial use.</p>
 `,
-  compressionRatio: "18.5 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Naturally Aspirated",
-  fuelSystem: "Direct Injection",
-  governorType: "Mechanical",
-  displacement: "3.3 L",
-  boreStroke: "91.4 × 127 mm",
-  lubeOilCapacity: "6.8 L",
-  coolingSystem: "Water Cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -592,18 +579,25 @@ export const cummins: CumminsProduct[] = [
       ]
     }
   ],
-  emissions: ""
+
 },
 {
   title: "Cummins C38D5Q",
   metaTitle: "Cummins C38D5Q Silent Diesel Generator",
   metaDescription: "Cummins C38D5Q 38 kVA standby / 35 kVA prime, 50Hz silent diesel generator with Cummins X3.3‑G1 engine & Stamford S1L2‑J1 alternator. Reliable three‑phase power.",
+  keywords: [
+  "Cummins C38D5Q",
+  "38 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 38 kVA"
+],
   slug: "c38d5q",
   image: "/generators/cummins/22kva-28kva-cummins-q-range-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c38d5q-data-sheet.pdf",
   brand: "Cummins",
   category: "cummins",
   engine: "Cummins X3.3‑G1",
+  emissions: "unregulated",
   ampsperphase: "54.8",
   controlpanel: "Cummins PowerStart 0600",
   alternator: "Stamford S1L2‑J1",
@@ -617,21 +611,13 @@ export const cummins: CumminsProduct[] = [
   standbyPower: "38 kVA",
   primePower: "35 kVA",
   description: `
-<p>The Cummins C38D5Q is a sound-attenuated diesel generator offering 38 kVA standby / 35 kVA prime output, engineered for stationary standby and prime applications across commercial and industrial sectors.</p>
+<p>The Cummins C38D5Q is a silent diesel generator offering 38 kVA standby / 35 kVA prime output, engineered for stationary standby and prime applications across commercial and industrial sectors.</p>
 
 <p>Driven by a Cummins X3.3‑G1 naturally aspirated 4-cylinder engine at 1500 rpm, it delivers stable performance with ± 2.5% voltage regulation and droop frequency control. The Stamford S1L2‑J1 alternator ensures reliable 400 V three-phase power. The PowerStart 0600 microprocessor-based control system enables automatic start/stop, comprehensive diagnostics, metering and AMF functions.</p>
 
 <p>Standard features include a 55 L base fuel tank (≈ 8.6 h autonomy at 75% PRP), coolant heater, flooded SLI battery with charger, and a quiet canopy delivering ~76 dB(A) at 1 m and ~64 dB(A) at 7 m. The genset is CE/UKCA certified and backed by a full warranty network.</p>
 `,
-  compressionRatio: "18.5 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Naturally Aspirated",
-  fuelSystem: "Direct Injection",
-  governorType: "Mechanical",
-  displacement: "3.3 L",
-  boreStroke: "91.4 × 127 mm",
-  lubeOilCapacity: "6.8 L (pan) / 7.5 L total",
-  coolingSystem: "Water Cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -704,12 +690,18 @@ export const cummins: CumminsProduct[] = [
       ]
     }
   ],
-  emissions: ""
+
 },
 {
   title: "Cummins C44D5E",
   metaTitle: "Cummins C44D5E Silent Diesel Generator",
   metaDescription: "Cummins C44D5E 44 kVA standby / 40 kVA prime, 50Hz silent diesel generator with Cummins 4BTAA3.3‑G14 engine & Stamford UCI224C alternator. Reliable three‑phase power.",
+  keywords: [
+  "Cummins C44D5E",
+  "44 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 44 kVA"
+],
   slug: "c44d5e",
   image: "/generators/cummins/44kva-55kva-66kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c44d5e-data-sheet.pdf",
@@ -736,15 +728,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Equipped with a 180 L base fuel tank, low sound canopy (~76 dB(A) at 1 m), CE/Stage IIIa compliant design, and optional extras including coolant heater and battery charger, the C44D5E is ideal for industrial and commercial backup needs.</p>
 `,
-  compressionRatio: "19 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & After‑cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Mechanical",
-  displacement: "3.3 L",
-  boreStroke: "95 × 115 mm",
-  lubeOilCapacity: "8 L",
-  coolingSystem: "Water Cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -821,6 +805,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C55D5E",
   metaTitle: "Cummins C55D5E Silent Diesel Generator",
   metaDescription: "Cummins C55D5E 55 kVA standby / 50 kVA prime, 50Hz silent diesel generator with Cummins 4BTAA3.3-G14 engine & Stamford UCI224D alternator. Reliable three-phase power.",
+  keywords: [
+  "Cummins C55D5E",
+  "55 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 55 kVA"
+],
   slug: "c55d5e",
   image: "/generators/cummins/44kva-55kva-66kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c55d5e-data-sheet.pdf",
@@ -847,15 +837,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Ideal for commercial and industrial use, this generator is CE/Stage IIIa compliant, comes with a low noise canopy, and offers optional extras like battery charger and coolant heater.</p>
   `,
-  compressionRatio: "19 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & After-Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Mechanical",
-  displacement: "3.3 L",
-  boreStroke: "102 × 120 mm",
-  lubeOilCapacity: "8 L",
-  coolingSystem: "Water Cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -932,6 +914,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C55D5EQ",
   metaTitle: "Cummins C55D5EQ Silent Diesel Generator",
   metaDescription: "Cummins C55D5EQ 55 kVA standby / 50 kVA prime, 50Hz silent diesel generator with Cummins 4BTAA3.3‑G14 engine & Stamford UC224D alternator. Reliable three‑phase power.",
+  keywords: [
+  "Cummins C55D5EQ",
+  "55 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 55 kVA"
+],
   slug: "c55d5eq",
   image: "/generators/cummins/22kva-28kva-cummins-q-range-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c55d5eq-data-sheet.pdf",
@@ -958,15 +946,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Designed for industrial and commercial backup power, it includes CE/UKCA compliance and options like coolant heater, battery charger, extended tank and ATS.</p>
 `,
-  compressionRatio: "19 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & After‑Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Mechanical",
-  displacement: "3.3 L",
-  boreStroke: "102 × 120 mm",
-  lubeOilCapacity: "8 L",
-  coolingSystem: "Water Cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -1043,6 +1023,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C66D5E",
   metaTitle: "Cummins C66D5E Silent Diesel Generator",
   metaDescription: "Cummins C66D5E 66 kVA standby / 60 kVA prime, 50Hz silent diesel generator with Cummins 4BTAA3.3‑G14 engine & Stamford UCI22 4F alternator. Reliable three‑phase power.",
+  keywords: [
+  "Cummins C66D5E",
+  "66 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 66 kVA"
+],
   slug: "c66d5e",
   image: "/generators/cummins/44kva-55kva-66kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c66d5e-data-sheet.pdf",
@@ -1069,15 +1055,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Compliant with Stage IIIa and CE/UKCA standards, it features a sound‑attenuated enclosure and options including battery charger, coolant heater, extended tank, and ATS.</p>
 `,
-  compressionRatio: "19 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & After‑Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Mechanical",
-  displacement: "3.3 L",
-  boreStroke: "95 × 115 mm",
-  lubeOilCapacity: "8 L",
-  coolingSystem: "Water‑cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -1154,6 +1132,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C66D5EQ",
   metaTitle: "Cummins C66D5EQ Silent Diesel Generator",
   metaDescription: "Cummins C66D5EQ 66 kVA standby / 60 kVA prime, 50Hz silent diesel generator with Cummins 4BTAA3.3‑G14 engine & Stamford UC224F alternator. Reliable three‑phase power.",
+  keywords: [
+  "Cummins C66D5EQ",
+  "66 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 66 kVA"
+],
   slug: "c66d5eq",
   image: "/generators/cummins/22kva-28kva-cummins-q-range-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c66d5eq-data-sheet.pdf",
@@ -1180,15 +1164,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Designed for industrial and commercial backup power, it includes CE/UKCA compliance and options like coolant heater, battery charger, extended tank and ATS.</p>
 `,
-  compressionRatio: "19 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & After‑Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Mechanical",
-  displacement: "3.3 L",
-  boreStroke: "95 × 115 mm",
-  lubeOilCapacity: "8 L",
-  coolingSystem: "Water‑cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -1263,6 +1239,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C90D5",
   metaTitle: "Cummins C90D5 Silent Diesel Generator",
   metaDescription: "Cummins C90D5 90 kVA standby / 82 kVA prime, 50Hz silent diesel generator with Cummins 6BTA5.9‑G5 engine & Stamford UCI224G alternator. Reliable three‑phase power.",
+  keywords: [
+  "Cummins C90D5",
+  "90 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 90 kVA"
+],
   slug: "c90d5",
   image: "/generators/cummins/90kva-110kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c90d5-data-sheet.pdf",
@@ -1289,15 +1271,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Sound‑attenuated enclosure, compliant with CE (and optionally Stage IIIa in applicable regions), is available with accessories such as battery charger, water heater and extended fuel tank.</p>
 `,
-  compressionRatio: "16.5 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & After Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Electronic",
-  displacement: "5.9 L",
-  boreStroke: "102 × 120 mm",
-  lubeOilCapacity: "≈ 6 L",
-  coolingSystem: "Water‑cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -1373,6 +1347,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C110D5",
   metaTitle: "Cummins C110D5 Silent Diesel Generator",
   metaDescription: "Cummins C110D5 110 kVA standby / 100 kVA prime, 50Hz silent diesel generator with Cummins 6BTA5.9‑G5 engine & Stamford UCI274C alternator. Reliable three‑phase power.",
+  keywords: [
+  "Cummins C110D5",
+  "110 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 110 kVA"
+],
   slug: "c110d5",
   image: "/generators/cummins/90kva-110kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c110d5-data-sheet.pdf",
@@ -1399,15 +1379,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Comes in a sound‑attenuated enclosure compliant with CE/UKCA. Accessories include battery charger, coolant heater, extended fuel tank, and ATS options.</p>
 `,
-  compressionRatio: "17.6 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & After‑Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Electronic",
-  displacement: "5.9 L",
-  boreStroke: "102 × 120 mm",
-  lubeOilCapacity: "16.4 L",
-  coolingSystem: "Water‑cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -1486,6 +1458,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C110D5Q",
   metaTitle: "Cummins C110D5Q Q‑Range Silent Diesel Generator",
   metaDescription: "Cummins C110D5Q 110 kVA standby / 100 kVA prime, 50Hz silent diesel generator with Cummins 6BTA5.9‑G5 engine & Stamford UC274C alternator. Reliable three‑phase power.",
+  keywords: [
+  "Cummins C110D5Q",
+  "110 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 110 kVA"
+],
   slug: "c110d5q",
   image: "/generators/cummins/110kva-170kva-cummins-q-range-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c110d5q-data-sheet.pdf",
@@ -1510,15 +1488,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Includes a CE/UKCA‑approved canopy, with options like battery charger, coolant heater, extended fuel tank and ATS. Emissions level is unregulated for this Q‑Range model.</p>
 `,
-  compressionRatio: "17.6 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & After‑Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Electronic",
-  displacement: "5.9 L",
-  boreStroke: "102 × 120 mm",
-  lubeOilCapacity: "≈ 16.4 L",
-  coolingSystem: "Water‑cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -1595,6 +1565,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C150D5",
   metaTitle: "Cummins C150D5 Silent Diesel Generator",
   metaDescription: "Cummins C150D5 150 kVA standby / 136 kVA prime, 50Hz silent diesel generator with Cummins 6BTA5.9‑G6 engine & Stamford UCI274E alternator. Reliable three‑phase power.",
+  keywords: [
+  "Cummins C150D5",
+  "150 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 150 kVA"
+],
   slug: "c150d5",
   image: "/generators/cummins/150kva-170kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c150d5-data-sheet.pdf",
@@ -1621,15 +1597,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Mounted in a sound‑attenuated canopy compliant with CE/UKCA. Optional extras include extended fuel tanks, battery charger, coolant heater, and ATS.</p>
 `,
-  compressionRatio: "16.5 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & Charge-Air‑Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Electronic",
-  displacement: "5.9 L",
-  boreStroke: "102 × 120 mm",
-  lubeOilCapacity: "16.4 L",
-  coolingSystem: "Water‑cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -1708,6 +1676,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C170D5",
   metaTitle: "Cummins C170D5 Silent Diesel Generator",
   metaDescription: "Cummins C170D5 170 kVA standby / 155 kVA prime, 50Hz silent diesel generator with Cummins 6BTAA5.9‑G7 engine & Stamford UCI274F alternator. Reliable three‑phase power.",
+  keywords: [
+  "Cummins C170D5",
+  "170 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 170 kVA"
+],
   slug: "c170d5",
   image: "/generators/cummins/150kva-170kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c170d5-data-sheet.pdf",
@@ -1734,15 +1708,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Mounted in a sound‑attenuated canopy compliant with CE/UKCA. Optional extras include extended fuel tanks, battery charger, coolant heater, and ATS.</p>
 `,
-  compressionRatio: "16.5 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & Charge-Air‑Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Electronic",
-  displacement: "5.9 L",
-  boreStroke: "102 × 120 mm",
-  lubeOilCapacity: "16.4 L",
-  coolingSystem: "Water‑cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -1821,6 +1787,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C170D5Q",
   metaTitle: "Cummins C170D5Q Silent Diesel Generator",
   metaDescription: "Cummins C170D5Q 170 kVA standby / 155 kVA prime, 50Hz silent diesel generator with Cummins 6BTAA5.9‑G7 engine & Stamford UC274F alternator. Reliable three‑phase power.",
+  keywords: [
+  "Cummins C170D5Q",
+  "170 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 170 kVA"
+],
   slug: "c170d5q",
   image: "/generators/cummins/110kva-170kva-cummins-q-range-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c170d5q-data-sheet.pdf",
@@ -1847,15 +1819,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Mounted in a sound‑attenuated and weather‑protective canopy compliant with CE/UKCA. Optional extras include extended fuel tanks, battery charger, coolant heater, and ATS.</p>
 `,
-  compressionRatio: "16.5 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & Charge-Air‑Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Electronic",
-  displacement: "5.9 L",
-  boreStroke: "102 × 120 mm",
-  lubeOilCapacity: "16.4 L",
-  coolingSystem: "Water‑cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -1933,6 +1897,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C220D5E",
   metaTitle: "Cummins C220D5E Silent Diesel Generator",
   metaDescription: "Cummins C220D5E 220 kVA standby / 200 kVA prime, 50Hz silent diesel generator with Cummins QSB7‑G5 engine & Stamford UCI274H alternator. Stage IIIa certified reliable three‑phase power.",
+  keywords: [
+  "Cummins C220D5E",
+  "220 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 220 kVA"
+],
   slug: "c220d5e",
   image: "/generators/cummins/175kva-200kva-220kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c220d5e-data-sheet.pdf",
@@ -1957,15 +1927,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Designed for robust industrial and commercial standby applications, it comes in a sound‑attenuated and weather‑protective canopy compliant with CE/UKCA. Optional features include extended fuel tanks, coolant heater, battery charger, and ATS integration.</p>
 `,
-  compressionRatio: "17.2 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & Charge‑Air‑Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Electronic",
-  displacement: "≈ 7.44 L",
-  boreStroke: "107 × 124 mm",
-  lubeOilCapacity: "≈ 19 L",
-  coolingSystem: "Water‑cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -2043,6 +2005,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C220D5EQ",
   metaTitle: "Cummins C220D5EQ Q‑Range Silent Diesel Generator",
   metaDescription: "Cummins C220D5EQ 220 kVA standby / 200 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins QSB7‑G5 engine & Stamford UC274H alternator. Stage IIIa compliant reliable three‑phase power.",
+  keywords: [
+  "Cummins C220D5EQ",
+  "220 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 220 kVA"
+],
   slug: "c220d5eq",
   image: "/generators/cummins/220kva-cummins-q-range-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c220d5eq-data-sheet.pdf",
@@ -2067,15 +2035,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Controlled via the PowerCommand 1.2 microprocessor panel with automatic start/stop, diagnostics, fault protection, and full metering. The weather‑protective sound‑attenuated canopy is CE/UKCA certified, with options such as extended fuel tanks, battery charger, coolant heater, and ATS.</p>
 `,
-  compressionRatio: "17.2 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & Charge‑Air‑Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Electronic",
-  displacement: "≈ 7.44 L",
-  boreStroke: "107 × 124 mm",
-  lubeOilCapacity: "≈ 19 L",
-  coolingSystem: "Water‑cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -2151,6 +2111,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C275D5E",
   metaTitle: "Cummins C275D5E Silent Diesel Generator",
   metaDescription: "Cummins C275D5E 275 kVA standby / 250 kVA prime, 50Hz silent diesel generator with Cummins QSL9‑G5 engine & Stamford UCD274K alternator. Reliable three-phase power.",
+  keywords: [
+  "Cummins C275D5E",
+  "275 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 275 kVA"
+],
   slug: "c275d5e",
   image: "/generators/cummins/275kva-300kva-330kva-350kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c275d5e-data-sheet.pdf",
@@ -2175,15 +2141,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Featuring PowerCommand 1.2 control for auto/manual start, diagnostics, protection and metering. Designed with a sound‑attenuated and weather‑protective enclosure compliant with CE/UKCA. Options include extended fuel tanks, coolant heater, battery charger and ATS integration.</p>
 `,
-  compressionRatio: "16.8 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & Charge‑Air‑Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Electronic",
-  displacement: "9.0 L",
-  boreStroke: "114 × 145 mm",
-  lubeOilCapacity: "26.5 L",
-  coolingSystem: "Water‑cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -2262,6 +2220,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C275D5EQ",
   metaTitle: "Cummins C275D5EQ Q‑Range Silent Diesel Generator",
   metaDescription: "Cummins C275D5EQ 275 kVA standby / 250 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins QSL9‑G7 engine & Stamford UCD274K alternator. Stage IIIa certified three‑phase power.",
+  keywords: [
+  "Cummins C275D5EQ",
+  "275 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 275 kVA"
+],
   slug: "c275d5eq",
   image: "/generators/cummins/275kva-330kva-450kva-cummins-q-range-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c275d5eq-data-sheet.pdf",
@@ -2285,15 +2249,7 @@ export const cummins: CumminsProduct[] = [
 <p>The Cummins C275D5EQ Q‑Range generator delivers 275 kVA (220 kW) standby and 250 kVA (200 kW) prime power at 50Hz. Powered by the turbocharged and charge‑air cooled Cummins QSL9‑G7 Stage IIIa engine running at 1500 rpm and paired with a Stamford UCD274K alternator offering ±1 % voltage regulation.</p>
 <p>Equipped with the PowerCommand 1.2 microprocessor control system—with automatic start/stop, diagnostics, fault protection, and metering. The weather‑protected and sound‑attenuated canopy is CE/UKCA compliant. Optional extras include extended fuel tanks, coolant heater, battery charger, and ATS.</p>
 `,
-  compressionRatio: "16.8 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & Charge‑Air‑Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Electronic",
-  displacement: "9.0 L",
-  boreStroke: "114 × 145 mm",
-  lubeOilCapacity: "26.5 L",
-  coolingSystem: "Water‑cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -2372,6 +2328,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C330D5",
   metaTitle: "Cummins C330D5 Silent Diesel Generator",
   metaDescription: "Cummins C330D5 330 kVA standby / 300 kVA prime, 50Hz silent diesel generator with Cummins QSL9‑G5 engine & Stamford HC4D alternator. Reliable three‑phase power.",
+  keywords: [
+  "Cummins C330D5",
+  "330 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 330 kVA"
+],
   slug: "c330d5",
   image: "/generators/cummins/275kva-300kva-330kva-350kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c330d5-data-sheet.pdf",
@@ -2396,15 +2358,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Designed for demanding industrial and commercial applications, this generator features a sound‑attenuated, weather‑protective canopy compliant with CE/UKCA. Optional extras include extended fuel tanks, battery charger, coolant heater, and ATS.</p>
 `,
-  compressionRatio: "16.8 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & Charge‑Air‑Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Electronic",
-  displacement: "9.0 L",
-  boreStroke: "114 × 145 mm",
-  lubeOilCapacity: "26.5 L",
-  coolingSystem: "Water‑cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -2483,6 +2437,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C330D5EQ",
   metaTitle: "Cummins C330D5EQ Q‑Range Silent Diesel Generator",
   metaDescription: "Cummins C330D5EQ 330 kVA standby / 300 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins QSL9‑G7 engine & Stamford HC444D alternator. Stage IIIa compliant three‑phase power.",
+  keywords: [
+  "Cummins C330D5EQ",
+  "330 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 330 kVA"
+],
   slug: "c330d5eq",
   image: "/generators/cummins/275kva-330kva-450kva-cummins-q-range-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c330d5eq-data-sheet.pdf",
@@ -2507,15 +2467,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Controlled via the PowerCommand 1.2 microprocessor panel with automatic start/stop, diagnostics, fault protection, and metering. The weather‑protected sound‑attenuated canopy is CE/UKCA certified. Optional extras include additional fuel tanks, battery charger, coolant heater, and ATS.</p>
 `,
-  compressionRatio: "16.8 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & Charge‑Air‑Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Electronic",
-  displacement: "9.0 L",
-  boreStroke: "114 × 145 mm",
-  lubeOilCapacity: "26.5 L",
-  coolingSystem: "Water‑cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -2591,6 +2543,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C450D5Q",
   metaTitle: "Cummins C450D5Q Q‑Range Silent Diesel Generator",
   metaDescription: "Cummins C450D5Q 450 kVA standby / 409 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins QSG12‑G4 engine & Stamford S4L1D‑G41 alternator. Unregulated emissions, reliable three‑phase power.",
+  keywords: [
+  "Cummins C450D5Q",
+  "450 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 450 kVA"
+],
   slug: "c450d5q",
   image: "/generators/cummins/275kva-330kva-450kva-cummins-q-range-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c450d5q-data-sheet.pdf",
@@ -2615,15 +2573,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Managed by the PowerCommand 2.2 control panel offering auto/manual start/stop, diagnostics, fault protection and digital metering. The weather‑protective, sound‑attenuated canopy is CE/UKCA compliant. Optional features include extended fuel tank, coolant heater, battery charger and ATS.</p>
 `,
-  compressionRatio: "17 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & After‑Cooled",
-  fuelSystem: "XPI Direct Injection",
-  governorType: "Electronic",
-  displacement: "12.0 L",
-  boreStroke: "132 × 144 mm",
-  lubeOilCapacity: "34.1 L",
-  coolingSystem: "Water‑cooled radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -2702,6 +2652,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C450D5",
   metaTitle: "Cummins C450D5 Silent Diesel Generator",
   metaDescription: "Cummins C450D5 450 kVA standby / 410 kVA prime, 50Hz silent diesel generator with Cummins QSG12‑G2 engine & Stamford S4G alternator. Reliable three‑phase power.",
+  keywords: [
+  "Cummins C450D5",
+  "450 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 450 kVA"
+],
   slug: "c450d5",
   image: "/generators/cummins/400kva-450kva-500kva-550kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c450d5-data-sheet.pdf",
@@ -2726,15 +2682,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Equipped with the PowerCommand 2.2 control panel for auto/manual start, diagnostics, fault protection, and detailed metering. Designed in a sound‑attenuated, weather‑protective canopy compliant with CE/UKCA.</p>
 `,
-  compressionRatio: "17 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & After‑Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Electronic",
-  displacement: "12.0 L",
-  boreStroke: "132 × 144 mm",
-  lubeOilCapacity: "34.1 L",
-  coolingSystem: "Water‑cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -2811,6 +2759,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C550D5",
   metaTitle: "Cummins C550D5 Silent Diesel Generator",
   metaDescription: "Cummins C550D5 550 kVA standby / 500 kVA prime, 50Hz silent diesel generator with Cummins QSZ13‑G10 engine & Stamford S5E alternator. Reliable three‑phase power.",
+  keywords: [
+  "Cummins C550D5",
+  "550 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 550 kVA"
+],
   slug: "c550d5",
   image: "/generators/cummins/400kva-450kva-500kva-550kva-cummins-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c550d5-data-sheet.pdf",
@@ -2835,15 +2789,7 @@ export const cummins: CumminsProduct[] = [
 
 <p>Managed with PowerCommand 2.2 control panel for automatic start/stop, diagnostics, protection, and metering. Designed in a sound‑attenuated, weather‑protective canopy compliant with CE/UKCA. Options include extended base fuel tanks, coolant heater, battery charger, ATS, and more.</p>
 `,
-  compressionRatio: "17 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & Charge‑Air‑Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Electronic",
-  displacement: "≈ 15 L",
-  boreStroke: "130 × 163 mm",
-  lubeOilCapacity: "≈ 75 L",
-  coolingSystem: "Water‑cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -2922,6 +2868,12 @@ export const cummins: CumminsProduct[] = [
   title: "Cummins C550D5QB",
   metaTitle: "Cummins C550D5QB Q‑Range Silent Diesel Generator",
   metaDescription: "Cummins C550D5QB 550 kVA standby / 500 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins M15‑G8 engine & Stamford S5L1S‑D4 alternator. Reliable three‑phase power, unregulated emissions.",
+  keywords: [
+  "Cummins C550D5QB",
+  "550 kVA diesel generator",
+  "Silent diesel generator",
+  "Standby power generator 550 kVA"
+],
   slug: "c550d5qb",
   image: "/generators/cummins/550kva-cummins-q-range-silent-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c550d5qb-data-sheet.pdf",
@@ -2945,15 +2897,7 @@ export const cummins: CumminsProduct[] = [
 <p>The Cummins C550D5QB Q‑Range generator delivers 550 kVA (440 kW) standby and 500 kVA (400 kW) prime power at 50Hz. Powered by the Cummins M15‑G8 turbocharged, charge‑air cooled engine and a Stamford S5L1S‑D4 alternator with ±1 % voltage regulation.</p>
 <p>Controlled by the PowerCommand 2.2 microprocessor system for auto start/stop, diagnostics, protection, and full metering. Enclosed in a sound‑attenuated, weatherproof canopy compliant with CE/UKCA. Optional extras include extended fuel tank (995 L), battery charger, coolant heater, and ATS.</p>
 `,
-  compressionRatio: "17 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & Charge‑Air‑Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Electronic (PGI)",
-  displacement: "15 L",
-  boreStroke: "130 × 163 mm",
-  lubeOilCapacity: "≈ 75 L",
-  coolingSystem: "Water‑cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",
@@ -3018,8 +2962,14 @@ export const cummins: CumminsProduct[] = [
 
 {
   title: "Cummins C640D5",
-  metaTitle: "Cummins C640D5 Diesel Generator",
-  metaDescription: "Cummins C640D5 640 kVA standby / 582 kVA prime, 50Hz diesel generator with Cummins KTAA19-G6 engine & Stamford HCI534E alternator. Reliable three-phase power.",
+  metaTitle: "Cummins C640D5 Open Diesel Generator",
+  metaDescription: "Cummins C640D5 640 kVA standby / 582 kVA prime, 50Hz open diesel generator with Cummins KTAA19-G6 engine & Stamford HCI534E alternator. Reliable three-phase power.",
+  keywords: [
+  "Cummins C640D5",
+  "640 kVA diesel generator",
+  "Open diesel generator",
+  "Standby power generator 640 kVA"
+],
   slug: "c640d5",
   image: "/generators/cummins/640kva-cummins-open-diesel-generator.webp",
   fullspec: "/generators/cummins/cummins-c640d5-data-sheet.pdf",
@@ -3040,19 +2990,11 @@ export const cummins: CumminsProduct[] = [
   standbyPower: "640 kVA",
   primePower: "582 kVA",
   description: `
-<p>The Cummins C640D5 is a heavy-duty diesel generator offering 640 kVA standby and 582 kVA prime power at 50Hz. Powered by the KTAA19-G6 turbocharged, charge-air cooled inline-6 engine and a Stamford HCI534E alternator with ± 1 % voltage regulation.</p>
+<p>The Cummins C640D5 is a heavy-duty open diesel generator offering 640 kVA standby and 582 kVA prime power at 50Hz. Powered by the KTAA19-G6 turbocharged, charge-air cooled inline-6 engine and a Stamford HCI534E alternator with ± 1 % voltage regulation.</p>
 
 <p>Managed with PowerCommand 1.2 control panel for automatic start/stop, diagnostics, protection, and metering. Designed as an open set suitable for various industrial applications. Options include extended base fuel tanks, battery charger, coolant heater, ATS, and more.</p>
 `,
-  compressionRatio: "13.9 : 1",
-  ratedSpeed: "1500 rpm",
-  aspiration: "Turbocharged & Charge-Air-Cooled",
-  fuelSystem: "Direct Injection",
-  governorType: "Electronic",
-  displacement: "19 L",
-  boreStroke: "159 × 159 mm",
-  lubeOilCapacity: "50 L",
-  coolingSystem: "Water-cooled with radiator",
+
   specs: [
     {
       group: "Engine Specs",

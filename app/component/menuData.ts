@@ -16,7 +16,7 @@ export const menuData: MenuData = {
             { name: 'Kohler Generator', href: '/generators/division/generator-2' },
             { name: 'Perkins Generator', href: '/generators/division/generator-3' },
             { name: 'Baudouin Generator', href: '/generators/division/generator-4' },
-            { name: 'Cummins Generator', href: '/generators/division/generator-5' },
+            { name: 'Cummins Generator', href: '/generators/cummins' },
         ],
         Types: [
             { name: 'Silent Generators', href: '/generators/zela/small-gen' },
