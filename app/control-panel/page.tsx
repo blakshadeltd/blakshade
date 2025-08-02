@@ -57,7 +57,7 @@ export default function ControlPanelPage() {
 
         {/* Product Grid */}
         <main className="w-full lg:w-3/4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
             {filteredProducts.map((product) => (
               <ControlPanelCard key={product.slug} product={product} />
             ))}

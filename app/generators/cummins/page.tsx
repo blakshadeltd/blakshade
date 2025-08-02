@@ -95,14 +95,6 @@ export default function GeneratorsPage() {
           <FaSlidersH />
           {showFilters ? "Hide Filters" : "Show Filters"}
         </button>
-        <select
-          value={sortOrder}
-          onChange={(e) => setSortOrder(e.target.value)}
-          className="ml-4 px-3 py-2 border rounded-md text-sm"
-        >
-          <option value="asc">Size: Low to High</option>
-          <option value="desc">Size: High to Low</option>
-        </select>
       </div>
 
       <div className="container py-12 flex flex-col lg:flex-row gap-10 mx-4">
@@ -151,7 +143,7 @@ export default function GeneratorsPage() {
                 },
                 {
                   label: "Build Type",
-                  options: ["All", "Silent/Canopied", "Open"],
+                  options: ["All", "Silent", "Open"],
                   state: selectedBuildType,
                   setState: setSelectedBuildType,
                 },
@@ -228,7 +220,7 @@ export default function GeneratorsPage() {
           </div>
 
           {/* Product Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
             {paginatedProducts.map((product) => (
               <GeneratorsCard key={product.slug} product={product} />
             ))}

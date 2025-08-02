@@ -99,7 +99,7 @@ export default function EnginePage() {
           </div>
 
           {/* Product Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
             {paginatedProducts.map((product) => (
               <EngineCard key={product.slug} product={product} />
             ))}

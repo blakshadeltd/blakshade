@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface Product {
+    engine: string;
     title: string;
     slug: string;
     image: string;
@@ -57,7 +58,7 @@ export default function GeneratorsCard({ product }: { product: Product }) {
                 <div className="text-sm text-gray-700 space-y-2 mb-6">
                     <div className="flex justify-between">
                         <span className="text-gray-600">Engine:</span>
-                        <span className="text-[var(--foreground)]">{product.brand}</span>
+                        <span className="text-[var(--foreground)]">{product.engine}</span>
                     </div>
                     <div className="flex justify-between">
                         <span className="text-gray-600">Alternator:</span>
