@@ -4,7 +4,43 @@ import Image from "next/image";
 import SpecItem from "@/app/component/SpecItem";
 import Link from "next/link";
 import AddToBuildButton from "@/app/component/AddToBuildButton";
+import Script from "next/script";
 import { use } from "react";
+import type { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const product = engines.find((p) => p.slug === resolvedParams.slug);
+
+  if (!product) return notFound();
+
+  return {
+    title: product.metaTitle,
+    description: product.metaDescription,
+    keywords: product.keywords,
+    openGraph: {
+      title: product.metaTitle,
+      description: product.metaDescription,
+      url: `https://blakshade.com/engine/${product.slug}`,
+      siteName: "BlakShade Ltd",
+      images: [
+        {
+          url: `https://blakshade.com${product.image}`,
+          width: 800,
+          height: 600,
+          alt: product.title,
+        },
+      ],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: product.metaTitle,
+      description: product.metaDescription,
+      images: [`https://blakshade.com${product.image}`],
+    },
+  };
+}
 
 export default function EngineSpecPage(props: { params: Promise<{ slug: string }> }) {
     const { slug } = use(props.params);
@@ -12,13 +48,99 @@ export default function EngineSpecPage(props: { params: Promise<{ slug: string }
 
     if (!product) return notFound();
 
+    // Schema Data
+    const orgSchema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                name: "BlakShade Ltd",
+                alternateName: "BlakShade",
+                url: "https://blakshade.com/",
+                logo: "(NOT Created YET)",
+                contactPoint: [
+                    {
+                        "@type": "ContactPoint",
+                        telephone: "+447380491992",
+                        contactType: "customer service",
+                        availableLanguage: "en",
+                    },
+                ],
+                sameAs: [
+                    "https://www.facebook.com/blakshadeltd",
+                    "https://x.com/BlakShade_Ltd",
+                    "https://www.instagram.com/blakshadeltd/",
+                    "https://www.linkedin.com/company/blakshade-ltd/",
+                    "https://www.threads.net/@blakshadeltd",
+                ],
+            },
+            {
+                "@type": "WebSite",
+                name: "BlakShade Ltd",
+                url: "https://blakshade.com/",
+            },
+        ],
+    };
+
+    const productSchema = {
+        "@context": "https://schema.org/",
+        "@graph": [
+            {
+                "@type": "Product",
+                name: product.metaTitle,
+                image: `https://blakshade.com${product.image}`,
+                description: product.metaDescription,
+                brand: {
+                    "@type": "Brand",
+                    name: product.brand,
+                },
+            },
+            {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                    {
+                        "@type": "ListItem",
+                        position: 1,
+                        name: "Home",
+                        item: "https://blakshade.com/",
+                    },
+                    {
+                        "@type": "ListItem",
+                        position: 2,
+                        name: "Diesel Engines",
+                        item: "https://blakshade.com/engine/",
+                    },
+                    {
+                        "@type": "ListItem",
+                        position: 3,
+                        name: product.brand,
+                        item: `https://blakshade.com/engine/${product.category}`,
+                    },
+                ],
+            },
+        ],
+    };
+
   return (
+            <>
+            {/* Inject schema data */}
+            <Script
+                type="application/ld+json"
+                id="org-schema"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+            />
+            <Script
+                type="application/ld+json"
+                id="product-schema"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+            />
+    
             <section>
                 {/* Hero Section */}
                 <div className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden">
                     <div className="container absolute inset-0 flex items-end justify-start">
                         <h1 className="font-normal italic text-[var(--background)] mb-4 text-2xl">
-                            {product.title}
+                            {product.metaTitle}
                         </h1>
                     </div>
                 </div>
@@ -102,5 +224,6 @@ export default function EngineSpecPage(props: { params: Promise<{ slug: string }
                 </div>
 
             </section>
+            </>
   );
 }

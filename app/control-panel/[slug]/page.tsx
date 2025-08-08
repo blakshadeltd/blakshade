@@ -5,6 +5,41 @@ import SpecItem from "@/app/component/SpecItem";
 import Link from "next/link";
 import AddToBuildButton from "@/app/component/AddToBuildButton";
 import { use } from "react";
+import type { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const product = controlpanels.find((p) => p.slug === resolvedParams.slug);
+
+  if (!product) return notFound();
+
+  return {
+    title: product.metaTitle,
+    description: product.metaDescription,
+    keywords: product.keywords,
+    openGraph: {
+      title: product.metaTitle,
+      description: product.metaDescription,
+      url: `https://blakshade.com/control-panel/${product.slug}`,
+      siteName: "BlakShade Ltd",
+      images: [
+        {
+          url: `https://blakshade.com${product.image}`,
+          width: 800,
+          height: 600,
+          alt: product.title,
+        },
+      ],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: product.metaTitle,
+      description: product.metaDescription,
+      images: [`https://blakshade.com${product.image}`],
+    },
+  };
+}
 
 export default function ControlPanelSpecPage(props: { params: Promise<{ slug: string }> }) {
     const { slug } = use(props.params);

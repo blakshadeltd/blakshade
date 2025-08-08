@@ -74,9 +74,19 @@ export default function ContactPage() {
                                     <input
                                         type="text"
                                         name="name"
-                                        className="w-full px-3 md:px-4 py-2 md:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 text-sm md:text-base"
-                                        placeholder="Ahmed Al-Maktoum"
+                                        className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
                                         required
+                                    />
+                                </div>
+                                
+                                <div>
+                                    <label className="block text-[var(--foreground)] mb-2 text-sm md:text-base">
+                                        Company Name
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
                                     />
                                 </div>
 
@@ -87,8 +97,7 @@ export default function ContactPage() {
                                     <input
                                         type="email"
                                         name="email"
-                                        className="w-full px-3 md:px-4 py-2 md:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 text-sm md:text-base"
-                                        placeholder="ahmed@company.ae"
+                                        className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
                                         required
                                     />
                                     <ValidationError
@@ -105,8 +114,7 @@ export default function ContactPage() {
                                     <input
                                         type="tel"
                                         name="phone"
-                                        className="w-full px-3 md:px-4 py-2 md:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 text-sm md:text-base"
-                                        placeholder="+971 50 123 4567"
+                                        className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
                                     />
                                 </div>
 
@@ -116,7 +124,7 @@ export default function ContactPage() {
                                     </label>
                                     <textarea
                                         name="message"
-                                        className="w-full px-3 md:px-4 py-2 md:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 h-32 text-sm md:text-base"
+                                        className="w-full px-3 md:px-4 py-2 h-50 md:py-3 bg-gray-200 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
                                         placeholder="Describe your generator requirements..."
                                         required
                                     ></textarea>
@@ -131,9 +139,9 @@ export default function ContactPage() {
                                 <button
                                     type="submit"
                                     disabled={state.submitting}
-                                    className="w-full md:w-auto px-4 md:px-6 py-2 md:py-3 rounded-[10px] font-normal shadow-md transition-all duration-500 ease-in-out bg-[var(--foreground)] text-[var(--background)] text-sm md:text-base shine-effect hover:rounded-[15px] hover:bg-[var(--hover)] cursor-pointer"
+                                    className="w-full md:w-auto px-4 md:px-12 py-2 md:py-3 btn-primary shine-effect"
                                 >
-                                    {state.submitting ? 'Submitting...' : 'Send Message'}
+                                    {state.submitting ? 'Submitting...' : 'Submit'}
                                 </button>
                             </form>
                         )}

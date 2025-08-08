@@ -7,6 +7,7 @@ import GeneratorsCard from "@/app/generators/GeneratorsCard";
 
 export default function GeneratorsPage() {
   const [selectedBrand, setSelectedBrand] = useState("Cummins");
+  const [selectedEmission, setSelectedEmisiion] = useState("All");
   const [selectedFrequency, setSelectedFrequency] = useState("All");
   const [selectedFuelType, setSelectedFuelType] = useState("Diesel");
   const [selectedKvaRating, setSelectedKvaRating] = useState("All");
@@ -33,6 +34,7 @@ export default function GeneratorsPage() {
   const filteredCummins = useMemo(() => {
     return sortedProducts.filter((product) => {
       const matchBrand = selectedBrand === "All" || product.brand === selectedBrand;
+      const matchEmission = selectedEmission === "All" || product.emission === selectedEmission;
       const matchFrequency = selectedFrequency === "All" || product.frequency === selectedFrequency;
       const matchFuelType = selectedFuelType === "All" || product.fuelType === selectedFuelType;
       const matchPhase = selectedPhase === "All" || product.phase === selectedPhase;
@@ -47,6 +49,7 @@ export default function GeneratorsPage() {
 
       return (
         matchBrand &&
+        matchEmission &&
         matchFrequency &&
         matchFuelType &&
         matchKvaRating &&
@@ -57,6 +60,7 @@ export default function GeneratorsPage() {
   }, [
     sortedProducts,
     selectedBrand,
+    selectedEmission,
     selectedFrequency,
     selectedFuelType,
     selectedKvaRating,
@@ -109,6 +113,12 @@ export default function GeneratorsPage() {
                   options: ["All", "Cummins", "CAT", "Perkins"],
                   state: selectedBrand,
                   setState: setSelectedBrand,
+                },
+                                {
+                  label: "Emission",
+                  options: ["All", "Stage IIIA", "Stage V", "Unregulated"],
+                  state: selectedEmission,
+                  setState: setSelectedEmisiion,
                 },
                 {
                   label: "Frequency",

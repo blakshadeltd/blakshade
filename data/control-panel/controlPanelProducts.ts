@@ -1,5 +1,8 @@
 export interface ControlPanelProduct {
   title: string;
+  metaTitle: string;
+  metaDescription: string;
+  keywords: string[];
   slug: string;
   category: "control-panel";
   image: string;
@@ -24,6 +27,14 @@ export interface ControlPanelProduct {
 export const controlpanels: ControlPanelProduct[] = [
   {
     title: "Control Panel ABC",
+    metaTitle: "Cummins X2.5-G1 Diesel Engine",
+    metaDescription: "string",
+    keywords: [
+  "Cummins X2.5-G1",
+  "30 kVA diesel Engine",
+  "Silent diesel generator",
+  "Standby power generator 22 kVA"
+],
     slug: "control-panel-abc",
     category: "control-panel",
     image: "/controlpanel1.png",

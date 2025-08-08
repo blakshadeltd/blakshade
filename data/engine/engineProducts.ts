@@ -1,5 +1,8 @@
 export interface EngineProduct {
   title: string;
+  metaTitle: string;
+  metaDescription: string;
+  keywords: string[];
   slug: string;
   category: "engine";
   brand: string;
@@ -27,6 +30,14 @@ export interface EngineProduct {
 export const engines: EngineProduct[] = [
   {
     title: "Cummins X2.5-G1",
+    metaTitle: "Cummins X2.5-G1 Diesel Engine",
+    metaDescription: "string",
+    keywords: [
+  "Cummins X2.5-G1",
+  "30 kVA diesel Engine",
+  "Silent diesel generator",
+  "Standby power generator 22 kVA"
+],
     slug: "cummins-x25-g1",
     category: "engine",
     brand: "Cummins",

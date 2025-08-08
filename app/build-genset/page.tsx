@@ -92,12 +92,13 @@ export default function BuildGensetPage() {
                                     className="flex justify-between items-center border border-gray-200 p-4 rounded-xl bg-white shadow-sm hover:shadow transition"
                                 >
                                     <div className="flex items-center gap-4">
-                                        <div className="w-16 h-16 rounded-md bg-gray-50 border flex items-center justify-center text-2xl">
+                                        <div className="w-16 h-16 bg-gray-50 flex items-center justify-center text-2xl">
                                             {selected ? (
                                                 <Image
-                                                    src={`/components/${key}/${selected.id}.png`}
+                                                    src={`/components/${key}/${selected.id}.jpg`}
                                                     alt={selected.name}
-                                                    className="w-full h-full object-contain"
+                                                    width={800}
+                                                    height={600}
                                                 />
                                             ) : (
                                                 <span>{icon}</span>

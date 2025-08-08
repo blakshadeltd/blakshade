@@ -1,23 +1,16 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 
 interface Product {
-    engine: string;
     title: string;
     slug: string;
     image: string;
     brand: string;
     category: string;
-    alternator: string;
-    frequency: string;
-    fuelType: string;
+    alternatorbrand: string;
     phase: string;
     voltage: string;
     buildType: string;
-    startType: string;
-    size: number;
     standbyPower: string;
     primePower: string;
 }
@@ -58,11 +51,11 @@ export default function GeneratorsCard({ product }: { product: Product }) {
                 <div className="text-sm text-gray-700 space-y-2 mb-6">
                     <div className="flex justify-between">
                         <span className="text-gray-600">Engine:</span>
-                        <span className="text-[var(--foreground)]">{product.engine}</span>
+                        <span className="text-[var(--foreground)]">{product.brand}</span>
                     </div>
                     <div className="flex justify-between">
                         <span className="text-gray-600">Alternator:</span>
-                        <span className="text-[var(--foreground)]">{product.alternator}</span>
+                        <span className="text-[var(--foreground)]">{product.alternatorbrand}</span>
                     </div>
                     <div className="flex justify-between">
                         <span className="text-gray-600">Phase:</span>
