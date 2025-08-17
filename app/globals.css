@@ -1,20 +1,25 @@
 @import "tailwindcss";
 @tailwind utilities;
 
-
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+:root {
+  /* DEFAULT LIGHT THEME */
+  --background: #f4f3f3;
+  --foreground: #2b2926;
+  --hover: #4a4b52;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #f4f3f3;
-    --foreground: #2b2926;
+    /* DARK THEME OVERRIDES */
+    --background: #2b2926;
+    --foreground: #f4f3f3;
     --hover: #4a4b52;
-
   }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
 }
 
 .container {
@@ -28,10 +33,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   color: var(--hover);
-  font-family: Milling Duplex 1mm;
+  font-family: "Milling Duplex 1mm", -apple-system, BlinkMacSystemFont, sans-serif;
 }
-
-
 
 nav:not(.sticky-nav)::after,
 nav:not(.sticky-nav)::before {
@@ -45,8 +48,6 @@ nav:not(.sticky-nav)::after {
 nav:not(.sticky-nav)::before {
   @apply rounded-tr-[20px] right-full;
 }
-
-
 
 @layer utilities {
   .shine-effect {
@@ -82,7 +83,6 @@ nav:not(.sticky-nav)::before {
     }
   }
 }
-
 
 .curved-grid {
   list-style: none;
