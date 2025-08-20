@@ -26,17 +26,40 @@ const steps = [
   },
 ];
 
-// Hook to track if element is in view with threshold
-
 export default function HowItWorks() {
-  // Create refs once, on initial render
   const stepRefs = useRef(steps.map(() => React.createRef<HTMLDivElement>()));
-
+  const circleRefs = useRef(steps.map(() => React.createRef<HTMLDivElement>()));
+  const containerRef = useRef<HTMLDivElement>(null);
+  
   const [visibleSteps, setVisibleSteps] = useState<boolean[]>(
     Array(steps.length).fill(false)
   );
+  const [progressHeight, setProgressHeight] = useState(0);
+  const [progressTop, setProgressTop] = useState(0);
 
   useEffect(() => {
+    function updateProgress() {
+      if (!containerRef.current) return;
+      
+      // Get positions of the first and last circles
+      const firstCircle = circleRefs.current[0].current;
+      const lastCircle = circleRefs.current[steps.length - 1].current;
+      
+      if (!firstCircle || !lastCircle) return;
+      
+      const firstRect = firstCircle.getBoundingClientRect();
+      const lastRect = lastCircle.getBoundingClientRect();
+      const containerRect = containerRef.current.getBoundingClientRect();
+      
+      // Calculate top position relative to container
+      const top = firstRect.top + firstRect.height / 2 - containerRect.top;
+      // Calculate height based on distance between first and last circles
+      const height = lastRect.bottom - firstRect.top - firstRect.height / 2;
+      
+      setProgressTop(top);
+      setProgressHeight(height);
+    }
+
     function checkVisibility() {
       const newVisibleSteps = stepRefs.current.map((ref) => {
         if (!ref.current) return false;
@@ -44,35 +67,62 @@ export default function HowItWorks() {
         return rect.top < window.innerHeight * 0.75 && rect.bottom > 0;
       });
       setVisibleSteps(newVisibleSteps);
+      updateProgress();
     }
 
     checkVisibility();
-
     window.addEventListener("scroll", checkVisibility);
     window.addEventListener("resize", checkVisibility);
+    
     return () => {
       window.removeEventListener("scroll", checkVisibility);
       window.removeEventListener("resize", checkVisibility);
     };
-  }, []); // Empty dependency array so this effect runs only once
+  }, []);
 
   const lastVisibleIndex =
     visibleSteps.lastIndexOf(true) === -1 ? 0 : visibleSteps.lastIndexOf(true);
-
-  const progressHeightPercent = ((lastVisibleIndex + 1) / steps.length) * 100;
+  
+  // Calculate visible progress height based on last visible step
+  const visibleProgressHeight = (() => {
+    if (lastVisibleIndex === 0) return 0;
+    
+    const firstCircle = circleRefs.current[0].current;
+    const lastVisibleCircle = circleRefs.current[lastVisibleIndex].current;
+    
+    if (!firstCircle || !lastVisibleCircle) return 0;
+    
+    const firstRect = firstCircle.getBoundingClientRect();
+    const lastRect = lastVisibleCircle.getBoundingClientRect();
+    
+    return lastRect.top + lastRect.height / 2 - firstRect.top - firstRect.height / 2;
+  })();
 
   return (
-    // ...same as before, but use stepRefs.current[i] instead of stepRefs[i]
     <section className="relative py-32 bg-[var(--background)] text-[var(--foreground)]">
-      {/* ...header and other content unchanged */}
+      <div className="container">
+        <div className="text-center mb-20">
+          <h2 className="text-5xl font-bold mb-4">How It Works</h2>
+          <p className="text-xl max-w-2xl mx-auto">
+            Our simple four-step process to get your perfect generator
+          </p>
+        </div>
+      </div>
 
-      <div className="relative max-w-6xl mx-auto px-4">
-        {/* Center line background */}
-        <div className="absolute left-1/2 top-0 w-1 h-full -translate-x-1/2 bg-gray-300 z-0 rounded-full" />
-        {/* Center line progress */}
+      <div className="relative max-w-6xl mx-auto px-4" ref={containerRef}>
+        {/* Full background line */}
+        <div 
+          className="absolute left-1/2 top-0 w-1 h-full -translate-x-1/2 bg-gray-300 z-0 rounded-full"
+          style={{ top: `${progressTop}px`, height: `${progressHeight}px` }}
+        />
+        
+        {/* Progress line */}
         <div
-          className="absolute left-1/2 top-0 w-1 -translate-x-1/2 bg-[var(--foreground)] z-10 rounded-full transition-[height] duration-700 ease-out"
-          style={{ height: `${progressHeightPercent}%` }}
+          className="absolute left-1/2 w-1 -translate-x-1/2 bg-[var(--foreground)] z-10 rounded-full transition-all duration-700 ease-out"
+          style={{ 
+            top: `${progressTop}px`, 
+            height: `${visibleProgressHeight}px` 
+          }}
         />
 
         <div className="flex flex-col gap-24 relative z-20">
@@ -121,6 +171,7 @@ export default function HowItWorks() {
 
                 <div
                   tabIndex={0}
+                  ref={circleRefs.current[i]}
                   className="w-12 h-12 bg-[var(--foreground)] text-[var(--background)] rounded-full flex items-center justify-center mx-auto shadow-lg font-semibold text-lg select-none
                     transition-colors duration-300 ease-in-out z-20"
                 >
@@ -139,4 +190,3 @@ export default function HowItWorks() {
     </section>
   );
 }
-
