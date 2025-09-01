@@ -70,13 +70,16 @@ export default function BuildGensetPage() {
     return (
         <>
             {/* Hero Section */}
-            <div className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden mb-8">
-                <div className="container absolute inset-0 flex items-end justify-start">
-                    <h1 className="font-normal italic text-[var(--background)] mb-4 text-2xl">
-                        Build Your Genset
-                    </h1>
-                </div>
-            </div>
+            <div
+                      className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden mb-8"
+                      style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
+                    >
+                      <div className="container h-full flex items-end pb-4">
+                        <h1 className="text-[var(--background)] text-2xl md:text-4xl">
+                          Diesel Generators
+                        </h1>
+                      </div>
+                    </div>
 
             {/* Main Section */}
             <div className="max-w-4xl mx-auto p-6 space-y-12 text-[var(--foreground)] font-normal">

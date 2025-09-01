@@ -12,7 +12,7 @@ export type MenuData = Record<'Generators' | 'Components', MenuCategory>;
 export const menuData: MenuData = {
     Generators: {
         Brand: [
-            { name: 'CAT Generator', href: '/generators/division/generator-1' },
+            { name: 'CAT Generator', href: '/generators/cat' },
             { name: 'Kohler Generator', href: '/generators/division/generator-2' },
             { name: 'Perkins Generator', href: '/generators/division/generator-3' },
             { name: 'Baudouin Generator', href: '/generators/division/generator-4' },

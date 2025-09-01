@@ -1,9 +1,92 @@
 import HowItWorks from "./component/HowItWorks";
+import Head from "next/head";
+
+export const metadata = {
+  title: "BlakShade Ltd - Redefining Energy Resilience with Cleaner Solutions",
+  description: "BlakShade Ltd engineers energy resilience with cleaner power solutions for individuals, businesses and communities. Customizable generators for disaster relief and remote industries.",
+  keywords: "generators, energy resilience, power solutions, diesel generators, disaster relief, remote power",
+  authors: [{ name: "BlakShade Ltd" }],
+  viewport: "width=device-width, initial-scale=1.0",
+  robots: "index, follow",
+  openGraph: {
+    title: "BlakShade Ltd - Redefining The generator Industry",
+    description: "Engineering energy resilience with cleaner power solutions for individuals, businesses and communities.",
+    type: "website",
+    locale: "en_UK",
+    siteName: "BlakShade Ltd",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@BlakShade_Ltd",
+    creator: "@BlakShade_Ltd",
+  }
+};
+
+// Schema Data
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: "BlakShade Ltd",
+      alternateName: "BlakShade",
+      url: "https://blakshade.com/",
+      logo: "(NOT Created YET)",
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: "+447380491992",
+          contactType: "customer service",
+          availableLanguage: "en",
+        },
+      ],
+      sameAs: [
+        "https://www.facebook.com/blakshadeltd",
+        "https://x.com/BlakShade_Ltd",
+        "https://www.instagram.com/blakshadeltd/",
+        "https://www.linkedin.com/company/blakshade-ltd/",
+        "https://www.threads.net/@blakshadeltd",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      name: "BlakShade Ltd",
+      url: "https://blakshade.com/",
+    },
+  ],
+};
 
 export default function Home() {
   return (
     <>
-
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <meta name="keywords" content={metadata.keywords} />
+        <meta name="author" content={metadata.authors[0].name} />
+        <meta name="viewport" content={metadata.viewport} />
+        <meta name="robots" content={metadata.robots} />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content={metadata.openGraph.title} />
+        <meta property="og:description" content={metadata.openGraph.description} />
+        <meta property="og:type" content={metadata.openGraph.type} />
+        <meta property="og:locale" content={metadata.openGraph.locale} />
+        <meta property="og:site_name" content={metadata.openGraph.siteName} />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content={metadata.twitter.card} />
+        <meta name="twitter:site" content={metadata.twitter.site} />
+        <meta name="twitter:creator" content={metadata.twitter.creator} />
+        <meta name="twitter:title" content={metadata.openGraph.title} />
+        <meta name="twitter:description" content={metadata.openGraph.description} />
+        
+        {/* Schema.org structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
+      </Head>
       <main className="relative">
         <header className="min-h-screen">
           <div className="bg-[url('/NEW_WebHero.avif')] h-[500px] bg-no-repeat bg-cover rounded-[30px] mx-4 relative overflow-hidden lg:h-screen">
