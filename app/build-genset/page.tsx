@@ -86,24 +86,6 @@ export default function GeneratorQuotationPage() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmitEnquiry = () => {
-    // Save initial configuration to Redux
-    dispatch(setInitialConfig({
-      duty,
-      phase,
-      frequency,
-      weather,
-      engineBrand,
-      alternatorBrand,
-      exactPower,
-      hasATS,
-      hasExtraFuelTank
-    }));
-    
-    // Show the modal form
-    setShowModal(true);
-  };
-
   const handleModalSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would typically send the data to your backend
@@ -336,7 +318,6 @@ export default function GeneratorQuotationPage() {
 
               {/* Submit Button */}
               <button 
-                onClick={handleSubmitEnquiry}
                 className="btn-primary shine-effect w-full px-8 py-4 rounded-xl text-[var(--background)] text-lg font-semibold"
               >
                 Request Quotation
