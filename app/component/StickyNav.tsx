@@ -58,7 +58,7 @@ const StickyNav = () => {
         <div className="relative z-50">
             <nav
                 className={clsx(
-                    'sticky-nav fixed left-1/2 -translate-x-1/2 top-[15px] px-4 py-5 rounded-[20px] shadow-[0_0_40px_#fde3a233,0_0_40px_#ffffff] duration-500 w-full hidden lg:block',
+                    'border sticky-nav fixed left-1/2 -translate-x-1/2 top-[15px] px-4 py-5 rounded-[20px] shadow-[0_0_40px_#fde3a233,0_0_40px_#ffffff] duration-500 w-full hidden lg:block',
                     showSticky
                         ? 'opacity-100 translate-y-0 pointer-events-auto'
                         : 'opacity-0 -translate-y-4 pointer-events-none',

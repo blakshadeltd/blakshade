@@ -5,10 +5,18 @@ type Component = {
     name: string;
 };
 
+type Config = {
+    duty: string;
+    phase: string;
+    frequency: string;
+    weather: string;
+};
+
 type GensetState = {
     components: {
         [category: string]: Component | null;
     };
+    config: Config;
 };
 
 const initialState: GensetState = {
@@ -18,6 +26,12 @@ const initialState: GensetState = {
         'fuel-tank': null,
         'control-panel': null,
     },
+    config: {
+        duty: 'Standby',
+        phase: 'Single Phase',
+        frequency: '50Hz',
+        weather: 'Normal'
+    }
 };
 
 const gensetSlice = createSlice({
@@ -34,8 +48,20 @@ const gensetSlice = createSlice({
         removeComponent: (state, action: PayloadAction<string>) => {
             state.components[action.payload] = null;
         },
+        setInitialConfig: (state, action: PayloadAction<Partial<Config>>) => {
+            state.config = {
+                ...state.config,
+                ...action.payload
+            };
+        },
+        updateConfig: (state, action: PayloadAction<Partial<Config>>) => {
+            state.config = {
+                ...state.config,
+                ...action.payload
+            };
+        },
     },
 });
 
-export const { setComponent, removeComponent } = gensetSlice.actions;
+export const { setComponent, removeComponent, setInitialConfig, updateConfig } = gensetSlice.actions;
 export default gensetSlice.reducer;
