@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import { menuData } from './menuData';
 import Image from 'next/image';
 
-type MenuKey = 'Generators' | 'Components' | 'Search';
+type MenuKey = 'Generators' | 'Search';
 
 const StickyNav = () => {
     const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
@@ -14,9 +14,8 @@ const StickyNav = () => {
     const [showSticky, setShowSticky] = useState(false);
     const inputRef = useRef<HTMLInputElement | null>(null);
 
-    const menuRefs = useRef<Record<'Generators' | 'Components', HTMLDivElement | null>>({
+    const menuRefs = useRef<Record<'Generators', HTMLDivElement | null>>({
         Generators: null,
-        Components: null,
     });
 
     const hideTimeout = useRef<NodeJS.Timeout | null>(null);
@@ -62,7 +61,7 @@ const StickyNav = () => {
                     showSticky
                         ? 'opacity-100 translate-y-0 pointer-events-auto'
                         : 'opacity-0 -translate-y-4 pointer-events-none',
-                    activeMenu === 'Components' ? 'max-w-[900px]' : 'max-w-[800px]'
+                    'max-w-[800px]'
                 )}
 
                 style={{ backgroundColor: 'var(--background)' }}
@@ -73,12 +72,11 @@ const StickyNav = () => {
             >
                 <div className="flex items-center justify-between px-6">
                     <Image
-  src="/favicon.ico"
-  alt="Logo"
-  width={32}
-  height={32}
-/>
-
+                        src="/favicon.ico"
+                        alt="Logo"
+                        width={32}
+                        height={32}
+                    />
 
                     <div className="flex gap-5">
                         <Link
@@ -148,40 +146,38 @@ const StickyNav = () => {
                     className="relative w-full transition-all duration-500 ease-out overflow-hidden"
                     style={{ height: `${popoverHeight}px` }}
                 >
-                    {(Object.keys(menuData) as ('Generators' | 'Components')[]).map((menuKey) => (
-                        <div
-                            key={menuKey}
-                            ref={(el) => {
-                                menuRefs.current[menuKey] = el;
-                            }}
-                            className={clsx(
-                                'absolute top-0 left-0 w-full px-12 py-8 transition-all duration-500',
-                                activeMenu === menuKey
-                                    ? 'opacity-100 translate-x-0 pointer-events-auto'
-                                    : 'opacity-0 pointer-events-none'
-                            )}
-                        >
-                            <div className={clsx('grid gap-8 mx-auto', menuKey === 'Components' ? 'grid-cols-4 max-w-5xl' : 'grid-cols-3 max-w-5xl')}>
-                                {Object.entries(menuData[menuKey]).map(([category, items], idx, arr) => (
-                                    <div
-                                        key={category}
-                                        className={clsx('flex flex-col gap-2 pr-6', idx !== arr.length - 1 && 'border-r border-gray-200')}
-                                    >
-                                        <h3 className="font-normal text-[var(--foreground)] mb-2">{category}</h3>
-                                        {items.map((item) => (
-                                            <Link
-                                                key={`${category}-${item.href}`}
-                                                href={item.href}
-                                                className="text-sm font-normal text-gray-600 hover:text-gray-500 transition-colors block w-full py-1 cursor-pointer shine-effect"
-                                            >
-                                                {item.name}
-                                            </Link>
-                                        ))}
-                                    </div>
-                                ))}
-                            </div>
+                    <div
+                        key="Generators"
+                        ref={(el) => {
+                            menuRefs.current.Generators = el;
+                        }}
+                        className={clsx(
+                            'absolute top-0 left-0 w-full px-12 py-8 transition-all duration-500',
+                            activeMenu === 'Generators'
+                                ? 'opacity-100 translate-x-0 pointer-events-auto'
+                                : 'opacity-0 pointer-events-none'
+                        )}
+                    >
+                        <div className={'grid grid-cols-3 gap-8 mx-auto max-w-5xl'}>
+                            {Object.entries(menuData.Generators).map(([category, items], idx, arr) => (
+                                <div
+                                    key={category}
+                                    className={clsx('flex flex-col gap-2 pr-6', idx !== arr.length - 1 && 'border-r border-gray-200')}
+                                >
+                                    <h3 className="font-normal text-[var(--foreground)] mb-2">{category}</h3>
+                                    {items.map((item) => (
+                                        <Link
+                                            key={`${category}-${item.href}`}
+                                            href={item.href}
+                                            className="text-sm font-normal text-gray-600 hover:text-gray-500 transition-colors block w-full py-1 cursor-pointer shine-effect"
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    ))}
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
 
                     {activeMenu === 'Search' && (
                         <div className="absolute top-10 left-0 w-full h-full flex items-center justify-center transition-all duration-500 px-6">

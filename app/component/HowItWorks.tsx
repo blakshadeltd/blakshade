@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
 import { useEffect, useRef, useState } from "react";
 
@@ -102,7 +103,7 @@ export default function HowItWorks() {
     <section className="relative py-32 bg-[var(--background)] text-[var(--foreground)]">
       <div className="container">
         <div className="text-center mb-20">
-          <h2 className="text-5xl font-bold mb-4">How It Works</h2>
+          <h2 className="text-4xl md:text-5xl mb-4">How It Works</h2>
           <p className="text-xl max-w-2xl mx-auto">
             Our simple four-step process to get your perfect generator
           </p>
@@ -172,7 +173,7 @@ export default function HowItWorks() {
                 <div
                   tabIndex={0}
                   ref={circleRefs.current[i]}
-                  className="w-12 h-12 bg-[var(--foreground)] text-[var(--background)] rounded-full flex items-center justify-center mx-auto shadow-lg font-semibold text-lg select-none
+                  className="w-12 h-12 bg-[var(--foreground)] text-[var(--background)] rounded-full flex items-center justify-center mx-auto shadow-lg text-lg select-none
                     transition-colors duration-300 ease-in-out z-20"
                 >
                   {i + 1}
@@ -184,9 +185,27 @@ export default function HowItWorks() {
           })}
         </div>
       </div>
+{/* CTA Section */}
+      <div className="container mx-auto mt-20 text-center">
+        <div className="bg-gradient-to-r from-[var(--foreground)] to-[var(--hover)] text-white p-8 md:p-12 rounded-2xl max-w-4xl mx-auto shadow-lg">
+          <h3 className="text-2xl md:text-3xl mb-4">Ready to Get Started?</h3>
+          <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
+            Begin your journey to reliable power solutions with our easy process.
+          </p>
+          <Link
+            href="/build-genset"
+            className="inline-flex items-center px-6 py-3 bg-white text-[var(--foreground)] rounded-[10px] hover:rounded-[15px] transition-all duration-300 shine-effect"
+          >
+            Design Your Generator
+            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </Link>
+        </div>
+      </div>
 
       {/* Bottom spacer */}
-      <div className="h-40" />
+      <div className="h-20" />
     </section>
   );
 }

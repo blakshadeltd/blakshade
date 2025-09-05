@@ -102,27 +102,7 @@ export default function GeneratorsPage() {
     setCurrentPage(1);
   };
 
-  const getPercent = (value: number) => ((value - minKva) / (maxKva - minKva)) * 100;
 
-  useEffect(() => {
-    if (rangeRef.current) {
-      const minPercent = getPercent(minRange);
-      const maxPercent = getPercent(maxRange);
-
-      rangeRef.current.style.left = `${minPercent}%`;
-      rangeRef.current.style.width = `${maxPercent - minPercent}%`;
-    }
-  }, [minRange, maxRange]);
-
-  const handleMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = Math.min(Number(e.target.value), maxRange - 50);
-    setMinRange(val);
-  };
-
-  const handleMaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = Math.max(Number(e.target.value), minRange + 50);
-    setMaxRange(val);
-  };
 
   const orgSchema = {
     "@context": "https://schema.org",
@@ -202,7 +182,7 @@ export default function GeneratorsPage() {
           </button>
         </div>
 
-        <div className="container py-12 flex flex-col lg:flex-row gap-10 mx-4">
+        <div className="container py-12 flex flex-col lg:flex-row gap-10">
           {(showFilters || (typeof window !== "undefined" && window.innerWidth >= 1024)) && (
             <aside className="w-full lg:w-[20%] border rounded-xl p-4 overflow-hidden border-gray-200 bg-white shadow-sm">
               <h2 className="text-lg mb-5 text-[var(--foreground)]">Filters</h2>
@@ -242,7 +222,7 @@ export default function GeneratorsPage() {
                           className={`flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-[10px] hover:rounded-[15px] border transition-all duration-500 ease-in-out ${
                             state === option
                               ? "bg-[var(--foreground)] text-white border-[var(--foreground)]"
-                              : "btn-third"
+                              : ""
                           }`}
                         >
                           <input

@@ -7,7 +7,7 @@ export interface MenuCategory {
     [category: string]: MenuItem[];
 }
 
-export type MenuData = Record<'Generators' | 'Components', MenuCategory>;
+export type MenuData = Record<'Generators', MenuCategory>;
 
 export const menuData: MenuData = {
     Generators: {
@@ -33,34 +33,5 @@ export const menuData: MenuData = {
             { name: '1000+ kVA', href: '/generators/upozela/hybrid-gen' },
         ],
     },
-    Components: {
-        Engines: [
-            { name: 'Diesel Engine', href: '/components/engines/diesel' },
-            { name: 'Gasoline Engine', href: '/components/engines/gasoline' },
-            { name: 'Hybrid Engine', href: '/components/engines/hybrid' },
-            { name: 'Industrial Engine', href: '/components/engines/industrial' },
-            { name: 'Compact Engine', href: '/components/engines/compact' },
-        ],
-        Alternators: [
-            { name: 'Single Phase', href: '/components/alternators/single-phase' },
-            { name: 'Three Phase', href: '/components/alternators/three-phase' },
-            { name: 'Brushless', href: '/components/alternators/brushless' },
-            { name: 'Permanent Magnet', href: '/components/alternators/permanent-magnet' },
-            { name: 'High Frequency', href: '/components/alternators/high-frequency' },
-        ],
-        'Fuel Tanks': [
-            { name: 'Steel Tank', href: '/components/fuel-tanks/steel' },
-            { name: 'Plastic Tank', href: '/components/fuel-tanks/plastic' },
-            { name: 'Sub-base Tank', href: '/components/fuel-tanks/sub-base' },
-            { name: 'Underground Tank', href: '/components/fuel-tanks/underground' },
-            { name: 'Portable Tank', href: '/components/fuel-tanks/portable' },
-        ],
-        'Control Panel': [
-            { name: 'Manual Start', href: '/components/control-panel/manual' },
-            { name: 'Auto Start', href: '/components/control-panel/auto' },
-            { name: 'Digital Display', href: '/components/control-panel/digital' },
-            { name: 'IoT Enabled', href: '/components/control-panel/iot' },
-            { name: 'Weatherproof', href: '/components/control-panel/weatherproof' },
-        ],
-    },
+    
 };
