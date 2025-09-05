@@ -229,15 +229,15 @@ export default function Home() {
               <ul className="space-y-2 md:space-y-3 mt-6 md:mt-8">
                 <li className="flex items-center">
                   <span className="w-2 h-2 bg-[var(--foreground)] rounded-full mr-3"></span>
-                  <span className="font-medium text-sm md:text-base">Custom-built generator solutions</span>
+                  <span className="text-sm md:text-base">Custom-built generator solutions</span>
                 </li>
                 <li className="flex items-center">
                   <span className="w-2 h-2 bg-[var(--foreground)] rounded-full mr-3"></span>
-                  <span className="font-medium text-sm md:text-base">Global shipping and logistics</span>
+                  <span className="text-sm md:text-base">Global shipping and logistics</span>
                 </li>
                 <li className="flex items-center">
                   <span className="w-2 h-2 bg-[var(--foreground)] rounded-full mr-3"></span>
-                  <span className="font-medium text-sm md:text-base">24/7 technical support</span>
+                  <span className="text-sm md:text-base">24/7 technical support</span>
                 </li>
               </ul>
               <div className="mt-6 md:mt-8">
@@ -332,7 +332,7 @@ export default function Home() {
                     <p className="italic text-sm md:text-base">"{testimonial.quote}"</p>
                   </div>
                   <div className="mt-3 md:mt-4">
-                    <p className="font-semibold text-[var(--foreground)] text-base md:text-lg">{testimonial.author}</p>
+                    <p className="text-[var(--foreground)] text-base md:text-lg">{testimonial.author}</p>
                     <p className="text-xs md:text-sm text-gray-600">{testimonial.company}</p>
                   </div>
                 </div>

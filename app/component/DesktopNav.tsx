@@ -1,7 +1,9 @@
+// DesktopNav.tsx - Updated with functional search
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import clsx from 'clsx';
 import { menuData } from './menuData';
 import { usePathname } from 'next/navigation';
@@ -12,9 +14,11 @@ type MenuKey = 'Generators' | 'Search';
 const DesktopNav = () => {
     const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
     const [popoverHeight, setPopoverHeight] = useState<number>(0);
+    const [searchQuery, setSearchQuery] = useState<string>('');
     const inputRef = useRef<HTMLInputElement | null>(null);
     const pathname = usePathname();
     const isHomePage = pathname === '/';
+    const router = useRouter();
 
     const menuRefs = useRef<Record<'Generators', HTMLDivElement | null>>({
         Generators: null,
@@ -31,6 +35,15 @@ const DesktopNav = () => {
     const handleMenuInteraction = (menu: MenuKey | null) => {
         clearHideTimeout();
         setActiveMenu(menu);
+    };
+
+    const handleSearchSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (searchQuery.trim()) {
+            router.push(`/generators?search=${encodeURIComponent(searchQuery.trim())}`);
+            setActiveMenu(null);
+            setSearchQuery('');
+        }
     };
 
     useEffect(() => {
@@ -60,12 +73,14 @@ const DesktopNav = () => {
                 onMouseEnter={clearHideTimeout}
             >
                 <div className="flex items-center justify-between px-6">
-                    <Image src="/favicon.ico" alt="Company Logo" width={32} height={32} />
+                    <Link href="/">
+                        <Image src="/favicon.ico" alt="Company Logo" width={37} height={37} />
+                    </Link>
 
                     <div className="flex gap-5">
                         <Link
                             href="/"
-                            className="text-base font-normal transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]"
+                            className="text-base transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]"
                             onMouseEnter={() => handleMenuInteraction(null)}
                         >
                             Home
@@ -80,7 +95,7 @@ const DesktopNav = () => {
                                 <Link
                                     href={`/${menuKey.toLowerCase()}`}
                                     className={clsx(
-                                        'flex items-center gap-1 text-base font-normal transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]',
+                                        'flex items-center gap-1 text-base transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]',
                                         activeMenu === menuKey ? 'text-[var(--foreground)]' : 'text-[var(--foreground)] hover:text-[var(--hover)]'
                                     )}
                                 >
@@ -100,7 +115,7 @@ const DesktopNav = () => {
 
                         <Link
                             href="/contact"
-                            className="text-base font-normal transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]"
+                            className="text-base transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]"
                             onMouseEnter={() => handleMenuInteraction(null)}
                         >
                             Contact
@@ -143,12 +158,12 @@ const DesktopNav = () => {
                         <div className={'grid grid-cols-3 gap-8 mx-auto max-w-5xl'}>
                             {Object.entries(menuData.Generators).map(([category, items], idx, arr) => (
                                 <div key={category} className={clsx('flex flex-col gap-2 pr-6', idx !== arr.length - 1 && 'border-r border-gray-200')}>
-                                    <h3 className="font-normal text-[var(--foreground)] mb-2">{category}</h3>
+                                    <h3 className="text-[var(--foreground)] mb-2">{category}</h3>
                                     {items.map((item) => (
                                         <Link
                                             key={`${category}-${item.href}`}
                                             href={item.href}
-                                            className="text-sm font-normal text-gray-600 hover:text-gray-500 transition-colors block w-full py-1 cursor-pointer shine-effect"
+                                            className="text-sm text-gray-600 hover:text-gray-500 transition-colors block w-full py-1 cursor-pointer shine-effect"
                                         >
                                             {item.name}
                                         </Link>
@@ -161,14 +176,17 @@ const DesktopNav = () => {
                     {/* Search Panel */}
                     {activeMenu === 'Search' && (
                         <div className="absolute top-10 left-0 w-full h-full flex items-center justify-center transition-all duration-500 px-6">
-                            <div className="w-full max-w-[400px] flex items-center border-b border-gray-300 pb-1">
+                            <form onSubmit={handleSearchSubmit} className="w-full max-w-[400px] flex items-center border-b border-gray-300 pb-1">
                                 <input
                                     ref={inputRef}
                                     type="text"
                                     placeholder="Search for generators or components..."
                                     className="w-full bg-transparent text-base px-2 py-2 focus:outline-none focus:ring-0"
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
                                 />
                                 <button
+                                    type="submit"
                                     className="text-black hover:text-gray-700 px-2 transition-colors shine-effect"
                                     aria-label="Submit search"
                                 >
@@ -182,7 +200,7 @@ const DesktopNav = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                                     </svg>
                                 </button>
-                            </div>
+                            </form>
                         </div>
                     )}
                 </div>

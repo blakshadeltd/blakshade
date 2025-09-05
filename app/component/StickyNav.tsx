@@ -71,17 +71,14 @@ const StickyNav = () => {
                 onMouseEnter={clearHideTimeout}
             >
                 <div className="flex items-center justify-between px-6">
-                    <Image
-                        src="/favicon.ico"
-                        alt="Logo"
-                        width={32}
-                        height={32}
-                    />
+                    <Link href="/">
+                        <Image src="/favicon.ico" alt="Company Logo" width={37} height={37} />
+                    </Link>
 
                     <div className="flex gap-5">
                         <Link
                             href="/"
-                            className="text-base font-normal transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]"
+                            className="text-base transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]"
                             onMouseEnter={() => handleMenuInteraction(null)}
                         >
                             Home
@@ -96,7 +93,7 @@ const StickyNav = () => {
                                 <Link
                                     href={`/${menuKey.toLowerCase()}`}
                                     className={clsx(
-                                        'flex items-center gap-1 text-base font-normal transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]',
+                                        'flex items-center gap-1 text-base transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]',
                                         activeMenu === menuKey ? 'text-[var(--foreground)]' : ''
                                     )}
                                 >
@@ -116,7 +113,7 @@ const StickyNav = () => {
 
                         <Link
                             href="/contact"
-                            className="text-base font-normal transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]"
+                            className="text-base transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]"
                             onMouseEnter={() => handleMenuInteraction(null)}
                         >
                             Contact
@@ -164,12 +161,12 @@ const StickyNav = () => {
                                     key={category}
                                     className={clsx('flex flex-col gap-2 pr-6', idx !== arr.length - 1 && 'border-r border-gray-200')}
                                 >
-                                    <h3 className="font-normal text-[var(--foreground)] mb-2">{category}</h3>
+                                    <h3 className="text-[var(--foreground)] mb-2">{category}</h3>
                                     {items.map((item) => (
                                         <Link
                                             key={`${category}-${item.href}`}
                                             href={item.href}
-                                            className="text-sm font-normal text-gray-600 hover:text-gray-500 transition-colors block w-full py-1 cursor-pointer shine-effect"
+                                            className="text-sm text-gray-600 hover:text-gray-500 transition-colors block w-full py-1 cursor-pointer shine-effect"
                                         >
                                             {item.name}
                                         </Link>
