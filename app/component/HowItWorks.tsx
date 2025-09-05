@@ -194,7 +194,7 @@ export default function HowItWorks() {
           </p>
           <Link
             href="/build-genset"
-            className="inline-flex items-center px-6 py-3 bg-white text-[var(--foreground)] rounded-[10px] hover:rounded-[15px] transition-all duration-300 shine-effect"
+            className="inline-flex items-center px-6 py-3 bg-white text-[var(--foreground)] rounded-[10px] hover:rounded-[15px] transition-all duration-300"
           >
             Design Your Generator
             <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

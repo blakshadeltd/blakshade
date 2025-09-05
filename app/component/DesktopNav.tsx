@@ -49,7 +49,7 @@ const DesktopNav = () => {
             <nav
                 className={clsx(
                     'absolute top-0 left-1/2 -translate-x-1/2 z-20 px-4 hidden lg:block py-6 rounded-b-[30px] duration-500 w-full',
-                    'max-w-[800px]'
+                    activeMenu === 'Generators' ? 'max-w-[850px]' : 'max-w-[800px]'
                 )}
                 style={{ backgroundColor: 'var(--background)' }}
                 onMouseLeave={() => {

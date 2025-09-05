@@ -37,7 +37,7 @@ export default function Footer() {
 
 {/* Generators Menu */}
                     <div>
-                        <h4 className="text-lg font-semibold mb-4 border-b border-gray-300 pb-2">Generators</h4>
+                        <h4 className="text-lg mb-4 border-b border-gray-400 pb-2">Generators</h4>
                         <div className="space-y-4">
                             {Object.entries(menuData.Generators).map(([category, items]) => (
                                 <div key={category} className="mb-4">
@@ -47,7 +47,7 @@ export default function Footer() {
                                             <li key={item.name}>
                                                 <Link 
                                                     href={item.href}
-                                                    className="text-[var(--foreground)] hover:text-[var(--hover)] transition-colors text-sm block py-1"
+                                                    className="text-[var(--foreground)] hover:text-[var(--hover)] text-sm block py-1"
                                                 >
                                                     {item.name}
                                                 </Link>
@@ -61,7 +61,7 @@ export default function Footer() {
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="text-lg font-semibold mb-4 border-b border-gray-300 pb-2">Quick Links</h4>
+                        <h4 className="text-[var(--foreground)] text-lg mb-4 border-b border-gray-400 pb-2">Quick Links</h4>
                         <ul className="space-y-2">
                             {[
                                 { name: 'Home', href: '/' },
@@ -73,7 +73,7 @@ export default function Footer() {
                                 <li key={link.name}>
                                     <Link 
                                         href={link.href} 
-                                        className="text-[var(--foreground)] hover:text-[var(--hover)] transition-colors block py-1 shine-effect"
+                                        className="text-[var(--foreground)] hover:text-[var(--hover)] transition-colors block py-1"
                                     >
                                         {link.name}
                                     </Link>
@@ -84,7 +84,7 @@ export default function Footer() {
 
                     {/* Contact Info & Newsletter */}
                     <div>
-                        <h4 className="text-lg font-semibold mb-4 border-b border-gray-300 pb-2">Contact Us</h4>
+                        <h4 className="text-lg text-[var(--foreground)] mb-4 border-b border-gray-400 pb-2">Contact Us</h4>
                         <address className="not-italic space-y-3 text-[var(--foreground)] mb-6">
                             <div className="flex items-start">
                                 <svg className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -126,7 +126,7 @@ export default function Footer() {
                 </div>
 
             <div className="flex">
-                <div className="w-full justify-center text-center flex items-end z-0 h-[40vh] mb-[25px]">
+                <div className="w-full justify-center text-center flex items-end z-0 h-[50vh] lg:h-[40vh] mb-[25px]">
                     <h2 className="text-[50px] sm:text-[80px] font-normal leading-tight reveal-text">
                         WE DON&apos;T HAVE BOTTOM
                     </h2>

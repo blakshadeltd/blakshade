@@ -61,7 +61,7 @@ const StickyNav = () => {
                     showSticky
                         ? 'opacity-100 translate-y-0 pointer-events-auto'
                         : 'opacity-0 -translate-y-4 pointer-events-none',
-                    'max-w-[800px]'
+                    activeMenu === 'Generators' ? 'max-w-[850px]' : 'max-w-[800px]'
                 )}
 
                 style={{ backgroundColor: 'var(--background)' }}

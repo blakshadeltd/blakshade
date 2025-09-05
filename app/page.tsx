@@ -353,13 +353,13 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
               <Link
                 href="/build-genset"
-                className="px-6 py-2 md:px-8 md:py-3 bg-white text-[var(--foreground)] rounded-[8px] md:rounded-[10px] hover:rounded-[12px] md:hover:rounded-[15px] transition-all duration-300 shine-effect text-sm md:text-base"
+                className="px-6 py-2 md:px-8 md:py-3 bg-white text-[var(--foreground)] rounded-[8px] md:rounded-[10px] hover:rounded-[12px] md:hover:rounded-[15px] transition-all duration-300 text-sm md:text-base"
               >
                 Design Your Generator
               </Link>
               <Link
                 href="/contact"
-                className="px-6 py-2 md:px-8 md:py-3 bg-transparent border-2 border-white text-white rounded-[8px] md:rounded-[10px] hover:rounded-[12px] md:hover:rounded-[15px] transition-all duration-300 shine-effect text-sm md:text-base"
+                className="px-6 py-2 md:px-8 md:py-3 bg-transparent border-2 border-white text-white rounded-[8px] md:rounded-[10px] hover:rounded-[12px] md:hover:rounded-[15px] transition-all duration-300 text-sm md:text-base"
               >
                 Contact Our Team
               </Link>
