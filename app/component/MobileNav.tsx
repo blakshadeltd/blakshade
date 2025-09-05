@@ -30,7 +30,7 @@ const MobileNav = () => {
     const [searchOpen, setSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const inputRef = useRef<HTMLInputElement>(null);
-    const [activeCategory, setActiveCategory] = useState<'Generators' | 'Components'>('Generators');
+    const [activeCategory, setActiveCategory] = useState<'Generators' >('Generators');
     const [activeTab, setActiveTab] = useState<string>('Brand');
     const [, setPrevTab] = useState<string>('');
 
@@ -151,7 +151,7 @@ const MobileNav = () => {
                             ))}
                         </div>
 
-                        {(['Generators', 'Components'] as const).map((category) => (
+                        {(['Generators'] as const).map((category) => (
                             <div key={category} className="bg-gray-50 rounded-md p-4 shadow">
                                 <div className="flex justify-between items-center mb-3">
                                     <h3 className="text-lg font-semibold text-[var(--foreground)]">{category}</h3>
