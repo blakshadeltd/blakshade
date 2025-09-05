@@ -152,11 +152,6 @@ export default function GeneratorQuotationPage() {
       phase,
       frequency,
       weather,
-      engineBrand: engineNoPreference ? "No Preference" : engineBrandInput,
-      alternatorBrand: alternatorNoPreference ? "No Preference" : alternatorBrandInput,
-      exactPower,
-      hasATS,
-      hasExtraFuelTank
     }));
     
     // Show the modal form
