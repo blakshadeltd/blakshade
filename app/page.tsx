@@ -1,4 +1,4 @@
-// page.tsx - Responsive version
+
 import HowItWorks from "./component/HowItWorks";
 import Head from "next/head";
 import Link from "next/link";

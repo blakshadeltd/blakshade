@@ -187,7 +187,7 @@ export default function HowItWorks() {
       </div>
 {/* CTA Section */}
       <div className="container mx-auto mt-20 text-center">
-        <div className="bg-gradient-to-r from-[var(--foreground)] to-[var(--hover)] text-white p-8 md:p-12 rounded-2xl max-w-4xl mx-auto shadow-lg">
+        <div className="bg-gradient-to-r from-[var(--foreground)] to-[var(--hover)] text-white p-8 md:p-12 rounded-2xl mx-auto shadow-lg">
           <h3 className="text-2xl md:text-3xl mb-4">Ready to Get Started?</h3>
           <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
             Begin your journey to reliable power solutions with our easy process.

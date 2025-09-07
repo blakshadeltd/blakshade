@@ -4,7 +4,7 @@ import { menuData } from './menuData';
 
 export default function Footer() {
     return (
-        <footer className="relative spacer text-[var(--foreground)]">
+        <footer className="relative spacer text-[var(--foreground)] mt-8">
             {/* Black section overlapping the top */}
             <div className="relative -top-[30px] h-[30px] bg-[var(--background)] rounded-b-[20px] shadow-xl" />
             
