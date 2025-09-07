@@ -344,7 +344,7 @@ export default function Home() {
         {/* CTA Section */}
         <section className="py-12 md:py-20 bg-gradient-to-br from-[var(--foreground)] to-[var(--hover)] text-white">
           <div className="container mx-auto px-4 text-center max-w-3xl">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl mb-4 md:mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl">
               Ready to Power Your World?
             </h2>
             <p className="text-base md:text-lg mb-8 md:mb-10 opacity-90">
