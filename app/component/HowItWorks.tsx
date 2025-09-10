@@ -204,8 +204,6 @@ export default function HowItWorks() {
         </div>
       </div>
 
-      {/* Bottom spacer */}
-      <div className="h-20" />
     </section>
   );
 }
