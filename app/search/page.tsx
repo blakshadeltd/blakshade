@@ -9,22 +9,30 @@ export const metadata: Metadata = {
   description: "Search for diesel generators, silent generators, and power solutions from BlakShade Ltd.",
 };
 
-interface SearchPageProps {
-  searchParams: {
-    q?: string | string[];
-    brand?: string;
-    emission?: string;
-    frequency?: string;
-    fuelType?: string;
-    phase?: string;
-    buildType?: string;
-    minKva?: string;
-    maxKva?: string;
-  };
-}
+// Define the search params type
+type SearchParamsType = {
+  q?: string | string[];
+  brand?: string;
+  emission?: string;
+  frequency?: string;
+  fuelType?: string;
+  phase?: string;
+  buildType?: string;
+  minKva?: string;
+  maxKva?: string;
+};
 
-export default function SearchPage({ searchParams }: SearchPageProps) {
-  const rawQ = Array.isArray(searchParams.q) ? searchParams.q[0] : (searchParams.q ?? "");
+export default async function SearchPage({ 
+  searchParams 
+}: { 
+  searchParams: Promise<SearchParamsType> 
+}) {
+  // Await the searchParams promise
+  const resolvedSearchParams = await searchParams;
+  
+  const rawQ = Array.isArray(resolvedSearchParams.q) 
+    ? resolvedSearchParams.q[0] 
+    : (resolvedSearchParams.q ?? "");
   const q = rawQ.trim().toLowerCase();
 
   const allGenerators = [...cummins, ...cats];
@@ -54,6 +62,6 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
       })
     : allGenerators;
 
-  // Pass the pre-filtered list down to the client for interactivity (sorting, pagination, extra filters)
+  // Pass the pre-filtered list down to the client for interactivity
   return <SearchResultsClient initialProducts={initialProducts} initialQuery={rawQ} />;
 }
