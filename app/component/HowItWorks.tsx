@@ -1,211 +1,248 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import React from "react";
-import { useEffect, useRef, useState } from "react";
+import React, { useState, useRef } from 'react';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import {
+    RiHome9Line,
+    RiToolsFill,
+    RiSearchLine,
+    RiMenu3Line,
+    RiArrowRightSLine,
+    RiCloseLine,
+} from 'react-icons/ri';
+import clsx from 'clsx';
+import { menuData } from './menuData';
 
-const steps = [
-  {
-    title: "Choose or Build",
-    content:
-      "Use our Build Genset Tool to configure a generator or browse our catalog for ready-made options.",
-  },
-  {
-    title: "Request a Quotation",
-    content:
-      "Submit your selected build or product. Our team will quickly review and send you a detailed quotation.",
-  },
-  {
-    title: "Confirm & Production",
-    content:
-      "Once approved, we begin building your generator using premium components — tested for performance and quality.",
-  },
-  {
-    title: "Delivered Globally",
-    content:
-      "After final inspection, your generator is safely packaged and delivered straight to your location — worldwide.",
-  },
+interface LinkItem {
+    name: string;
+    href: string;
+}
+
+const staticLinks = [
+    { label: 'Home', href: '/' },
+    { label: 'Contact', href: '/contact' },
 ];
 
-export default function HowItWorks() {
-  const stepRefs = useRef(steps.map(() => React.createRef<HTMLDivElement>()));
-  const circleRefs = useRef(steps.map(() => React.createRef<HTMLDivElement>()));
-  const containerRef = useRef<HTMLDivElement>(null);
-  
-  const [visibleSteps, setVisibleSteps] = useState<boolean[]>(
-    Array(steps.length).fill(false)
-  );
-  const [progressHeight, setProgressHeight] = useState(0);
-  const [progressTop, setProgressTop] = useState(0);
+const MobileNav = () => {
+    const pathname = usePathname();
+    const router = useRouter();
+    const [drawerOpen, setDrawerOpen] = useState(false);
+    const [searchOpen, setSearchOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const inputRef = useRef<HTMLInputElement>(null);
+    const [activeCategory, setActiveCategory] = useState<'Generators'>('Generators');
+    const [activeTab, setActiveTab] = useState<string>('Brand');
+    const [, setPrevTab] = useState<string>('');
 
-  useEffect(() => {
-    function updateProgress() {
-      if (!containerRef.current) return;
-      
-      // Get positions of the first and last circles
-      const firstCircle = circleRefs.current[0].current;
-      const lastCircle = circleRefs.current[steps.length - 1].current;
-      
-      if (!firstCircle || !lastCircle) return;
-      
-      const firstRect = firstCircle.getBoundingClientRect();
-      const lastRect = lastCircle.getBoundingClientRect();
-      const containerRect = containerRef.current.getBoundingClientRect();
-      
-      // Calculate top position relative to container
-      const top = firstRect.top + firstRect.height / 2 - containerRect.top;
-      // Calculate height based on distance between first and last circles
-      const height = lastRect.bottom - firstRect.top - firstRect.height / 2;
-      
-      setProgressTop(top);
-      setProgressHeight(height);
-    }
-
-    function checkVisibility() {
-      const newVisibleSteps = stepRefs.current.map((ref) => {
-        if (!ref.current) return false;
-        const rect = ref.current.getBoundingClientRect();
-        return rect.top < window.innerHeight * 0.75 && rect.bottom > 0;
-      });
-      setVisibleSteps(newVisibleSteps);
-      updateProgress();
-    }
-
-    checkVisibility();
-    window.addEventListener("scroll", checkVisibility);
-    window.addEventListener("resize", checkVisibility);
-    
-    return () => {
-      window.removeEventListener("scroll", checkVisibility);
-      window.removeEventListener("resize", checkVisibility);
+    const getLinks = (): LinkItem[] => {
+        const categoryTabs = menuData[activeCategory];
+        return categoryTabs[activeTab] ?? [];
     };
-  }, []);
 
-  const lastVisibleIndex =
-    visibleSteps.lastIndexOf(true) === -1 ? 0 : visibleSteps.lastIndexOf(true);
-  
-  // Calculate visible progress height based on last visible step
-  const visibleProgressHeight = (() => {
-    if (lastVisibleIndex === 0) return 0;
-    
-    const firstCircle = circleRefs.current[0].current;
-    const lastVisibleCircle = circleRefs.current[lastVisibleIndex].current;
-    
-    if (!firstCircle || !lastVisibleCircle) return 0;
-    
-    const firstRect = firstCircle.getBoundingClientRect();
-    const lastRect = lastVisibleCircle.getBoundingClientRect();
-    
-    return lastRect.top + lastRect.height / 2 - firstRect.top - firstRect.height / 2;
-  })();
+    const handleSearchSubmit = () => {
+        if (searchQuery.trim()) {
+            router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+            setSearchOpen(false);
+            setSearchQuery('');
+        }
+    };
 
-  return (
-    <section className="relative py-32 bg-[var(--background)] text-[var(--foreground)]">
-      <div className="container">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl mb-4">How It Works</h2>
-          <p className="text-xl max-w-2xl mx-auto">
-            Our simple four-step process to get your perfect generator
-          </p>
-        </div>
-      </div>
+    const navItems = [
+        { href: '/', label: 'Home', icon: <RiHome9Line className="text-2xl" /> },
+        { href: '/about', label: 'About', icon: <RiToolsFill className="text-2xl" /> },
+        {
+            href: '#search',
+            label: 'Search',
+            icon: <RiSearchLine className="text-2xl" />,
+            action: () => {
+                setSearchOpen((prev) => !prev);
+                setTimeout(() => inputRef.current?.focus(), 100);
+            },
+        },
+        {
+            href: '#menu',
+            label: 'Menu',
+            icon: <RiMenu3Line className="text-2xl" />,
+            action: () => setDrawerOpen(true),
+        },
+    ];
 
-      <div className="relative max-w-6xl mx-auto px-4" ref={containerRef}>
-        {/* Full background line */}
-        <div 
-          className="absolute left-1/2 top-0 w-1 h-full -translate-x-1/2 bg-gray-300 z-0 rounded-full"
-          style={{ top: `${progressTop}px`, height: `${progressHeight}px` }}
-        />
-        
-        {/* Progress line */}
-        <div
-          className="absolute left-1/2 w-1 -translate-x-1/2 bg-[var(--foreground)] z-10 rounded-full transition-all duration-700 ease-out"
-          style={{ 
-            top: `${progressTop}px`, 
-            height: `${visibleProgressHeight}px` 
-          }}
-        />
+    return (
+        <>
+            {searchOpen && (
+                <div className="fixed inset-0 z-40" onClick={() => setSearchOpen(false)} />
+            )}
 
-        <div className="flex flex-col gap-24 relative z-20">
-          {steps.map((step, i) => {
-            const isRight = i % 2 === 1;
-            const cardRef = stepRefs.current[i];
-            const isVisible = visibleSteps[i];
+            <nav className="lg:hidden fixed bottom-0 left-0 right-0 w-full z-50">
+                <ul className="flex justify-between items-center bg-white text-gray-400 shadow-md py-4 px-8">
+                    {navItems.map(({ href, label, icon, action }) => {
+                        const isActive = pathname === href;
+                        return (
+                            <li key={label}>
+                                <Link
+                                    href={href}
+                                    onClick={(e) => {
+                                        if (action) {
+                                            e.preventDefault();
+                                            action();
+                                        }
+                                    }}
+                                    className={`flex flex-col items-center transition-colors ${isActive ? 'text-gray-700' : 'text-[var(--foreground)] hover:text-gray-400'}`}
+                                >
+                                    {icon}
+                                    <span className="text-xs mt-1">{label}</span>
+                                </Link>
+                            </li>
+                        );
+                    })}
+                </ul>
+                {searchOpen && (
+                    <div className="absolute bottom-full left-0 right-0 z-50 bg-white px-6 py-4 shadow-[0_-2px_6px_rgba(0,0,0,0.08)] animate-slide-up">
+                        <form onSubmit={(e) => { e.preventDefault(); handleSearchSubmit(); }} className="w-full max-w-[400px] mx-auto flex items-center border-b border-black pb-1">
+                            <input
+                                ref={inputRef}
+                                type="text"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter') {
+                                        handleSearchSubmit();
+                                    }
+                                }}
+                                placeholder="Search for generators or components..."
+                                className="w-full bg-transparent text-base px-2 py-3 focus:outline-none focus:ring-0"
+                            />
+                            <button
+                                type="submit"
+                                className="text-black hover:text-gray-700 px-2 transition-colors shine-effect"
+                                aria-label="Submit search"
+                            >
+                                <svg
+                                    className="w-6 h-6"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth={2}
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                )}
 
-            return (
-              <div
-                key={i}
-                className={`flex flex-col lg:flex-row items-center ${
-                  isRight ? "lg:flex-row-reverse" : ""
-                }`}
-              >
-                <div
-                  className={`lg:w-1/2 p-4 ${
-                    isRight ? "text-left pl-6" : "text-right pr-6"
-                  }`}
-                >
-                  <div
-                    tabIndex={0}
-                    ref={cardRef}
-                    className={`bg-white p-8 rounded-xl shadow-lg max-w-md mx-auto
-                      transform transition-all duration-700 ease-out
-                      ${
-                        isVisible
-                          ? "opacity-100 translate-y-0"
-                          : "opacity-0 translate-y-10"
-                      }
-                      hover:shadow-xl hover:scale-[1.02]
-                    `}
-                    style={{ willChange: "opacity, transform" }}
-                  >
-                    <h3
-                      className="text-2xl mb-3 text-[var(--foreground)] leading-snug
-                      transition-colors duration-300 ease-in-out"
-                    >
-                      {step.title}
-                    </h3>
-                    <p className="text-base text-[var(--foreground)] leading-relaxed tracking-wide transition-colors duration-300">
-                      {step.content}
-                    </p>
-                  </div>
-                </div>
+            </nav>
 
-                <div
-                  tabIndex={0}
-                  ref={circleRefs.current[i]}
-                  className="w-12 h-12 bg-[var(--foreground)] text-[var(--background)] rounded-full flex items-center justify-center mx-auto shadow-lg text-lg select-none
-                    transition-colors duration-300 ease-in-out z-20"
-                >
-                  {i + 1}
-                </div>
+            {drawerOpen && (
+                <>
+                    <div className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300" onClick={() => setDrawerOpen(false)} />
+                    <div className="fixed left-0 right-0 bottom-0 z-50 bg-white rounded-t-md pt-10 px-5 pb-6 h-[80vh] overflow-y-auto shadow-2xl animate-slide-up space-y-5">
+                        <div className="flex justify-between items-center">
+                            <h2 className="text-xl font-semibold text-[var(--foreground)]">Menu</h2>
+                            <button onClick={() => setDrawerOpen(false)} className="text-3xl text-black hover:text-gray-700">
+                                <RiCloseLine />
+                            </button>
+                        </div>
 
-                <div className="lg:w-1/2 p-4" />
-              </div>
-            );
-          })}
-        </div>
-      </div>
-{/* CTA Section */}
-      <div className="container mx-auto mt-20 text-center">
-        <div className="bg-gradient-to-r from-[var(--foreground)] to-[var(--hover)] text-white p-8 md:p-12 rounded-2xl mx-auto shadow-lg">
-          <h3 className="text-2xl md:text-3xl mb-4">Ready to Get Started?</h3>
-          <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
-            Begin your journey to reliable power solutions with our easy process.
-          </p>
-          <Link
-            href="/build-genset"
-            className="inline-flex items-center px-6 py-3 bg-white text-[var(--foreground)] rounded-[10px] hover:rounded-[15px] transition-all duration-300"
-          >
-            Design Your Generator
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </Link>
-        </div>
-      </div>
+                        <div className="space-y-3">
+                            {staticLinks.map(({ label, href }) => (
+                                <Link
+                                    key={label}
+                                    href={href}
+                                    onClick={() => setDrawerOpen(false)}
+                                    className="block bg-gray-50 hover:bg-gray-100 rounded-md px-4 py-3 text-base font-medium text-[var(--foreground)] shadow-sm transition"
+                                >
+                                    {label}
+                                </Link>
+                            ))}
+                        </div>
 
-      {/* Bottom spacer */}
-      <div className="h-20" />
-    </section>
-  );
-}
+                        {(['Generators'] as const).map((category) => (
+                            <div key={category} className="bg-gray-50 rounded-md p-4 shadow">
+                                <div className="flex justify-between items-center mb-3">
+                                    <h3 className="text-lg font-semibold text-[var(--foreground)]">{category}</h3>
+                                </div>
+
+                                <div className="flex flex-wrap gap-2 mb-4">
+                                    {Object.keys(menuData[category]).map((tab) => (
+                                        <button
+                                            key={tab}
+                                            onClick={() => {
+                                                setPrevTab(activeTab);
+                                                setActiveCategory(category);
+                                                setActiveTab(tab);
+                                            }}
+                                            className={clsx(
+                                                'px-3 py-1 rounded-md text-sm font-medium transition-colors',
+                                                activeCategory === category && activeTab === tab
+                                                    ? 'bg-[var(--foreground)] text-white'
+                                                    : 'bg-white text-[var(--foreground)] border border-gray-300'
+                                            )}
+                                        >
+                                            {tab}
+                                        </button>
+                                    ))}
+                                </div>
+
+                                {activeCategory === category && (
+                                    <div className="relative overflow-hidden">
+                                        <div
+                                            key={activeTab}
+                                            className="flex flex-col gap-2 transition-transform duration-300 ease-in-out animate-slide-tab"
+                                        >
+                                            {getLinks().length > 0 ? (
+                                                getLinks().map(({ name, href }) => (
+                                                    <Link
+                                                        key={href}
+                                                        href={href}
+                                                        onClick={() => setDrawerOpen(false)}
+                                                        className="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 shadow-sm transition"
+                                                    >
+                                                        <RiArrowRightSLine className="text-lg text-gray-700" />
+                                                        {name}
+                                                    </Link>
+                                                ))
+                                            ) : (
+                                                <p className="text-sm text-gray-700 col-span-2">No links available.</p>
+                                            )}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+
+                    <style jsx>{`
+            .animate-slide-up {
+              animation: slideUp 0.3s ease-out forwards;
+            }
+            .animate-slide-tab {
+              animation: slideTab 0.3s ease-out;
+            }
+            @keyframes slideUp {
+              from {
+                transform: translateY(100%);
+              }
+              to {
+                transform: translateY(0);
+              }
+            }
+            @keyframes slideTab {
+              from {
+                opacity: 0;
+                transform: translateX(30px);
+              }
+              to {
+                opacity: 1;
+                transform: translateX(0);
+              }
+            }
+          `}</style>
+                </>
+            )}
+        </>
+    );
+};
+
+export default MobileNav;

@@ -6,76 +6,120 @@ import GeneratorsCard from "@/app/generators/GeneratorsCard";
 import Script from "next/script";
 import { cummins } from "@/data/generators/cummins/cumminsProducts";
 import { cats } from "@/data/generators/cat/catProducts";
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams } from "next/navigation";
+
+/**
+ * Improvements in this version:
+ * - case-insensitive comparisons (normalize)
+ * - sync initial filter values from URL and react to changes
+ * - safe image fallback before rendering GeneratorsCard (prevents TS/runtime error)
+ * - controlled itemsPerPage select
+ */
 
 export default function GeneratorsPage() {
   const searchParams = useSearchParams();
-  
-  // Initialize states from URL params
-  const [selectedBrand, setSelectedBrand] = useState("All");
-  const [selectedEmission, setSelectedEmisiion] = useState("All");
-  const [selectedFrequency, setSelectedFrequency] = useState(
-    searchParams.get('frequency') || "All"
-  );
-  const [selectedFuelType, setSelectedFuelType] = useState(
-    searchParams.get('fuelType') || "Diesel"
-  );
-  const [selectedPhase, setSelectedPhase] = useState(
-    searchParams.get('phase') ? 
-      `${searchParams.get('phase')} Phase` : 
-      "All"
-  );
-  const [selectedBuildType, setSelectedBuildType] = useState("All");
-  
-  // Get kVA range from URL
-  const kvaParam = searchParams.get('kva');
-  const [kvaMin, kvaMax] = kvaParam ? kvaParam.split('-').map(Number) : [0, 3000];
-  
-  const [showFilters, setShowFilters] = useState(false);
-  const [sortOrder, setSortOrder] = useState("asc");
-  const [itemsPerPage, setItemsPerPage] = useState(16);
-  const [currentPage, setCurrentPage] = useState(1);
-  
-  // Double range slider states
-  const minKva = 0;
-  const maxKva = 3000;
-  const [minRange, setMinRange] = useState(kvaMin || minKva);
-  const [maxRange, setMaxRange] = useState(kvaMax || maxKva);
-  const rangeRef = useRef<HTMLDivElement>(null);
 
+  // helper normalizer
+  const norm = (v?: any) => (v === undefined || v === null ? "" : String(v).toLowerCase());
+
+  // Read initial values from URL (safe)
+  const initialBrand = searchParams.get("brand") ?? "All";
+  const initialEmission = searchParams.get("emission") ?? "All";
+  const initialFrequency = searchParams.get("frequency") ?? "All";
+  const initialFuelType = searchParams.get("fuelType") ?? "Diesel";
+  // If URL contains phase as "Single" or "Three" you may pass exact values; keep default as "All"
+  const rawPhase = searchParams.get("phase");
+  const initialPhase = rawPhase ? (rawPhase.includes("Phase") ? rawPhase : `${rawPhase} Phase`) : "All";
+  const initialBuildType = searchParams.get("buildType") ?? "All";
+
+  // kVA param might be like "100-500"
+  const kvaParam = searchParams.get("kva");
+  const [kvaMinFromUrl, kvaMaxFromUrl] = kvaParam ? kvaParam.split("-").map((s) => Number(s || 0)) : [0, 3000];
+
+  // Filter states (kept controllable)
+  const [selectedBrand, setSelectedBrand] = useState<string>(initialBrand);
+  const [selectedEmission, setSelectedEmission] = useState<string>(initialEmission);
+  const [selectedFrequency, setSelectedFrequency] = useState<string>(initialFrequency);
+  const [selectedFuelType, setSelectedFuelType] = useState<string>(initialFuelType);
+  const [selectedPhase, setSelectedPhase] = useState<string>(initialPhase);
+  const [selectedBuildType, setSelectedBuildType] = useState<string>(initialBuildType);
+
+  // Range slider states (min / max)
+  const MIN_KVA = 0;
+  const MAX_KVA = 3000;
+  const [minRange, setMinRange] = useState<number>(Number.isFinite(kvaMinFromUrl) ? kvaMinFromUrl : MIN_KVA);
+  const [maxRange, setMaxRange] = useState<number>(Number.isFinite(kvaMaxFromUrl) ? kvaMaxFromUrl : MAX_KVA);
+  const rangeRef = useRef<HTMLDivElement | null>(null);
+
+  // UI state
+  const [showFilters, setShowFilters] = useState(false);
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
+  const [itemsPerPage, setItemsPerPage] = useState<number>(16);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
+  // Keep local filter state in sync if URL params change externally (e.g. user bookmarked link)
+  useEffect(() => {
+    setSelectedBrand(searchParams.get("brand") ?? "All");
+    setSelectedEmission(searchParams.get("emission") ?? "All");
+    setSelectedFrequency(searchParams.get("frequency") ?? "All");
+    setSelectedFuelType(searchParams.get("fuelType") ?? "Diesel");
+    const p = searchParams.get("phase");
+    setSelectedPhase(p ? (p.includes("Phase") ? p : `${p} Phase`) : "All");
+    setSelectedBuildType(searchParams.get("buildType") ?? "All");
+
+    const kva = searchParams.get("kva");
+    if (kva) {
+      const [a, b] = kva.split("-").map((s) => Number(s || 0));
+      setMinRange(Number.isFinite(a) ? a : MIN_KVA);
+      setMaxRange(Number.isFinite(b) ? b : MAX_KVA);
+    }
+    // reset pagination when URL changes
+    setCurrentPage(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams?.toString()]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [currentPage]);
 
+  // Combine static product datasets
   const allGenerators = useMemo(() => {
     return [...cummins, ...cats];
-  }, [cummins, cats]);
+    // cummins/cats are static imports; no need to include them in deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
+  // Sort by size numeric (coerce string to number safely)
   const sortedProducts = useMemo(() => {
-    return [...allGenerators].sort((a, b) =>
-      sortOrder === "asc" ? a.size - b.size : b.size - a.size
-    );
+    return [...allGenerators].sort((a, b) => {
+      const aSize = typeof a.size === "string" ? parseFloat(a.size) || 0 : a.size ?? 0;
+      const bSize = typeof b.size === "string" ? parseFloat(b.size) || 0 : b.size ?? 0;
+      return sortOrder === "asc" ? aSize - bSize : bSize - aSize;
+    });
   }, [sortOrder, allGenerators]);
 
-  const filteredall = useMemo(() => {
+  // Filtering (case-insensitive and robust)
+  const filteredAll = useMemo(() => {
     return sortedProducts.filter((product) => {
-      const matchBrand = selectedBrand === "All" || product.brand === selectedBrand;
-      const matchEmission = selectedEmission === "All" || product.emission === selectedEmission;
-      const matchFrequency = selectedFrequency === "All" || product.frequency === selectedFrequency;
-      const matchFuelType = selectedFuelType === "All" || product.fuelType === selectedFuelType;
-      const matchPhase = selectedPhase === "All" || product.phase === selectedPhase;
-      const matchBuildType = selectedBuildType === "All" || product.buildType === selectedBuildType;
-      const matchKvaRating = product.size >= minRange && product.size <= maxRange;
+      const matchBrand = selectedBrand === "All" || norm(product.brand) === norm(selectedBrand);
+      const matchEmission = selectedEmission === "All" || norm(product.emission) === norm(selectedEmission);
+      const matchFrequency = selectedFrequency === "All" || norm(product.frequency) === norm(selectedFrequency);
+      const matchFuelType = selectedFuelType === "All" || norm(product.fuelType) === norm(selectedFuelType);
+      const matchPhase = selectedPhase === "All" || norm(product.phase) === norm(selectedPhase);
+      const matchBuildType = selectedBuildType === "All" || norm(product.buildType) === norm(selectedBuildType);
+
+      // kVA numeric comparison (coerce)
+      const size = typeof product.size === "string" ? parseFloat(product.size) || 0 : product.size ?? 0;
+      const matchKvaRating = size >= minRange && size <= maxRange;
 
       return (
         matchBrand &&
         matchEmission &&
         matchFrequency &&
         matchFuelType &&
-        matchKvaRating &&
         matchPhase &&
-        matchBuildType
+        matchBuildType &&
+        matchKvaRating
       );
     });
   }, [
@@ -87,23 +131,23 @@ export default function GeneratorsPage() {
     selectedPhase,
     selectedBuildType,
     minRange,
-    maxRange
+    maxRange,
   ]);
 
-  const totalItems = filteredall.length;
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
-  const currentPageClamped = Math.min(currentPage, totalPages);
+  const totalItems = filteredAll.length;
+  const totalPages = Math.max(1, Math.ceil(totalItems / itemsPerPage));
+  const currentPageClamped = Math.min(Math.max(1, currentPage), totalPages);
   const startIdx = (currentPageClamped - 1) * itemsPerPage;
   const endIdx = Math.min(startIdx + itemsPerPage, totalItems);
-  const paginatedProducts = filteredall.slice(startIdx, endIdx);
+  const paginatedProducts = filteredAll.slice(startIdx, endIdx);
 
   const handleItemsPerPageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setItemsPerPage(Number(e.target.value));
+    const v = Number(e.target.value);
+    setItemsPerPage(v);
     setCurrentPage(1);
   };
 
-
-
+  // Simple schema (unchanged)
   const orgSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -167,11 +211,10 @@ export default function GeneratorsPage() {
           style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
         >
           <div className="container h-full flex items-end pb-4">
-            <h1 className="text-[var(--background)] text-2xl md:text-4xl">
-              Diesel Generators
-            </h1>
+            <h1 className="text-[var(--background)] text-2xl md:text-4xl">Diesel Generators</h1>
           </div>
         </div>
+
         <div className="flex justify-between items-center mx-4 mt-6 lg:hidden">
           <button
             onClick={() => setShowFilters((prev) => !prev)}
@@ -186,7 +229,8 @@ export default function GeneratorsPage() {
           {(showFilters || (typeof window !== "undefined" && window.innerWidth >= 1024)) && (
             <aside className="w-full lg:w-[20%] border rounded-xl p-4 overflow-hidden border-gray-200 bg-white shadow-sm">
               <h2 className="text-lg mb-5 text-[var(--foreground)]">Filters</h2>
-              <div className="space-y-6 text-[var(--foreground)] ">
+
+              <div className="space-y-6 text-[var(--foreground)]">
                 {[
                   {
                     label: "Brand",
@@ -198,7 +242,7 @@ export default function GeneratorsPage() {
                     label: "Emission",
                     options: ["All", "Stage IIIA", "Stage V", "Unregulated"],
                     state: selectedEmission,
-                    setState: setSelectedEmisiion,
+                    setState: setSelectedEmission,
                   },
                   {
                     label: "Frequency",
@@ -220,16 +264,17 @@ export default function GeneratorsPage() {
                         <label
                           key={option}
                           className={`flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-[10px] hover:rounded-[15px] border transition-all duration-500 ease-in-out ${
-                            state === option
-                              ? "bg-[var(--foreground)] text-white border-[var(--foreground)]"
-                              : ""
+                            state === option ? "bg-[var(--foreground)] text-white border-[var(--foreground)]" : ""
                           }`}
                         >
                           <input
                             type="radio"
                             name={label}
                             checked={state === option}
-                            onChange={() => setState(option)}
+                            onChange={() => {
+                              setState(option);
+                              setCurrentPage(1);
+                            }}
                             className="hidden"
                           />
                           <span>{option}</span>
@@ -238,10 +283,8 @@ export default function GeneratorsPage() {
                     </div>
                   </div>
                 ))}
-                
-              
-                
-                {/* Continue with other filters */}
+
+                {/* Phase / Build Type */}
                 {[
                   {
                     label: "Phase",
@@ -272,7 +315,10 @@ export default function GeneratorsPage() {
                             type="radio"
                             name={label}
                             checked={state === option}
-                            onChange={() => setState(option)}
+                            onChange={() => {
+                              setState(option);
+                              setCurrentPage(1);
+                            }}
                             className="hidden"
                           />
                           <span>{option}</span>
@@ -281,6 +327,43 @@ export default function GeneratorsPage() {
                     </div>
                   </div>
                 ))}
+
+                {/* kVA Range Filter */}
+                <div>
+                  <label className="block mb-4 text-[var(--foreground)]">kVA Range</label>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm mb-1">Min (kVA)</label>
+                      <input
+                        type="number"
+                        value={minRange}
+                        onChange={(e) => {
+                          const v = Number(e.target.value || 0);
+                          setMinRange(Math.max(MIN_KVA, Math.min(v, MAX_KVA)));
+                          setCurrentPage(1);
+                        }}
+                        className="w-full border rounded px-3 py-2"
+                        min={MIN_KVA}
+                        max={MAX_KVA}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm mb-1">Max (kVA)</label>
+                      <input
+                        type="number"
+                        value={maxRange}
+                        onChange={(e) => {
+                          const v = Number(e.target.value || 0);
+                          setMaxRange(Math.max(MIN_KVA, Math.min(v, MAX_KVA)));
+                          setCurrentPage(1);
+                        }}
+                        className="w-full border rounded px-3 py-2"
+                        min={MIN_KVA}
+                        max={MAX_KVA}
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </aside>
           )}
@@ -289,17 +372,9 @@ export default function GeneratorsPage() {
             <div className="flex flex-col md:flex-row items-center justify-between mb-6 gap-4">
               <div className="text-gray-600">
                 Showing{" "}
-                <span>
-                  {itemsPerPage === Infinity
-                    ? 1
-                    : (currentPageClamped - 1) * itemsPerPage + 1}
-                </span>{" "}
+                <span>{itemsPerPage === Infinity ? 1 : (currentPageClamped - 1) * itemsPerPage + 1}</span>{" "}
                 -{" "}
-                <span>
-                  {itemsPerPage === Infinity
-                    ? totalItems
-                    : Math.min(currentPageClamped * itemsPerPage, totalItems)}
-                </span>{" "}
+                <span>{itemsPerPage === Infinity ? totalItems : Math.min(currentPageClamped * itemsPerPage, totalItems)}</span>{" "}
                 of <span>{totalItems}</span>
               </div>
 
@@ -307,7 +382,10 @@ export default function GeneratorsPage() {
                 <label>Sort by Size:</label>
                 <select
                   value={sortOrder}
-                  onChange={(e) => setSortOrder(e.target.value as "asc" | "desc")}
+                  onChange={(e) => {
+                    setSortOrder(e.target.value as "asc" | "desc");
+                    setCurrentPage(1);
+                  }}
                   className="border rounded px-2 py-1 cursor-pointer"
                 >
                   <option value="asc">Low to High</option>
@@ -316,6 +394,7 @@ export default function GeneratorsPage() {
 
                 <label className="ml-4">Items per page:</label>
                 <select
+                  value={itemsPerPage}
                   onChange={handleItemsPerPageChange}
                   className="border rounded px-2 py-1 cursor-pointer"
                 >
@@ -327,9 +406,16 @@ export default function GeneratorsPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
-              {paginatedProducts.map((product) => (
-                <GeneratorsCard key={product.slug} product={product} />
-              ))}
+              {paginatedProducts.map((product) => {
+                // ensure `image` exists (GeneratorsCard expects it). Fallback to placeholder if missing.
+                const productWithImage = {
+                  ...product,
+                  image: product.image ?? "/favicon.ico",
+                };
+                // cast to any to silence TS mismatch if your Product type is elsewhere;
+                // better: import your Product type and use it instead of any.
+                return <GeneratorsCard key={product.slug} product={productWithImage as any} />;
+              })}
             </div>
 
             {totalPages > 1 && (
@@ -339,9 +425,7 @@ export default function GeneratorsPage() {
                     key={idx}
                     onClick={() => setCurrentPage(idx + 1)}
                     className={`px-3 py-1 border rounded cursor-pointer ${
-                      currentPageClamped === idx + 1
-                        ? "btn-primary shine-effect"
-                        : "btn-third shine-effect"
+                      currentPageClamped === idx + 1 ? "btn-primary shine-effect" : "btn-third shine-effect"
                     }`}
                   >
                     {idx + 1}

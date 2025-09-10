@@ -19,8 +19,8 @@ export const menuData: MenuData = {
             { name: 'Cummins Generator', href: '/generators/cummins' },
         ],
         Types: [
-            { name: 'Silent Generators', href: '/generators/zela/small-gen' },
-            { name: 'Open Generators', href: '/generators/zela/medium-gen' },
+            { name: 'Silent Generators', href: '/generators/silent' },
+            { name: 'Open Generators', href: '/generators/open' },
             { name: '50Hz Generators', href: '/generators/zela/large-gen' },
             { name: '60Hz Generators', href: '/generators/zela/industrial-gen' },
             { name: 'Portable Gen', href: '/generators/zela/portable-gen' },
