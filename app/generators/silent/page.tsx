@@ -81,11 +81,14 @@ interface SearchParams {
   [key: string]: string | undefined;
 }
 
-interface SilentGeneratorsPageProps {
-  searchParams: SearchParams;
-}
+// Remove SilentGeneratorsPageProps interface and update the component
+export default async function SilentGeneratorsPage({ 
+  searchParams 
+}: { 
+  searchParams: Promise<SearchParams> 
+}) {
+  const resolvedSearchParams = await searchParams;
 
-export default function SilentGeneratorsPage({ searchParams }: SilentGeneratorsPageProps) {
   return (
     <>
       <script
@@ -93,7 +96,7 @@ export default function SilentGeneratorsPage({ searchParams }: SilentGeneratorsP
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
       <Suspense fallback={<div>Loading...</div>}>
-        <SilentGeneratorsClient searchParams={searchParams} />
+        <SilentGeneratorsClient searchParams={resolvedSearchParams} />
       </Suspense>
     </>
   );

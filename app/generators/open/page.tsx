@@ -81,8 +81,8 @@ interface SearchParams {
   [key: string]: string | undefined;
 }
 
-// Remove SilentGeneratorsPageProps interface and update the component
-export default async function SilentGeneratorsPage({ 
+
+export default async function OpenGeneratorsPage({ 
   searchParams 
 }: { 
   searchParams: Promise<SearchParams> 
