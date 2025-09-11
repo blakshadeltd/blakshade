@@ -212,7 +212,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                 </div>
 
                 {/* Description + Specs */}
-                <div className="container mt-16 text-[var(--foreground)] max-w-4xl space-y-14">
+                <div className="container mt-16 text-[var(--foreground)] max-w-4xl space-y-14 mb-30">
                     <div
                         className="text-base leading-relaxed"
                         dangerouslySetInnerHTML={{ __html: product.description }}

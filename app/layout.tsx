@@ -7,6 +7,7 @@ import Footer from "./component/footer";
 import localFont from 'next/font/local';
 import { ReduxProvider } from "@/store/provider";
 import PersistGateWrapper from "@/store/PersistGateWrapper";
+import CallToAction from "./component/CallToAction";
 
 const MillingDuplex1mm = localFont({ src: './MillingDuplex1mm.woff2' });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
             <main className="bg-[var(--background)] mt-4">
               {children}
             </main>
+            <CallToAction/>
             <Footer />
           </PersistGateWrapper>
         </ReduxProvider>
