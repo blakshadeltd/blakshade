@@ -96,7 +96,7 @@ const StickyNav = () => {
       <nav
         ref={navRef}
         className={clsx(
-          'border sticky-nav fixed left-1/2 -translate-x-1/2 top-[15px] px-4 py-5 rounded-[20px] shadow-[0_0_40px_#fde3a233,0_0_40px_#ffffff] duration-500 w-full hidden lg:block',
+          'border sticky-nav fixed left-1/2 -translate-x-1/2 top-[15px] px-4 py-5 rounded-[20px] shadow-[0_0_40px_#fde3a233,0_0_40px_#ffffff] duration-500 w-full hidden lg:block transition-all',
           showSticky ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-4 pointer-events-none',
           activeMenu === 'Generators' ? 'max-w-[850px]' : 'max-w-[800px]'
         )}
@@ -121,12 +121,16 @@ const StickyNav = () => {
             </Link>
 
             {(Object.keys(menuData) as MenuKey[]).map((menuKey) => (
-              <div key={menuKey} className="relative" onMouseEnter={() => handleMenuInteraction(menuKey)}>
+              <div
+                key={menuKey}
+                className="relative"
+                onMouseEnter={() => handleMenuInteraction(menuKey)}
+              >
                 <Link
                   href={`/${menuKey.toLowerCase()}`}
                   className={clsx(
                     'flex items-center gap-1 text-base transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]',
-                    activeMenu === menuKey ? 'text-[var(--foreground)]' : ''
+                    activeMenu === menuKey ? 'text-[var(--foreground)]' : 'text-[var(--foreground)] hover:text-[var(--hover)]'
                   )}
                 >
                   {menuKey}
@@ -155,7 +159,6 @@ const StickyNav = () => {
           <div className="flex items-center gap-6">
             <button
               onMouseEnter={() => handleMenuInteraction('Search')}
-              onClick={() => setActiveMenu('Search')}
               className="text-[var(--foreground)] hover:text-[var(--hover)] transition-colors shine-effect"
               aria-label="Search"
             >
@@ -163,26 +166,42 @@ const StickyNav = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </button>
-            <Link href="/build-genset" className="px-6 py-2 btn-primary shine-effect">
+            <Link
+              href="/build-genset"
+              className="px-6 py-2 btn-primary shine-effect"
+            >
               Build Genset
             </Link>
           </div>
         </div>
 
-        <div className="relative w-full transition-all duration-500 ease-out overflow-hidden" style={{ height: `${popoverHeight}px` }}>
+        <div 
+          className="relative w-full transition-all duration-500 ease-in-out overflow-hidden" 
+          style={{ height: `${popoverHeight}px` }}
+        >
+          {/* Generator Menu */}
           <div
             key="Generators"
             ref={(el) => {
               menuRefs.current.Generators = el;
             }}
-            className={clsx('absolute top-0 left-0 w-full px-12 py-8 transition-all duration-500', activeMenu === 'Generators' ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 pointer-events-none')}
+            className={clsx(
+              'absolute top-0 left-0 w-full px-12 py-8 transition-all duration-500',
+              activeMenu === 'Generators'
+                ? 'opacity-100 translate-y-0 pointer-events-auto'
+                : 'opacity-0 -translate-y-2 pointer-events-none'
+            )}
           >
             <div className={'grid grid-cols-3 gap-8 mx-auto max-w-5xl'}>
               {Object.entries(menuData.Generators).map(([category, items], idx, arr) => (
                 <div key={category} className={clsx('flex flex-col gap-2 pr-6', idx !== arr.length - 1 && 'border-r border-gray-200')}>
                   <h3 className="text-[var(--foreground)] mb-2">{category}</h3>
                   {items.map((item) => (
-                    <Link key={`${category}-${item.href}`} href={item.href} className="text-sm text-gray-600 hover:text-gray-500 transition-colors block w-full py-1 cursor-pointer shine-effect">
+                    <Link
+                      key={`${category}-${item.href}`}
+                      href={item.href}
+                      className="text-sm text-gray-600 hover:text-gray-500 transition-colors block w-full py-1 cursor-pointer shine-effect"
+                    >
                       {item.name}
                     </Link>
                   ))}
@@ -191,26 +210,39 @@ const StickyNav = () => {
             </div>
           </div>
 
-          {activeMenu === 'Search' && (
-            <div className="absolute top-10 left-0 w-full h-full flex items-center justify-center transition-all duration-500 px-6">
-              <form onSubmit={handleSearchSubmit} className="w-full max-w-[400px] flex items-center border-b border-gray-300 pb-1">
-                <input
-                  ref={inputRef}
-                  type="text"
-                  placeholder="Search for generators or components..."
-                  className="w-full bg-transparent text-base px-2 py-2 focus:outline-none focus:ring-0"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  aria-label="Search query"
-                />
-                <button type="submit" className="text-black hover:text-gray-700 px-2 transition-colors shine-effect" aria-label="Submit search">
-                  <svg className="w-6 h-6 cursor-pointer" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </form>
-            </div>
-          )}
+          {/* Search Panel */}
+          <div className={clsx(
+            'absolute top-0 left-0 w-full h-full flex items-center justify-center transition-all duration-500 px-6',
+            activeMenu === 'Search'
+              ? 'opacity-100 translate-y-0 pointer-events-auto'
+              : 'opacity-0 -translate-y-2 pointer-events-none'
+          )}>
+            <form onSubmit={handleSearchSubmit} className="w-full max-w-[400px] flex items-center border-b border-gray-300 pb-1">
+              <input
+                ref={inputRef}
+                type="text"
+                placeholder="Search for generators or components..."
+                className="w-full bg-transparent text-base px-2 py-2 focus:outline-none focus:ring-0"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              <button
+                type="submit"
+                className="text-black hover:text-gray-700 px-2 transition-colors shine-effect"
+                aria-label="Submit search"
+              >
+                <svg
+                  className="w-6 h-6 cursor-pointer"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </form>
+          </div>
         </div>
       </nav>
     </div>

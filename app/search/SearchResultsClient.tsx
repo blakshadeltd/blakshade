@@ -265,7 +265,7 @@ export default function SearchResultsClient({
       >
         <div className="container h-full flex items-end pb-4">
           <div className="text-center">
-            <h1 className="text-[var(--background)] text-2xl md:text-4xl mb-4">
+            <h1 className="text-[var(--background)] text-2xl md:text-3xl mb-4">
               {searchQuery ? `Search Results for "${searchQuery}"` : 'Search Generators'}
             </h1>
           </div>

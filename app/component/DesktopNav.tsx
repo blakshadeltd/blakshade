@@ -1,4 +1,4 @@
-// DesktopNav.tsx - Updated search behavior
+// DesktopNav.tsx - Improved smoothness
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
@@ -17,6 +17,7 @@ const DesktopNav = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const inputRef = useRef<HTMLInputElement | null>(null);
   const router = useRouter();
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const menuRefs = useRef<Record<'Generators', HTMLDivElement | null>>({
     Generators: null,
@@ -32,7 +33,10 @@ const DesktopNav = () => {
 
   const handleMenuInteraction = (menu: MenuKey | null) => {
     clearHideTimeout();
-    setActiveMenu(menu);
+    if (activeMenu !== menu) {
+      setIsTransitioning(true);
+      setActiveMenu(menu);
+    }
   };
 
   const handleSearchSubmit = (e: React.FormEvent) => {
@@ -41,21 +45,24 @@ const DesktopNav = () => {
     if (q) {
       router.push(`/search?q=${encodeURIComponent(q)}`);
       setActiveMenu(null);
-      // keep searchQuery so the input remains filled (helpful UX)
     }
   };
 
   useEffect(() => {
     if (activeMenu && activeMenu !== 'Search' && menuRefs.current[activeMenu]) {
-      setPopoverHeight(menuRefs.current[activeMenu]?.offsetHeight || 0);
+      const height = menuRefs.current[activeMenu]?.offsetHeight || 0;
+      setPopoverHeight(height);
+      setTimeout(() => setIsTransitioning(false), 50);
     } else if (activeMenu === 'Search') {
-      // Compute height from input if possible so the popover doesn't clip
       const inputHeight = inputRef.current?.offsetHeight ?? 36;
-      // add some vertical spacing for padding
       setPopoverHeight(inputHeight + 56);
-      setTimeout(() => inputRef.current?.focus(), 100);
+      setTimeout(() => {
+        inputRef.current?.focus();
+        setIsTransitioning(false);
+      }, 100);
     } else {
       setPopoverHeight(0);
+      setTimeout(() => setIsTransitioning(false), 300);
     }
   }, [activeMenu]);
 
@@ -63,7 +70,7 @@ const DesktopNav = () => {
     <div className="relative">
       <nav
         className={clsx(
-          'absolute top-0 left-1/2 -translate-x-1/2 z-20 px-4 hidden lg:block py-6 rounded-b-[30px] duration-500 w-full',
+          'absolute top-0 left-1/2 -translate-x-1/2 z-20 px-4 hidden lg:block py-6 rounded-b-[30px] duration-500 w-full transition-all',
           activeMenu === 'Generators' ? 'max-w-[850px]' : 'max-w-[800px]'
         )}
         style={{ backgroundColor: 'var(--background)' }}
@@ -143,7 +150,10 @@ const DesktopNav = () => {
           </div>
         </div>
 
-        <div className="relative w-full transition-all duration-500 ease-out overflow-hidden" style={{ height: `${popoverHeight}px` }}>
+        <div 
+          className="relative w-full transition-all duration-500 ease-in-out overflow-hidden" 
+          style={{ height: `${popoverHeight}px` }}
+        >
           {/* Generator Menu */}
           <div
             key="Generators"
@@ -153,8 +163,8 @@ const DesktopNav = () => {
             className={clsx(
               'absolute top-0 left-0 w-full px-12 py-8 transition-all duration-500',
               activeMenu === 'Generators'
-                ? 'opacity-100 translate-x-0 pointer-events-auto'
-                : 'opacity-0 pointer-events-none'
+                ? 'opacity-100 translate-y-0 pointer-events-auto'
+                : 'opacity-0 -translate-y-2 pointer-events-none'
             )}
           >
             <div className={'grid grid-cols-3 gap-8 mx-auto max-w-5xl'}>
@@ -176,35 +186,38 @@ const DesktopNav = () => {
           </div>
 
           {/* Search Panel */}
-          {activeMenu === 'Search' && (
-            <div className="absolute top-10 left-0 w-full h-full flex items-center justify-center transition-all duration-500 px-6">
-              <form onSubmit={handleSearchSubmit} className="w-full max-w-[400px] flex items-center border-b border-gray-300 pb-1">
-                <input
-                  ref={inputRef}
-                  type="text"
-                  placeholder="Search for generators or components..."
-                  className="w-full bg-transparent text-base px-2 py-2 focus:outline-none focus:ring-0"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-                <button
-                  type="submit"
-                  className="text-black hover:text-gray-700 px-2 transition-colors shine-effect"
-                  aria-label="Submit search"
+          <div className={clsx(
+            'absolute top-0 left-0 w-full h-full flex items-center justify-center transition-all duration-500 px-6',
+            activeMenu === 'Search'
+              ? 'opacity-100 translate-y-0 pointer-events-auto'
+              : 'opacity-0 -translate-y-2 pointer-events-none'
+          )}>
+            <form onSubmit={handleSearchSubmit} className="w-full max-w-[400px] flex items-center border-b border-gray-300 pb-1">
+              <input
+                ref={inputRef}
+                type="text"
+                placeholder="Search for generators or components..."
+                className="w-full bg-transparent text-base px-2 py-2 focus:outline-none focus:ring-0"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              <button
+                type="submit"
+                className="text-black hover:text-gray-700 px-2 transition-colors shine-effect"
+                aria-label="Submit search"
+              >
+                <svg
+                  className="w-6 h-6 cursor-pointer"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    className="w-6 h-6 cursor-pointer"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </form>
-            </div>
-          )}
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </form>
+          </div>
         </div>
       </nav>
     </div>
