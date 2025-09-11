@@ -1,10 +1,10 @@
+// CatGeneratorsClient.tsx
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
 import { FaSlidersH } from "react-icons/fa";
 import GeneratorsCard from "@/app/generators/GeneratorsCard";
 import GeneratorsSidebar from "@/app/component/GeneratorsSidebar";
-import { cummins } from "@/data/generators/cummins/cumminsProducts";
 import { cats } from "@/data/generators/cat/catProducts";
 
 interface SearchParams {
@@ -14,13 +14,13 @@ interface SearchParams {
   [key: string]: string | undefined;
 }
 
-interface GeneratorsClientProps {
+interface CatGeneratorsClientProps {
   searchParams: SearchParams;
 }
 
-const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => {
+const CatGeneratorsClient: React.FC<CatGeneratorsClientProps> = ({ searchParams }) => {
   // Initialize states from URL params with "Open" as default build type
-  const [selectedBrand, setSelectedBrand] = useState<string>("All");
+  const [selectedBrand, setSelectedBrand] = useState<string>("Cat");
   const [selectedEmission, setSelectedEmission] = useState<string>("All");
   const [selectedFrequency, setSelectedFrequency] = useState<string>(
     searchParams.frequency || "All"
@@ -43,7 +43,7 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
   }, [currentPage]);
 
   const allGenerators = useMemo(() => {
-    return [...cummins, ...cats];
+    return [...cats];
   }, []);
 
   const sortedProducts = useMemo(() => {
@@ -51,8 +51,6 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
       sortOrder === "asc" ? a.size - b.size : b.size - a.size
     );
   }, [sortOrder, allGenerators]);
-
-  
 
   const filteredall = useMemo(() => {
     return sortedProducts.filter((product) => {
@@ -111,7 +109,7 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
       >
         <div className="container h-full flex items-end pb-4">
           <h1 className="text-[var(--background)] text-2xl md:text-4xl">
-            Open Generators
+            Cat Generators
           </h1>
         </div>
       </div>
@@ -215,4 +213,4 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
   );
 };
 
-export default GeneratorsClient;
+export default CatGeneratorsClient;
