@@ -1,6 +1,5 @@
 // app/generators/silent/page.tsx
 import { Metadata } from "next";
-import { Suspense } from "react";
 import GeneratorsClient from "./GeneratorsClient";
 
 export const metadata: Metadata = {
@@ -95,9 +94,7 @@ export default async function GeneratorsPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
-      <Suspense fallback={<div>Loading...</div>}>
         <GeneratorsClient searchParams={resolvedSearchParams} />
-      </Suspense>
     </>
   );
 }

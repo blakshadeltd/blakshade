@@ -162,27 +162,32 @@ const SilentGeneratorsClient: React.FC<SilentGeneratorsClientProps> = ({ searchP
               of <span>{totalItems}</span>
             </div>
 
-            <div className="flex items-center gap-4">
-              <label>Sort by Size:</label>
-              <select
-                value={sortOrder}
-                onChange={(e) => setSortOrder(e.target.value)}
-                className="border rounded px-2 py-1 cursor-pointer"
-              >
-                <option value="asc">Low to High</option>
-                <option value="desc">High to Low</option>
-              </select>
+<div className="flex items-center gap-4">
+  <label htmlFor="sortOrder">Sort by Size:</label>
+  <select
+    id="sortOrder"
+    value={sortOrder}
+    onChange={(e) => setSortOrder(e.target.value)}
+    className="border rounded px-2 py-1 cursor-pointer"
+  >
+    <option value="asc">Low to High</option>
+    <option value="desc">High to Low</option>
+  </select>
 
-              <label className="ml-4">Items per page:</label>
-              <select
-                onChange={handleItemsPerPageChange}
-                className="border rounded px-2 py-1 cursor-pointer"
-              >
-                <option value={16}>16</option>
-                <option value={24}>24</option>
-                <option value={48}>48</option>
-              </select>
-            </div>
+  <label htmlFor="itemsPerPage" className="ml-4">
+    Items per page:
+  </label>
+  <select
+    id="itemsPerPage"
+    onChange={handleItemsPerPageChange}
+    className="border rounded px-2 py-1 cursor-pointer"
+  >
+    <option value={16}>16</option>
+    <option value={24}>24</option>
+    <option value={48}>48</option>
+  </select>
+</div>
+
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">

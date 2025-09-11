@@ -111,7 +111,7 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
       >
         <div className="container h-full flex items-end pb-4">
           <h1 className="text-[var(--background)] text-2xl md:text-4xl">
-            Open Generators
+            Diesel Generators
           </h1>
         </div>
       </div>
@@ -162,10 +162,11 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
               </span>{" "}
               of <span>{totalItems}</span>
             </div>
-
+            
             <div className="flex items-center gap-4">
-              <label>Sort by Size:</label>
+              <label htmlFor="sortOrder">Sort by Size:</label>
               <select
+                id="sortOrder"
                 value={sortOrder}
                 onChange={(e) => setSortOrder(e.target.value)}
                 className="border rounded px-2 py-1 cursor-pointer"
@@ -174,8 +175,11 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
                 <option value="desc">High to Low</option>
               </select>
 
-              <label className="ml-4">Items per page:</label>
+              <label htmlFor="itemsPerPage" className="ml-4">
+                Items per page:
+              </label>
               <select
+                id="itemsPerPage"
                 onChange={handleItemsPerPageChange}
                 className="border rounded px-2 py-1 cursor-pointer"
               >
