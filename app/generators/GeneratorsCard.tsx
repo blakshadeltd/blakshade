@@ -17,7 +17,7 @@ interface Product {
 
 export default function GeneratorsCard({ product }: { product: Product }) {
     return (
-        <Link href={`/generators/${product.category}/${product.slug}`} className="group block rounded-2xl overflow-hidden border bg-white hover:shadow-xl transition">
+        <Link href={`/generators/${product.category}/${product.slug}`} className="group block rounded-2xl overflow-hidden rounded-[10px] hover:rounded-[15px] border border-gray-300 transition-all duration-500 ease-in-out bg-white hover:shadow-xl transition">
 
             <div className="p-4 flex flex-col h-full">
                     {/* Image */}

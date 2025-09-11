@@ -144,7 +144,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                     style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
                 >
                     <div className="container h-full flex items-end pb-4">
-                        <h1 className="text-[var(--background)] text-xl md:text-2xl">
+                        <h1 className="text-[var(--background)] text-xl md:text-4xl">
                             {product.metaTitle}
                         </h1>
                     </div>
@@ -165,7 +165,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
 
                     {/* Content */}
                     <div className="w-full space-y-6">
-                        <h1 className="text-[var(--foreground)] text-xl md:text-2xl lg:text-4xl">
+                        <h1 className="text-[var(--foreground)] text-xl md:text-2xl lg:text-3xl">
                             {product.title}
                         </h1>
                         <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-0 text-base text-[var(--foreground)] pb-4 max-w-4xl mx-auto"></dl>
@@ -194,7 +194,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                         {/* Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4">
                             <button
-                                className="w-full lg:w-1/2 px-6 md:px-8 lg:px-10 py-3 text-left btn-primary shine-effect cursor-pointer"
+                                className="w-full lg:w-1/2 px-6 md:px-8 lg:px-10 py-5 text-left btn-primary shine-effect cursor-pointer"
                             >
                                 Enquiry
                             </button>
@@ -202,7 +202,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                                 href={product.fullspec}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-full lg:w-1/2 px-6 md:px-8 lg:px-10 py-3 text-left btn-second shine-effect inline-block text-center"
+                                className="w-full lg:w-1/2 px-6 md:px-8 lg:px-10 py-5 text-left btn-second shine-effect inline-block text-center"
                             >
                                 Full Specification
                             </Link>
@@ -212,7 +212,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                 </div>
 
                 {/* Description + Specs */}
-                <div className="container mt-16 text-[var(--foreground)] max-w-4xl space-y-14 mb-30">
+                <div className="container mt-16 text-[var(--foreground)] max-w-4xl space-y-14 mb-10 md:mb-16">
                     <div
                         className="text-base leading-relaxed"
                         dangerouslySetInnerHTML={{ __html: product.description }}
