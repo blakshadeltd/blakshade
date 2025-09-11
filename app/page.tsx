@@ -252,7 +252,7 @@ export default function Home() {
 
             {/* Image Box */}
             <div className="w-full lg:w-1/2 flex items-center justify-center mt-8 lg:mt-0">
-              <div className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] bg-[url('/H03.png')] bg-contain bg-no-repeat bg-center">
+              <div className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] bg-[url('/H03.avif')] bg-contain bg-no-repeat bg-center">
               </div>
             </div>
           </div>
@@ -288,7 +288,7 @@ export default function Home() {
 
             {/* Image Box */}
             <div className="w-full lg:w-1/2 flex items-center justify-center mt-8 lg:mt-0">
-              <div className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] bg-[url('/controlpanel1.png')] bg-contain bg-no-repeat bg-center">
+              <div className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] bg-[url('/controlpanel.avif')] bg-contain bg-no-repeat bg-center">
               </div>
             </div>
           </div>

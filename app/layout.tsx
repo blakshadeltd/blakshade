@@ -1,5 +1,5 @@
 import "./globals.css";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import HeaderMobileNav from "./component/MobileNav";
 import DesktopNav from "./component/DesktopNav";
 import StickyNav from "./component/StickyNav";
@@ -18,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={MillingDuplex1mm.className}>
       <body>
+        <SpeedInsights/>
         <ReduxProvider>
           <PersistGateWrapper>
             <DesktopNav />
@@ -29,6 +30,7 @@ export default function RootLayout({
             <Footer />
           </PersistGateWrapper>
         </ReduxProvider>
+        <SpeedInsights/>
       </body>
     </html>
   );

@@ -103,8 +103,8 @@ export default function HowItWorks() {
     <section className="relative py-32 bg-[var(--background)] text-[var(--foreground)]">
       <div className="container">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl mb-4">How It Works</h2>
-          <p className="text-xl max-w-2xl mx-auto">
+          <h2 className="text-3xl lg:text-4xl text-[var(--foreground)] mb-4">How It Works</h2>
+          <p className="text-base md:text-lg text-gray-700 leading-relaxed">
             Our simple four-step process to get your perfect generator
           </p>
         </div>
@@ -159,8 +159,8 @@ export default function HowItWorks() {
                     style={{ willChange: "opacity, transform" }}
                   >
                     <h3
-                      className="text-2xl mb-3 text-[var(--foreground)] leading-snug
-                      transition-colors duration-300 ease-in-out"
+                      className="text-xl mb-3 text-[var(--foreground)] leading-snug
+                      transition-colors duration-300 ease-in-out border-b"
                     >
                       {step.title}
                     </h3>
@@ -189,7 +189,7 @@ export default function HowItWorks() {
       <div className="container mx-auto mt-20 text-center">
         <div className="bg-gradient-to-r from-[var(--foreground)] to-[var(--hover)] text-white p-8 md:p-12 rounded-2xl mx-auto shadow-lg">
           <h3 className="text-2xl md:text-3xl mb-4">Ready to Get Started?</h3>
-          <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg leading-relaxed mb-4 opacity-90">
             Begin your journey to reliable power solutions with our easy process.
           </p>
           <Link
