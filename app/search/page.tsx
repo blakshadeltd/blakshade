@@ -1,13 +1,6 @@
-// app/search/page.tsx
-import { Metadata } from "next";
-import SearchResultsClient from "@/app/component/SearchResultsClient";
+import SearchResultsClient from "@/app/search/SearchResultsClient";
 import { cummins } from "@/data/generators/cummins/cumminsProducts";
 import { cats } from "@/data/generators/cat/catProducts";
-
-export const metadata: Metadata = {
-  title: "Search Generators - BlakShade Ltd",
-  description: "Search for diesel generators, silent generators, and power solutions from BlakShade Ltd.",
-};
 
 // Define the search params type
 type SearchParamsType = {

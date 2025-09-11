@@ -1,4 +1,3 @@
-// components/SilentGeneratorsClient.tsx
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
@@ -15,12 +14,12 @@ interface SearchParams {
   [key: string]: string | undefined;
 }
 
-interface SilentGeneratorsClientProps {
+interface GeneratorsClientProps {
   searchParams: SearchParams;
 }
 
-const SilentGeneratorsClient: React.FC<SilentGeneratorsClientProps> = ({ searchParams }) => {
-  // Initialize states from URL params with "Silent" as default build type
+const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => {
+  // Initialize states from URL params with "Open" as default build type
   const [selectedBrand, setSelectedBrand] = useState<string>("All");
   const [selectedEmission, setSelectedEmission] = useState<string>("All");
   const [selectedFrequency, setSelectedFrequency] = useState<string>(
@@ -32,7 +31,7 @@ const SilentGeneratorsClient: React.FC<SilentGeneratorsClientProps> = ({ searchP
   const [selectedPhase, setSelectedPhase] = useState<string>(
     searchParams.phase ? `${searchParams.phase} Phase` : "All"
   );
-  const [selectedBuildType, setSelectedBuildType] = useState<string>("Silent");
+  const [selectedBuildType, setSelectedBuildType] = useState<string>("All");
   const [selectedKvaRating, setSelectedKvaRating] = useState<string>("All");
   const [showFilters, setShowFilters] = useState<boolean>(false);
   const [sortOrder, setSortOrder] = useState<string>("asc");
@@ -110,7 +109,7 @@ const SilentGeneratorsClient: React.FC<SilentGeneratorsClientProps> = ({ searchP
       >
         <div className="container h-full flex items-end pb-4">
           <h1 className="text-[var(--background)] text-2xl md:text-4xl">
-            Silent Generators
+            Open Generators
           </h1>
         </div>
       </div>
@@ -214,4 +213,4 @@ const SilentGeneratorsClient: React.FC<SilentGeneratorsClientProps> = ({ searchP
   );
 };
 
-export default SilentGeneratorsClient;
+export default GeneratorsClient;

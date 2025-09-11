@@ -26,11 +26,11 @@ export const menuData: MenuData = {
             { name: 'Portable Gen', href: '/generators/zela/portable-gen' },
         ],
         Rating: [
-            { name: '0 - 49 kVA', href: '/generators/upozela/solar-gen' },
-            { name: '50 - 99 kVA', href: '/generators/upozela/wind-gen' },
-            { name: '100 - 499 kVA', href: '/generators/upozela/diesel-gen' },
-            { name: '500 - 999 kVA', href: '/generators/upozela/petrol-gen' },
-            { name: '1000+ kVA', href: '/generators/upozela/hybrid-gen' },
+            { name: '0 - 49 kVA', href: '/generators/' },
+            { name: '50 - 99 kVA', href: '/generators/' },
+            { name: '100 - 499 kVA', href: '/generators/' },
+            { name: '500 - 999 kVA', href: '/generators/' },
+            { name: '1000+ kVA', href: '/generators/' },
         ],
     },
     

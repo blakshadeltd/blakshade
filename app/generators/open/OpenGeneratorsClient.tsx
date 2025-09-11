@@ -19,7 +19,7 @@ interface OpenGeneratorsClientProps {
   searchParams: SearchParams;
 }
 
-const SilentGeneratorsClient: React.FC<OpenGeneratorsClientProps> = ({ searchParams }) => {
+const OpenGeneratorsClient: React.FC<OpenGeneratorsClientProps> = ({ searchParams }) => {
   // Initialize states from URL params with "Open" as default build type
   const [selectedBrand, setSelectedBrand] = useState<string>("All");
   const [selectedEmission, setSelectedEmission] = useState<string>("All");
@@ -33,7 +33,7 @@ const SilentGeneratorsClient: React.FC<OpenGeneratorsClientProps> = ({ searchPar
     searchParams.phase ? `${searchParams.phase} Phase` : "All"
   );
   const [selectedBuildType, setSelectedBuildType] = useState<string>("Open");
-  
+  const [selectedKvaRating, setSelectedKvaRating] = useState<string>("All");
   const [showFilters, setShowFilters] = useState<boolean>(false);
   const [sortOrder, setSortOrder] = useState<string>("asc");
   const [itemsPerPage, setItemsPerPage] = useState<number>(16);
@@ -61,12 +61,20 @@ const SilentGeneratorsClient: React.FC<OpenGeneratorsClientProps> = ({ searchPar
       const matchFuelType = selectedFuelType === "All" || product.fuelType === selectedFuelType;
       const matchPhase = selectedPhase === "All" || product.phase === selectedPhase;
       const matchBuildType = selectedBuildType === "All" || product.buildType === selectedBuildType;
+      const matchKvaRating =
+        selectedKvaRating === "All" ||
+        (selectedKvaRating === "0 - 49 kVA" && product.size < 50) ||
+        (selectedKvaRating === "50 - 99 kVA" && product.size >= 50 && product.size < 100) ||
+        (selectedKvaRating === "100 - 499 kVA" && product.size >= 100 && product.size < 500) ||
+        (selectedKvaRating === "500 - 999 kVA" && product.size >= 500 && product.size < 1000) ||
+        (selectedKvaRating === "1000+ kVA" && product.size >= 1000);
 
       return (
         matchBrand &&
         matchEmission &&
         matchFrequency &&
         matchFuelType &&
+        matchKvaRating &&
         matchPhase &&
         matchBuildType
       );
@@ -77,6 +85,7 @@ const SilentGeneratorsClient: React.FC<OpenGeneratorsClientProps> = ({ searchPar
     selectedEmission,
     selectedFrequency,
     selectedFuelType,
+    selectedKvaRating,
     selectedPhase,
     selectedBuildType,
   ]);
@@ -131,6 +140,8 @@ const SilentGeneratorsClient: React.FC<OpenGeneratorsClientProps> = ({ searchPar
           selectedBuildType={selectedBuildType}
           setSelectedBuildType={setSelectedBuildType}
           showFilters={showFilters}
+          setSelectedKvaRating={setSelectedKvaRating}
+          selectedKvaRating={selectedKvaRating}
         />
 
         <main className="w-full lg:w-3/4">
@@ -203,4 +214,4 @@ const SilentGeneratorsClient: React.FC<OpenGeneratorsClientProps> = ({ searchPar
   );
 };
 
-export default SilentGeneratorsClient;
+export default OpenGeneratorsClient;

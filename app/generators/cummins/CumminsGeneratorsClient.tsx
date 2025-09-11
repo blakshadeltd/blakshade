@@ -1,4 +1,4 @@
-// components/SilentGeneratorsClient.tsx
+// CumminsGeneratorsClient.tsx
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
@@ -6,7 +6,7 @@ import { FaSlidersH } from "react-icons/fa";
 import GeneratorsCard from "@/app/generators/GeneratorsCard";
 import GeneratorsSidebar from "@/app/component/GeneratorsSidebar";
 import { cummins } from "@/data/generators/cummins/cumminsProducts";
-import { cats } from "@/data/generators/cat/catProducts";
+
 
 interface SearchParams {
   frequency?: string;
@@ -15,13 +15,13 @@ interface SearchParams {
   [key: string]: string | undefined;
 }
 
-interface SilentGeneratorsClientProps {
+interface CumminsGeneratorsClientProps {
   searchParams: SearchParams;
 }
 
-const SilentGeneratorsClient: React.FC<SilentGeneratorsClientProps> = ({ searchParams }) => {
-  // Initialize states from URL params with "Silent" as default build type
-  const [selectedBrand, setSelectedBrand] = useState<string>("All");
+const CumminsGeneratorsClient: React.FC<CumminsGeneratorsClientProps> = ({ searchParams }) => {
+  // Initialize states from URL params with "Open" as default build type
+  const [selectedBrand, setSelectedBrand] = useState<string>("Cummins");
   const [selectedEmission, setSelectedEmission] = useState<string>("All");
   const [selectedFrequency, setSelectedFrequency] = useState<string>(
     searchParams.frequency || "All"
@@ -32,7 +32,7 @@ const SilentGeneratorsClient: React.FC<SilentGeneratorsClientProps> = ({ searchP
   const [selectedPhase, setSelectedPhase] = useState<string>(
     searchParams.phase ? `${searchParams.phase} Phase` : "All"
   );
-  const [selectedBuildType, setSelectedBuildType] = useState<string>("Silent");
+  const [selectedBuildType, setSelectedBuildType] = useState<string>("All");
   const [selectedKvaRating, setSelectedKvaRating] = useState<string>("All");
   const [showFilters, setShowFilters] = useState<boolean>(false);
   const [sortOrder, setSortOrder] = useState<string>("asc");
@@ -44,7 +44,7 @@ const SilentGeneratorsClient: React.FC<SilentGeneratorsClientProps> = ({ searchP
   }, [currentPage]);
 
   const allGenerators = useMemo(() => {
-    return [...cummins, ...cats];
+    return [...cummins];
   }, []);
 
   const sortedProducts = useMemo(() => {
@@ -110,7 +110,7 @@ const SilentGeneratorsClient: React.FC<SilentGeneratorsClientProps> = ({ searchP
       >
         <div className="container h-full flex items-end pb-4">
           <h1 className="text-[var(--background)] text-2xl md:text-4xl">
-            Silent Generators
+            Cummins Generators
           </h1>
         </div>
       </div>
@@ -214,4 +214,4 @@ const SilentGeneratorsClient: React.FC<SilentGeneratorsClientProps> = ({ searchP
   );
 };
 
-export default SilentGeneratorsClient;
+export default CumminsGeneratorsClient;

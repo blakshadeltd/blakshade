@@ -15,6 +15,8 @@ interface GeneratorsSidebarProps {
   selectedBuildType: string;
   setSelectedBuildType: (value: string) => void;
   showFilters: boolean;
+  setSelectedKvaRating: (value: string) => void;
+  selectedKvaRating: string;
 }
 
 const GeneratorsSidebar: React.FC<GeneratorsSidebarProps> = ({
@@ -31,6 +33,8 @@ const GeneratorsSidebar: React.FC<GeneratorsSidebarProps> = ({
   selectedBuildType,
   setSelectedBuildType,
   showFilters,
+  setSelectedKvaRating,
+  selectedKvaRating,
 }) => {
   const filterConfig = [
     {
@@ -56,6 +60,19 @@ const GeneratorsSidebar: React.FC<GeneratorsSidebarProps> = ({
       options: ["Diesel"],
       state: selectedFuelType,
       setState: setSelectedFuelType,
+    },
+    {
+      label: "kVA Rating",
+      options: [
+      "All",
+      "0 - 49 kVA",
+      "50 - 99 kVA",
+      "100 - 499 kVA",
+      "500 - 999 kVA",
+      "1000+ kVA",
+      ],
+      state: selectedKvaRating,
+      setState: setSelectedKvaRating,
     },
     {
       label: "Phase",
