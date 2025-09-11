@@ -50,20 +50,41 @@ const orgSchema = {
         "https://www.threads.net/@blakshadeltd",
       ],
     },
-    {
-      "@type": "WebSite",
-      name: "BlakShade Ltd",
-      url: "https://blakshade.com/",
-    },
-    {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: "https://blakshade.com/",
-        }],
+{
+					"@type": "Article",
+					mainEntityOfPage: {
+						"@type": "WebPage",
+						"@id": "https://blakshade.com/"
+					},
+					headline: "The Complete Package",
+					description: "Global manufacturer of precision engineered acoustic and modular enclosures for generators, switchgear, energy storage, fuel tanks, and related equipment.",
+					image: {
+						"@type": "ImageObject",
+						url: "https://cdn.blakshade.com/assets/img/info/ade-locations/ade-west-yorkshire.jpg"
+					},
+					author: {
+						"@type": "Organization",
+						name: "BlakShade Ltd"
+					},  
+					publisher: {
+						"@type": "Organization",
+						name: "BlakShade Ltd",
+						logo: {
+							"@type": "ImageObject",
+							url: "https://cdn.blakshade.com/assets/img/logo/ade-logo-dark-square.png"
+						}
+					},
+					datePublished: "2021-10-11",
+					dateModified: "2025-09-04"
+				},
+				{
+                    "@type": "BreadcrumbList", 
+                    itemListElement: [{
+                        "@type": "ListItem", 
+                        position: 1, 
+                        name: "Home",
+                        item: "https://blakshade.com/"  
+                    }]
     },
   ],
 };
