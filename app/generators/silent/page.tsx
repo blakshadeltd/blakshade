@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   }
 };
 
+// Schema Data
 const orgSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -50,9 +51,27 @@ const orgSchema = {
       ],
     },
     {
-      "@type": "WebSite",
-      name: "BlakShade Ltd",
-      url: "https://blakshade.com/",
+      "@type": "Article",
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": "https://blakshade.com/"
+      },
+      headline: "BlakShade Ltd",
+      description: "Bespoke Diesel Generators Solutions to meet your specific power needs. Wherever you need it.",
+      author: {
+        "@type": "Organization",
+        name: "BlakShade Ltd"
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "BlakShade Ltd",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://cdn.blakshade.com/assets/img/logo/ade-logo-dark-square.png"
+        }
+      },
+      datePublished: "2021-10-11",
+      dateModified: "2025-09-12"
     },
     {
       "@type": "BreadcrumbList",
@@ -66,8 +85,14 @@ const orgSchema = {
         {
           "@type": "ListItem",
           position: 2,
-          name: "Silent Generators",
-          item: "https://blakshade.com/generators/silent",
+          name: "Diesel Generators",
+          item: "https://blakshade.com/generators/",
+        },
+                {
+          "@type": "ListItem",
+          position: 2,
+          name: "Open Generators",
+          item: "https://blakshade.com/generators/open",
         },
       ],
     },

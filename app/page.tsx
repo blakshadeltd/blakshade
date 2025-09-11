@@ -1,6 +1,5 @@
 
 import HowItWorks from "./component/HowItWorks";
-import Head from "next/head";
 import Link from "next/link";
 
 export const metadata = {
@@ -50,41 +49,39 @@ const orgSchema = {
         "https://www.threads.net/@blakshadeltd",
       ],
     },
+    {
+      "@type": "Article",
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": "https://blakshade.com/"
+      },
+      headline: "BlakShade Ltd",
+      description: "Bespoke Diesel Generators Solutions to meet your specific power needs. Wherever you need it.",
+      author: {
+        "@type": "Organization",
+        name: "BlakShade Ltd"
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "BlakShade Ltd",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://cdn.blakshade.com/assets/img/logo/ade-logo-dark-square.png"
+        }
+      },
+      datePublished: "2021-10-11",
+      dateModified: "2025-09-12"
+    },
 {
-					"@type": "Article",
-					mainEntityOfPage: {
-						"@type": "WebPage",
-						"@id": "https://blakshade.com/"
-					},
-					headline: "The Complete Package",
-					description: "Global manufacturer of precision engineered acoustic and modular enclosures for generators, switchgear, energy storage, fuel tanks, and related equipment.",
-					image: {
-						"@type": "ImageObject",
-						url: "https://cdn.blakshade.com/assets/img/info/ade-locations/ade-west-yorkshire.jpg"
-					},
-					author: {
-						"@type": "Organization",
-						name: "BlakShade Ltd"
-					},  
-					publisher: {
-						"@type": "Organization",
-						name: "BlakShade Ltd",
-						logo: {
-							"@type": "ImageObject",
-							url: "https://cdn.blakshade.com/assets/img/logo/ade-logo-dark-square.png"
-						}
-					},
-					datePublished: "2021-10-11",
-					dateModified: "2025-09-04"
-				},
-				{
-                    "@type": "BreadcrumbList", 
-                    itemListElement: [{
-                        "@type": "ListItem", 
-                        position: 1, 
-                        name: "Home",
-                        item: "https://blakshade.com/"  
-                    }]
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://blakshade.com/",
+        },
+      ],
     },
   ],
 };
@@ -134,10 +131,10 @@ export default function Home() {
     <>
 
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
-        />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
 
 
       <main className="relative overflow-hidden">

@@ -92,9 +92,16 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                 image: `https://blakshade.com${product.image}`,
                 description: product.metaDescription,
                 brand: {
-                    "@type": "Brand",
-                    name: product.brand,
-                },
+                        "@type": "Brand",
+                        name: "CAT",
+                    },
+                    aggregateRating: {
+                        "@type": "AggregateRating",
+                        ratingValue: "5",
+                        bestRating: "5",
+                        worstRating: "1",
+                        ratingCount: "9"
+                    }
             },
             {
                 "@type": "BreadcrumbList",
@@ -108,14 +115,14 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                     {
                         "@type": "ListItem",
                         position: 2,
-                        name: "Generators",
+                        name: "Diesel Generators",
                         item: "https://blakshade.com/generators/",
                     },
                     {
                         "@type": "ListItem",
                         position: 3,
-                        name: product.brand,
-                        item: `https://blakshade.com/generators/${product.category}`,
+                        name: "CAT Generators",
+                        item: `https://blakshade.com/generators/cat`,
                     },
                 ],
             },
