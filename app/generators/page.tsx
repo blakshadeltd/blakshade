@@ -3,14 +3,14 @@ import { Metadata } from "next";
 import GeneratorsClient from "./GeneratorsClient";
 
 export const metadata: Metadata = {
-  title: "Diesel Generator - BlakShade Ltd",
+  title: "Diesel Generators - BlakShade Ltd",
   description: "BlakShade Ltd engineers energy resilience with cleaner power solutions for individuals, businesses and communities. Customizable generators for disaster relief and remote industries.",
   keywords: "generators, energy resilience, power solutions, diesel generators, disaster relief, remote power",
   authors: [{ name: "BlakShade Ltd" }],
   viewport: "width=device-width, initial-scale=1.0",
   robots: "index, follow",
   openGraph: {
-    title: "Diesel Generator - BlakShade Ltd",
+    title: "Diesel Generators - BlakShade Ltd",
     description: "Engineering energy resilience with cleaner power solutions for individuals, businesses and communities.",
     type: "website",
     locale: "en_UK",
@@ -65,7 +65,7 @@ const orgSchema = {
         {
           "@type": "ListItem",
           position: 2,
-          name: "Open Generators",
+          name: "Diesel Generators",
           item: "https://blakshade.com/generators/",
         },
       ],

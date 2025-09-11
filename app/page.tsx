@@ -4,14 +4,14 @@ import Head from "next/head";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Bespoke Diesel Generators Solution | BlakShade Ltd",
+  title: "BlakShade Ltd",
   description: "BlakShade Ltd offers Bespoke Diesel Generators Solutions to meet your specific power needs. Wherever you need it.",
   keywords: "BlakShade Ltd, generators, power solutions, diesel generators",
   authors: [{ name: "BlakShade Ltd" }],
   viewport: "width=device-width, initial-scale=1.0",
   robots: "index, follow",
   openGraph: {
-    title: "Bespoke Diesel Generators Solution | BlakShade Ltd",
+    title: "BlakShade Ltd",
     description: "BlakShade Ltd offers Bespoke Diesel Generators Solutions to meet your specific power needs. Wherever you need it.",
     type: "website",
     locale: "en_UK",
@@ -57,12 +57,13 @@ const orgSchema = {
     },
     {
       "@type": "BreadcrumbList",
-      itemListElement: [{
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://blakshade.com/"
-      }],
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://blakshade.com/",
+        }],
     },
   ],
 };
@@ -110,34 +111,13 @@ const features = [
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <meta name="keywords" content={metadata.keywords} />
-        <meta name="author" content={metadata.authors[0].name} />
-        <meta name="viewport" content={metadata.viewport} />
-        <meta name="robots" content={metadata.robots} />
 
-        {/* Open Graph */}
-        <meta property="og:title" content={metadata.openGraph.title} />
-        <meta property="og:description" content={metadata.openGraph.description} />
-        <meta property="og:type" content={metadata.openGraph.type} />
-        <meta property="og:locale" content={metadata.openGraph.locale} />
-        <meta property="og:site_name" content={metadata.openGraph.siteName} />
 
-        {/* Twitter */}
-        <meta name="twitter:card" content={metadata.twitter.card} />
-        <meta name="twitter:site" content={metadata.twitter.site} />
-        <meta name="twitter:creator" content={metadata.twitter.creator} />
-        <meta name="twitter:title" content={metadata.openGraph.title} />
-        <meta name="twitter:description" content={metadata.openGraph.description} />
-
-        {/* Schema.org structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
-      </Head>
+
 
       <main className="relative overflow-hidden">
         {/* Hero Section */}
