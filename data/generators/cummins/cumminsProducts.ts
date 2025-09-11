@@ -157,7 +157,7 @@ export const cummins: CumminsProduct[] = [
 ],
   slug: "c22d5q",
   image: "/generators/cummins/22kva-28kva-cummins-q-range-silent-diesel-generator.webp",
-  fullspec: "public/generators/cummins/cummins-c22d5q-data-sheet.pdf",
+  fullspec: "/generators/cummins/cummins-c22d5q-data-sheet.pdf",
   brand: "Cummins",
   category: "cummins",
   engine: "Cummins X2.5-G2",

@@ -200,10 +200,13 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                             </button>
                             <Link
                                 href={product.fullspec}
-                                className="w-full lg:w-1/2 px-6 md:px-8 lg:px-10 py-3 text-left btn-second shine-effect"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full lg:w-1/2 px-6 md:px-8 lg:px-10 py-3 text-left btn-second shine-effect inline-block text-center"
                             >
                                 Full Specification
                             </Link>
+
                         </div>
                     </div>
                 </div>
