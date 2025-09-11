@@ -54,7 +54,7 @@ function CheckboxOption({
           </svg>
         )}
       </div>
-      <span className={`font-medium ${checked ? "text-gray-700" : "text-gray-700"}`}>
+      <span className={`font-normal ${checked ? "text-gray-700" : "text-gray-700"}`}>
         {children}
       </span>
     </div>
@@ -108,7 +108,7 @@ function BrandPreferenceSection({
               </svg>
             )}
           </div>
-          <span className={`font-medium ${noPreferenceChecked ? "text-gray-700" : "text-gray-700"}`}>
+          <span className={`font-normal ${noPreferenceChecked ? "text-gray-700" : "text-gray-700"}`}>
             No Preference
           </span>
         </div>
@@ -199,31 +199,17 @@ export default function GeneratorQuotationPage() {
       </div>
       
       <div className="container mx-4 mt-8">
-        <div className="bg-white rounded-2xl shadow-xl p-6 mb-8">
-          <div className="flex items-center">
-            <div className="bg-gray-100 p-3 rounded-xl mr-4">
-              <svg className="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <p className="text-gray-700">
-              Complete the form below to receive a customized quotation for your diesel generator requirements. 
-              Our experts will contact you within 24 hours.
-            </p>
-          </div>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {/* Left Column - Specifications */}
           <div className="bg-white rounded-2xl shadow-xl p-8">
             <div className="flex items-center mb-8">
-              <div className="bg-gray-100 p-3 rounded-xl mr-4">
-                <svg className="w-8 h-8 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="bg-[var(--background)] p-3 rounded-xl mr-4">
+                <svg className="w-8 h-8 text-[var(--foreground)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-[var(--foreground)]">Technical Specifications</h2>
+                <h2 className="text-2xl font-normal text-[var(--foreground)]">Technical Specifications</h2>
                 <p className="text-gray-600">Define your power requirements</p>
               </div>
             </div>
@@ -231,7 +217,7 @@ export default function GeneratorQuotationPage() {
             <div className="space-y-8">
               {/* Duty Section */}
               <div>
-                <h3 className="text-lg font-semibold text-[var(--foreground)] mb-4">Generator Set Duty</h3>
+                <h3 className="text-lg font-normal text-[var(--foreground)] mb-4">Generator Set Duty</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {["Standby", "Prime"].map((opt) => (
                     <RadioBox
@@ -247,7 +233,7 @@ export default function GeneratorQuotationPage() {
 
               {/* Phase Section */}
               <div>
-                <h3 className="text-lg font-semibold text-[var(--foreground)] mb-4">Phase</h3>
+                <h3 className="text-lg font-normal text-[var(--foreground)] mb-4">Phase</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {["Single Phase", "Three Phase"].map((opt) => (
                     <RadioBox
@@ -263,7 +249,7 @@ export default function GeneratorQuotationPage() {
 
               {/* Frequency Section */}
               <div>
-                <h3 className="text-lg font-semibold text-[var(--foreground)] mb-4">Frequency (Hz)</h3>
+                <h3 className="text-lg font-normal text-[var(--foreground)] mb-4">Frequency (Hz)</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {["50Hz", "60Hz"].map((opt) => (
                     <RadioBox
@@ -279,7 +265,7 @@ export default function GeneratorQuotationPage() {
               
               {/* Weather Section */}
               <div>
-                <h3 className="text-lg font-semibold text-[var(--foreground)] mb-4">Environment</h3>
+                <h3 className="text-lg font-normal text-[var(--foreground)] mb-4">Environment</h3>
                 <div className="grid grid-cols-3 gap-4">
                   {["Hot", "Cold", "Normal"].map((opt) => (
                     <RadioBox
@@ -301,14 +287,14 @@ export default function GeneratorQuotationPage() {
           {/* Right Column - Configuration */}
           <div className="bg-white rounded-2xl shadow-xl p-8">
             <div className="flex items-center mb-8">
-              <div className="bg-green-100 p-3 rounded-xl mr-4">
-                <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="bg-[var(--background)] p-3 rounded-xl mr-4">
+                <svg className="w-8 h-8 text-[var(--foreground)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-[var(--foreground)]">Configuration</h2>
+                <h2 className="text-2xl font-normal text-[var(--foreground)]">Configuration</h2>
                 <p className="text-gray-600">Customize your generator setup</p>
               </div>
             </div>
@@ -316,7 +302,7 @@ export default function GeneratorQuotationPage() {
             <div className="space-y-8">
               {/* Application Type */}
               <div>
-                <h3 className="text-lg font-semibold text-[var(--foreground)] mb-4">Application Type</h3>
+                <h3 className="text-lg font-normal text-[var(--foreground)] mb-4">Application Type</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {["Stationary Power", "Mobile Power"].map((type) => (
                     <RadioBox
@@ -358,7 +344,7 @@ export default function GeneratorQuotationPage() {
 
               {/* Exact Power Requirement */}
               <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                <h3 className="text-lg font-semibold text-[var(--foreground)] mb-3">Exact Power Requirement</h3>
+                <h3 className="text-lg font-normal text-[var(--foreground)] mb-3">Exact Power Requirement</h3>
                 <p className="text-[var(--foreground)]/80 mb-4">
                   Know your exact power need? Enter it below:
                 </p>
@@ -377,7 +363,7 @@ export default function GeneratorQuotationPage() {
                                 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                       placeholder="Enter kVA"
                     />
-                    <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--foreground)] font-medium">
+                    <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--foreground)] font-normal">
                       kVA
                     </span>
                   </div>
@@ -386,7 +372,7 @@ export default function GeneratorQuotationPage() {
 
               {/* Additional Options */}
               <div>
-                <h3 className="text-lg font-semibold text-[var(--foreground)] mb-4">Additional Options</h3>
+                <h3 className="text-lg font-normal text-[var(--foreground)] mb-4">Additional Options</h3>
                 <div className="space-y-4">
                   <CheckboxOption
                     checked={hasATS}
@@ -406,7 +392,7 @@ export default function GeneratorQuotationPage() {
               {/* Submit Button */}
               <button 
                 onClick={handleSubmitEnquiry}
-                className="btn-primary shine-effect w-full px-8 py-4 rounded-xl text-[var(--background)] text-lg font-semibold mt-6"
+                className="btn-primary shine-effect w-full px-8 py-4 rounded-xl text-[var(--background)] text-lg font-normal mt-6"
               >
                 Request Quotation
               </button>
@@ -420,7 +406,7 @@ export default function GeneratorQuotationPage() {
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full mx-4">
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-[var(--foreground)]">Contact Details</h2>
+              <h2 className="text-2xl font-normal text-[var(--foreground)]">Contact Details</h2>
               <button 
                 onClick={() => setShowModal(false)}
                 className="text-gray-500 hover:text-gray-700"
@@ -435,7 +421,7 @@ export default function GeneratorQuotationPage() {
             
             <form onSubmit={handleModalSubmit} className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="name" className="block text-sm font-normal text-gray-700 mb-1">
                   Full Name *
                 </label>
                 <input
@@ -451,7 +437,7 @@ export default function GeneratorQuotationPage() {
               </div>
               
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="company" className="block text-sm font-normal text-gray-700 mb-1">
                   Company Name
                 </label>
                 <input
@@ -466,7 +452,7 @@ export default function GeneratorQuotationPage() {
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-sm font-normal text-gray-700 mb-1">
                   Email Address *
                 </label>
                 <input
@@ -482,7 +468,7 @@ export default function GeneratorQuotationPage() {
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="phone" className="block text-sm font-normal text-gray-700 mb-1">
                   Phone Number
                 </label>
                 <input
@@ -497,7 +483,7 @@ export default function GeneratorQuotationPage() {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="message" className="block text-sm font-normal text-gray-700 mb-1">
                   Additional Requirements
                 </label>
                 <textarea
@@ -513,7 +499,7 @@ export default function GeneratorQuotationPage() {
               
               <button
                 type="submit"
-                className="btn-primary shine-effect w-full px-8 py-3 rounded-xl text-[var(--background)] mt-4 font-semibold"
+                className="btn-primary shine-effect w-full px-8 py-3 rounded-xl text-[var(--background)] mt-4 font-normal"
               >
                 Submit Enquiry
               </button>

@@ -4,15 +4,15 @@ import Head from "next/head";
 import Link from "next/link";
 
 export const metadata = {
-  title: "BlakShade Ltd - Redefining Energy Resilience with Cleaner Solutions",
-  description: "BlakShade Ltd engineers energy resilience with cleaner power solutions for individuals, businesses and communities. Customizable generators for disaster relief and remote industries.",
-  keywords: "generators, energy resilience, power solutions, diesel generators, disaster relief, remote power",
+  title: "Bespoke Diesel Generators Solution | BlakShade Ltd",
+  description: "BlakShade Ltd offers Bespoke Diesel Generators Solutions to meet your specific power needs. Wherever you need it.",
+  keywords: "BlakShade Ltd, generators, power solutions, diesel generators",
   authors: [{ name: "BlakShade Ltd" }],
   viewport: "width=device-width, initial-scale=1.0",
   robots: "index, follow",
   openGraph: {
-    title: "BlakShade Ltd - Redefining The generator Industry",
-    description: "Engineering energy resilience with cleaner power solutions for individuals, businesses and communities.",
+    title: "Bespoke Diesel Generators Solution | BlakShade Ltd",
+    description: "BlakShade Ltd offers Bespoke Diesel Generators Solutions to meet your specific power needs. Wherever you need it.",
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
@@ -54,6 +54,15 @@ const orgSchema = {
       "@type": "WebSite",
       name: "BlakShade Ltd",
       url: "https://blakshade.com/",
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [{
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://blakshade.com/"
+      }],
     },
   ],
 };
@@ -108,28 +117,28 @@ export default function Home() {
         <meta name="author" content={metadata.authors[0].name} />
         <meta name="viewport" content={metadata.viewport} />
         <meta name="robots" content={metadata.robots} />
-        
+
         {/* Open Graph */}
         <meta property="og:title" content={metadata.openGraph.title} />
         <meta property="og:description" content={metadata.openGraph.description} />
         <meta property="og:type" content={metadata.openGraph.type} />
         <meta property="og:locale" content={metadata.openGraph.locale} />
         <meta property="og:site_name" content={metadata.openGraph.siteName} />
-        
+
         {/* Twitter */}
         <meta name="twitter:card" content={metadata.twitter.card} />
         <meta name="twitter:site" content={metadata.twitter.site} />
         <meta name="twitter:creator" content={metadata.twitter.creator} />
         <meta name="twitter:title" content={metadata.openGraph.title} />
         <meta name="twitter:description" content={metadata.openGraph.description} />
-        
+
         {/* Schema.org structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
       </Head>
-      
+
       <main className="relative overflow-hidden">
         {/* Hero Section */}
         <header className="min-h-screen relative">
@@ -165,7 +174,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          
+
           {/* Stats bar */}
           <div className="container mx-auto px-4 mt-4 md:-mt-16 relative z-20">
             <div className="bg-white rounded-xl md:rounded-2xl shadow-lg p-4 md:p-6 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
@@ -190,10 +199,10 @@ export default function Home() {
                 We combine engineering excellence with sustainable practices to deliver power solutions that stand the test of time.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               {features.map((feature, index) => (
-                <div 
+                <div
                   key={index}
                   className="bg-[var(--background)] p-6 md:p-8 rounded-xl md:rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 group relative overflow-hidden"
                 >
@@ -257,9 +266,9 @@ export default function Home() {
             </div>
           </div>
         </section>
-        
-        <HowItWorks/>
-        
+
+        <HowItWorks />
+
         {/* Generator Range Section */}
         <section className="py-12 md:py-20 bg-gray-50 text-[var(--foreground)] rounded-[20px] md:rounded-[30px] mx-2 md:mx-4">
           <div className="container mx-auto px-4 max-w-6xl flex flex-col lg:flex-row items-stretch gap-8 md:gap-12 h-full">
@@ -293,7 +302,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        
+
         {/* Testimonials Section */}
         <section className="py-12 md:py-20 bg-[var(--background)]">
           <div className="container mx-auto px-4">
@@ -305,7 +314,7 @@ export default function Home() {
                 Our clients rely on us for critical power solutions in the most demanding environments.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               {[
                 {
