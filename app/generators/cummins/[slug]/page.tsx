@@ -1,4 +1,4 @@
-import {use } from "react";
+import { use } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SpecItem from "@/app/component/SpecItem";
@@ -8,37 +8,37 @@ import Script from "next/script";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const resolvedParams = await params;
-  const product = cummins.find((p) => p.slug === resolvedParams.slug);
+    const resolvedParams = await params;
+    const product = cummins.find((p) => p.slug === resolvedParams.slug);
 
-  if (!product) return notFound();
+    if (!product) return notFound();
 
-  return {
-    title: product.metaTitle,
-    description: product.metaDescription,
-    keywords: product.keywords,
-    openGraph: {
-      title: product.metaTitle,
-      description: product.metaDescription,
-      url: `https://blakshade.com/generators/${product.slug}`,
-      siteName: "BlakShade Ltd",
-      images: [
-        {
-          url: `https://blakshade.com${product.image}`,
-          width: 800,
-          height: 600,
-          alt: product.title,
+    return {
+        title: product.metaTitle,
+        description: product.metaDescription,
+        keywords: product.keywords,
+        openGraph: {
+            title: product.metaTitle,
+            description: product.metaDescription,
+            url: `https://blakshade.com/generators/${product.slug}`,
+            siteName: "BlakShade Ltd",
+            images: [
+                {
+                    url: `https://blakshade.com${product.image}`,
+                    width: 800,
+                    height: 600,
+                    alt: product.title,
+                },
+            ],
+            type: "website",
         },
-      ],
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: product.metaTitle,
-      description: product.metaDescription,
-      images: [`https://blakshade.com${product.image}`],
-    },
-  };
+        twitter: {
+            card: "summary_large_image",
+            title: product.metaTitle,
+            description: product.metaDescription,
+            images: [`https://blakshade.com${product.image}`],
+        },
+    };
 }
 
 
@@ -139,9 +139,12 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
             {/* Main Page UI */}
             <section>
                 {/* Hero Section */}
-                <div className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden">
-                    <div className="container absolute inset-0 flex items-end justify-start">
-                        <h1 className="font-normal italic text-[var(--background)] mb-4 text-2xl">
+                <div
+                    className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden"
+                    style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
+                >
+                    <div className="container h-full flex items-end pb-4">
+                        <h1 className="text-[var(--background)] text-xl md:text-2xl">
                             {product.metaTitle}
                         </h1>
                     </div>
@@ -205,28 +208,28 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                     </div>
                 </div>
 
-{/* Description + Specs */}
-<div className="container mt-16 text-[var(--foreground)] max-w-4xl space-y-14">
-  <div
-    className="text-base leading-relaxed"
-    dangerouslySetInnerHTML={{ __html: product.description }}
-  />
+                {/* Description + Specs */}
+                <div className="container mt-16 text-[var(--foreground)] max-w-4xl space-y-14">
+                    <div
+                        className="text-base leading-relaxed"
+                        dangerouslySetInnerHTML={{ __html: product.description }}
+                    />
 
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-    {product.specs.map((section, i) => (
-      <section key={i}>
-        <h2 className="text-xl font-base text-[var(--foreground)] mb-4 border-b pb-2">
-          {section.group}
-        </h2>
-        <div className="grid grid-cols-1 gap-4">
-          {section.items.map((item, idx) => (
-            <SpecItem key={idx} label={item.label} value={item.value} />
-          ))}
-        </div>
-      </section>
-    ))}
-  </div>
-</div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        {product.specs.map((section, i) => (
+                            <section key={i}>
+                                <h2 className="text-xl font-base text-[var(--foreground)] mb-4 border-b pb-2">
+                                    {section.group}
+                                </h2>
+                                <div className="grid grid-cols-1 gap-4">
+                                    {section.items.map((item, idx) => (
+                                        <SpecItem key={idx} label={item.label} value={item.value} />
+                                    ))}
+                                </div>
+                            </section>
+                        ))}
+                    </div>
+                </div>
 
 
             </section>

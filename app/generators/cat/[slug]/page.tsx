@@ -138,17 +138,17 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
 
             {/* Main Page UI */}
             <section>
-                          {/* Hero Section */}
-      <div
-        className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden"
-        style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
-      >
-        <div className="container h-full flex items-end pb-4">
-          <h1 className="text-white text-3xl md:text-4xl max-w-3xl font-normal">
-            {product.metaTitle}
-          </h1>
-        </div>
-      </div>
+                {/* Hero Section */}
+                <div
+                    className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden"
+                    style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
+                >
+                    <div className="container h-full flex items-end pb-4">
+                        <h1 className="text-[var(--background)] text-xl md:text-2xl">
+                            {product.metaTitle}
+                        </h1>
+                    </div>
+                </div>
 
                 {/* Image + Info */}
                 <div className="container py-12 flex flex-col md:flex-row mt-3 gap-6 items-start">
