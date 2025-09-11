@@ -39,11 +39,11 @@ export default function GeneratorsCard({ product }: { product: Product }) {
                     <div className="grid grid-cols-2 gap-2 text-sm mb-6">
                       <div className="bg-gray-100 rounded-lg p-2 text-center">
                         <div className="text-[var(--foreground)]">{product.standbyPower}</div>
-                        <div className="text-xs text-gray-500">Standby</div>
+                        <div className="text-sm text-gray-600">Standby</div>
                       </div>
                       <div className="bg-gray-100 rounded-lg p-2 text-center">
                         <div className="text-[var(--foreground)]">{product.primePower}</div>
-                        <div className="text-xs text-gray-500">Prime</div>
+                        <div className="text-sm text-gray-600">Prime</div>
                       </div>
                     </div>
 
