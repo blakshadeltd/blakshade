@@ -10,7 +10,7 @@ export default function ContactPage() {
             {/* Hero Section */}
             <div className="bg-gray-300 h-[100px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden">
                 <div className="container absolute inset-0 flex items-end justify-start">
-                    <h1 className="text-[var(--foreground)] mb-4 text-2xl md:text-3xl lg:text-4xl">
+                    <h1 className="text-[var(--foreground)] mb-4 text-2xl md:text-4xl">
                         Contact Us
                     </h1>
                 </div>
