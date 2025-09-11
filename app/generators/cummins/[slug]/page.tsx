@@ -215,9 +215,9 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
   <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
     {product.specs.map((section, i) => (
       <section key={i}>
-        <h3 className="text-xl font-base text-[var(--foreground)] mb-4 border-b pb-2">
+        <h2 className="text-xl font-base text-[var(--foreground)] mb-4 border-b pb-2">
           {section.group}
-        </h3>
+        </h2>
         <div className="grid grid-cols-1 gap-4">
           {section.items.map((item, idx) => (
             <SpecItem key={idx} label={item.label} value={item.value} />
