@@ -31,9 +31,9 @@ export default function GeneratorsCard({ product }: { product: Product }) {
                     </div>
             
                     {/* Title */}
-                    <h3 className="text-xl font-md text-center text-[var(--foreground)] mb-6">
+                    <h2 className="text-xl font-md text-center text-[var(--foreground)] mb-6">
                       {product.title}
-                    </h3>
+                    </h2>
             
                     {/* Power Ratings */}
                     <div className="grid grid-cols-2 gap-2 text-sm mb-6">
