@@ -1,29 +1,36 @@
-// app/generators/silent/page.tsx
+// app/generators/Cat/page.tsx
 import { Metadata } from "next";
-import { Suspense } from "react";
 import CatGeneratorsClient from "./CatGeneratorsClient";
 
 export const metadata: Metadata = {
-  title: "Cat Generator - BlakShade Ltd",
-  description: "BlakShade Ltd engineers energy resilience with cleaner power solutions for individuals, businesses and communities. Customizable generators for disaster relief and remote industries.",
-  keywords: "generators, energy resilience, power solutions, diesel generators, disaster relief, remote power",
+  title: "Cat Diesel Generators | BlakShade Ltd",
+    description: "Durable Cat diesel generators from BlakShade Ltd. Industrial-grade power solutions from 20kVA to 4000kVA for construction & heavy industry.",
+  keywords: "Cat diesel generators, Cat generator sets, Cat standby generators, Cat industrial generators",
   authors: [{ name: "BlakShade Ltd" }],
   viewport: "width=device-width, initial-scale=1.0",
   robots: "index, follow",
   openGraph: {
-    title: "Cat Generator - BlakShade Ltd",
-    description: "Engineering energy resilience with cleaner power solutions for individuals, businesses and communities.",
+    title: "Cat Diesel Generators | BlakShade Ltd",
+      description: "Durable Cat diesel generators from BlakShade Ltd. Industrial-grade power solutions from 20kVA to 4000kVA for construction & heavy industry.",
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
+    url: "https://blakshade.com/generators/cat", // Add specific URL
   },
   twitter: {
     card: "summary_large_image",
     site: "@BlakShade_Ltd",
     creator: "@BlakShade_Ltd",
+    title: "Cat Diesel Generators | BlakShade Ltd", // More specific title
+      description: "Durable Cat diesel generators from BlakShade Ltd. Industrial-grade power solutions from 20kVA to 4000kVA for construction & heavy industry.", // More specific description
+  },
+  // Add canonical URL
+  alternates: {
+    canonical: "https://blakshade.com/generators/cat",
   }
 };
 
+// Improved Schema Data
 const orgSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -32,13 +39,14 @@ const orgSchema = {
       name: "BlakShade Ltd",
       alternateName: "BlakShade",
       url: "https://blakshade.com/",
-      logo: "(NOT Created YET)",
+      logo: "https://blakshade.com/BlakShade-Ltd-logo-01.jpg", // Replace with actual logo URL
       contactPoint: [
         {
           "@type": "ContactPoint",
           telephone: "+447380491992",
           contactType: "customer service",
           availableLanguage: "en",
+          areaServed: "GB",
         },
       ],
       sameAs: [
@@ -50,9 +58,27 @@ const orgSchema = {
       ],
     },
     {
-      "@type": "WebSite",
-      name: "BlakShade Ltd",
-      url: "https://blakshade.com/",
+      "@type": "CollectionPage", // More appropriate than Article for a category page
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": "https://blakshade.com/generators/cat"
+      },
+      name: "Cat Diesel Generators",
+        description: "Durable Cat diesel generators from BlakShade Ltd. Industrial-grade power solutions from 20kVA to 4000kVA for construction & heavy industry.",
+      author: {
+        "@type": "Organization",
+        name: "BlakShade Ltd"
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "BlakShade Ltd",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://blakshade.com/BlakShade-Ltd-logo-01.jpg"
+        }
+      },
+      datePublished: "2021-10-11",
+      dateModified: new Date().toISOString().split('T')[0] // Dynamic date
     },
     {
       "@type": "BreadcrumbList",
@@ -66,8 +92,14 @@ const orgSchema = {
         {
           "@type": "ListItem",
           position: 2,
-          name: "Open Generators",
-          item: "https://blakshade.com/generators/cat",
+          name: "Diesel Generators",
+          item: "https://blakshade.com/generators/",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Cat Diesel Generators",
+          item: "https://blakshade.com/generators/cat/",
         },
       ],
     },
@@ -81,11 +113,10 @@ interface SearchParams {
   [key: string]: string | undefined;
 }
 
-
-export default async function CatGeneratorsPage({ 
-  searchParams 
-}: { 
-  searchParams: Promise<SearchParams> 
+export default async function CatGeneratorsPage({
+  searchParams
+}: {
+  searchParams: Promise<SearchParams>
 }) {
   const resolvedSearchParams = await searchParams;
 
@@ -95,9 +126,7 @@ export default async function CatGeneratorsPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
-      <Suspense fallback={<div>Loading...</div>}>
-        <CatGeneratorsClient searchParams={resolvedSearchParams} />
-      </Suspense>
+      <CatGeneratorsClient searchParams={resolvedSearchParams} />
     </>
   );
 }

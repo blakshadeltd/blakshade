@@ -19,11 +19,12 @@ export const menuData: MenuData = {
             { name: 'Cummins Generator', href: '/generators/cummins' },
         ],
         Types: [
+            { name: 'Home Generators', href: '/generators/home' },
             { name: 'Silent Generators', href: '/generators/silent' },
             { name: 'Open Generators', href: '/generators/open' },
-            { name: '50Hz Generators', href: '/generators/zela/large-gen' },
-            { name: '60Hz Generators', href: '/generators/zela/industrial-gen' },
-            { name: 'Portable Gen', href: '/generators/zela/portable-gen' },
+            { name: '50Hz Generators', href: '/generators/50hz' },
+            { name: '60Hz Generators', href: '/generators/60hz' },
+
         ],
         Rating: [
             { name: '0 - 49 kVA', href: '/generators/1' },
@@ -33,5 +34,5 @@ export const menuData: MenuData = {
             { name: '1000+ kVA', href: '/generators/5' },
         ],
     },
-    
+
 };

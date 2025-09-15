@@ -1,30 +1,36 @@
-// app/generators/silent/page.tsx
+
 import { Metadata } from "next";
-import { Suspense } from "react";
 import OpenGeneratorsClient from "./OpenGeneratorsClient";
 
 export const metadata: Metadata = {
-  title: "Open Generator - BlakShade Ltd",
-  description: "BlakShade Ltd engineers energy resilience with cleaner power solutions for individuals, businesses and communities. Customizable generators for disaster relief and remote industries.",
-  keywords: "generators, energy resilience, power solutions, diesel generators, disaster relief, remote power",
+  title: "Open Diesel Generators | BlakShade Ltd",
+  description: "Robust open diesel generators for industrial & construction use. High-power solutions from BlakShade built for demanding applications.",
+  keywords: "open diesel generators, industrial generators, prime power generators, heavy duty generators",
   authors: [{ name: "BlakShade Ltd" }],
   viewport: "width=device-width, initial-scale=1.0",
   robots: "index, follow",
   openGraph: {
-    title: "Open Generator - BlakShade Ltd",
-    description: "Engineering energy resilience with cleaner power solutions for individuals, businesses and communities.",
+    title: "Open Diesel Generators | BlakShade Ltd",
+    description: "Robust open diesel generators for industrial & construction use. High-power solutions from BlakShade built for demanding applications.",
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
+    url: "https://blakshade.com/generators/open", // Add specific URL
   },
   twitter: {
     card: "summary_large_image",
     site: "@BlakShade_Ltd",
     creator: "@BlakShade_Ltd",
+    title: "Open Diesel Generators | BlakShade Ltd", // More specific title
+    description: "Robust open diesel generators for industrial & construction use. High-power solutions from BlakShade built for demanding applications.", // More specific description
+  },
+  // Add canonical URL
+  alternates: {
+    canonical: "https://blakshade.com/generators/open",
   }
 };
 
-// Schema Data
+// Improved Schema Data
 const orgSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -33,13 +39,14 @@ const orgSchema = {
       name: "BlakShade Ltd",
       alternateName: "BlakShade",
       url: "https://blakshade.com/",
-      logo: "(NOT Created YET)",
+      logo: "https://blakshade.com/BlakShade-Ltd-logo-01.jpg", // Replace with actual logo URL
       contactPoint: [
         {
           "@type": "ContactPoint",
           telephone: "+447380491992",
           contactType: "customer service",
           availableLanguage: "en",
+          areaServed: "GB",
         },
       ],
       sameAs: [
@@ -51,13 +58,13 @@ const orgSchema = {
       ],
     },
     {
-      "@type": "Article",
+      "@type": "CollectionPage", // More appropriate than Article for a category page
       mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": "https://blakshade.com/"
+        "@id": "https://blakshade.com/generators/open"
       },
-      headline: "BlakShade Ltd",
-      description: "Bespoke Diesel Generators Solutions to meet your specific power needs. Wherever you need it.",
+      name: "Open Diesel Generators",
+      description: "Robust open diesel generators for industrial & construction use. High-power solutions from BlakShade built for demanding applications.",
       author: {
         "@type": "Organization",
         name: "BlakShade Ltd"
@@ -67,11 +74,11 @@ const orgSchema = {
         name: "BlakShade Ltd",
         logo: {
           "@type": "ImageObject",
-          url: "https://cdn.blakshade.com/assets/img/logo/ade-logo-dark-square.png"
+          url: "https://blakshade.com/BlakShade-Ltd-logo-01.jpg"
         }
       },
       datePublished: "2021-10-11",
-      dateModified: "2025-09-12"
+      dateModified: new Date().toISOString().split('T')[0] // Dynamic date
     },
     {
       "@type": "BreadcrumbList",
@@ -88,11 +95,11 @@ const orgSchema = {
           name: "Diesel Generators",
           item: "https://blakshade.com/generators/",
         },
-                {
+        {
           "@type": "ListItem",
-          position: 2,
-          name: "Open Generators",
-          item: "https://blakshade.com/generators/open",
+          position: 3,
+          name: "Open Diesel Generators",
+          item: "https://blakshade.com/generators/open/",
         },
       ],
     },
@@ -106,11 +113,10 @@ interface SearchParams {
   [key: string]: string | undefined;
 }
 
-
-export default async function OpenGeneratorsPage({ 
-  searchParams 
-}: { 
-  searchParams: Promise<SearchParams> 
+export default async function OpenGeneratorsPage({
+  searchParams
+}: {
+  searchParams: Promise<SearchParams>
 }) {
   const resolvedSearchParams = await searchParams;
 
@@ -120,9 +126,7 @@ export default async function OpenGeneratorsPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
-      <Suspense fallback={<div>Loading...</div>}>
-        <OpenGeneratorsClient searchParams={resolvedSearchParams} />
-      </Suspense>
+      <OpenGeneratorsClient searchParams={resolvedSearchParams} />
     </>
   );
 }

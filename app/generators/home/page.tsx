@@ -1,32 +1,32 @@
-// app/generators//page.tsx
+// app/generators/Home/page.tsx
 import { Metadata } from "next";
-import GeneratorsClient from "./GeneratorsClient";
+import HomeGeneratorsClient from "./HomeGeneratorsClient";
 
 export const metadata: Metadata = {
-  title: "Diesel Generators | BlakShade Ltd",
-  description: "Reliable diesel generators for businesses, disaster relief & remote industries. Customizable power solutions from BlakShade Ltd.",
-  keywords: "diesel generators, backup generators, industrial generators, commercial generators",
+  title: "Home Diesel Generators | BlakShade Ltd",
+  description: "Reliable home diesel generators for backup power. Keep your household running during outages with BlakShade's quiet, efficient solutions.",
+  keywords: "home diesel generators, residential diesel generators, house generators, backup power for homes, home standby generators",
   authors: [{ name: "BlakShade Ltd" }],
   viewport: "width=device-width, initial-scale=1.0",
   robots: "index, follow",
   openGraph: {
-    title: "Diesel Generators | BlakShade Ltd",
-    description: "Reliable diesel generators for businesses, disaster relief & remote industries. Customizable power solutions from BlakShade Ltd.",
+    title: "Home Diesel Generators | BlakShade Ltd",
+    description: "Reliable home diesel generators for backup power. Keep your household running during outages with BlakShade's quiet, efficient solutions.",
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
-    url: "https://blakshade.com/generators/", // Add specific URL
+    url: "https://blakshade.com/generators/home", // Add specific URL
   },
   twitter: {
     card: "summary_large_image",
     site: "@BlakShade_Ltd",
     creator: "@BlakShade_Ltd",
-    title: "Diesel Generators - BlakShade Ltd", // More specific title
-    description: "Reliable diesel generators for businesses, disaster relief & remote industries. Customizable power solutions from BlakShade Ltd.", // More specific description
+    title: "Home Diesel Generators | BlakShade Ltd", // More specific title
+    description: "Reliable home diesel generators for backup power. Keep your household running during outages with BlakShade's quiet, efficient solutions.", // More specific description
   },
   // Add canonical URL
   alternates: {
-    canonical: "https://blakshade.com/generators/",
+    canonical: "https://blakshade.com/generators/home",
   }
 };
 
@@ -61,10 +61,10 @@ const orgSchema = {
       "@type": "CollectionPage", // More appropriate than Article for a category page
       mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": "https://blakshade.com/generators/"
+        "@id": "https://blakshade.com/generators/home"
       },
-      name: "Diesel Generators",
-      description: "Reliable diesel generators for businesses, disaster relief & remote industries. Customizable power solutions from BlakShade Ltd.",
+      name: "Home Diesel Generators",
+      description: "Reliable home diesel generators for backup power. Keep your household running during outages with BlakShade's quiet, efficient solutions.",
       author: {
         "@type": "Organization",
         name: "BlakShade Ltd"
@@ -95,6 +95,12 @@ const orgSchema = {
           name: "Diesel Generators",
           item: "https://blakshade.com/generators/",
         },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Home Generators",
+          item: "https://blakshade.com/generators/home/",
+        },
       ],
     },
   ],
@@ -107,7 +113,7 @@ interface SearchParams {
   [key: string]: string | undefined;
 }
 
-export default async function GeneratorsPage({
+export default async function HomeGeneratorsPage({
   searchParams
 }: {
   searchParams: Promise<SearchParams>
@@ -120,7 +126,7 @@ export default async function GeneratorsPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
-      <GeneratorsClient searchParams={resolvedSearchParams} />
+      <HomeGeneratorsClient searchParams={resolvedSearchParams} />
     </>
   );
 }

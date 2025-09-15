@@ -3,23 +3,30 @@ import ContactForm from './ContactForm';
 
 export const metadata: Metadata = {
     title: "Contact Us",
-    description: "BlakShade Ltd engineers energy resilience with cleaner power solutions for individuals, businesses and communities. Customizable generators for disaster relief and remote industries.",
-    keywords: "generators, energy resilience, power solutions, diesel generators, disaster relief, remote power",
+    description: "Get in touch with BlakShade Ltd for diesel generator solutions. Call +44 7380 491992 for sales, support, or emergency power needs.",
+    keywords: "contact BlakShade, generator sales, power solution experts, diesel generator quotes",
     authors: [{ name: "BlakShade Ltd" }],
     viewport: "width=device-width, initial-scale=1.0",
     robots: "index, follow",
-    openGraph: {
-        title: "Contact Us",
-        description: "Engineering energy resilience with cleaner power solutions for individuals, businesses and communities.",
-        type: "website",
-        locale: "en_UK",
-        siteName: "BlakShade Ltd",
-    },
-    twitter: {
-        card: "summary_large_image",
-        site: "@BlakShade_Ltd",
-        creator: "@BlakShade_Ltd",
-    }
+  openGraph: {
+    title: "Contact Us",
+    description: "Get in touch with BlakShade Ltd for diesel generator solutions. Call +44 7380 491992 for sales, support, or emergency power needs.",
+    type: "website",
+    locale: "en_UK",
+    siteName: "BlakShade Ltd",
+    url: "https://blakshade.com/generators/", // Add specific URL
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@BlakShade_Ltd",
+    creator: "@BlakShade_Ltd",
+    title: "Contact Us", // More specific title
+    description: "Get in touch with BlakShade Ltd for diesel generator solutions. Call +44 7380 491992 for sales, support, or emergency power needs.", // More specific description
+  },
+  // Add canonical URL
+  alternates: {
+    canonical: "https://blakshade.com/generators/",
+  }
 };
 
 // Schema Data
@@ -31,7 +38,7 @@ const orgSchema = {
             name: "BlakShade Ltd",
             alternateName: "BlakShade",
             url: "https://blakshade.com/",
-            logo: "(NOT Created YET)",
+            logo: "https://blakshade.com/BlakShade-Ltd-logo-01.jpg",
             contactPoint: [
                 {
                     "@type": "ContactPoint",
@@ -49,12 +56,27 @@ const orgSchema = {
             ],
         },
         {
-            "@type": "Website",
+            "@type": "ContactPage",
             mainEntityOfPage: {
                 "@type": "WebPage",
-                "@id": "https://blakshade.com/"
+                "@id": "https://blakshade.com/contact/"
             },
-
+            name: "Contact Us",
+            description: "Get in touch with BlakShade Ltd for diesel generator solutions. Call +44 7380 491992 for sales, support, or emergency power needs.",
+            author: {
+                "@type": "Organization",
+                name: "BlakShade Ltd"
+            },
+            publisher: {
+                "@type": "Organization",
+                name: "BlakShade Ltd",
+                logo: {
+                    "@type": "ImageObject",
+                    url: "https://blakshade.com/BlakShade-Ltd-logo-01.jpg"
+                }
+            },
+            datePublished: "2021-10-11",
+            dateModified: new Date().toISOString().split('T')[0] // Dynamic date
         },
         {
             "@type": "BreadcrumbList",
@@ -72,7 +94,7 @@ const orgSchema = {
                     item: "https://blakshade.com/contact/",
                 },
             ],
-        },
+        }
     ],
 };
 

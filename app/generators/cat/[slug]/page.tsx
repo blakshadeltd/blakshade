@@ -58,7 +58,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                 name: "BlakShade Ltd",
                 alternateName: "BlakShade",
                 url: "https://blakshade.com/",
-                logo: "(NOT Created YET)",
+                logo: "https://blakshade.com/BlakShade-Ltd-logo-01.jpg",
                 contactPoint: [
                     {
                         "@type": "ContactPoint",
