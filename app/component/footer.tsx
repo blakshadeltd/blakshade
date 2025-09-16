@@ -68,7 +68,8 @@ export default function Footer() {
                                 { name: 'About Us', href: '/about' },
                                 { name: 'Build Genset', href: '/build-genset' },
                                 { name: 'Contact', href: '/contact' },
-                                { name: 'Support', href: '/support' }
+                                { name: 'Support', href: '/support' },
+                                { name: 'Worldwide Voltage Frequency', href: '/worldwide-voltage-frequency' }
                             ].map((link) => (
                                 <li key={link.name}>
                                     <Link 
