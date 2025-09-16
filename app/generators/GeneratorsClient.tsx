@@ -37,7 +37,7 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
   const [sortOrder, setSortOrder] = useState<string>("asc");
   const [itemsPerPage, setItemsPerPage] = useState<number>(16);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [currentPage]);
@@ -52,7 +52,7 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
     );
   }, [sortOrder, allGenerators]);
 
-  
+
 
   const filteredall = useMemo(() => {
     return sortedProducts.filter((product) => {
@@ -115,7 +115,7 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
           </h1>
         </div>
       </div>
-      
+
       <div className="flex justify-between items-center mx-4 mt-6 lg:hidden">
         <button
           onClick={() => setShowFilters((prev) => !prev)}
@@ -162,7 +162,7 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
               </span>{" "}
               of <span>{totalItems}</span>
             </div>
-            
+
             <div className="flex items-center gap-4">
               <label htmlFor="sortOrder">Sort by Size:</label>
               <select
@@ -202,11 +202,10 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
                 <button
                   key={idx}
                   onClick={() => setCurrentPage(idx + 1)}
-                  className={`px-3 py-1 border rounded cursor-pointer ${
-                    currentPageClamped === idx + 1
-                      ? "btn-primary shine-effect"
-                      : "btn-third shine-effect"
-                  }`}
+                  className={`px-3 py-1 border rounded cursor-pointer ${currentPageClamped === idx + 1
+                    ? "btn-primary shine-effect"
+                    : "btn-third shine-effect"
+                    }`}
                 >
                   {idx + 1}
                 </button>
