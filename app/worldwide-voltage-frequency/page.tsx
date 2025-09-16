@@ -213,30 +213,65 @@ export default function CountryVoltageList() {
         direction: 'ascending'
     });
 
-    // Filter countries based on search term
+    const normalizedSearch = searchTerm.trim().toLowerCase();
+
+    // Filter countries based on search term (case-insensitive)
     const filteredCountries = countryData.filter(country =>
-        country.country.toLowerCase().includes(searchTerm.toLowerCase())
+        country.country.toLowerCase().includes(normalizedSearch)
     );
 
-    // Sort countries
-    const sortedCountries = [...filteredCountries].sort((a, b) => {
+    // Helper: compare values based on sortConfig
+    const compareByKey = (a: CountryData, b: CountryData) => {
         const aValue = a[sortConfig.key];
         const bValue = b[sortConfig.key];
 
-        // For numeric values, compare directly
+        // numbers
         if (typeof aValue === 'number' && typeof bValue === 'number') {
             return sortConfig.direction === 'ascending' ? aValue - bValue : bValue - aValue;
         }
 
-        // For string values
-        if (aValue < bValue) {
-            return sortConfig.direction === 'ascending' ? -1 : 1;
+        // strings
+        if (typeof aValue === 'string' && typeof bValue === 'string') {
+            return sortConfig.direction === 'ascending'
+                ? aValue.localeCompare(bValue)
+                : bValue.localeCompare(aValue);
         }
-        if (aValue > bValue) {
-            return sortConfig.direction === 'ascending' ? 1 : -1;
-        }
+
         return 0;
-    });
+    };
+
+    // Sort countries with priority for:
+    // 1) country name startsWith(search)
+    // 2) any word in country name startsWith(search) (covers multi-word names)
+    // 3) remaining includes(search)
+    // When search is empty, fall back to normal sort by sortConfig
+    const sortedCountries = (() => {
+        // If no search term, just sort normally
+        if (!normalizedSearch) {
+            return [...countryData].sort(compareByKey).filter(c => true); // keep identical behavior
+        }
+
+        // Compute rank for prioritization
+        const rankOf = (name: string) => {
+            const lower = name.toLowerCase();
+            if (lower.startsWith(normalizedSearch)) return 0;
+            // check if any word starts with the search (e.g., "South United" etc.)
+            const words = lower.split(/[\s&,-]+/);
+            if (words.some(w => w.startsWith(normalizedSearch))) return 1;
+            // else it's a contains match
+            return 2;
+        };
+
+        return [...filteredCountries].sort((a, b) => {
+            const rankA = rankOf(a.country);
+            const rankB = rankOf(b.country);
+
+            if (rankA !== rankB) return rankA - rankB;
+
+            // same rank -> sort by active sortConfig key
+            return compareByKey(a, b);
+        });
+    })();
 
     // Handle sorting
     const requestSort = (key: SortableKey) => {
@@ -246,6 +281,7 @@ export default function CountryVoltageList() {
         }
         setSortConfig({ key, direction });
     };
+
 
     return (
         <section>
@@ -289,20 +325,6 @@ export default function CountryVoltageList() {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 mb-6 md:mb-8">
-                        <div className="bg-white p-3 md:p-4 rounded-lg shadow-md energy-pulse">
-                            <h3 className="mb-1 md:mb-2 text-sm md:text-base">Single-Phase Voltage</h3>
-                            <p className="font-normal text-xs md:text-sm">Typically used for residential applications</p>
-                        </div>
-                        <div className="bg-white p-3 md:p-4 rounded-lg shadow-md energy-pulse">
-                            <h3 className="mb-1 md:mb-2 text-sm md:text-base">Three-Phase Voltage</h3>
-                            <p className="font-normal text-xs md:text-sm">Used for industrial applications</p>
-                        </div>
-                        <div className="bg-white p-3 md:p-4 rounded-lg shadow-md energy-pulse">
-                            <h3 className="mb-1 md:mb-2 text-sm md:text-base">Frequency (Hz)</h3>
-                            <p className="font-normal text-xs md:text-sm">Most countries use 50Hz, some use 60Hz</p>
-                        </div>
-                    </div>
                 </div>
 
                 {/* Table Section */}
