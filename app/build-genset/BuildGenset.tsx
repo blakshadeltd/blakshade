@@ -40,8 +40,8 @@ function CheckboxOption({
     <div
       onClick={onChange}
       className={`cursor-pointer transition-all rounded-lg border-2 p-4 flex items-center space-x-3
-        ${checked 
-          ? "border-gray-500 bg-gray-50" 
+        ${checked
+          ? "border-gray-500 bg-gray-50"
           : "border-gray-200 bg-white hover:border-gray-300"
         }
       `}
@@ -80,7 +80,7 @@ function BrandPreferenceSection({
   return (
     <div>
       <h3 className="text-lg text-[var(--foreground)] mb-4">{title}</h3>
-      
+
       <div className="mb-4">
         <div className="relative">
           <input
@@ -94,7 +94,7 @@ function BrandPreferenceSection({
           />
         </div>
       </div>
-      
+
       <div className="flex items-center">
         <div
           onClick={() => onNoPreferenceChange(!noPreferenceChecked)}
@@ -158,7 +158,7 @@ export default function BuildGenset() {
       frequency,
       weather,
     }));
-    
+
     // Show the modal form
     setShowModal(true);
   };
@@ -181,12 +181,12 @@ export default function BuildGenset() {
       return;
     }
 
-    const configurationData = { 
-      duty, 
-      phase, 
-      frequency, 
-      applicationType, 
-      weather, 
+    const configurationData = {
+      duty,
+      phase,
+      frequency,
+      applicationType,
+      weather,
       engineBrand: engineNoPreference ? "No Preference" : engineBrandInput,
       alternatorBrand: alternatorNoPreference ? "No Preference" : alternatorBrandInput,
       exactPower,
@@ -236,7 +236,7 @@ export default function BuildGenset() {
           </h1>
         </div>
       </div>
-      
+
       <div className="container mx-4 mt-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {/* Left Column - Specifications */}
@@ -301,7 +301,7 @@ export default function BuildGenset() {
                   ))}
                 </div>
               </div>
-              
+
               {/* Weather Section */}
               <div>
                 <h3 className="text-lg font-normal text-[var(--foreground)] mb-4">Environment</h3>
@@ -429,7 +429,7 @@ export default function BuildGenset() {
               </div>
 
               {/* Submit Button */}
-              <button 
+              <button
                 onClick={handleSubmitEnquiry}
                 className="btn-primary shine-effect w-full px-8 py-4 rounded-xl text-[var(--background)] text-lg font-normal mt-6"
               >
@@ -440,146 +440,148 @@ export default function BuildGenset() {
         </div>
       </div>
 
-  {/* Modal for Customer Details */}
-  {showModal && (
-    <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full mx-4">
-        {succeeded ? (
-          <div className="text-center p-4 md:p-8 rounded-lg bg-green-50">
-            <h3 className="text-xl md:text-2xl text-green-600 mb-2">Enquiry Received!</h3>
-            <p className="text-green-600 text-sm md:text-base">
-              Our technical team will respond within 1 business hour
-            </p>
-          </div>
-        ) : (
-          <>
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-normal text-[var(--foreground)]">Contact Details</h2>
-              <button 
-                onClick={() => setShowModal(false)}
-                className="text-gray-500 hover:text-gray-700"
-              >
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-            
-            <p className="text-gray-600 mb-6">Please provide your details so we can prepare your quotation</p>
-            
-            {/* Error messages */}
-            {errors.length > 0 && (
-              <div className="p-3 bg-red-50 text-red-700 rounded-lg mb-4">
-                {errors.map((err, idx) => (
-                  <p key={idx}>{err}</p>
-                ))}
-              </div>
-            )}
-            
-            <form onSubmit={handleModalSubmit} className="space-y-4">
-              {/* Honeypot field */}
-              <input type="text" name="website" autoComplete="off" tabIndex={-1} className="hidden" />
-              
-              <div>
-                <label htmlFor="name" className="block text-sm font-normal text-gray-700 mb-1">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-                  placeholder="John Smith"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="company" className="block text-sm font-normal text-gray-700 mb-1">
-                  Company Name
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-                  placeholder="ABC Corporation"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-normal text-gray-700 mb-1">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-                  placeholder="john@example.com"
-                />
-              </div>
+      {/* Modal for Customer Details */}
+      {showModal && (
+        <>
+          <div
+            className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm transition-opacity duration-300"
+            onClick={() => setShowModal(false)}
+          />
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-8 max-w-md w-full mx-4 animate-slide-up">
+              {succeeded ? (
+                <div className="text-center p-4 md:p-8 rounded-lg bg-green-50">
+                  <h3 className="text-xl md:text-2xl text-green-600 mb-2">Enquiry Received!</h3>
+                  <p className="text-green-600 text-sm md:text-base">
+                    Our technical team will respond within 1 business hour
+                  </p>
+                </div>
+              ) : (
+                <>
+                  <div className="flex justify-between items-center mb-6">
+                    <h2 className="text-2xl font-normal text-[var(--foreground)]">Contact Details</h2>
+                    <button
+                      onClick={() => setShowModal(false)}
+                      className="text-gray-500 hover:text-gray-700 cursor-pointer"
+                    >
+                      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
 
-              <div>
-                <label htmlFor="phone" className="block text-sm font-normal text-gray-700 mb-1">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-                  placeholder="+1 (555) 123-4567"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-normal text-gray-700 mb-1">
-                  Additional Requirements
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-                  placeholder="Any special requirements or questions..."
-                />
-              </div>
-              
-              {/* CAPTCHA */}
-              <div className="min-h-[70px]">
-                <Turnstile
-                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITEKEY!}
-                  onSuccess={(token: string) => setCaptchaToken(token)}
-                  onExpire={() => setCaptchaToken(null)}
-                  onError={() => setCaptchaToken(null)}
-                />
-              </div>
-              
-              <button
-                type="submit"
-                disabled={submitting}
-                className="btn-primary shine-effect w-full px-8 py-3 rounded-xl text-[var(--background)] mt-4 font-normal"
-              >
-                {submitting ? "Submitting..." : "Submit Enquiry"}
-              </button>
-            </form>
-          </>
-        )}
-      </div>
-    </div>
-  )}
-</section>
+                  <p className="text-gray-600 mb-6">Please provide your details so we can prepare your quotation</p>
+
+                  {/* Error messages */}
+                  {errors.length > 0 && (
+                    <div className="p-3 bg-red-50 text-red-700 rounded-lg mb-4">
+                      {errors.map((err, idx) => (
+                        <p key={idx}>{err}</p>
+                      ))}
+                    </div>
+                  )}
+
+                  <form onSubmit={handleModalSubmit} className="space-y-4">
+                    {/* Honeypot field */}
+                    <input type="text" name="website" autoComplete="off" tabIndex={-1} className="hidden" />
+
+                    <div>
+                      <label htmlFor="name" className="block text-[var(--foreground)] mb-2 text-sm md:text-base">
+                        Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 border border-gray-300 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="company" className="block text-[var(--foreground)] mb-2 text-sm md:text-base">
+                        Company Name
+                      </label>
+                      <input
+                        type="text"
+                        id="company"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleInputChange}
+                        className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 border border-gray-300 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="email" className="block text-[var(--foreground)] mb-2 text-sm md:text-base">
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 border border-gray-300 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="phone" className="block text-[var(--foreground)] mb-2 text-sm md:text-base">
+                        Phone Number
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 border border-gray-300 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="message" className="block text-[var(--foreground)] mb-2 text-sm md:text-base">
+                        Additional Requirements
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        rows={4}
+                        className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 border border-gray-300 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
+                        placeholder="Any special requirements or questions..."
+                      />
+                    </div>
+
+                    {/* CAPTCHA */}
+                    <div className="min-h-[70px]">
+                      <Turnstile
+                        siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITEKEY!}
+                        onSuccess={(token: string) => setCaptchaToken(token)}
+                        onExpire={() => setCaptchaToken(null)}
+                        onError={() => setCaptchaToken(null)}
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={submitting}
+                      className="btn-primary shine-effect w-full px-8 py-3 rounded-xl text-[var(--background)] mt-4 font-normal"
+                    >
+                      {submitting ? "Submitting..." : "Submit Enquiry"}
+                    </button>
+                  </form>
+                </>
+              )}
+            </div>
+          </div>
+        </>
+      )}
+    </section>
   );
 }
