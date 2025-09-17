@@ -317,8 +317,9 @@ export default function CountryVoltageList() {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="p-4 rounded-xl shadow-md hover:shadow-lg transition bg-white"
+                className="bg-[var(--background)] p-4 rounded-xl md:rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 border border-gray-100 group relative overflow-hidden"
               >
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--foreground)] opacity-5 group-hover:opacity-10 transition-opacity duration-500"></div>
                 <h3 className="text-lg text-[var(--foreground)] border-b">
                   {feature.title}
                 </h3>
