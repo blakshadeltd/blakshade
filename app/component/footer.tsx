@@ -1,4 +1,4 @@
-// footer.tsx - Improved version
+
 import Link from 'next/link';
 import { menuData } from './menuData';
 
@@ -7,7 +7,7 @@ export default function Footer() {
         <footer className="relative spacer text-[var(--foreground)]">
             {/* Black section overlapping the top */}
             <div className="relative -top-[30px] h-[30px] bg-[var(--background)] rounded-b-[20px] shadow-xl" />
-            
+
             <div className="container mx-auto px-4 py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {/* Company Info */}
@@ -15,7 +15,7 @@ export default function Footer() {
                         <div className="mb-6">
                             <h3 className="text-2xl font-bold mb-4">BlakShade Ltd</h3>
                             <p className="text-[var(--foreground)] mb-4">
-                                Engineering energy resilience with cleaner power solutions for individuals, 
+                                Engineering energy resilience with cleaner power solutions for individuals,
                                 businesses and communities worldwide.
                             </p>
                             <div className="flex space-x-4">
@@ -35,7 +35,7 @@ export default function Footer() {
                         </div>
                     </div>
 
-{/* Generators Menu */}
+                    {/* Generators Menu */}
                     <div>
                         <h4 className="text-lg mb-4 border-b border-gray-400 pb-2">Generators</h4>
                         <div className="space-y-4">
@@ -45,7 +45,7 @@ export default function Footer() {
                                     <ul className="space-y-1">
                                         {items.slice(0, 3).map((item) => (
                                             <li key={item.name}>
-                                                <Link 
+                                                <Link
                                                     href={item.href}
                                                     className="text-[var(--foreground)] hover:text-[var(--hover)] text-sm block py-1"
                                                 >
@@ -69,8 +69,8 @@ export default function Footer() {
                                 { name: 'Contact', href: '/contact' }
                             ].map((link) => (
                                 <li key={link.name}>
-                                    <Link 
-                                        href={link.href} 
+                                    <Link
+                                        href={link.href}
                                         className="text-[var(--foreground)] hover:text-[var(--hover)] transition-colors block py-1"
                                     >
                                         {link.name}
@@ -79,7 +79,7 @@ export default function Footer() {
                             ))}
                         </ul>
                     </div>
-                    
+
 
                     {/* Contact Info & Newsletter */}
                     <div>
@@ -109,10 +109,10 @@ export default function Footer() {
                                 <span>info@blakshade.com</span>
                             </div>
                         </address>
-                        
+
                         <div className="mt-6">
-                            <Link 
-                                href="/contact" 
+                            <Link
+                                href="/contact"
                                 className="inline-flex items-center px-4 py-2 bg-[var(--foreground)] text-[var(--background)] rounded-[10px] hover:rounded-[15px] transition-all duration-300 shine-effect font-medium"
                             >
                                 Get a Quote
@@ -124,13 +124,13 @@ export default function Footer() {
                     </div>
                 </div>
 
-            <div className="flex">
-                <div className="w-full justify-center text-center flex items-end z-0 h-[50vh] lg:h-[40vh] mb-[25px]">
-                    <h2 className="text-[50px] sm:text-[80px] font-normal leading-tight reveal-text">
-                        WE DON&apos;T HAVE BOTTOM
-                    </h2>
+                <div className="flex">
+                    <div className="w-full justify-center text-center flex items-end z-0 h-[50vh] lg:h-[40vh] mb-[25px]">
+                        <h2 className="text-[50px] sm:text-[80px] font-normal leading-tight reveal-text">
+                            WE DON&apos;T HAVE BOTTOM
+                        </h2>
+                    </div>
                 </div>
-            </div>
             </div>
         </footer>
     );
