@@ -5,9 +5,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import clsx from 'clsx';
 import { menuData } from './menuData';
+import { infoMenuData } from './infoMenuData';
 import Image from 'next/image';
 
-type MenuKey = 'Generators' | 'Search';
+type MenuKey = 'Generators' | 'Info' | 'Search';
 
 const StickyNav = () => {
   const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
@@ -18,8 +19,9 @@ const StickyNav = () => {
   const navRef = useRef<HTMLElement | null>(null);
   const router = useRouter();
 
-  const menuRefs = useRef<Record<'Generators', HTMLDivElement | null>>({
+  const menuRefs = useRef<Record<'Generators' | 'Info', HTMLDivElement | null>>({
     Generators: null,
+    Info: null,
   });
 
   const hideTimeout = useRef<number | null>(null);
@@ -40,10 +42,8 @@ const StickyNav = () => {
     e.preventDefault();
     const q = searchQuery.trim();
     if (q) {
-      // navigate with query param — don't clear the input so the search page receives the q param
       router.push(`/search?q=${encodeURIComponent(q)}`);
       setActiveMenu(null);
-      // note: do NOT setSearchQuery('') here
     }
   };
 
@@ -61,11 +61,8 @@ const StickyNav = () => {
     if (activeMenu && activeMenu !== 'Search' && menuRefs.current[activeMenu]) {
       setPopoverHeight(menuRefs.current[activeMenu]?.offsetHeight || 0);
     } else if (activeMenu === 'Search') {
-      // compute height from input if available, otherwise fallback
       const inputH = inputRef.current?.offsetHeight ?? 40;
-      // add spacing to match design (padding + icon)
       setPopoverHeight(inputH + 56);
-      // focus the input after small delay so it's visible
       setTimeout(() => inputRef.current?.focus(), 100);
     } else {
       setPopoverHeight(0);
@@ -98,7 +95,7 @@ const StickyNav = () => {
         className={clsx(
           'border sticky-nav fixed left-1/2 -translate-x-1/2 top-[15px] px-4 py-5 rounded-[20px] shadow-[0_0_40px_#fde3a233,0_0_40px_#ffffff] duration-500 w-full hidden lg:block transition-all',
           showSticky ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-4 pointer-events-none',
-          activeMenu === 'Generators' ? 'max-w-[850px]' : 'max-w-[800px]'
+          activeMenu === 'Generators' || activeMenu === 'Info' ? 'max-w-[850px]' : 'max-w-[800px]'
         )}
         style={{ backgroundColor: 'var(--background)' }}
         onMouseLeave={() => {
@@ -120,32 +117,55 @@ const StickyNav = () => {
               Home
             </Link>
 
-            {(Object.keys(menuData) as MenuKey[]).map((menuKey) => (
-              <div
-                key={menuKey}
-                className="relative"
-                onMouseEnter={() => handleMenuInteraction(menuKey)}
+            {/* Generators Menu Item */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleMenuInteraction('Generators')}
+            >
+              <Link
+                href="/generators"
+                className={clsx(
+                  'flex items-center gap-1 text-base transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]',
+                  activeMenu === 'Generators' ? 'text-[var(--foreground)]' : 'text-[var(--foreground)] hover:text-[var(--hover)]'
+                )}
               >
-                <Link
-                  href={`/${menuKey.toLowerCase()}`}
-                  className={clsx(
-                    'flex items-center gap-1 text-base transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]',
-                    activeMenu === menuKey ? 'text-[var(--foreground)]' : 'text-[var(--foreground)] hover:text-[var(--hover)]'
-                  )}
+                Generators
+                <svg
+                  className={clsx('w-4 h-4 transition-transform duration-500', activeMenu === 'Generators' ? 'rotate-180' : '')}
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
                 >
-                  {menuKey}
-                  <svg
-                    className={clsx('w-4 h-4 transition-transform duration-500', activeMenu === menuKey ? 'rotate-180' : '')}
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </Link>
-              </div>
-            ))}
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </Link>
+            </div>
+
+            {/* Info Menu Item */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleMenuInteraction('Info')}
+            >
+              <Link
+                href="/info"
+                className={clsx(
+                  'flex items-center gap-1 text-base transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]',
+                  activeMenu === 'Info' ? 'text-[var(--foreground)]' : 'text-[var(--foreground)] hover:text-[var(--hover)]'
+                )}
+              >
+                Info
+                <svg
+                  className={clsx('w-4 h-4 transition-transform duration-500', activeMenu === 'Info' ? 'rotate-180' : '')}
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </Link>
+            </div>
 
             <Link
               href="/contact"
@@ -207,6 +227,43 @@ const StickyNav = () => {
                   ))}
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Info Menu - Different Layout */}
+          <div
+            key="Info"
+            ref={(el) => {
+              menuRefs.current.Info = el;
+            }}
+            className={clsx(
+              'absolute top-0 left-0 w-full px-12 py-8 transition-all duration-500',
+              activeMenu === 'Info'
+                ? 'opacity-100 translate-y-0 pointer-events-auto'
+                : 'opacity-0 -translate-y-2 pointer-events-none'
+            )}
+          >
+            <div className="flex flex-col items-center mx-auto max-w-3xl">
+              <h2 className="text-xl text-[var(--foreground)] mb-6 text-center">Company Information</h2>
+              <div className="grid grid-cols-2 gap-6 w-full">
+                {infoMenuData.map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.href}
+                    className="group flex items-center p-4 rounded-lg border border-gray-200 hover:border-[var(--hover)] transition-all duration-300 shine-effect"
+                  >
+                    <div className="flex-shrink-0 mr-4 text-[var(--foreground)] group-hover:text-[var(--hover)] transition-colors">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-base font-normal text-[var(--foreground)] group-hover:text-[var(--hover)] transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
 

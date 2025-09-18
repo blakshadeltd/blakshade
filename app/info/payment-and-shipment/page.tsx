@@ -14,18 +14,18 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
-    url: "https://blakshade.com/payment-and-shipment/", // Add specific URL
+    url: "https://blakshade.com/info/payment-and-shipment/", // Add specific URL
   },
   twitter: {
     card: "summary_large_image",
     site: "@BlakShade_Ltd",
     creator: "@BlakShade_Ltd",
-    title: "Payment and Shipment - BlakShade Ltd", // More specific title
+    title: "Payment and Shipment | BlakShade Ltd", // More specific title
     description: "Learn about BlakShade Ltd's payment methods, order process & shipment details for generators.", // More specific description
   },
   // Add canonical URL
   alternates: {
-    canonical: "https://blakshade.com/payment-and-shipment/",
+    canonical: "https://blakshade.com/info/payment-and-shipment/",
   }
 };
 
@@ -60,7 +60,7 @@ const orgSchema = {
       "@type": "Article", // More appropriate than Article for a category page
       mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": "https://blakshade.com/payment-and-shipment/"
+        "@id": "https://blakshade.com/info/payment-and-shipment/"
       },
       name: "Payment and Shipment",
       description: "Learn about BlakShade Ltd's payment methods, order process & shipment details for generators.",
@@ -91,8 +91,14 @@ const orgSchema = {
         {
           "@type": "ListItem",
           position: 2,
+          name: "Info",
+          item: "https://blakshade.com/info/",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
           name: "Payment and Shipment",
-          item: "https://blakshade.com/payment-and-shipment/",
+          item: "https://blakshade.com/info/payment-and-shipment/",
         },
       ],
     },
@@ -131,33 +137,33 @@ const PaymentsAndShipment = () => {
             {/* Order Process */}
             <div className="mb-16 animate-slide-up">
               <h3 className="text-2xl md:text-2xl mb-6 energy-pulse">Order Process</h3>
-              
+
               <div className="curved-grid mb-10">
                 <div className="p-4 flex flex-col justify-center items-center text-center">
                   <div className="text-2xl mb-2">1</div>
                   <h3 className="mb-2">Proforma Invoice</h3>
                   <p className="text-sm">We send you a detailed invoice for your order</p>
                 </div>
-                
+
                 <div className="p-4 flex flex-col justify-center items-center text-center">
                   <div className="text-2xl mb-2">2</div>
                   <h3 className="mb-2">25% Deposit</h3>
                   <p className="text-sm">Secure your order with a deposit within 48 hours</p>
                 </div>
-                
+
                 <div className="p-4 flex flex-col justify-center items-center text-center">
                   <div className="text-2xl mb-2">3</div>
                   <h3 className="mb-2">Order Processing</h3>
                   <p className="text-sm">We prepare your generator and shipping</p>
                 </div>
-                
+
                 <div className="p-4 flex flex-col justify-center items-center text-center">
                   <div className="text-2xl mb-2">4</div>
                   <h3 className="mb-2">Remaining Payment</h3>
                   <p className="text-sm">Pay the balance when your generator is ready</p>
                 </div>
               </div>
-              
+
               <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
                 <div className="text-base">
                   <p><strong>Proforma Invoice:</strong> Once you've selected your desired generator, we will send you a proforma invoice that details the total amount due. This invoice serves as a formal request for payment.</p>

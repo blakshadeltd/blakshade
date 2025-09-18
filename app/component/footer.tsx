@@ -65,11 +65,8 @@ export default function Footer() {
                         <ul className="space-y-2">
                             {[
                                 { name: 'Home', href: '/' },
-                                { name: 'About Us', href: '/about' },
                                 { name: 'Build Genset', href: '/build-genset' },
-                                { name: 'Contact', href: '/contact' },
-                                { name: 'Support', href: '/support' },
-                                { name: 'Worldwide Voltage Frequency', href: '/worldwide-voltage-frequency' }
+                                { name: 'Contact', href: '/contact' }
                             ].map((link) => (
                                 <li key={link.name}>
                                     <Link 
@@ -82,6 +79,7 @@ export default function Footer() {
                             ))}
                         </ul>
                     </div>
+                    
 
                     {/* Contact Info & Newsletter */}
                     <div>
@@ -93,8 +91,8 @@ export default function Footer() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
                                 <span>
-                                    123 Power Street<br />
-                                    Energy City, EC1 1AA<br />
+                                    182 High St N,<br />
+                                    London E6 2JA,<br />
                                     United Kingdom
                                 </span>
                             </div>

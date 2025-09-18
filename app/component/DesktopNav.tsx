@@ -1,4 +1,4 @@
-// DesktopNav.tsx - Improved smoothness
+// DesktopNav.tsx - Improved with Info mega menu
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
@@ -6,10 +6,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import clsx from 'clsx';
 import { menuData } from './menuData';
-import { usePathname } from 'next/navigation';
+import { infoMenuData } from './infoMenuData';
 import Image from 'next/image';
 
-type MenuKey = 'Generators' | 'Search';
+type MenuKey = 'Generators' | 'Info' | 'Search';
 
 const DesktopNav = () => {
   const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
@@ -17,10 +17,10 @@ const DesktopNav = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const inputRef = useRef<HTMLInputElement | null>(null);
   const router = useRouter();
-  const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const menuRefs = useRef<Record<'Generators', HTMLDivElement | null>>({
+  const menuRefs = useRef<Record<'Generators' | 'Info', HTMLDivElement | null>>({
     Generators: null,
+    Info: null,
   });
   const hideTimeout = useRef<NodeJS.Timeout | null>(null);
 
@@ -34,7 +34,6 @@ const DesktopNav = () => {
   const handleMenuInteraction = (menu: MenuKey | null) => {
     clearHideTimeout();
     if (activeMenu !== menu) {
-      setIsTransitioning(true);
       setActiveMenu(menu);
     }
   };
@@ -52,17 +51,14 @@ const DesktopNav = () => {
     if (activeMenu && activeMenu !== 'Search' && menuRefs.current[activeMenu]) {
       const height = menuRefs.current[activeMenu]?.offsetHeight || 0;
       setPopoverHeight(height);
-      setTimeout(() => setIsTransitioning(false), 50);
     } else if (activeMenu === 'Search') {
       const inputHeight = inputRef.current?.offsetHeight ?? 36;
       setPopoverHeight(inputHeight + 56);
       setTimeout(() => {
         inputRef.current?.focus();
-        setIsTransitioning(false);
       }, 100);
     } else {
       setPopoverHeight(0);
-      setTimeout(() => setIsTransitioning(false), 300);
     }
   }, [activeMenu]);
 
@@ -71,7 +67,7 @@ const DesktopNav = () => {
       <nav
         className={clsx(
           'absolute top-0 left-1/2 -translate-x-1/2 z-20 px-4 hidden lg:block py-6 rounded-b-[30px] duration-500 w-full transition-all',
-          activeMenu === 'Generators' ? 'max-w-[850px]' : 'max-w-[800px]'
+          activeMenu === 'Generators' || activeMenu === 'Info' ? 'max-w-[850px]' : 'max-w-[800px]'
         )}
         style={{ backgroundColor: 'var(--background)' }}
         onMouseLeave={() => {
@@ -122,7 +118,31 @@ const DesktopNav = () => {
               </div>
             ))}
 
-            <Link
+            {/* Info Menu Item */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleMenuInteraction('Info')}
+            >
+              <Link
+                href="/info"
+                className={clsx(
+                  'flex items-center gap-1 text-base transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]',
+                  activeMenu === 'Info' ? 'text-[var(--foreground)]' : 'text-[var(--foreground)] hover:text-[var(--hover)]'
+                )}
+              >
+                Info
+                <svg
+                  className={clsx('w-4 h-4 transition-transform duration-500', activeMenu === 'Info' ? 'rotate-180' : '')}
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </Link>
+            </div>
+                        <Link
               href="/contact"
               className="text-base transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]"
               onMouseEnter={() => handleMenuInteraction(null)}
@@ -150,8 +170,8 @@ const DesktopNav = () => {
           </div>
         </div>
 
-        <div 
-          className="relative w-full transition-all duration-500 ease-in-out overflow-hidden" 
+        <div
+          className="relative w-full transition-all duration-500 ease-in-out overflow-hidden"
           style={{ height: `${popoverHeight}px` }}
         >
           {/* Generator Menu */}
@@ -182,6 +202,43 @@ const DesktopNav = () => {
                   ))}
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Info Menu - Different Layout */}
+          <div
+            key="Info"
+            ref={(el) => {
+              menuRefs.current.Info = el;
+            }}
+            className={clsx(
+              'absolute top-0 left-0 w-full px-12 py-8 transition-all duration-500',
+              activeMenu === 'Info'
+                ? 'opacity-100 translate-y-0 pointer-events-auto'
+                : 'opacity-0 -translate-y-2 pointer-events-none'
+            )}
+          >
+            <div className="flex flex-col items-center mx-auto max-w-3xl">
+              <h2 className="text-xl text-[var(--foreground)] mb-6 text-center">Company Information</h2>
+              <div className="grid grid-cols-2 gap-6 w-full">
+                {infoMenuData.map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.href}
+                    className="group flex items-center p-4 rounded-lg border border-gray-200 hover:border-[var(--hover)] transition-all duration-300 shine-effect"
+                  >
+                    <div className="flex-shrink-0 mr-4 text-[var(--foreground)] group-hover:text-[var(--hover)] transition-colors">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-base font-normal text-[var(--foreground)] group-hover:text-[var(--hover)] transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
 

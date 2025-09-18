@@ -3,19 +3,19 @@ import Glossary from "./glossary";
 
 
 export const metadata: Metadata = {
-    title: "Power Generation Glossary",
+    title: "Power Generation Glossary | BlakShade Ltd",
     description: "Comprehensive glossary of power generation industry terms and abbreviations. Learn technical definitions of generators, alternators, ATS, kVA, and more.",
     keywords: "generator glossary, power industry terms, diesel generator definitions",
     authors: [{ name: "BlakShade Ltd" }],
     viewport: "width=device-width, initial-scale=1.0",
     robots: "index, follow",
     openGraph: {
-        title: "Power Generation Glossary",
+        title: "Power Generation Glossary | BlakShade Ltd",
         description: "Comprehensive glossary of power generation industry terms and abbreviations. Learn technical definitions of generators, alternators, ATS, kVA, and more.",
         type: "website",
         locale: "en_UK",
         siteName: "BlakShade Ltd",
-        url: "https://blakshade.com/glossary/", // Add specific URL
+        url: "https://blakshade.com/info/glossary/", // Add specific URL
     },
     twitter: {
         card: "summary_large_image",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     },
     // Add canonical URL
     alternates: {
-        canonical: "https://blakshade.com/glossary/",
+        canonical: "https://blakshade.com/info/glossary/",
     }
 };
 
@@ -61,7 +61,7 @@ const orgSchema = {
             "@type": "Article", // More appropriate than Article for a category page
             mainEntityOfPage: {
                 "@type": "WebPage",
-                "@id": "https://blakshade.com/glossary/"
+                "@id": "https://blakshade.com/info/glossary/"
             },
             name: "Power Generation Glossary",
             description: "Comprehensive glossary of power generation industry terms and abbreviations. Learn technical definitions of generators, alternators, ATS, kVA, and more.",
@@ -92,8 +92,14 @@ const orgSchema = {
                 {
                     "@type": "ListItem",
                     position: 2,
+                    name: "Info",
+                    item: "https://blakshade.com/info/",
+                },
+                                {
+                    "@type": "ListItem",
+                    position: 3,
                     name: "Power Generation Glossary",
-                    item: "https://blakshade.com/glossary/",
+                    item: "https://blakshade.com/info/glossary/",
                 },
             ],
         },

@@ -10,9 +10,11 @@ import {
     RiMenu3Line,
     RiArrowRightSLine,
     RiCloseLine,
+    RiInformationLine,
 } from 'react-icons/ri';
 import clsx from 'clsx';
 import { menuData } from './menuData';
+import { infoMenuData } from './infoMenuData';
 
 interface LinkItem {
     name: string;
@@ -31,13 +33,16 @@ const MobileNav = () => {
     const [searchOpen, setSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const inputRef = useRef<HTMLInputElement>(null);
-    const [activeCategory, setActiveCategory] = useState<'Generators'>('Generators');
+    const [activeCategory, setActiveCategory] = useState<'Generators' | 'Info'>('Generators');
     const [activeTab, setActiveTab] = useState<string>('Brand');
     const [, setPrevTab] = useState<string>('');
 
     const getLinks = (): LinkItem[] => {
-        const categoryTabs = menuData[activeCategory];
-        return categoryTabs[activeTab] ?? [];
+        if (activeCategory === 'Generators') {
+            const categoryTabs = menuData[activeCategory];
+            return categoryTabs[activeTab] ?? [];
+        }
+        return [];
     };
 
     const handleSearchSubmit = () => {
@@ -50,7 +55,7 @@ const MobileNav = () => {
 
     const navItems = [
         { href: '/', label: 'Home', icon: <RiHome9Line className="text-2xl" /> },
-        { href: '/about', label: 'About', icon: <RiToolsFill className="text-2xl" /> },
+        { href: '/generators', label: 'Generators', icon: <RiToolsFill className="text-2xl" /> },
         {
             href: '#search',
             label: 'Search',
@@ -158,24 +163,48 @@ const MobileNav = () => {
                             ))}
                         </div>
 
-                        {(['Generators'] as const).map((category) => (
-                            <div key={category} className="bg-gray-50 rounded-md p-4 shadow">
+                        {/* Category Selector */}
+                        <div className="flex gap-2 mb-4">
+                            <button
+                                onClick={() => setActiveCategory('Generators')}
+                                className={clsx(
+                                    'px-4 py-2 rounded-md text-sm font-medium transition-colors',
+                                    activeCategory === 'Generators'
+                                        ? 'bg-[var(--foreground)] text-white'
+                                        : 'bg-gray-100 text-[var(--foreground)]'
+                                )}
+                            >
+                                Generators
+                            </button>
+                            <button
+                                onClick={() => setActiveCategory('Info')}
+                                className={clsx(
+                                    'px-4 py-2 rounded-md text-sm font-medium transition-colors',
+                                    activeCategory === 'Info'
+                                        ? 'bg-[var(--foreground)] text-white'
+                                        : 'bg-gray-100 text-[var(--foreground)]'
+                                )}
+                            >
+                                Info
+                            </button>
+                        </div>
+
+                        {activeCategory === 'Generators' && (
+                            <div className="bg-gray-50 rounded-md p-4 shadow">
                                 <div className="flex justify-between items-center mb-3">
-                                    <h3 className="text-lg font-semibold text-[var(--foreground)]">{category}</h3>
+                                    <h3 className="text-lg font-semibold text-[var(--foreground)]">Generators</h3>
                                 </div>
 
                                 <div className="flex flex-wrap gap-2 mb-4">
-                                    {Object.keys(menuData[category]).map((tab) => (
+                                    {Object.keys(menuData.Generators).map((tab) => (
                                         <button
                                             key={tab}
                                             onClick={() => {
-                                                setPrevTab(activeTab);
-                                                setActiveCategory(category);
                                                 setActiveTab(tab);
                                             }}
                                             className={clsx(
                                                 'px-3 py-1 rounded-md text-sm font-medium transition-colors',
-                                                activeCategory === category && activeTab === tab
+                                                activeTab === tab
                                                     ? 'bg-[var(--foreground)] text-white'
                                                     : 'bg-white text-[var(--foreground)] border border-gray-300'
                                             )}
@@ -185,34 +214,68 @@ const MobileNav = () => {
                                     ))}
                                 </div>
 
-                                {activeCategory === category && (
-                                    <div className="relative overflow-hidden">
-                                        <div
-                                            key={activeTab}
-                                            className="flex flex-col gap-2 transition-transform duration-300 ease-in-out animate-slide-tab"
-                                        >
-                                            {getLinks().length > 0 ? (
-                                                getLinks().map(({ name, href }) => (
-                                                    <Link
-                                                        key={href}
-                                                        href={href}
-                                                        onClick={() => setDrawerOpen(false)}
-                                                        className="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 shadow-sm transition"
-                                                    >
-                                                        <RiArrowRightSLine className="text-lg text-gray-700" />
-                                                        {name}
-                                                    </Link>
-                                                ))
-                                            ) : (
-                                                <p className="text-sm text-gray-700 col-span-2">No links available.</p>
-                                            )}
-                                        </div>
+                                <div className="relative overflow-hidden">
+                                    <div
+                                        key={activeTab}
+                                        className="flex flex-col gap-2 transition-transform duration-300 ease-in-out animate-slide-tab"
+                                    >
+                                        {getLinks().length > 0 ? (
+                                            getLinks().map(({ name, href }) => (
+                                                <Link
+                                                    key={href}
+                                                    href={href}
+                                                    onClick={() => setDrawerOpen(false)}
+                                                    className="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 shadow-sm transition"
+                                                >
+                                                    <RiArrowRightSLine className="text-lg text-gray-700" />
+                                                    {name}
+                                                </Link>
+                                            ))
+                                        ) : (
+                                            <p className="text-sm text-gray-700 col-span-2">No links available.</p>
+                                        )}
                                     </div>
-                                )}
+                                </div>
                             </div>
-                        ))}
-                    </div>
+                        )}
 
+                        {activeCategory === 'Info' && (
+                            <div className="bg-gray-50 rounded-md p-4 shadow">
+                                <div className="flex justify-between items-center mb-3">
+                                    <h3 className="text-lg font-semibold text-[var(--foreground)]">Company Information</h3>
+                                </div>
+
+                                <div className="grid grid-cols-1 gap-3">
+                                    {infoMenuData.map((item, index) => (
+                                        <Link
+                                            key={index}
+                                            href={item.href}
+                                            onClick={() => setDrawerOpen(false)}
+                                            className="flex items-start gap-3 bg-white border border-gray-200 rounded-lg p-3 text-sm text-gray-700 hover:bg-gray-100 shadow-sm transition"
+                                        >
+                                            <div className="text-lg text-[var(--foreground)] mt-0.5">
+                                                {item.icon}
+                                            </div>
+                                            <div>
+                                                <div className="font-medium">{item.title}</div>
+                                                <div className="text-xs text-gray-500 mt-1">{item.description}</div>
+                                            </div>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        <div className="mt-4">
+                            <Link
+                                href="/build-genset"
+                                onClick={() => setDrawerOpen(false)}
+                                className="block w-full text-center bg-[var(--foreground)] text-white rounded-md px-4 py-3 text-base font-medium shadow-sm transition hover:opacity-90"
+                            >
+                                Build Genset
+                            </Link>
+                        </div>
+                    </div>
                 </>
             )}
         </>

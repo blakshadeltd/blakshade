@@ -3,14 +3,14 @@ import HowItWorks from "./component/HowItWorks";
 import Link from "next/link";
 
 export const metadata = {
-  title: "BlakShade Ltd",
+  title: "Bespoke Diesel Generators Solutions | BlakShade Ltd",
   description: "BlakShade Ltd offers Bespoke Diesel Generators Solutions to meet your specific power needs. Wherever you need it.",
   keywords: "BlakShade Ltd, generators, power solutions, diesel generators",
   authors: [{ name: "BlakShade Ltd" }],
   viewport: "width=device-width, initial-scale=1.0",
   robots: "index, follow",
   openGraph: {
-    title: "BlakShade Ltd",
+    title: "Bespoke Diesel Generators Solutions | BlakShade Ltd",
     description: "BlakShade Ltd offers Bespoke Diesel Generators Solutions to meet your specific power needs. Wherever you need it.",
     type: "website",
     locale: "en_UK",
