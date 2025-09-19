@@ -5,7 +5,7 @@ import { menuData } from './menuData';
 
 export default function Footer() {
   return (
-    <footer className="relative spacer text-[var(--foreground)]">
+    <footer className="relative spacer text-[var(--foreground,#2b2926)]">
       {/* Black section overlapping the top */}
       <div className="relative -top-[30px] h-[30px] rounded-b-[20px] shadow-xl" />
 
@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="mb-6">
               <h3 className="text-2xl font-bold mb-4">BlakShade Ltd</h3>
-              <p className="text-[var(--foreground)] mb-4">
+              <p className="text-[var(--foreground,#2b2926)] mb-4">
                 Engineering energy resilience with cleaner power solutions for
                 individuals, businesses and communities worldwide.
               </p>
@@ -24,7 +24,7 @@ export default function Footer() {
                   href="https://www.facebook.com/blakshadeltd"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full text-[var(--foreground)] flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  className="w-10 h-10 rounded-full text-[var(--foreground,#2b2926)] flex items-center justify-center hover:bg-gray-200 transition-colors"
                   aria-label="Follow us on Facebook"
                 >
                   <Facebook className="w-5 h-5" />
@@ -33,7 +33,7 @@ export default function Footer() {
                   href="https://x.com/BlakShade_Ltd"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full text-[var(--foreground)] flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  className="w-10 h-10 rounded-full text-[var(--foreground,#2b2926)] flex items-center justify-center hover:bg-gray-200 transition-colors"
                   aria-label="Follow us on Twitter"
                 >
                   <Twitter className="w-5 h-5" />
@@ -42,7 +42,7 @@ export default function Footer() {
                   href="https://www.instagram.com/blakshadeltd/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full text-[var(--foreground)] flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  className="w-10 h-10 rounded-full text-[var(--foreground,#2b2926)] flex items-center justify-center hover:bg-gray-200 transition-colors"
                   aria-label="Follow us on Instagram"
                 >
                   <Instagram className="w-5 h-5" />
@@ -51,7 +51,7 @@ export default function Footer() {
                   href="https://www.linkedin.com/company/blakshade-ltd/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full text-[var(--foreground)] flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  className="w-10 h-10 rounded-full text-[var(--foreground,#2b2926)] flex items-center justify-center hover:bg-gray-200 transition-colors"
                   aria-label="Follow us on LinkedIn"
                 >
                   <Linkedin className="w-5 h-5" />
@@ -60,7 +60,7 @@ export default function Footer() {
                   href="https://www.threads.net/@blakshadeltd"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full text-[var(--foreground)] flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  className="w-10 h-10 rounded-full text-[var(--foreground,#2b2926)] flex items-center justify-center hover:bg-gray-200 transition-colors"
                   aria-label="Follow us on Threads"
                 >
                   <MessageCircle className="w-5 h-5" />
@@ -76,13 +76,13 @@ export default function Footer() {
                         <div className="space-y-4">
                             {Object.entries(menuData.Generators).map(([category, items]) => (
                                 <div key={category} className="mb-4">
-                                    <h5 className="font-medium text-[var(--foreground)] mb-2 text-sm uppercase tracking-wider">{category}</h5>
+                                    <h5 className="font-medium text-[var(--foreground,#2b2926)] mb-2 text-sm uppercase tracking-wider">{category}</h5>
                                     <ul className="space-y-1">
                                         {items.slice(0, 3).map((item) => (
                                             <li key={item.name}>
                                                 <Link
                                                     href={item.href}
-                                                    className="text-[var(--foreground)] hover:text-[var(--hover)] text-sm block py-1"
+                                                    className="text-[var(--foreground,#2b2926)] hover:text-[var(--hover)] text-sm block py-1"
                                                 >
                                                     {item.name}
                                                 </Link>
@@ -96,7 +96,7 @@ export default function Footer() {
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="text-[var(--foreground)] text-lg mb-4 border-b border-gray-400 pb-2">Quick Links</h4>
+                        <h4 className="text-[var(--foreground,#2b2926)] text-lg mb-4 border-b border-gray-400 pb-2">Quick Links</h4>
                         <ul className="space-y-2">
                             {[
                                 { name: 'Home', href: '/' },
@@ -106,7 +106,7 @@ export default function Footer() {
                                 <li key={link.name}>
                                     <Link
                                         href={link.href}
-                                        className="text-[var(--foreground)] hover:text-[var(--hover)] transition-colors block py-1"
+                                        className="text-[var(--foreground,#2b2926)] hover:text-[var(--hover)] transition-colors block py-1"
                                     >
                                         {link.name}
                                     </Link>
@@ -118,8 +118,8 @@ export default function Footer() {
 
                     {/* Contact Info & Newsletter */}
                     <div>
-                        <h4 className="text-lg text-[var(--foreground)] mb-4 border-b border-gray-400 pb-2">Contact Us</h4>
-                        <address className="not-italic space-y-3 text-[var(--foreground)] mb-6">
+                        <h4 className="text-lg text-[var(--foreground,#2b2926)] mb-4 border-b border-gray-400 pb-2">Contact Us</h4>
+                        <address className="not-italic space-y-3 text-[var(--foreground,#2b2926)] mb-6">
                             <div className="flex items-start">
                                 <svg className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
