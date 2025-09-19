@@ -38,7 +38,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Prepend production domain
   return allPages.map((page) => ({
-    url: `http://blakshade.com${page.url}`,
+    url: `https://blakshade.com${page.url}`,
     lastModified: page.lastModified,
   }));
 }
