@@ -255,7 +255,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C28D5",
   metaTitle: "Cummins C28D5 Silent Diesel Generator",
-  metaDescription: "Cummins C28D5 27.5 kVA standby / 25 kVA prime, 50Hz silent diesel generator with Cummins X2.5‑G2 engine & Stamford S0L2‑P1 alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C28D5 27.5 kVA standby / 25 kVA prime, 50Hz silent diesel generator with Cummins X2.5‑G2 engine & Stamford S0L2‑P1 alternator.",
   keywords: [
   "Cummins C28D5",
   "28 kVA diesel generator",
@@ -367,7 +367,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C33D5",
   metaTitle: "Cummins C33D5 Silent Diesel Generator",
-  metaDescription: "Cummins C33D5 33 kVA standby / 30 kVA prime, 50Hz silent diesel generator with Cummins X3.3‑G1 engine & Stamford S0L2‑P1 alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C33D5 33 kVA standby / 30 kVA prime, 50Hz silent diesel generator with Cummins X3.3‑G1 engine & Stamford S0L2‑P1 alternator.",
   keywords: [
   "Cummins C33D5",
   "33 kVA diesel generator",
@@ -590,7 +590,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C38D5Q",
   metaTitle: "Cummins C38D5Q Silent Diesel Generator",
-  metaDescription: "Cummins C38D5Q 38 kVA standby / 35 kVA prime, 50Hz silent diesel generator with Cummins X3.3‑G1 engine & Stamford S1L2‑J1 alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C38D5Q 38 kVA standby / 35 kVA prime, 50Hz silent diesel generator with Cummins X3.3‑G1 engine & Stamford S1L2‑J1 alternator.",
   keywords: [
   "Cummins C38D5Q",
   "38 kVA diesel generator",
@@ -702,7 +702,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C44D5E",
   metaTitle: "Cummins C44D5E Silent Diesel Generator",
-  metaDescription: "Cummins C44D5E 44 kVA standby / 40 kVA prime, 50Hz silent diesel generator with Cummins 4BTAA3.3‑G14 engine & Stamford UCI224C alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C44D5E 44 kVA standby / 40 kVA prime, 50Hz silent diesel generator with Cummins 4BTAA3.3‑G14 engine & Stamford UCI224C alternator.",
   keywords: [
   "Cummins C44D5E",
   "44 kVA diesel generator",
@@ -922,7 +922,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C55D5EQ",
   metaTitle: "Cummins C55D5EQ Silent Diesel Generator",
-  metaDescription: "Cummins C55D5EQ 55 kVA standby / 50 kVA prime, 50Hz silent diesel generator with Cummins 4BTAA3.3‑G14 engine & Stamford UC224D alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C55D5EQ 55 kVA standby / 50 kVA prime, 50Hz silent diesel generator with Cummins 4BTAA3.3‑G14 engine & Stamford UC224D alternator.",
   keywords: [
   "Cummins C55D5EQ",
   "55 kVA diesel generator",
@@ -1032,7 +1032,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C66D5E",
   metaTitle: "Cummins C66D5E Silent Diesel Generator",
-  metaDescription: "Cummins C66D5E 66 kVA standby / 60 kVA prime, 50Hz silent diesel generator with Cummins 4BTAA3.3‑G14 engine & Stamford UCI22 4F alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C66D5E 66 kVA standby / 60 kVA prime, 50Hz silent diesel generator with Cummins 4BTAA3.3‑G14 engine & Stamford UCI22 4F alternator.",
   keywords: [
   "Cummins C66D5E",
   "66 kVA diesel generator",
@@ -1142,7 +1142,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C66D5EQ",
   metaTitle: "Cummins C66D5EQ Silent Diesel Generator",
-  metaDescription: "Cummins C66D5EQ 66 kVA standby / 60 kVA prime, 50Hz silent diesel generator with Cummins 4BTAA3.3‑G14 engine & Stamford UC224F alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C66D5EQ 66 kVA standby / 60 kVA prime, 50Hz silent diesel generator with Cummins 4BTAA3.3‑G14 engine & Stamford UC224F alternator.",
   keywords: [
   "Cummins C66D5EQ",
   "66 kVA diesel generator",
@@ -1250,7 +1250,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C90D5",
   metaTitle: "Cummins C90D5 Silent Diesel Generator",
-  metaDescription: "Cummins C90D5 90 kVA standby / 82 kVA prime, 50Hz silent diesel generator with Cummins 6BTA5.9‑G5 engine & Stamford UCI224G alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C90D5 90 kVA standby / 82 kVA prime, 50Hz silent diesel generator with Cummins 6BTA5.9‑G5 engine & Stamford UCI224G alternator.",
   keywords: [
   "Cummins C90D5",
   "90 kVA diesel generator",
@@ -1359,7 +1359,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C110D5",
   metaTitle: "Cummins C110D5 Silent Diesel Generator",
-  metaDescription: "Cummins C110D5 110 kVA standby / 100 kVA prime, 50Hz silent diesel generator with Cummins 6BTA5.9‑G5 engine & Stamford UCI274C alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C110D5 110 kVA standby / 100 kVA prime, 50Hz silent diesel generator with Cummins 6BTA5.9‑G5 engine & Stamford UCI274C alternator.",
   keywords: [
   "Cummins C110D5",
   "110 kVA diesel generator",
@@ -1471,7 +1471,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C110D5Q",
   metaTitle: "Cummins C110D5Q Q‑Range Silent Diesel Generator",
-  metaDescription: "Cummins C110D5Q 110 kVA standby / 100 kVA prime, 50Hz silent diesel generator with Cummins 6BTA5.9‑G5 engine & Stamford UC274C alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C110D5Q 110 kVA standby / 100 kVA prime, 50Hz silent diesel generator with Cummins 6BTA5.9‑G5 engine & Stamford UC274C alternator.",
   keywords: [
   "Cummins C110D5Q",
   "110 kVA diesel generator",
@@ -1579,7 +1579,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C150D5",
   metaTitle: "Cummins C150D5 Silent Diesel Generator",
-  metaDescription: "Cummins C150D5 150 kVA standby / 136 kVA prime, 50Hz silent diesel generator with Cummins 6BTA5.9‑G6 engine & Stamford UCI274E alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C150D5 150 kVA standby / 136 kVA prime, 50Hz silent diesel generator with Cummins 6BTA5.9‑G6 engine & Stamford UCI274E alternator.",
   keywords: [
   "Cummins C150D5",
   "150 kVA diesel generator",
@@ -1691,7 +1691,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C170D5",
   metaTitle: "Cummins C170D5 Silent Diesel Generator",
-  metaDescription: "Cummins C170D5 170 kVA standby / 155 kVA prime, 50Hz silent diesel generator with Cummins 6BTAA5.9‑G7 engine & Stamford UCI274F alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C170D5 170 kVA standby / 155 kVA prime, 50Hz silent diesel generator with Cummins 6BTAA5.9‑G7 engine & Stamford UCI274F alternator.",
   keywords: [
   "Cummins C170D5",
   "170 kVA diesel generator",
@@ -1803,7 +1803,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C170D5Q",
   metaTitle: "Cummins C170D5Q Silent Diesel Generator",
-  metaDescription: "Cummins C170D5Q 170 kVA standby / 155 kVA prime, 50Hz silent diesel generator with Cummins 6BTAA5.9‑G7 engine & Stamford UC274F alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C170D5Q 170 kVA standby / 155 kVA prime, 50Hz silent diesel generator with Cummins 6BTAA5.9‑G7 engine & Stamford UC274F alternator.",
   keywords: [
   "Cummins C170D5Q",
   "170 kVA diesel generator",
@@ -1914,7 +1914,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C220D5E",
   metaTitle: "Cummins C220D5E Silent Diesel Generator",
-  metaDescription: "Cummins C220D5E 220 kVA standby / 200 kVA prime, 50Hz silent diesel generator with Cummins QSB7‑G5 engine & Stamford UCI274H alternator. Stage IIIa certified reliable three‑phase power.",
+  metaDescription: "Cummins C220D5E 220 kVA standby / 200 kVA prime, 50Hz silent diesel generator with Cummins QSB7‑G5 engine & Stamford UCI274H alternator. Stage IIIa certified",
   keywords: [
   "Cummins C220D5E",
   "220 kVA diesel generator",
@@ -2023,7 +2023,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C220D5EQ",
   metaTitle: "Cummins C220D5EQ Q‑Range Silent Diesel Generator",
-  metaDescription: "Cummins C220D5EQ 220 kVA standby / 200 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins QSB7‑G5 engine & Stamford UC274H alternator. Stage IIIa compliant reliable three‑phase power.",
+  metaDescription: "Cummins C220D5EQ 220 kVA standby / 200 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins QSB7‑G5 engine & Stamford UC274H alternator. Stage IIIa compliant",
   keywords: [
   "Cummins C220D5EQ",
   "220 kVA diesel generator",
@@ -2349,7 +2349,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C330D5",
   metaTitle: "Cummins C330D5 Silent Diesel Generator",
-  metaDescription: "Cummins C330D5 330 kVA standby / 300 kVA prime, 50Hz silent diesel generator with Cummins QSL9‑G5 engine & Stamford HC4D alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C330D5 330 kVA standby / 300 kVA prime, 50Hz silent diesel generator with Cummins QSL9‑G5 engine & Stamford HC4D alternator.",
   keywords: [
   "Cummins C330D5",
   "330 kVA diesel generator",
@@ -2566,7 +2566,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C450D5Q",
   metaTitle: "Cummins C450D5Q Q‑Range Silent Diesel Generator",
-  metaDescription: "Cummins C450D5Q 450 kVA standby / 409 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins QSG12‑G4 engine & Stamford S4L1D‑G41 alternator. Unregulated emission, reliable three‑phase power.",
+  metaDescription: "Cummins C450D5Q 450 kVA standby / 409 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins QSG12‑G4 engine & Stamford S4L1D‑G41 alternator.",
   keywords: [
   "Cummins C450D5Q",
   "450 kVA diesel generator",
@@ -2676,7 +2676,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C450D5",
   metaTitle: "Cummins C450D5 Silent Diesel Generator",
-  metaDescription: "Cummins C450D5 450 kVA standby / 410 kVA prime, 50Hz silent diesel generator with Cummins QSG12‑G2 engine & Stamford S4G alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C450D5 450 kVA standby / 410 kVA prime, 50Hz silent diesel generator with Cummins QSG12‑G2 engine & Stamford S4G alternator.",
   keywords: [
   "Cummins C450D5",
   "450 kVA diesel generator",
@@ -2784,7 +2784,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C550D5",
   metaTitle: "Cummins C550D5 Silent Diesel Generator",
-  metaDescription: "Cummins C550D5 550 kVA standby / 500 kVA prime, 50Hz silent diesel generator with Cummins QSZ13‑G10 engine & Stamford S5E alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C550D5 550 kVA standby / 500 kVA prime, 50Hz silent diesel generator with Cummins QSZ13‑G10 engine & Stamford S5E alternator.",
   keywords: [
   "Cummins C550D5",
   "550 kVA diesel generator",
@@ -3098,7 +3098,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C700D5",
   metaTitle: "Cummins C700D5 Open Diesel Generator",
-  metaDescription: "Cummins C700D5 706 kVA standby / 640 kVA prime, 50Hz open diesel generator with Cummins VTA28‑G5 engine & Stamford HC5F alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C700D5 706 kVA standby / 640 kVA prime, 50Hz open diesel generator with Cummins VTA28‑G5 engine & Stamford HC5F alternator.",
   keywords: [
     "Cummins C700D5",
     "700 kVA diesel generator",
@@ -3171,7 +3171,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C825D5",
   metaTitle: "Cummins C825D5 Open Diesel Generator",
-  metaDescription: "Cummins C825D5 825 kVA standby / 750 kVA prime, 50 Hz open diesel generator with Cummins QSK23‑G3 engine & Stamford S6L1‑C41 alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C825D5 825 kVA standby / 750 kVA prime, 50 Hz open diesel generator with Cummins QSK23‑G3 engine & Stamford S6L1‑C41 alternator.",
   keywords: [
     "Cummins C825D5",
     "825 kVA diesel generator",
@@ -3286,7 +3286,7 @@ specs: [
 {
   title: "Cummins C900D5",
   metaTitle: "Cummins C900D5 Open Diesel Generator",
-  metaDescription: "Cummins C900D5 900 kVA standby / 820 kVA prime, 50 Hz open diesel generator with Cummins QSK23‑G3 engine & Stamford S6L1‑D4 alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C900D5 900 kVA standby / 820 kVA prime, 50 Hz open diesel generator with Cummins QSK23‑G3 engine & Stamford S6L1‑D4 alternator.",
   keywords: [
     "Cummins C900D5",
     "900 kVA diesel generator",
@@ -3523,7 +3523,7 @@ specs: [
 {
   title: "Cummins C1100D5",
   metaTitle: "Cummins C1100D5 Open Diesel Generator",
-  metaDescription: "Cummins C1100D5 1110 kVA standby / 1000 kVA prime, 50 Hz open diesel generator with Cummins QST30‑G4 engine & Stamford S6F alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C1100D5 1110 kVA standby / 1000 kVA prime, 50 Hz open diesel generator with Cummins QST30‑G4 engine & Stamford S6F alternator.",
   keywords: [
     "Cummins C1100D5",
     "1100 kVA diesel generator",
@@ -3641,7 +3641,7 @@ specs: [
 {
   title: "Cummins C1100D5B",
   metaTitle: "Cummins C1100D5B Open Diesel Generator",
-  metaDescription: "Cummins C1100D5B 1132 kVA standby / 1029 kVA prime, 50 Hz open diesel generator with Cummins KTA38‑G14 engine & Stamford HCI6K alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C1100D5B 1132 kVA standby / 1029 kVA prime, 50 Hz open diesel generator with Cummins KTA38‑G14 engine & Stamford HCI6K alternator.",
   keywords: [
     "Cummins C1100D5B",
     "1100 kVA diesel generator",
@@ -3762,7 +3762,7 @@ specs: [
 {
   title: "Cummins C1250D5A",
   metaTitle: "Cummins C1250D5A Open Diesel Generator",
-  metaDescription: "Cummins C1250D5A 1250 kVA standby / 1125 kVA prime, 50 Hz open diesel generator with Cummins KTA38‑G9 engine & Stamford P7A alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C1250D5A 1250 kVA standby / 1125 kVA prime, 50 Hz open diesel generator with Cummins KTA38‑G9 engine & Stamford P7A alternator.",
   keywords: [
     "Cummins C1250D5A",
     "1250 kVA diesel generator",
@@ -3865,7 +3865,7 @@ specs: [
 {
   title: "Cummins C1250D5AB",
   metaTitle: "Cummins C1250D5AB Open Diesel Generator",
-  metaDescription: "Cummins C1250D5AB 1250 kVA standby / 1125 kVA prime, 50 Hz open diesel generator with Cummins KTA38‑G9 engine & Stamford S6G alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C1250D5AB 1250 kVA standby / 1125 kVA prime, 50 Hz open diesel generator with Cummins KTA38‑G9 engine & Stamford S6G alternator.",
   keywords: [
     "Cummins C1250D5AB",
     "1250 kVA diesel generator",
@@ -3978,7 +3978,7 @@ specs: [
 {
   title: "Cummins C1400D5",
   metaTitle: "Cummins C1400D5 Open Diesel Generator",
-  metaDescription: "Cummins C1400D5 1400 kVA standby / 1250 kVA prime, 50 Hz open diesel generator with Cummins KTA50‑G3 engine & Stamford PI734B alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C1400D5 1400 kVA standby / 1250 kVA prime, 50 Hz open diesel generator with Cummins KTA50‑G3 engine & Stamford PI734B alternator.",
   keywords: [
     "Cummins C1400D5",
     "1400 kVA diesel generator",
@@ -4087,7 +4087,7 @@ specs: [
 {
   title: "Cummins C1675D5A",
   metaTitle: "Cummins C1675D5A Open Diesel Generator",
-  metaDescription: "Cummins C1675D5A 1675 kVA standby / 1500 kVA prime, 50 Hz open diesel generator with Cummins KTA50‑GS8 engine & Stamford PI734D alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C1675D5A 1675 kVA standby / 1500 kVA prime, 50 Hz open diesel generator with Cummins KTA50‑GS8 engine & Stamford PI734D alternator.",
   keywords: [
     "Cummins C1675D5A",
     "1675 kVA diesel generator",
@@ -4306,7 +4306,7 @@ specs: [
 {
   title: "Cummins C1760D5",
   metaTitle: "Cummins C1760D5 Open Diesel Generator",
-  metaDescription: "Cummins C1760D5 1760 kVA standby / 1600 kVA prime, 50 Hz open diesel generator with Cummins KTA50‑G23 engine & Stamford S7L1D‑E4 alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C1760D5 1760 kVA standby / 1600 kVA prime, 50 Hz open diesel generator with Cummins KTA50‑G23 engine & Stamford S7L1D‑E4 alternator.",
   keywords: [
     "Cummins C1760D5",
     "1760 kVA diesel generator",
@@ -4416,7 +4416,7 @@ specs: [
 {
   title: "Cummins C1875D5",
   metaTitle: "Cummins C1875D5 Open Diesel Generator",
-  metaDescription: "Cummins C1875D5 1875 kVA standby / 1700 kVA prime, 50 Hz open diesel generator with Cummins KTA50‑G23 engine & Stamford S7L1D‑E4 alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C1875D5 1875 kVA standby / 1700 kVA prime, 50 Hz open diesel generator with Cummins KTA50‑G23 engine & Stamford S7L1D‑E4 alternator.",
   keywords: [
     "Cummins C1875D5",
     "1875 kVA diesel generator",
@@ -4535,7 +4535,7 @@ specs: [
 {
   title: "Cummins C1875D5e",
   metaTitle: "Cummins C1875D5e Open Diesel Generator",
-  metaDescription: "Cummins C1875D5e 1875 kVA standby / 1700 kVA prime, 50 Hz open diesel generator with Cummins QSK50‑G15 engine & Stamford S7L1D‑F41 alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C1875D5e 1875 kVA standby / 1700 kVA prime, 50 Hz open diesel generator with Cummins QSK50‑G15 engine & Stamford S7L1D‑F41 alternator.",
   keywords: [
     "Cummins C1875D5e",
     "1875 kVA diesel generator",
@@ -4640,7 +4640,7 @@ specs: [
 {
   title: "Cummins C2000D5e",
   metaTitle: "Cummins C2000D5e Open Diesel Generator",
-  metaDescription: "Cummins C2000D5e 2000 kVA standby / 1825 kVA prime, 50 Hz open diesel generator with Cummins QSK60‑GS3 engine & Stamford PI734F alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C2000D5e 2000 kVA standby / 1825 kVA prime, 50 Hz open diesel generator with Cummins QSK60‑GS3 engine & Stamford PI734F alternator.",
   keywords: [
     "Cummins C2000D5e",
     "2000 kVA diesel generator",
@@ -4751,7 +4751,7 @@ specs: [
 {
   title: "Cummins C2000D5B",
   metaTitle: "Cummins C2000D5B Open Diesel Generator",
-  metaDescription: "Cummins C2000D5B 2000 kVA standby / 1800 kVA prime, 50 Hz open diesel generator with Cummins KTA50‑G23 engine & Stamford S7L1D‑G4 alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C2000D5B 2000 kVA standby / 1800 kVA prime, 50 Hz open diesel generator with Cummins KTA50‑G23 engine & Stamford S7L1D‑G4 alternator.",
   keywords: [
     "Cummins C2000D5B",
     "2000 kVA diesel generator",
@@ -4859,7 +4859,7 @@ specs: [
 {
   title: "Cummins C2000D5EB",
   metaTitle: "Cummins C2000D5EB Open Diesel Generator",
-  metaDescription: "Cummins C2000D5EB 2000 kVA standby / 1875 kVA prime, 50 Hz open diesel generator with Cummins QSK50‑G16 engine & Stamford S7L1D‑G4 alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C2000D5EB 2000 kVA standby / 1875 kVA prime, 50 Hz open diesel generator with Cummins QSK50‑G16 engine & Stamford S7L1D‑G4 alternator.",
   keywords: [
     "Cummins C2000D5EB",
     "2000 kVA diesel generator",
@@ -4957,7 +4957,7 @@ specs: [
 {
   title: "Cummins C2000D5",
   metaTitle: "Cummins C2000D5 Open Diesel Generator",
-  metaDescription: "Cummins C2000D5 2063 kVA standby / 1875 kVA prime, 50 Hz open diesel generator with Cummins QSK60‑G3 engine & Stamford PI734F alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C2000D5 2063 kVA standby / 1875 kVA prime, 50 Hz open diesel generator with Cummins QSK60‑G3 engine & Stamford PI734F alternator.",
   keywords: [
     "Cummins C2000D5",
     "2000 kVA diesel generator",
@@ -5061,7 +5061,7 @@ specs: [
 {
   title: "Cummins C2000D5‑PB",
   metaTitle: "Cummins C2000D5‑PB Containerised Diesel Generator",
-  metaDescription: "Cummins C2000D5‑PB 2063 kVA standby / 1875 kVA prime, 50 Hz containerised diesel generator with Cummins QSK60‑G3 engine & Stamford PI734F alternator. Reliable three‑phase power.",
+  metaDescription: "Cummins C2000D5‑PB 2063 kVA standby / 1875 kVA prime, 50 Hz containerised diesel generator with Cummins QSK60‑G3 engine & Stamford PI734F alternator.",
   keywords: [
     "Cummins C2000D5‑PB",
     "2000 kVA diesel generator",
