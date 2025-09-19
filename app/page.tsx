@@ -1,6 +1,8 @@
 
+import HowItWorks from "./component/HowItWorks";
 import Link from "next/link";
 import { Metadata } from "next";
+import Script from "next/script";
 
 
 export const metadata: Metadata = {
@@ -22,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@BlakShade_Ltd",
     creator: "@BlakShade_Ltd",
-    title: "Bespoke Diesel Generators Solutions | BlakShade Ltd", 
+    title: "Bespoke Diesel Generators Solutions | BlakShade Ltd",
     description: "BlakShade Ltd offers Bespoke Diesel Generators Solutions to meet your specific power needs. Wherever you need it.",
   },
   // Add canonical URL
@@ -40,7 +42,7 @@ const orgSchema = {
       name: "BlakShade Ltd",
       alternateName: "BlakShade",
       url: "https://blakshade.com/",
-      logo: "(NOT Created YET)",
+      logo: "https://blakshade.com/BlakShade-Ltd-logo-01.jpg",
       contactPoint: [
         {
           "@type": "ContactPoint",
@@ -56,6 +58,11 @@ const orgSchema = {
         "https://www.linkedin.com/company/blakshade-ltd/",
         "https://www.threads.net/@blakshadeltd",
       ],
+    },
+    {
+      "@type": "WebSite",
+      name: "BlakShade Ltd",
+      url: "https://blakshade.com/",
     },
     {
       "@type": "Article",
@@ -80,7 +87,7 @@ const orgSchema = {
       datePublished: "2021-10-11",
       dateModified: "2025-09-12"
     },
-{
+    {
       "@type": "BreadcrumbList",
       itemListElement: [
         {
@@ -139,7 +146,7 @@ export default function Home() {
     <>
 
 
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
@@ -273,6 +280,7 @@ export default function Home() {
           </div>
         </section>
 
+        <HowItWorks />
 
         {/* Generator Range Section */}
         <section className="py-12 md:py-20 bg-gray-50 text-[var(--foreground,#2b2926)] rounded-[20px] md:rounded-[30px] mx-2 md:mx-4">
