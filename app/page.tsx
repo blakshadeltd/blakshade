@@ -26,7 +26,7 @@ export const metadata = {
   },
   // Add canonical URL
   alternates: {
-    canonical: "https://blakshade.com//",
+    canonical: "https://blakshade.com/",
   }
 };
 
