@@ -1,4 +1,3 @@
-// DesktopNav.tsx - Improved with Info mega menu
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
@@ -8,6 +7,7 @@ import clsx from 'clsx';
 import { menuData } from './menuData';
 import { infoMenuData } from './infoMenuData';
 import Image from 'next/image';
+import SSRNav from './SSRNav';
 
 type MenuKey = 'Generators' | 'Info' | 'Search';
 
@@ -63,7 +63,7 @@ const DesktopNav = () => {
   }, [activeMenu]);
 
   return (
-    <div className="relative">
+    <><SSRNav /><div className="relative">
       <nav
         className={clsx(
           'absolute top-0 left-1/2 -translate-x-1/2 z-20 px-4 hidden lg:block py-6 rounded-b-[30px] duration-500 w-full transition-all',
@@ -142,7 +142,7 @@ const DesktopNav = () => {
                 </svg>
               </Link>
             </div>
-                        <Link
+            <Link
               href="/contact"
               className="text-base transition-colors text-[var(--foreground)] shine-effect hover:text-[var(--hover)]"
               onMouseEnter={() => handleMenuInteraction(null)}
@@ -256,8 +256,7 @@ const DesktopNav = () => {
                 placeholder="Search for generators or components..."
                 className="w-full bg-transparent text-base px-2 py-2 focus:outline-none focus:ring-0"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
+                onChange={(e) => setSearchQuery(e.target.value)} />
               <button
                 type="submit"
                 className="text-black hover:text-gray-700 px-2 transition-colors shine-effect"
@@ -277,7 +276,7 @@ const DesktopNav = () => {
           </div>
         </div>
       </nav>
-    </div>
+    </div></>
   );
 };
 
