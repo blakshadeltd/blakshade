@@ -160,7 +160,7 @@ export default function Home() {
                   Bespoke Diesel Generators Solutions
                 </h1>
                 <p className="text-[var(--background,#f4f3f3)] mb-6 md:mb-8 text-base sm:text-lg md:text-xl lg:text-2xl max-w-2xl">
-                  BlakShade delivers cleaner, reliable power solutions for individuals, businesses and communities worldwide.
+                  BlakShade Ltd offers Bespoke Diesel Generators Solutions to meet your specific power needs.
                 </p>
                 <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 mt-6 md:mt-10">
                   <Link
