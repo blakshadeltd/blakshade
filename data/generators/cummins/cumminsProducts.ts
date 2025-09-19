@@ -2023,7 +2023,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C220D5EQ",
   metaTitle: "Cummins C220D5EQ Q‑Range Silent Diesel Generator",
-  metaDescription: "Cummins C220D5EQ 220 kVA standby / 200 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins QSB7‑G5 engine & Stamford UC274H alternator. Stage IIIa compliant",
+  metaDescription: "Cummins C220D5EQ 220 kVA standby / 200 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins QSB7‑G5 engine & Stamford UC274H alternator.",
   keywords: [
   "Cummins C220D5EQ",
   "220 kVA diesel generator",
@@ -2240,7 +2240,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C275D5EQ",
   metaTitle: "Cummins C275D5EQ Q‑Range Silent Diesel Generator",
-  metaDescription: "Cummins C275D5EQ 275 kVA standby / 250 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins QSL9‑G7 engine & Stamford UCD274K alternator. Stage IIIa certified three‑phase power.",
+  metaDescription: "Cummins C275D5EQ 275 kVA standby / 250 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins QSL9‑G7 engine & Stamford UCD274K alternator.",
   keywords: [
   "Cummins C275D5EQ",
   "275 kVA diesel generator",
@@ -2459,7 +2459,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C330D5EQ",
   metaTitle: "Cummins C330D5EQ Q‑Range Silent Diesel Generator",
-  metaDescription: "Cummins C330D5EQ 330 kVA standby / 300 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins QSL9‑G7 engine & Stamford HC444D alternator. Stage IIIa compliant three‑phase power.",
+  metaDescription: "Cummins C330D5EQ 330 kVA standby / 300 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins QSL9‑G7 engine & Stamford HC444D alternator.",
   keywords: [
   "Cummins C330D5EQ",
   "330 kVA diesel generator",
