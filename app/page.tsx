@@ -1,5 +1,4 @@
 
-import HowItWorks from "./component/HowItWorks";
 import Link from "next/link";
 import { Metadata } from "next";
 
@@ -274,7 +273,6 @@ export default function Home() {
           </div>
         </section>
 
-        <HowItWorks />
 
         {/* Generator Range Section */}
         <section className="py-12 md:py-20 bg-gray-50 text-[var(--foreground,#2b2926)] rounded-[20px] md:rounded-[30px] mx-2 md:mx-4">
