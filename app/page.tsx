@@ -1,8 +1,10 @@
 
 import HowItWorks from "./component/HowItWorks";
 import Link from "next/link";
+import { Metadata } from "next";
 
-export const metadata = {
+
+export const metadata: Metadata = {
   title: "Bespoke Diesel Generators Solutions | BlakShade Ltd",
   description: "BlakShade Ltd offers Bespoke Diesel Generators Solutions to meet your specific power needs. Wherever you need it.",
   keywords: "BlakShade Ltd, generators, power solutions, diesel generators",
