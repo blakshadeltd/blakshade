@@ -4,24 +4,8 @@ import { useState, useMemo, useEffect } from "react";
 import { FaSlidersH } from "react-icons/fa";
 import GeneratorsCard from "@/app/generators/GeneratorsCard";
 import GeneratorsSidebar from "@/app/component/GeneratorsSidebar";
-
-interface Product {
-  title: string;
-  slug: string;
-  image: string;
-  brand: string;
-  category: string;
-  alternatorbrand: string;
-  phase: string;
-  voltage: string;
-  buildType: string;
-  standbyPower: string;
-  primePower: string;
-  size: number;
-  emission: string;
-  frequency: string;
-  fuelType: string;
-}
+import { cummins } from "@/data/generators/cummins/cumminsProducts";
+import { cats } from "@/data/generators/cat/catProducts";
 
 interface SearchParams {
   frequency?: string;
@@ -32,13 +16,9 @@ interface SearchParams {
 
 interface GeneratorsClientProps {
   searchParams: SearchParams;
-  initialProducts: Product[];
 }
 
-const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ 
-  searchParams, 
-  initialProducts 
-}) => {
+const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => {
   // Initialize states from URL params with "Open" as default build type
   const [selectedBrand, setSelectedBrand] = useState<string>("All");
   const [selectedEmission, setSelectedEmission] = useState<string>("All");
@@ -62,16 +42,17 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({
     window.scrollTo(0, 0);
   }, [currentPage]);
 
-  // Use the initialProducts passed from the server
   const allGenerators = useMemo(() => {
-    return initialProducts;
-  }, [initialProducts]);
+    return [...cummins, ...cats];
+  }, []);
 
   const sortedProducts = useMemo(() => {
     return [...allGenerators].sort((a, b) =>
       sortOrder === "asc" ? a.size - b.size : b.size - a.size
     );
   }, [sortOrder, allGenerators]);
+
+
 
   const filteredall = useMemo(() => {
     return sortedProducts.filter((product) => {
@@ -122,18 +103,8 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({
     setCurrentPage(1);
   };
 
-  // Generate meta description for SEO
-  const metaDescription = `Browse ${totalItems} diesel generators from ${Array.from(new Set(allGenerators.map(p => p.brand))).join(' and ')}. Filter by power rating, phase, and build type.`;
-
   return (
     <section>
-      {/* Add SEO meta tags */}
-      <head>
-        <title>Diesel Generators | BlakShade Ltd</title>
-        <meta name="description" content={metaDescription} />
-        <meta name="keywords" content="diesel generators, backup power, industrial generators, commercial generators" />
-      </head>
-
       <div
         className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden"
         style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
@@ -144,14 +115,6 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({
           </h1>
         </div>
       </div>
-
-      {/* Breadcrumb navigation for better internal linking */}
-      <nav className="container mx-auto px-4 py-2 text-sm">
-        <ol className="flex space-x-2">
-          <li><a href="/" className="text-blue-600 hover:underline">Home</a></li>
-          <li className="before:content-['/'] before:mx-2"><span>Generators</span></li>
-        </ol>
-      </nav>
 
       <div className="flex justify-between items-center mx-4 mt-6 lg:hidden">
         <button
@@ -197,7 +160,7 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({
                   ? totalItems
                   : Math.min(currentPageClamped * itemsPerPage, totalItems)}
               </span>{" "}
-              of <span>{totalItems}</span> generators
+              of <span>{totalItems}</span>
             </div>
 
             <div className="flex items-center gap-4">
@@ -227,19 +190,11 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({
             </div>
           </div>
 
-          {/* Product grid with improved semantic markup */}
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
             {paginatedProducts.map((product) => (
               <GeneratorsCard key={product.slug} product={product} />
             ))}
           </div>
-
-          {paginatedProducts.length === 0 && (
-            <div className="text-center py-12">
-              <h3 className="text-xl font-semibold">No generators match your filters</h3>
-              <p className="text-gray-600 mt-2">Try adjusting your filters to see more results</p>
-            </div>
-          )}
 
           {totalPages > 1 && (
             <div className="flex justify-center mt-8 gap-2">
@@ -257,23 +212,6 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({
               ))}
             </div>
           )}
-
-          {/* SEO-friendly content section */}
-          <div className="mt-12 prose max-w-none">
-            <h2>Diesel Generators for Sale</h2>
-            <p>
-              BlakShade Ltd offers a comprehensive range of diesel generators from leading brands 
-              including {Array.from(new Set(allGenerators.map(p => p.brand))).join(', ')}. 
-              Our generators are available in various power ratings from small portable units to 
-              large industrial generators suitable for prime power and standby applications.
-            </p>
-            <h3>Generator Applications</h3>
-            <p>
-              Our diesel generators are ideal for construction sites, data centers, healthcare facilities, 
-              events, and as backup power for commercial and industrial facilities. With options ranging 
-              from open frame to silent models, we have solutions for every need and environment.
-            </p>
-          </div>
         </main>
       </div>
     </section>

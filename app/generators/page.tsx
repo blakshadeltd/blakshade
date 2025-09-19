@@ -1,7 +1,6 @@
+// app/generators//page.tsx
 import { Metadata } from "next";
 import GeneratorsClient from "./GeneratorsClient";
-import { cummins } from "@/data/generators/cummins/cumminsProducts";
-import { cats } from "@/data/generators/cat/catProducts";
 
 export const metadata: Metadata = {
   title: "Diesel Generators | BlakShade Ltd",
@@ -101,50 +100,27 @@ const orgSchema = {
   ],
 };
 
-export async function generateStaticParams() {
-  // This function helps Next.js pre-render pages with common filter combinations
-  const frequencies = ['All', '50Hz', '60Hz'];
-  const fuelTypes = ['Diesel'];
-  const phases = ['All', 'Single Phase', 'Three Phase'];
-  
-  const params = [];
-  
-  for (const frequency of frequencies) {
-    for (const fuelType of fuelTypes) {
-      for (const phase of phases) {
-        params.push({
-          frequency,
-          fuelType,
-          phase: phase === 'All' ? '' : phase.toLowerCase().replace(' ', '-'),
-        });
-      }
-    }
-  }
-  
-  return params;
+interface SearchParams {
+  frequency?: string;
+  fuelType?: string;
+  phase?: string;
+  [key: string]: string | undefined;
 }
 
-// This function will be called at build time to pre-render pages
 export default async function GeneratorsPage({
   searchParams
 }: {
-  searchParams: Promise<{ [key: string]: string | undefined }>
+  searchParams: Promise<SearchParams>
 }) {
   const resolvedSearchParams = await searchParams;
-  
-  // Pre-render the initial set of products on the server
-  const allGenerators = [...cummins, ...cats];
-  
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
-      <GeneratorsClient 
-        searchParams={resolvedSearchParams} 
-        initialProducts={allGenerators} 
-      />
+      <GeneratorsClient searchParams={resolvedSearchParams} />
     </>
   );
 }
