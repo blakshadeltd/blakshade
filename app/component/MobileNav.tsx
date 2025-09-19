@@ -10,7 +10,7 @@ import {
     RiMenu3Line,
     RiArrowRightSLine,
     RiCloseLine,
-    RiInformationLine,
+
 } from 'react-icons/ri';
 import clsx from 'clsx';
 import { menuData } from './menuData';
@@ -55,7 +55,7 @@ const MobileNav = () => {
 
     const navItems = [
         { href: '/', label: 'Home', icon: <RiHome9Line className="text-2xl" /> },
-        { href: '/generators', label: 'Generators', icon: <RiToolsFill className="text-2xl" /> },
+        { href: '/build-genset', label: 'Build Genset', icon: <RiToolsFill className="text-2xl" /> },
         {
             href: '#search',
             label: 'Search',
@@ -265,16 +265,6 @@ const MobileNav = () => {
                                 </div>
                             </div>
                         )}
-
-                        <div className="mt-4">
-                            <Link
-                                href="/build-genset"
-                                onClick={() => setDrawerOpen(false)}
-                                className="block w-full text-center bg-[var(--foreground)] text-white rounded-md px-4 py-3 text-base font-medium shadow-sm transition hover:opacity-90"
-                            >
-                                Build Genset
-                            </Link>
-                        </div>
                     </div>
                 </>
             )}

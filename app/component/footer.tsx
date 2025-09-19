@@ -1,39 +1,74 @@
-
-import Link from 'next/link';
+import Link from "next/link";
+import { Facebook, Twitter, Instagram, Linkedin, MessageCircle } from "lucide-react"; // threads uses MessageCircle
 import { menuData } from './menuData';
 
-export default function Footer() {
-    return (
-        <footer className="relative spacer text-[var(--foreground)]">
-            {/* Black section overlapping the top */}
-            <div className="relative -top-[30px] h-[30px] bg-[var(--background)] rounded-b-[20px] shadow-xl" />
 
-            <div className="container mx-auto px-4 py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {/* Company Info */}
-                    <div className="lg:col-span-1">
-                        <div className="mb-6">
-                            <h3 className="text-2xl font-bold mb-4">BlakShade Ltd</h3>
-                            <p className="text-[var(--foreground)] mb-4">
-                                Engineering energy resilience with cleaner power solutions for individuals,
-                                businesses and communities worldwide.
-                            </p>
-                            <div className="flex space-x-4">
-                                {['facebook', 'twitter', 'instagram', 'linkedin'].map((platform) => (
-                                    <a
-                                        key={platform}
-                                        href="#"
-                                        className="w-10 h-10 rounded-full bg-[var(--background)] text-[var(--foreground)] flex items-center justify-center hover:bg-gray-200 transition-colors"
-                                        aria-label={`Follow us on ${platform}`}
-                                    >
-                                        <span className="font-bold text-sm">
-                                            {platform.charAt(0).toUpperCase()}
-                                        </span>
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
+export default function Footer() {
+  return (
+    <footer className="relative spacer text-[var(--foreground)]">
+      {/* Black section overlapping the top */}
+      <div className="relative -top-[30px] h-[30px] rounded-b-[20px] shadow-xl" />
+
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div className="lg:col-span-1">
+            <div className="mb-6">
+              <h3 className="text-2xl font-bold mb-4">BlakShade Ltd</h3>
+              <p className="text-[var(--foreground)] mb-4">
+                Engineering energy resilience with cleaner power solutions for
+                individuals, businesses and communities worldwide.
+              </p>
+              <div className="flex space-x-4">
+                <a
+                  href="https://www.facebook.com/blakshadeltd"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full text-[var(--foreground)] flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  aria-label="Follow us on Facebook"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://x.com/BlakShade_Ltd"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full text-[var(--foreground)] flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  aria-label="Follow us on Twitter"
+                >
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/blakshadeltd/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full text-[var(--foreground)] flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  aria-label="Follow us on Instagram"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/blakshade-ltd/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full text-[var(--foreground)] flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  aria-label="Follow us on LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.threads.net/@blakshadeltd"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full text-[var(--foreground)] flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  aria-label="Follow us on Threads"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+
 
                     {/* Generators Menu */}
                     <div>
