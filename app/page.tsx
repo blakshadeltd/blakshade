@@ -157,7 +157,7 @@ export default function Home() {
                   </span>
                 </div>
                 <h1 className="text-[var(--background,#f4f3f3)] mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-[90px] leading-tight">
-                  Powering Progress <br />With Precision
+                  Bespoke Diesel Generators Solutions to meet your specific power needs.
                 </h1>
                 <p className="text-[var(--background,#f4f3f3)] mb-6 md:mb-8 text-base sm:text-lg md:text-xl lg:text-2xl max-w-2xl">
                   BlakShade delivers cleaner, reliable power solutions for individuals, businesses and communities worldwide.
