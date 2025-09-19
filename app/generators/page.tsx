@@ -1,6 +1,7 @@
 // app/generators//page.tsx
 import { Metadata } from "next";
 import GeneratorsClient from "./GeneratorsClient";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Diesel Generators | BlakShade Ltd",
@@ -116,7 +117,7 @@ export default async function GeneratorsPage({
 
   return (
     <>
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />

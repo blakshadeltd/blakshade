@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import ContactForm from './ContactForm';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
     title: "Contact Us | BlakShade Ltd",
@@ -101,9 +102,10 @@ const orgSchema = {
 export default function ContactPage() {
     return (
         <>
-            <script
+            <Script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} /><div className="min-h-screen">
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
+                <div className="min-h-screen">
                 {/* Hero Section */}
                 <div
                     className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden"

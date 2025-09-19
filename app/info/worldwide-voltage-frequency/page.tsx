@@ -1,6 +1,7 @@
 // app/some-page/page.tsx
 import { Metadata } from "next";
 import CountryVoltageList from "./CountryVoltageList";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Voltages and Frequencies by Country | BlakShade Ltd",
@@ -84,7 +85,7 @@ const orgSchema = {
 };
 export default function Page() {
   return (
-    <><script
+    <><Script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
       <CountryVoltageList /></>

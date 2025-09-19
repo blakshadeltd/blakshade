@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Script from 'next/script';
 import React from 'react';
 
 
@@ -87,7 +88,7 @@ const orgSchema = {
 const AboutPage = () => {
   return (
     <section>
-          <><script
+          <><Script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
             </>

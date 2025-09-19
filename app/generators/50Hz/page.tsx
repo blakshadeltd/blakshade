@@ -2,6 +2,7 @@
 import { Metadata } from "next";
 import { Suspense } from "react";
 import OpenGeneratorsClient from "./HzGeneratorsClient";
+import Script from "next/script";
 
 export const metadata: Metadata = {
     title: "50Hz Diesel Generators | BlakShade Ltd",
@@ -124,7 +125,7 @@ export default async function HzGeneratorsPage({
 
     return (
         <>
-            <script
+            <Script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
             />

@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Glossary from "./glossary";
+import Script from "next/script";
 
 
 export const metadata: Metadata = {
@@ -108,7 +109,7 @@ const orgSchema = {
 
 export default function GlossaryPage() {
     return (
-        <><script
+        <><Script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
             <Glossary />
