@@ -15,11 +15,18 @@ export const metadata = {
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
+    url: "https://blakshade.com/",
   },
   twitter: {
-    card: "summary_large image",
+    card: "summary_large_image",
     site: "@BlakShade_Ltd",
     creator: "@BlakShade_Ltd",
+    title: "Bespoke Diesel Generators Solutions | BlakShade Ltd", 
+    description: "BlakShade Ltd offers Bespoke Diesel Generators Solutions to meet your specific power needs. Wherever you need it.",
+  },
+  // Add canonical URL
+  alternates: {
+    canonical: "https://blakshade.com//",
   }
 };
 

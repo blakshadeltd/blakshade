@@ -151,7 +151,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                     style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
                 >
                     <div className="container h-full flex items-end pb-4">
-                        <h1 className="text-[var(--background)] text-2xl md:text-4xl">
+                        <h1 className="text-[var(--background,#f4f3f3)] text-2xl md:text-4xl">
                             {product.title}
                         </h1>
                     </div>
@@ -172,13 +172,13 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
 
                     {/* Content */}
                     <div className="w-full space-y-6">
-                        <h1 className="text-[var(--foreground)] text-2xl md:text-3xl">
+                        <h1 className="text-[var(--foreground,#2b2926)] text-2xl md:text-3xl">
                             {product.metaTitle}
                         </h1>
-                        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-0 text-base text-[var(--foreground)] pb-4 max-w-4xl mx-auto"></dl>
+                        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-0 text-base text-[var(--foreground,#2b2926)] pb-4 max-w-4xl mx-auto"></dl>
 
                         {/* Short Specs */}
-                        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-base text-[var(--foreground)] pb-4">
+                        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-base text-[var(--foreground,#2b2926)] pb-4">
                             {[
                                 { label: "Standby", value: product.standbyPower },
                                 { label: "Voltage", value: product.voltage },
@@ -219,7 +219,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                 </div>
 
                 {/* Description + Specs */}
-                <div className="container mt-16 text-[var(--foreground)] max-w-4xl space-y-14 mb-16">
+                <div className="container mt-16 text-[var(--foreground,#2b2926)] max-w-4xl space-y-14 mb-16">
                     <div
                         className="text-base leading-relaxed"
                         dangerouslySetInnerHTML={{ __html: product.description }}
@@ -228,7 +228,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                         {product.specs.map((section, i) => (
                             <section key={i}>
-                                <h2 className="text-xl font-base text-[var(--foreground)] mb-4 border-b pb-2">
+                                <h2 className="text-xl font-base text-[var(--foreground,#2b2926)] mb-4 border-b pb-2">
                                     {section.group}
                                 </h2>
                                 <div className="grid grid-cols-1 gap-4">
