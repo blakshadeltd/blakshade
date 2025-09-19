@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         description: "Access all BlakShade company information including About Us. Your complete resource for generator knowledge.",
     },
     alternates: {
-        canonical: "https://blakshade.com/info/",
+        canonical: "https://blakshade.com/info",
     }
 };
 

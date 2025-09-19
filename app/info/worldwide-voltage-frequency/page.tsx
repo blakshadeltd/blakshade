@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description: "Complete reference for electrical standards for all countries. Voltage, frequency, wiring and plug types.",
   },
   alternates: {
-    canonical: "https://blakshade.com/info/worldwide-voltage-frequency/",
+    canonical: "https://blakshade.com/info/worldwide-voltage-frequency",
   }
 };
 

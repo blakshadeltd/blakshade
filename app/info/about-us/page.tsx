@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description: "Learn about BlakShade Ltd. Discover our mission, products, and commitment to reliable power solutions for residential and industrial needs.",
   },
   alternates: {
-    canonical: "https://blakshade.com/info/about-us/",
+    canonical: "https://blakshade.com/info/about-us",
   }
 };
 

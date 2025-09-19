@@ -23,9 +23,6 @@ export const metadata: Metadata = {
     creator: "@BlakShade_Ltd",
     title: "Build Your Custom Generator - BlakShade Ltd",
     description: "Design your custom power solution with our generator builder tool.",
-  },
-  alternates: {
-    canonical: "https://blakshade.com/build-genset/",
   }
 };
 
