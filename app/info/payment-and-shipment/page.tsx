@@ -107,14 +107,14 @@ const orgSchema = {
 
 const PaymentsAndShipment = () => {
   return (
-    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+    <div className="min-h-screen bg-[var(--background,#f4f3f3))] text-[var(--foreground,#2b2926)]">
       {/* Hero Section */}
       <div
         className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden"
         style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
       >
         <div className="container h-full flex items-end pb-4">
-          <h1 className="text-[var(--background)] text-2xl md:text-4xl">
+          <h1 className="text-[var(--background,#f4f3f3)] text-2xl md:text-4xl">
             Payment and Shipment
           </h1>
         </div>

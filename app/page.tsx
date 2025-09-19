@@ -145,14 +145,14 @@ export default function Home() {
             <div className="container mx-auto px-4 absolute inset-0 flex items-center justify-start z-10">
               <div className="absolute top-[30%] md:top-[40%] transform -translate-y-1/4 w-full max-w-[90%] md:max-w-[80%] lg:max-w-[75%]">
                 <div className="mb-4 md:mb-6">
-                  <span className="px-3 py-1 md:px-4 md:py-2 bg-[var(--foreground)] text-[var(--background)] rounded-full text-xs md:text-sm">
+                  <span className="px-3 py-1 md:px-4 md:py-2 bg-[var(--foreground)] text-[var(--background,#f4f3f3)] rounded-full text-xs md:text-sm">
                     Energy Resilience Redefined
                   </span>
                 </div>
-                <h1 className="text-[var(--background)] mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-[90px] leading-tight">
+                <h1 className="text-[var(--background,#f4f3f3)] mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-[90px] leading-tight">
                   Powering Progress <br />With Precision
                 </h1>
-                <p className="text-[var(--background)] mb-6 md:mb-8 text-base sm:text-lg md:text-xl lg:text-2xl max-w-2xl">
+                <p className="text-[var(--background,#f4f3f3)] mb-6 md:mb-8 text-base sm:text-lg md:text-xl lg:text-2xl max-w-2xl">
                   BlakShade delivers cleaner, reliable power solutions for individuals, businesses and communities worldwide.
                 </p>
                 <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 mt-6 md:mt-10">
@@ -178,7 +178,7 @@ export default function Home() {
             <div className="bg-white rounded-xl md:rounded-2xl shadow-lg p-4 md:p-6 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl text-[var(--foreground)]">{stat.value}</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl text-[var(--foreground,#2b2926)]">{stat.value}</div>
                   <div className="text-xs md:text-sm text-gray-600 mt-1">{stat.label}</div>
                 </div>
               ))}
@@ -190,7 +190,7 @@ export default function Home() {
         <section className="py-12 md:py-20 bg-[var(--background)]">
           <div className="container mx-auto px-4">
             <div className="text-center mb-10 md:mb-16">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl text-[var(--foreground)] mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl text-[var(--foreground,#2b2926)] mb-4">
                 Engineering Excellence in Every Solution
               </h2>
               <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
@@ -205,13 +205,13 @@ export default function Home() {
                   className="bg-[var(--background)] p-6 md:p-8 rounded-xl md:rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 group relative overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--foreground)] opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
-                  <div className="text-[var(--foreground)] mb-4">
+                  <div className="text-[var(--foreground,#2b2926)] mb-4">
                     {feature.icon}
                   </div>
-                  <h3 className="text-lg md:text-xl text-[var(--foreground)] mb-2 relative z-10">
+                  <h3 className="text-lg md:text-xl text-[var(--foreground,#2b2926)] mb-2 relative z-10">
                     {feature.title}
                   </h3>
-                  <p className="text-[var(--foreground)] text-sm md:text-base relative z-10">
+                  <p className="text-[var(--foreground,#2b2926)] text-sm md:text-base relative z-10">
                     {feature.description}
                   </p>
                 </div>
@@ -225,7 +225,7 @@ export default function Home() {
           <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-8 md:gap-12">
             {/* Text Content */}
             <div className="w-full lg:w-1/2 space-y-4 md:space-y-6">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl text-[var(--foreground)] leading-tight">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl text-[var(--foreground,#2b2926)] leading-tight">
                 Redefining Energy Resilience Worldwide
               </h2>
               <p className="text-base md:text-lg text-gray-700 leading-relaxed">
@@ -248,7 +248,7 @@ export default function Home() {
                 </li>
               </ul>
               <div className="mt-6 md:mt-8">
-                <Link href="/about" className="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-[var(--foreground)] text-[var(--background)] rounded-[8px] md:rounded-[10px] hover:rounded-[12px] md:hover:rounded-[15px] transition-all duration-300 shine-effect text-sm md:text-base">
+                <Link href="/about" className="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-[var(--foreground)] text-[var(--background,#f4f3f3)] rounded-[8px] md:rounded-[10px] hover:rounded-[12px] md:hover:rounded-[15px] transition-all duration-300 shine-effect text-sm md:text-base">
                   Learn more about our mission
                   <svg className="w-4 h-4 md:w-5 md:h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -268,7 +268,7 @@ export default function Home() {
         <HowItWorks />
 
         {/* Generator Range Section */}
-        <section className="py-12 md:py-20 bg-gray-50 text-[var(--foreground)] rounded-[20px] md:rounded-[30px] mx-2 md:mx-4">
+        <section className="py-12 md:py-20 bg-gray-50 text-[var(--foreground,#2b2926)] rounded-[20px] md:rounded-[30px] mx-2 md:mx-4">
           <div className="container mx-auto px-4 max-w-6xl flex flex-col lg:flex-row items-stretch gap-8 md:gap-12 h-full">
             {/* Text Content */}
             <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-4 md:space-y-6">
@@ -283,7 +283,7 @@ export default function Home() {
               <div className="mt-4 md:mt-6">
                 <Link
                   href="/generators"
-                  className="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-[var(--foreground)] text-[var(--background)] rounded-[8px] md:rounded-[10px] hover:rounded-[12px] md:hover:rounded-[15px] transition-all duration-300 shine-effect text-sm md:text-base"
+                  className="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-[var(--foreground)] text-[var(--background,#f4f3f3)] rounded-[8px] md:rounded-[10px] hover:rounded-[12px] md:hover:rounded-[15px] transition-all duration-300 shine-effect text-sm md:text-base"
                 >
                   Explore Our Generator Range
                   <svg className="w-4 h-4 md:w-5 md:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -305,7 +305,7 @@ export default function Home() {
         <section className="py-12 md:py-20 bg-[var(--background)]">
           <div className="container mx-auto px-4">
             <div className="text-center mb-10 md:mb-16">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl text-[var(--foreground)] mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl text-[var(--foreground,#2b2926)] mb-4">
                 Trusted by Industry Leaders
               </h2>
               <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
@@ -332,14 +332,14 @@ export default function Home() {
                 }
               ].map((testimonial, index) => (
                 <div key={index} className="bg-white p-4 md:p-6 rounded-xl md:rounded-2xl shadow-md border border-gray-100">
-                  <div className="text-[var(--foreground)] mb-4">
+                  <div className="text-[var(--foreground,#2b2926)] mb-4">
                     <svg className="w-6 h-6 md:w-8 md:h-8 opacity-50 mb-3 md:mb-4" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                     </svg>
                     <p className="italic text-sm md:text-base">"{testimonial.quote}"</p>
                   </div>
                   <div className="mt-3 md:mt-4">
-                    <p className="text-[var(--foreground)] text-base md:text-lg">{testimonial.author}</p>
+                    <p className="text-[var(--foreground,#2b2926)] text-base md:text-lg">{testimonial.author}</p>
                     <p className="text-xs md:text-sm text-gray-600">{testimonial.company}</p>
                   </div>
                 </div>
