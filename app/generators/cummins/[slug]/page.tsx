@@ -128,6 +128,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
             },
         ],
     };
+    
 
     return (
         <>

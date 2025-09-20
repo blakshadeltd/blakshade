@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import React from 'react';
 
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "Learn about BlakShade Ltd's payment methods, order process & shipment details for generators.",
   keywords: "payment and shipment for diesel generators",
   authors: [{ name: "BlakShade Ltd" }],
-  viewport: "width=device-width, initial-scale=1.0",
+  
   robots: "index, follow",
   openGraph: {
     title: "Payment and Shipment | BlakShade Ltd",
@@ -104,6 +104,10 @@ const orgSchema = {
       ],
     },
   ],
+};
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 const PaymentsAndShipment = () => {

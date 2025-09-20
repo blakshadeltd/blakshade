@@ -1,5 +1,5 @@
 // app/some-page/page.tsx
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import CountryVoltageList from "./CountryVoltageList";
 import Script from "next/script";
 
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Complete reference for electrical standards for all countries. Voltage, frequency, wiring and plug types.",
   keywords: "voltage by country, electrical standards, frequency by country, plug type by country",
   authors: [{ name: "BlakShade Ltd" }],
-  viewport: "width=device-width, initial-scale=1.0",
+  
   robots: "index, follow",
   openGraph: {
     title: "Voltages and Frequencies by Country | BlakShade Ltd",
@@ -83,6 +83,11 @@ const orgSchema = {
     },
   ]
 };
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+};
+
 export default function Page() {
   return (
     <><Script

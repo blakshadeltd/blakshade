@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import React from 'react';
 
@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   description: "Learn about BlakShade Ltd. Discover our mission, products, and commitment to reliable power solutions for residential and industrial needs.",
   keywords: "about us, about blakshade ltd, blakshade ltd",
   authors: [{ name: "BlakShade Ltd" }],
-  viewport: "width=device-width, initial-scale=1.0",
   robots: "index, follow",
   openGraph: {
     title: "About Us | BlakShade Ltd",
@@ -83,7 +82,10 @@ const orgSchema = {
     },
   ]
 };
-
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+};
 
 const AboutPage = () => {
   return (

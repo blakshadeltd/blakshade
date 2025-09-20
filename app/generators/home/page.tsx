@@ -1,5 +1,5 @@
 // app/generators/Home/page.tsx
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import HomeGeneratorsClient from "./HomeGeneratorsClient";
 import Script from "next/script";
 
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Reliable home diesel generators for backup power. Keep your household running during outages with BlakShade's quiet, efficient solutions.",
   keywords: "home diesel generators, residential diesel generators, house generators, backup power for homes, home standby generators",
   authors: [{ name: "BlakShade Ltd" }],
-  viewport: "width=device-width, initial-scale=1.0",
+  
   robots: "index, follow",
   openGraph: {
     title: "Home Diesel Generators | BlakShade Ltd",
@@ -105,6 +105,10 @@ const orgSchema = {
       ],
     },
   ],
+};
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 interface SearchParams {

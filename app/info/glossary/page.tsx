@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import Glossary from "./glossary";
 import Script from "next/script";
 
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: "Comprehensive glossary of power generation industry terms and abbreviations. Learn technical definitions of generators, alternators, ATS, kVA, and more.",
     keywords: "generator glossary, power industry terms, diesel generator definitions",
     authors: [{ name: "BlakShade Ltd" }],
-    viewport: "width=device-width, initial-scale=1.0",
+    
     robots: "index, follow",
     openGraph: {
         title: "Power Generation Glossary | BlakShade Ltd",
@@ -105,6 +105,10 @@ const orgSchema = {
             ],
         },
     ],
+};
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 export default function GlossaryPage() {

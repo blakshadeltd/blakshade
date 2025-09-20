@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: "Access all BlakShade company information including About Us. Your complete resource for generator knowledge.",
     keywords: "info about blakshade ltd, generator info",
     authors: [{ name: "BlakShade Ltd" }],
-    viewport: "width=device-width, initial-scale=1.0",
+    
     robots: "index, follow",
     openGraph: {
         title: "Company Info | BlakShade Ltd",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         type: "website",
         locale: "en_UK",
         siteName: "BlakShade Ltd",
-        url: "https://blakshade.com/info/",
+        url: "https://blakshade.com/info",
 
     },
     twitter: {
@@ -39,7 +39,7 @@ const orgSchema = {
             "@type": "Article",
             mainEntityOfPage: {
                 "@type": "WebPage",
-                "@id": "https://blakshade.com/info/"
+                "@id": "https://blakshade.com/info"
             },
             name: "Info",
             description: "Access all BlakShade company information including About Us. Your complete resource for generator knowledge.",
@@ -65,17 +65,22 @@ const orgSchema = {
                     "@type": "ListItem",
                     position: 1,
                     name: "Home",
-                    item: "https://blakshade.com/",
+                    item: "https://blakshade.com",
                 },
                 {
                     "@type": "ListItem",
                     position: 2,
                     name: "Info",
-                    item: "https://blakshade.com/info/",
+                    item: "https://blakshade.com/info",
                 },
             ],
         },
     ]
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 const InfoPage = () => {

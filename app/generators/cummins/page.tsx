@@ -1,5 +1,5 @@
 // app/generators/Cummins/page.tsx
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import CumminsGeneratorsClient from "./CumminsGeneratorsClient";
 import Script from "next/script";
 
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Cummins diesel generators from BlakShade. Reliable power solutions from 20kVA to 3000kVA for industrial & commercial applications.",
   keywords: "Cummins diesel generators, Cummins generator sets, Cummins standby generators, Cummins industrial generators",
   authors: [{ name: "BlakShade Ltd" }],
-  viewport: "width=device-width, initial-scale=1.0",
+  
   robots: "index, follow",
   openGraph: {
     title: "Cummins Diesel Generators | BlakShade Ltd",
@@ -105,6 +105,10 @@ const orgSchema = {
       ],
     },
   ],
+};
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 interface SearchParams {

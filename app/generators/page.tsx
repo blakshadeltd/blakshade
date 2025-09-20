@@ -1,5 +1,5 @@
 // app/generators//page.tsx
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import GeneratorsClient from "./GeneratorsClient";
 import Script from "next/script";
 
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Reliable diesel generators for businesses, disaster relief & remote industries. Customizable power solutions from BlakShade Ltd.",
   keywords: "diesel generators, backup generators, industrial generators, commercial generators",
   authors: [{ name: "BlakShade Ltd" }],
-  viewport: "width=device-width, initial-scale=1.0",
+  
   robots: "index, follow",
   openGraph: {
     title: "Diesel Generators | BlakShade Ltd",
@@ -99,6 +99,10 @@ const orgSchema = {
       ],
     },
   ],
+};
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 interface SearchParams {

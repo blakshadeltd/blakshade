@@ -1,5 +1,5 @@
 // app/generators/silent/page.tsx
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import SilentGeneratorsClient from "./SilentGeneratorsClient";
 import Script from "next/script";
 
@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   description: "BlakShade's silent diesel generators provide ultra-quiet power for noise-sensitive applications. Perfect for events, hospitals & urban areas.",
   keywords: "silent diesel generators, quiet diesel generators, low noise generators, soundproof generators",
   authors: [{ name: "BlakShade Ltd" }],
-  viewport: "width=device-width, initial-scale=1.0",
   robots: "index, follow",
   openGraph: {
     title: "Silent Diesel Generators | BlakShade Ltd",
@@ -105,6 +104,10 @@ const orgSchema = {
       ],
     },
   ],
+};
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 interface SearchParams {

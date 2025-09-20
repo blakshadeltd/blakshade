@@ -1,5 +1,5 @@
 
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import OpenGeneratorsClient from "./OpenGeneratorsClient";
 import Script from "next/script";
 
@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   description: "Robust open diesel generators for industrial & construction use. High-power solutions from BlakShade built for demanding applications.",
   keywords: "open diesel generators, industrial generators, prime power generators, heavy duty generators",
   authors: [{ name: "BlakShade Ltd" }],
-  viewport: "width=device-width, initial-scale=1.0",
   robots: "index, follow",
   openGraph: {
     title: "Open Diesel Generators | BlakShade Ltd",
@@ -105,6 +104,10 @@ const orgSchema = {
       ],
     },
   ],
+};
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 interface SearchParams {
