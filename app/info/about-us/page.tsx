@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
-    url: "https://blakshade.com/info/about-us/",
+    url: "https://blakshade.com/info/about-us",
 
   },
   twitter: {
@@ -38,7 +38,7 @@ const orgSchema = {
       "@type": "Article",
       mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": "https://blakshade.com/info/about-us/"
+        "@id": "https://blakshade.com/info/about-us"
       },
       name: "About Us",
       description: "Learn about BlakShade Ltd. Discover our mission, products, and commitment to reliable power solutions for residential and industrial needs.",
@@ -70,13 +70,13 @@ const orgSchema = {
           "@type": "ListItem",
           position: 2,
           name: "Info",
-          item: "https://blakshade.com/info/",
+          item: "https://blakshade.com/info",
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "About Us",
-          item: "https://blakshade.com/info/about-us/",
+          item: "https://blakshade.com/info/about-us",
         },
       ],
     },

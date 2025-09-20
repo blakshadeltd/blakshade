@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
-    url: "https://blakshade.com/info/payment-and-shipment/", // Add specific URL
+    url: "https://blakshade.com/info/payment-and-shipment", // Add specific URL
   },
   twitter: {
     card: "summary_large_image",
@@ -61,7 +61,7 @@ const orgSchema = {
       "@type": "Article", // More appropriate than Article for a category page
       mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": "https://blakshade.com/info/payment-and-shipment/"
+        "@id": "https://blakshade.com/info/payment-and-shipment"
       },
       name: "Payment and Shipment",
       description: "Learn about BlakShade Ltd's payment methods, order process & shipment details for generators.",
@@ -87,19 +87,19 @@ const orgSchema = {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://blakshade.com/",
+          item: "https://blakshade.com",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Info",
-          item: "https://blakshade.com/info/",
+          item: "https://blakshade.com/info",
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "Payment and Shipment",
-          item: "https://blakshade.com/info/payment-and-shipment/",
+          item: "https://blakshade.com/info/payment-and-shipment",
         },
       ],
     },

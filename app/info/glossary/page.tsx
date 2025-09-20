@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         type: "website",
         locale: "en_UK",
         siteName: "BlakShade Ltd",
-        url: "https://blakshade.com/info/glossary/", // Add specific URL
+        url: "https://blakshade.com/info/glossary", // Add specific URL
     },
     twitter: {
         card: "summary_large_image",
@@ -62,7 +62,7 @@ const orgSchema = {
             "@type": "Article", // More appropriate than Article for a category page
             mainEntityOfPage: {
                 "@type": "WebPage",
-                "@id": "https://blakshade.com/info/glossary/"
+                "@id": "https://blakshade.com/info/glossary"
             },
             name: "Power Generation Glossary",
             description: "Comprehensive glossary of power generation industry terms and abbreviations. Learn technical definitions of generators, alternators, ATS, kVA, and more.",
@@ -88,19 +88,19 @@ const orgSchema = {
                     "@type": "ListItem",
                     position: 1,
                     name: "Home",
-                    item: "https://blakshade.com/",
+                    item: "https://blakshade.com",
                 },
                 {
                     "@type": "ListItem",
                     position: 2,
                     name: "Info",
-                    item: "https://blakshade.com/info/",
+                    item: "https://blakshade.com/info",
                 },
                                 {
                     "@type": "ListItem",
                     position: 3,
                     name: "Power Generation Glossary",
-                    item: "https://blakshade.com/info/glossary/",
+                    item: "https://blakshade.com/info/glossary",
                 },
             ],
         },

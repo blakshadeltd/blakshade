@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import ContactForm from './ContactForm';
 import Script from 'next/script';
 
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     description: "Get in touch with BlakShade Ltd for diesel generator solutions. Call +44 7380 491992 for sales, support, or emergency power needs.",
     keywords: "contact BlakShade, generator sales, power solution experts, diesel generator quotes",
     authors: [{ name: "BlakShade Ltd" }],
-    viewport: "width=device-width, initial-scale=1.0",
+    
     robots: "index, follow",
   openGraph: {
     title: "Contact Us | BlakShade Ltd",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
-    url: "https://blakshade.com/contact/", // Add specific URL
+    url: "https://blakshade.com/contact", // Add specific URL
   },
   twitter: {
     card: "summary_large_image",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   // Add canonical URL
   alternates: {
-    canonical: "https://blakshade.com/contact/",
+    canonical: "https://blakshade.com/contact",
   }
 };
 
@@ -60,7 +60,7 @@ const orgSchema = {
             "@type": "ContactPage",
             mainEntityOfPage: {
                 "@type": "WebPage",
-                "@id": "https://blakshade.com/contact/"
+                "@id": "https://blakshade.com/contact"
             },
             name: "Contact Us",
             description: "Get in touch with BlakShade Ltd for diesel generator solutions. Call +44 7380 491992 for sales, support, or emergency power needs.",
@@ -86,17 +86,21 @@ const orgSchema = {
                     "@type": "ListItem",
                     position: 1,
                     name: "Home",
-                    item: "https://blakshade.com/",
+                    item: "https://blakshade.com",
                 },
                 {
                     "@type": "ListItem",
                     position: 2,
                     name: "Contact Us",
-                    item: "https://blakshade.com/contact/",
+                    item: "https://blakshade.com/contact",
                 },
             ],
         }
     ],
+};
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 export default function ContactPage() {

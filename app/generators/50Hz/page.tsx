@@ -1,5 +1,5 @@
 
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import { Suspense } from "react";
 import OpenGeneratorsClient from "./HzGeneratorsClient";
 import Script from "next/script";
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: "50Hz diesel generators for global applications. Compliant with international power standards. Reliable solutions from BlakShade Ltd.",
     keywords: "50Hz diesel generators, 50Hz generators, 50Hz generator sets, 50Hz frequency generators",
     authors: [{ name: "BlakShade Ltd" }],
-    viewport: "width=device-width, initial-scale=1.0",
+    
     robots: "index, follow",
     openGraph: {
         title: "50Hz Diesel Generators | BlakShade Ltd",
@@ -89,23 +89,27 @@ const orgSchema = {
                     "@type": "ListItem",
                     position: 1,
                     name: "50Hz",
-                    item: "https://blakshade.com/",
+                    item: "https://blakshade.com",
                 },
                 {
                     "@type": "ListItem",
                     position: 2,
                     name: "Diesel Generators",
-                    item: "https://blakshade.com/generators/",
+                    item: "https://blakshade.com/generators",
                 },
                 {
                     "@type": "ListItem",
                     position: 3,
                     name: "50Hz Generators",
-                    item: "https://blakshade.com/generators/50Hz/",
+                    item: "https://blakshade.com/generators/50Hz",
                 },
             ],
         },
     ],
+};
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 interface SearchParams {

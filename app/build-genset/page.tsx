@@ -1,5 +1,5 @@
 // app/build-genset/page.tsx
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import BuildGenset from "./BuildGenset";
 
 export const metadata: Metadata = {
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "Design your custom power solution with our generator builder tool. Select specifications, brand preferences, and additional options for a tailored quotation.",
   keywords: "custom generator, power solution, generator builder, diesel generator, backup power",
   authors: [{ name: "BlakShade Ltd" }],
-  viewport: "width=device-width, initial-scale=1.0",
+  
   robots: "index, follow",
   openGraph: {
     title: "Build Your Custom Generator | BlakShade Ltd",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
-    url: "https://blakshade.com/build-genset/",
+    url: "https://blakshade.com/build-genset",
   },
   twitter: {
     card: "summary_large_image",
@@ -57,7 +57,7 @@ const buildGensetSchema = {
       "@type": "WebPage",
       name: "Build Your Custom Generator",
       description: "Design your custom power solution with our generator builder tool.",
-      url: "https://blakshade.com/build-genset/",
+      url: "https://blakshade.com/build-genset",
       author: {
         "@type": "Organization",
         name: "BlakShade Ltd"
@@ -80,17 +80,21 @@ const buildGensetSchema = {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://blakshade.com/",
+          item: "https://blakshade.com",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Build Genset",
-          item: "https://blakshade.com/build-genset/",
+          item: "https://blakshade.com/build-genset",
         },
       ],
     },
   ],
+};
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 export default function BuildGensetPage() {

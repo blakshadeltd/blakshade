@@ -1,5 +1,5 @@
 // app/generators/Cat/page.tsx
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import CatGeneratorsClient from "./CatGeneratorsClient";
 import Script from "next/script";
 
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: "Durable Cat diesel generators from BlakShade Ltd. Industrial-grade power solutions from 20kVA to 4000kVA for construction & heavy industry.",
   keywords: "Cat diesel generators, Cat generator sets, Cat standby generators, Cat industrial generators",
   authors: [{ name: "BlakShade Ltd" }],
-  viewport: "width=device-width, initial-scale=1.0",
+  
   robots: "index, follow",
   openGraph: {
     title: "Cat Diesel Generators | BlakShade Ltd",
@@ -88,23 +88,27 @@ const orgSchema = {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://blakshade.com/",
+          item: "https://blakshade.com",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Diesel Generators",
-          item: "https://blakshade.com/generators/",
+          item: "https://blakshade.com/generators",
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "Cat Diesel Generators",
-          item: "https://blakshade.com/generators/cat/",
+          item: "https://blakshade.com/generators/cat",
         },
       ],
     },
   ],
+};
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 interface SearchParams {

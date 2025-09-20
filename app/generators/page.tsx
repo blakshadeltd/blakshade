@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
-    url: "https://blakshade.com/generators/", // Add specific URL
+    url: "https://blakshade.com/generators", // Add specific URL
   },
   twitter: {
     card: "summary_large_image",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   // Add canonical URL
   alternates: {
-    canonical: "https://blakshade.com/generators/",
+    canonical: "https://blakshade.com/generators",
   }
 };
 
@@ -62,7 +62,7 @@ const orgSchema = {
       "@type": "CollectionPage", // More appropriate than Article for a category page
       mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": "https://blakshade.com/generators/"
+        "@id": "https://blakshade.com/generators"
       },
       name: "Diesel Generators",
       description: "Reliable diesel generators for businesses, disaster relief & remote industries. Customizable power solutions from BlakShade Ltd.",
@@ -88,13 +88,13 @@ const orgSchema = {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://blakshade.com/",
+          item: "https://blakshade.com",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Diesel Generators",
-          item: "https://blakshade.com/generators/",
+          item: "https://blakshade.com/generators",
         },
       ],
     },

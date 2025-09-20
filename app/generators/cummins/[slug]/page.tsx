@@ -116,7 +116,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                         "@type": "ListItem",
                         position: 2,
                         name: "Diesel Generators",
-                        item: "https://blakshade.com/generators/",
+                        item: "https://blakshade.com/generators",
                     },
                     {
                         "@type": "ListItem",
