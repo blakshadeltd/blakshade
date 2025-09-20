@@ -1,7 +1,7 @@
 
 import HowItWorks from "./component/HowItWorks";
 import Link from "next/link";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import Script from "next/script";
 
 
@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   description: "BlakShade Ltd offers Bespoke Diesel Generators Solutions to meet your specific power needs. Wherever you need it.",
   keywords: "BlakShade Ltd, generators, power solutions, diesel generators",
   authors: [{ name: "BlakShade Ltd" }],
-  viewport: "width=device-width, initial-scale=1.0",
   robots: "index, follow",
   openGraph: {
     title: "Bespoke Diesel Generators Solutions | BlakShade Ltd",
@@ -99,6 +98,10 @@ const orgSchema = {
       ],
     },
   ],
+};
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 // Stats data
