@@ -85,7 +85,7 @@ export default function ContactForm() {
         <input
           type="text"
           name="name"
-          className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 border border-gray-300 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
+          className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
           required
         />
       </div>
@@ -96,7 +96,7 @@ export default function ContactForm() {
         <input
           type="text"
           name="company"
-          className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 border border-gray-300 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
+          className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
         />
       </div>
 
@@ -106,7 +106,7 @@ export default function ContactForm() {
         <input
           type="email"
           name="email"
-          className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 border border-gray-300 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
+          className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
           required
         />
       </div>
@@ -117,7 +117,7 @@ export default function ContactForm() {
         <input
           type="tel"
           name="phone"
-          className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 border border-gray-300 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
+          className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
         />
       </div>
 
@@ -127,7 +127,7 @@ export default function ContactForm() {
         <input
           type="text"
           name="subject"
-          className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 border border-gray-300 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
+          className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
         />
       </div>
 
@@ -136,7 +136,7 @@ export default function ContactForm() {
         <label className="block text-[var(--foreground)] mb-2 text-sm md:text-base">Message *</label>
         <textarea
           name="message"
-          className="w-full px-3 md:px-4 py-2 h-32 md:py-3 bg-gray-200 border border-gray-300 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
+          className="w-full px-3 md:px-4 py-2 h-32 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
           placeholder="Describe your generator requirements..."
           required
         ></textarea>

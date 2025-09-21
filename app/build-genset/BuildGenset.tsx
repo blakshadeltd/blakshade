@@ -89,8 +89,7 @@ function BrandPreferenceSection({
             onChange={(e) => onInputChange(e.target.value)}
             disabled={noPreferenceChecked}
             placeholder={placeholder}
-            className="w-full bg-white rounded-lg p-3 pl-4 pr-4 border border-gray-300 
-                      focus:ring-2 focus:ring-[var(--foreground)]/20 focus:border-[var(--foreground)] shadow-sm"
+            className="w-full bg-white rounded-lg p-3 pl-4 pr-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
           />
         </div>
       </div>
@@ -397,9 +396,7 @@ export default function BuildGenset() {
                         const onlyNumbers = e.target.value.replace(/\D/g, "");
                         setExactPower(onlyNumbers);
                       }}
-                      className="w-full bg-white rounded-lg p-3 pl-4 pr-12 border border-gray-300 
-                                focus:ring-2 focus:ring-gray-500 focus:border-transparent shadow-sm 
-                                [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                      className="w-full bg-white rounded-lg p-3 pl-4 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
                       placeholder="Enter kVA"
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--foreground)] font-normal">
@@ -470,8 +467,6 @@ export default function BuildGenset() {
                     </button>
                   </div>
 
-                  <p className="text-gray-600 mb-6">Please provide your details so we can prepare your quotation</p>
-
                   {/* Error messages */}
                   {errors.length > 0 && (
                     <div className="p-3 bg-red-50 text-red-700 rounded-lg mb-4">
@@ -496,7 +491,7 @@ export default function BuildGenset() {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 border border-gray-300 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
+                        className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
                       />
                     </div>
 
@@ -510,7 +505,7 @@ export default function BuildGenset() {
                         name="company"
                         value={formData.company}
                         onChange={handleInputChange}
-                        className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 border border-gray-300 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
+                        className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
                       />
                     </div>
 
@@ -525,7 +520,7 @@ export default function BuildGenset() {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 border border-gray-300 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
+                        className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
                       />
                     </div>
 
@@ -539,7 +534,7 @@ export default function BuildGenset() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 border border-gray-300 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
+                        className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
                       />
                     </div>
 
@@ -553,7 +548,7 @@ export default function BuildGenset() {
                         value={formData.message}
                         onChange={handleInputChange}
                         rows={4}
-                        className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-200 border border-gray-300 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
+                        className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
                         placeholder="Any special requirements or questions..."
                       />
                     </div>
