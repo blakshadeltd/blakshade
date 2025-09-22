@@ -266,7 +266,7 @@ export default function Home() {
                 </li>
               </ul>
               <div className="mt-6 md:mt-8">
-                <Link href="/about" className="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-[var(--foreground)] text-[var(--background,#f4f3f3)] rounded-[8px] md:rounded-[10px] hover:rounded-[12px] md:hover:rounded-[15px] transition-all duration-300 shine-effect text-sm md:text-base">
+                <Link href="/info/about-us" className="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-[var(--foreground)] text-[var(--background,#f4f3f3)] rounded-[8px] md:rounded-[10px] hover:rounded-[12px] md:hover:rounded-[15px] transition-all duration-300 shine-effect text-sm md:text-base">
                   Learn more about our mission
                   <svg className="w-4 h-4 md:w-5 md:h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />

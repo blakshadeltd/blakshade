@@ -42,7 +42,7 @@ export const cats: CatProduct[] = [
 ],
     slug: "de33gc",
     image: "/generators/cat/22kva-28kva-cummins-silent-diesel-generator.webp",
-    fullspec: "/generators/cat/CAT®-DE33-GC-33kVA-Datasheet.pdf",
+    fullspec: "/generators/cat/DE33GC.pdf",
     brand: "CAT",
     category: "cat",
     engine: "Cummins X2.5-G2",

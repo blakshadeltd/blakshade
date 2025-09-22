@@ -23,13 +23,6 @@ export const menuData: MenuData = {
             { name: '60Hz Generators', href: '/generators/60Hz' },
 
         ],
-        Rating: [
-            { name: '0 - 49 kVA', href: '/generators/1' },
-            { name: '50 - 99 kVA', href: '/generators/2' },
-            { name: '100 - 499 kVA', href: '/generators/3' },
-            { name: '500 - 999 kVA', href: '/generators/4' },
-            { name: '1000+ kVA', href: '/generators/5' },
-        ],
     },
 
 };
