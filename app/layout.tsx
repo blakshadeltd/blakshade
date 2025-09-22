@@ -5,8 +5,6 @@ import DesktopNav from "./component/DesktopNav";
 import StickyNav from "./component/StickyNav";
 import Footer from "./component/footer";
 import localFont from "next/font/local";
-import { ReduxProvider } from "@/store/provider";
-import PersistGateWrapper from "@/store/PersistGateWrapper";
 import CallToAction from "./component/CallToAction";
 import Script from "next/script";
 import SSRNav from "./component/SSRNav";
@@ -36,8 +34,6 @@ export default function RootLayout({
         </Script>
 
         <SpeedInsights />
-        <ReduxProvider>
-          <PersistGateWrapper>
             <DesktopNav />
             <SSRNav />  
             <StickyNav />
@@ -45,8 +41,6 @@ export default function RootLayout({
             <main className="bg-[var(--background)] mt-4">{children}</main>
             <CallToAction />
             <Footer />
-          </PersistGateWrapper>
-        </ReduxProvider>
         <SpeedInsights />
       </body>
     </html>
