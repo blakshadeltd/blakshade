@@ -121,21 +121,6 @@ interface SearchParams {
   [key: string]: string | undefined;
 }
 
-function HiddenProductLinks() {
-  return (
-    <div style={{ display: 'none' }} aria-hidden="true">
-      {cummins.map((product) => (
-        <Link 
-          key={product.slug} 
-          href={`/generators/${product.category}/${product.slug}`}
-        >
-          {product.title}
-        </Link>
-      ))}
-    </div>
-  );
-}
-
 // Then in your return statement, add the component:
 export default async function CumminsGeneratorsPage({
   searchParams
@@ -152,7 +137,6 @@ export default async function CumminsGeneratorsPage({
       />
       
       {/* ADD THIS LINE - Hidden links for crawlers */}
-      <HiddenProductLinks />
       
       <CumminsGeneratorsClient searchParams={resolvedSearchParams} />
     </>

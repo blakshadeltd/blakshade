@@ -110,23 +110,6 @@ export const viewport: Viewport = {
 
 
 
-function HiddenProductLinks() {
-  // Combine both product arrays
-  const allProducts = [...cummins, ...cats];
-  
-  return (
-    <div style={{ display: 'none' }} aria-hidden="true">
-      {allProducts.map((product) => (
-        <Link 
-          key={`${product.category}-${product.slug}`} 
-          href={`/generators/${product.category}/${product.slug}`}
-        >
-          {product.title}
-        </Link>
-      ))}
-    </div>
-  );
-}
 interface SearchParams {
   frequency?: string;
   fuelType?: string;
@@ -147,7 +130,7 @@ export default async function GeneratorsPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
-            <HiddenProductLinks />
+
       <GeneratorsClient searchParams={resolvedSearchParams} />
     </>
   );
