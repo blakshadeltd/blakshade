@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setInitialConfig } from "@/store/gensetSlice";
 import { Turnstile } from "@marsidev/react-turnstile";
 
 function RadioBox({
@@ -118,7 +116,6 @@ function BrandPreferenceSection({
 }
 
 export default function BuildGenset() {
-  const dispatch = useDispatch();
   const [duty, setDuty] = useState<string>("Standby");
   const [phase, setPhase] = useState<string>("Single Phase");
   const [frequency, setFrequency] = useState<string>("50Hz");
@@ -149,18 +146,26 @@ export default function BuildGenset() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmitEnquiry = () => {
-    // Save initial configuration to Redux
-    dispatch(setInitialConfig({
-      duty,
-      phase,
-      frequency,
-      weather,
-    }));
-
-    // Show the modal form
-    setShowModal(true);
+const handleSubmitEnquiry = () => {
+  // Prepare configuration data locally
+  const configurationData = {
+    duty,
+    phase,
+    frequency,
+    applicationType,
+    weather,
+    engineBrand: engineNoPreference ? "No Preference" : engineBrandInput,
+    alternatorBrand: alternatorNoPreference ? "No Preference" : alternatorBrandInput,
+    exactPower,
+    hasATS,
+    hasExtraFuelTank
   };
+
+  // You can pass configurationData directly to your API when submitting
+  // For now just show the modal
+  setShowModal(true);
+};
+
 
   const handleModalSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
