@@ -78,7 +78,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
             {
                 "@type": "WebSite",
                 name: "BlakShade Ltd",
-                url: "https://blakshade.com/",
+                url: "https://blakshade.com",
             },
         ],
     };
@@ -110,13 +110,13 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                         "@type": "ListItem",
                         position: 1,
                         name: "Home",
-                        item: "https://blakshade.com/",
+                        item: "https://blakshade.com",
                     },
                     {
                         "@type": "ListItem",
                         position: 2,
                         name: "Diesel Generators",
-                        item: "https://blakshade.com/generators/",
+                        item: "https://blakshade.com/generators",
                     },
                     {
                         "@type": "ListItem",
@@ -151,9 +151,9 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                     style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
                 >
                     <div className="container h-full flex items-end pb-4">
-                        <h1 className="text-[var(--background)] text-xl md:text-2xl">
+                        <h2 className="text-[var(--background)] text-xl md:text-2xl">
                             {product.metaTitle}
-                        </h1>
+                        </h2>
                     </div>
                 </div>
 

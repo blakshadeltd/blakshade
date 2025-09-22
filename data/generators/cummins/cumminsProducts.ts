@@ -2894,7 +2894,7 @@ export const cummins: CumminsProduct[] = [
 {
   title: "Cummins C550D5QB",
   metaTitle: "Cummins C550D5QB Q‑Range Silent Diesel Generator",
-  metaDescription: "Cummins C550D5QB 550 kVA standby / 500 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins M15‑G8 engine & Stamford S5L1S‑D4 alternator. Reliable three‑phase power, Unregulated emission.",
+  metaDescription: "Cummins C550D5QB 550 kVA standby / 500 kVA prime, 50Hz Q‑Range silent diesel generator with Cummins M15‑G8 engine & Stamford S5L1S‑D4 alternator.",
   keywords: [
   "Cummins C550D5QB",
   "550 kVA diesel generator",

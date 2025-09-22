@@ -13,7 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: "/info/glossary", lastModified: new Date() },
     { url: "/info/payment-and-shipment", lastModified: new Date() },
     { url: "/info/worldwide-voltage-frequency", lastModified: new Date() },
-    { url: "/generators/", lastModified: new Date() },
+    { url: "/generators", lastModified: new Date() },
     { url: "/generators/50Hz", lastModified: new Date() },
     { url: "/generators/60Hz", lastModified: new Date() },
     { url: "/generators/cat", lastModified: new Date() },

@@ -4,14 +4,14 @@ import React from 'react';
 
 export const metadata: Metadata = {
   title: "Payment and Shipment | BlakShade Ltd",
-  description: "Learn about BlakShade Ltd's payment methods, order process & shipment details for generators.",
+  description: "Learn about BlakShade Ltd's payment methods, order process & shipment details for diesel generators enquiry.",
   keywords: "payment and shipment for diesel generators",
   authors: [{ name: "BlakShade Ltd" }],
   
   robots: "index, follow",
   openGraph: {
     title: "Payment and Shipment | BlakShade Ltd",
-    description: "Learn about BlakShade Ltd's payment methods, order process & shipment details for generators.",
+    description: "Learn about BlakShade Ltd's payment methods, order process & shipment details for diesel generators enquiry.",
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     site: "@BlakShade_Ltd",
     creator: "@BlakShade_Ltd",
     title: "Payment and Shipment | BlakShade Ltd", // More specific title
-    description: "Learn about BlakShade Ltd's payment methods, order process & shipment details for generators.", // More specific description
+    description: "Learn about BlakShade Ltd's payment methods, order process & shipment details for diesel generators enquiry.", // More specific description
   },
   // Add canonical URL
   alternates: {
@@ -64,7 +64,7 @@ const orgSchema = {
         "@id": "https://blakshade.com/info/payment-and-shipment"
       },
       name: "Payment and Shipment",
-      description: "Learn about BlakShade Ltd's payment methods, order process & shipment details for generators.",
+      description: "Learn about BlakShade Ltd's payment methods, order process & shipment details for diesel generators enquiry.",
       author: {
         "@type": "Organization",
         name: "BlakShade Ltd"
