@@ -2,6 +2,9 @@
 import { Metadata, Viewport } from "next";
 import GeneratorsClient from "./GeneratorsClient";
 import Script from "next/script";
+import Link from "next/link";
+import { cummins } from "@/data/generators/cummins/cumminsProducts";
+import { cats } from "@/data/generators/cat/catProducts";
 
 export const metadata: Metadata = {
   title: "Diesel Generators | BlakShade Ltd",
@@ -105,6 +108,25 @@ export const viewport: Viewport = {
   initialScale: 1.0,
 };
 
+
+
+function HiddenProductLinks() {
+  // Combine both product arrays
+  const allProducts = [...cummins, ...cats];
+  
+  return (
+    <div style={{ display: 'none' }} aria-hidden="true">
+      {allProducts.map((product) => (
+        <Link 
+          key={`${product.category}-${product.slug}`} 
+          href={`/generators/${product.category}/${product.slug}`}
+        >
+          {product.title}
+        </Link>
+      ))}
+    </div>
+  );
+}
 interface SearchParams {
   frequency?: string;
   fuelType?: string;
@@ -125,6 +147,7 @@ export default async function GeneratorsPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
+            <HiddenProductLinks />
       <GeneratorsClient searchParams={resolvedSearchParams} />
     </>
   );
