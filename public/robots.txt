@@ -7,5 +7,8 @@ Disallow: /private/
 Disallow: /api/
 Disallow: /search/
 
+# Block all paginated URLs for generators
+Disallow: /generators?page=
+
 # Sitemap location
 Sitemap: https://blakshade.com/sitemap.xml

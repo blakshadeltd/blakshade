@@ -2,9 +2,8 @@
 import { Metadata, Viewport } from "next";
 import GeneratorsClient from "./GeneratorsClient";
 import Script from "next/script";
-import Link from "next/link";
-import { cummins } from "@/data/generators/cummins/cumminsProducts";
-import { cats } from "@/data/generators/cat/catProducts";
+
+
 
 export const metadata: Metadata = {
   title: "Diesel Generators | BlakShade Ltd",
@@ -111,6 +110,7 @@ export const viewport: Viewport = {
 
 
 interface SearchParams {
+  page?: string; // <-- add page
   frequency?: string;
   fuelType?: string;
   phase?: string;
@@ -118,11 +118,14 @@ interface SearchParams {
 }
 
 export default async function GeneratorsPage({
-  searchParams
+  searchParams,
 }: {
-  searchParams: Promise<SearchParams>
+  searchParams: Promise<SearchParams>;
 }) {
   const resolvedSearchParams = await searchParams;
+
+  // Parse current page from searchParams, default to 1
+  const currentPage = parseInt(resolvedSearchParams.page || "1", 10);
 
   return (
     <>
@@ -131,7 +134,9 @@ export default async function GeneratorsPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
 
-      <GeneratorsClient searchParams={resolvedSearchParams} />
+      <GeneratorsClient
+        searchParams={{ ...resolvedSearchParams, page: String(currentPage) }}
+      />
     </>
   );
 }
