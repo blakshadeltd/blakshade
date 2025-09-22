@@ -6,7 +6,7 @@ import GeneratorsCard from "@/app/generators/GeneratorsCard";
 import GeneratorsSidebar from "@/app/component/GeneratorsSidebar";
 import { cummins } from "@/data/generators/cummins/cumminsProducts";
 import { cats } from "@/data/generators/cat/catProducts";
-import { useSearchParams, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 interface SearchParams {
   frequency?: string;
@@ -25,7 +25,6 @@ interface GeneratorsClientProps {
 }
 
 const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => {
-  const searchParamsHook = useSearchParams();
   const pathname = usePathname();
 
   // Initialize states from URL params or defaults
