@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
-    url: "https://blakshade.com/info/worldwide-voltage-frequency/",
+    url: "https://blakshade.com/info/worldwide-voltage-frequency",
 
   },
   twitter: {
@@ -39,7 +39,7 @@ const orgSchema = {
       "@type": "Article",
       mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": "https://blakshade.com/info/worldwide-voltage-frequency/"
+        "@id": "https://blakshade.com/info/worldwide-voltage-frequency"
       },
       name: "Voltages and Frequencies by Country",
       description: "Complete reference for electrical standards for all countries. Voltage, frequency, wiring and plug types.",
@@ -65,19 +65,19 @@ const orgSchema = {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://blakshade.com/",
+          item: "https://blakshade.com",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Info",
-          item: "https://blakshade.com/info/",
+          item: "https://blakshade.com/info",
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "Voltages and Frequencies by Country",
-          item: "https://blakshade.com/info/worldwide-voltage-frequency/",
+          item: "https://blakshade.com/info/worldwide-voltage-frequency",
         },
       ],
     },

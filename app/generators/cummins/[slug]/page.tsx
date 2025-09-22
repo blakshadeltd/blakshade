@@ -152,9 +152,9 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
 >
     <div className="container h-full flex items-end justify-between pb-4">
         {/* Product Title - Left side */}
-        <h1 className="text-[var(--background,#f4f3f3)] text-2xl md:text-4xl">
+        <h2 className="text-[var(--background,#f4f3f3)] text-2xl md:text-4xl">
             {product.title}
-        </h1>
+        </h2>
         
         {/* Breadcrumbs - Right side */}
         <nav className="text-sm text-[var(--background)]">

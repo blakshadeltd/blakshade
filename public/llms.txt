@@ -2,73 +2,73 @@
 > Blakshade – Global supplier of diesel generators and provide bespoke diesel generators solutions.
 
 ## Main Pages
-- [Home](http://blakshade.com): BlakShade Ltd specializes in providing customized diesel generator solutions tailored to meet diverse power requirements across various applications. Their offerings ensure reliable power supply wherever it is needed, catering to both industrial and commercial sectors.
-- [Contact](http://blakshade.com/contact): Reach out for enquiries and support.
-- [BuildBuild Genset](http://blakshade.com/build-genset): Design your custom diesel generator with our builder tool. 
-- [Info Center](http://blakshade.com/info): Knowledge and company information.
-  - [About Us](http://blakshade.com/info/about-us): Learn about Blakshade’s mission and history.
-  - [Glossary](http://blakshade.com/info/glossary): Power industry terms & abbreviations.
-  - [Payment & Shipment](http://blakshade.com/info/payment-and-shipment): Payment methods and worldwide delivery details.
-  - [Worldwide Voltage & Frequency](http://blakshade.com/info/worldwide-voltage-frequency): Country-specific power standards.
+- [Home](https://blakshade.com): BlakShade Ltd specializes in providing customized diesel generator solutions tailored to meet diverse power requirements across various applications. Their offerings ensure reliable power supply wherever it is needed, catering to both industrial and commercial sectors.
+- [Contact](https://blakshade.com/contact): Reach out for enquiries and support.
+- [BuildBuild Genset](https://blakshade.com/build-genset): Design your custom diesel generator with our builder tool. 
+- [Info Center](https://blakshade.com/info): Knowledge and company information.
+  - [About Us](https://blakshade.com/info/about-us): Learn about Blakshade’s mission and history.
+  - [Glossary](https://blakshade.com/info/glossary): Power industry terms & abbreviations.
+  - [Payment & Shipment](https://blakshade.com/info/payment-and-shipment): Payment methods and worldwide delivery details.
+  - [Worldwide Voltage & Frequency](https://blakshade.com/info/worldwide-voltage-frequency): Country-specific power standards.
 
 ## Generator Categories
-- [50Hz Generators](http://blakshade.com/generators/50Hz): Full listing of 50Hz diesel generators.
-- [60Hz Generators](http://blakshade.com/generators/60Hz): Full listing of 60Hz diesel generators.
-- [CAT Generators](http://blakshade.com/generators/cat): CAT brand diesel generators.
-- [Cummins Generators](http://blakshade.com/generators/cummins): Cummins brand diesel generators.
-- [Home Generators](http://blakshade.com/generators/home): Generators for residential use.
-- [Open Generators](http://blakshade.com/generators/open): Open-type gensets.
-- [Silent Generators](http://blakshade.com/generators/silent): Silent-type gensets.
+- [50Hz Generators](https://blakshade.com/generators/50Hz): Full listing of 50Hz diesel generators.
+- [60Hz Generators](https://blakshade.com/generators/60Hz): Full listing of 60Hz diesel generators.
+- [CAT Generators](https://blakshade.com/generators/cat): CAT brand diesel generators.
+- [Cummins Generators](https://blakshade.com/generators/cummins): Cummins brand diesel generators.
+- [Home Generators](https://blakshade.com/generators/home): Generators for residential use.
+- [Open Generators](https://blakshade.com/generators/open): Open-type gensets.
+- [Silent Generators](https://blakshade.com/generators/silent): Silent-type gensets.
 
 ## Cummins Generator Models
-- [C22D5](http://blakshade.com/generators/cummins/c22d5)
-- [C22D5Q](http://blakshade.com/generators/cummins/c22d5q)
-- [C28D5](http://blakshade.com/generators/cummins/c28d5)
-- [C33D5](http://blakshade.com/generators/cummins/c33d5)
-- [C38D5](http://blakshade.com/generators/cummins/c38d5)
-- [C38D5Q](http://blakshade.com/generators/cummins/c38d5q)
-- [C44D5E](http://blakshade.com/generators/cummins/c44d5e)
-- [C55D5E](http://blakshade.com/generators/cummins/c55d5e)
-- [C55D5EQ](http://blakshade.com/generators/cummins/c55d5eq)
-- [C66D5E](http://blakshade.com/generators/cummins/c66d5e)
-- [C66D5EQ](http://blakshade.com/generators/cummins/c66d5eq)
-- [C90D5](http://blakshade.com/generators/cummins/c90d5)
-- [C110D5](http://blakshade.com/generators/cummins/c110d5)
-- [C110D5Q](http://blakshade.com/generators/cummins/c110d5q)
-- [C150D5](http://blakshade.com/generators/cummins/c150d5)
-- [C170D5](http://blakshade.com/generators/cummins/c170d5)
-- [C170D5Q](http://blakshade.com/generators/cummins/c170d5q)
-- [C220D5E](http://blakshade.com/generators/cummins/c220d5e)
-- [C220D5EQ](http://blakshade.com/generators/cummins/c220d5eq)
-- [C275D5E](http://blakshade.com/generators/cummins/c275d5e)
-- [C275D5EQ](http://blakshade.com/generators/cummins/c275d5eq)
-- [C330D5](http://blakshade.com/generators/cummins/c330d5)
-- [C330D5EQ](http://blakshade.com/generators/cummins/c330d5eq)
-- [C450D5](http://blakshade.com/generators/cummins/c450d5)
-- [C450D5Q](http://blakshade.com/generators/cummins/c450d5q)
-- [C550D5](http://blakshade.com/generators/cummins/c550d5)
-- [C550D5QB](http://blakshade.com/generators/cummins/c550d5qb)
-- [C640D5](http://blakshade.com/generators/cummins/c640d5)
-- [C700D5](http://blakshade.com/generators/cummins/c700d5)
-- [C825D5](http://blakshade.com/generators/cummins/c825d5)
-- [C900D5](http://blakshade.com/generators/cummins/c900d5)
-- [C1000D5](http://blakshade.com/generators/cummins/c1000d5)
-- [C1100D5](http://blakshade.com/generators/cummins/c1100d5)
-- [C1100D5B](http://blakshade.com/generators/cummins/c1100d5b)
-- [C1250D5A](http://blakshade.com/generators/cummins/c1250d5a)
-- [C1250D5AB](http://blakshade.com/generators/cummins/c1250d5ab)
-- [C1400D5](http://blakshade.com/generators/cummins/c1400d5)
-- [C1675D5A](http://blakshade.com/generators/cummins/c1675d5a)
-- [C1760D5](http://blakshade.com/generators/cummins/c1760d5)
-- [C1760D5E](http://blakshade.com/generators/cummins/c1760d5e)
-- [C1875D5](http://blakshade.com/generators/cummins/c1875d5)
-- [C1875D5E](http://blakshade.com/generators/cummins/c1875d5e)
-- [C2000D5](http://blakshade.com/generators/cummins/c2000d5)
-- [C2000D5B](http://blakshade.com/generators/cummins/c2000d5b)
-- [C2000D5E](http://blakshade.com/generators/cummins/c2000d5e)
-- [C2000D5EB](http://blakshade.com/generators/cummins/c2000d5eb)
-- [C2000D5-PB](http://blakshade.com/generators/cummins/c2000d5-pb)
-- [C2250D5](http://blakshade.com/generators/cummins/c2250d5)
+- [C22D5](https://blakshade.com/generators/cummins/c22d5)
+- [C22D5Q](https://blakshade.com/generators/cummins/c22d5q)
+- [C28D5](https://blakshade.com/generators/cummins/c28d5)
+- [C33D5](https://blakshade.com/generators/cummins/c33d5)
+- [C38D5](https://blakshade.com/generators/cummins/c38d5)
+- [C38D5Q](https://blakshade.com/generators/cummins/c38d5q)
+- [C44D5E](https://blakshade.com/generators/cummins/c44d5e)
+- [C55D5E](https://blakshade.com/generators/cummins/c55d5e)
+- [C55D5EQ](https://blakshade.com/generators/cummins/c55d5eq)
+- [C66D5E](https://blakshade.com/generators/cummins/c66d5e)
+- [C66D5EQ](https://blakshade.com/generators/cummins/c66d5eq)
+- [C90D5](https://blakshade.com/generators/cummins/c90d5)
+- [C110D5](https://blakshade.com/generators/cummins/c110d5)
+- [C110D5Q](https://blakshade.com/generators/cummins/c110d5q)
+- [C150D5](https://blakshade.com/generators/cummins/c150d5)
+- [C170D5](https://blakshade.com/generators/cummins/c170d5)
+- [C170D5Q](https://blakshade.com/generators/cummins/c170d5q)
+- [C220D5E](https://blakshade.com/generators/cummins/c220d5e)
+- [C220D5EQ](https://blakshade.com/generators/cummins/c220d5eq)
+- [C275D5E](https://blakshade.com/generators/cummins/c275d5e)
+- [C275D5EQ](https://blakshade.com/generators/cummins/c275d5eq)
+- [C330D5](https://blakshade.com/generators/cummins/c330d5)
+- [C330D5EQ](https://blakshade.com/generators/cummins/c330d5eq)
+- [C450D5](https://blakshade.com/generators/cummins/c450d5)
+- [C450D5Q](https://blakshade.com/generators/cummins/c450d5q)
+- [C550D5](https://blakshade.com/generators/cummins/c550d5)
+- [C550D5QB](https://blakshade.com/generators/cummins/c550d5qb)
+- [C640D5](https://blakshade.com/generators/cummins/c640d5)
+- [C700D5](https://blakshade.com/generators/cummins/c700d5)
+- [C825D5](https://blakshade.com/generators/cummins/c825d5)
+- [C900D5](https://blakshade.com/generators/cummins/c900d5)
+- [C1000D5](https://blakshade.com/generators/cummins/c1000d5)
+- [C1100D5](https://blakshade.com/generators/cummins/c1100d5)
+- [C1100D5B](https://blakshade.com/generators/cummins/c1100d5b)
+- [C1250D5A](https://blakshade.com/generators/cummins/c1250d5a)
+- [C1250D5AB](https://blakshade.com/generators/cummins/c1250d5ab)
+- [C1400D5](https://blakshade.com/generators/cummins/c1400d5)
+- [C1675D5A](https://blakshade.com/generators/cummins/c1675d5a)
+- [C1760D5](https://blakshade.com/generators/cummins/c1760d5)
+- [C1760D5E](https://blakshade.com/generators/cummins/c1760d5e)
+- [C1875D5](https://blakshade.com/generators/cummins/c1875d5)
+- [C1875D5E](https://blakshade.com/generators/cummins/c1875d5e)
+- [C2000D5](https://blakshade.com/generators/cummins/c2000d5)
+- [C2000D5B](https://blakshade.com/generators/cummins/c2000d5b)
+- [C2000D5E](https://blakshade.com/generators/cummins/c2000d5e)
+- [C2000D5EB](https://blakshade.com/generators/cummins/c2000d5eb)
+- [C2000D5-PB](https://blakshade.com/generators/cummins/c2000d5-pb)
+- [C2250D5](https://blakshade.com/generators/cummins/c2250d5)
 
 ## CAT Generator Models
-- [DE33GC](http://blakshade.com/generators/cat/de33gc)
+- [DE33GC](https://blakshade.com/generators/cat/de33gc)
