@@ -7,7 +7,6 @@ import clsx from 'clsx';
 import { menuData } from './menuData';
 import { infoMenuData } from './infoMenuData';
 import Image from 'next/image';
-import SSRNav from './SSRNav';
 
 type MenuKey = 'Generators' | 'Info' | 'Search';
 
@@ -63,7 +62,7 @@ const DesktopNav = () => {
   }, [activeMenu]);
 
   return (
-    <><SSRNav /><div className="relative">
+    <><div className="relative">
       <nav
         className={clsx(
           'absolute top-0 left-1/2 -translate-x-1/2 z-20 px-4 hidden lg:block py-6 rounded-b-[30px] duration-500 w-full transition-all',
