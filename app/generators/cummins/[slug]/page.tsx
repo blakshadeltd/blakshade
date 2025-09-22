@@ -6,6 +6,7 @@ import { CumminsProduct, cummins } from "@/data/generators/cummins/cumminsProduc
 import Script from "next/script";
 import type { Metadata } from "next";
 import ProductPageClient from "./ProductPageClient";
+import Link from "next/link";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const resolvedParams = await params;
@@ -47,15 +48,87 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
 
     if (!product) return notFound();
 
-    // Schema Data (same as before)
+    // Schema Data
     const orgSchema = {
-        // ... (same as before)
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                name: "BlakShade Ltd",
+                alternateName: "BlakShade",
+                url: "https://blakshade.com/",
+                logo: "https://blakshade.com/BlakShade-Ltd-logo-01.jpg",
+                contactPoint: [
+                    {
+                        "@type": "ContactPoint",
+                        telephone: "+447380491992",
+                        contactType: "customer service",
+                        availableLanguage: "en",
+                    },
+                ],
+                sameAs: [
+                    "https://www.facebook.com/blakshadeltd",
+                    "https://x.com/BlakShade_Ltd",
+                    "https://www.instagram.com/blakshadeltd/",
+                    "https://www.linkedin.com/company/blakshade-ltd/",
+                    "https://www.threads.net/@blakshadeltd",
+                ],
+            },
+            {
+                "@type": "WebSite",
+                name: "BlakShade Ltd",
+                url: "https://blakshade.com/",
+            },
+        ],
     };
 
     const productSchema = {
-        // ... (same as before)
+        "@context": "https://schema.org/",
+        "@graph": [
+            {
+                "@type": "Product",
+                name: product.metaTitle,
+                image: `https://blakshade.com${product.image}`,
+                description: product.metaDescription,
+                brand: {
+                    "@type": "Brand",
+                    name: "Cummins",
+                },
+                aggregateRating: {
+                    "@type": "AggregateRating",
+                    ratingValue: "5",
+                    bestRating: "5",
+                    worstRating: "1",
+                    ratingCount: "13"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                    {
+                        "@type": "ListItem",
+                        position: 1,
+                        name: "Home",
+                        item: "https://blakshade.com/",
+                    },
+                    {
+                        "@type": "ListItem",
+                        position: 2,
+                        name: "Diesel Generators",
+                        item: "https://blakshade.com/generators/",
+                    },
+                    {
+                        "@type": "ListItem",
+                        position: 3,
+                        name: "Cummins Generators",
+                        item: `https://blakshade.com/generators/cummins`,
+                    },
+                ],
+            },
+        ],
     };
-    
+
+
     return (
         <>
             {/* Inject schema data */}
@@ -72,17 +145,29 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
 
             {/* Main Page UI */}
             <section>
-                {/* Hero Section */}
-                <div
-                    className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden"
-                    style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
-                >
-                    <div className="container h-full flex items-end pb-4">
-                        <h1 className="text-[var(--background,#f4f3f3)] text-2xl md:text-4xl">
-                            {product.title}
-                        </h1>
-                    </div>
-                </div>
+{/* Hero Section */}
+<div
+    className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden"
+    style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
+>
+    <div className="container h-full flex items-end justify-between pb-4">
+        {/* Product Title - Left side */}
+        <h1 className="text-[var(--background,#f4f3f3)] text-2xl md:text-4xl">
+            {product.title}
+        </h1>
+        
+        {/* Breadcrumbs - Right side */}
+        <nav className="text-sm text-[var(--background)]">
+            <Link href="/" className="hover:text-gray-500 transition-colors">Home</Link>
+            <span className="mx-2">/</span>
+            <Link href="/generators" className="hover:text-gray-500 transition-colors">Generators</Link>
+            <span className="mx-2">/</span>
+            <Link href="/generators/cummins" className="hover:text-gray-500 transition-colors">Cummins</Link>
+            <span className="mx-2">/</span>
+            <span className="text-[var(--background)] font-medium">{product.title}</span>
+        </nav>
+    </div>
+</div>
 
                 {/* Image + Info */}
                 <div className="container py-12 flex flex-col md:flex-row mt-3 gap-6 items-start">

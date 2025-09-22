@@ -2,6 +2,8 @@
 import { Metadata, Viewport } from "next";
 import CumminsGeneratorsClient from "./CumminsGeneratorsClient";
 import Script from "next/script";
+import { cummins } from "@/data/generators/cummins/cumminsProducts";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Cummins Diesel Generators | BlakShade Ltd",
@@ -106,6 +108,7 @@ const orgSchema = {
     },
   ],
 };
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1.0,
@@ -118,6 +121,22 @@ interface SearchParams {
   [key: string]: string | undefined;
 }
 
+function HiddenProductLinks() {
+  return (
+    <div style={{ display: 'none' }} aria-hidden="true">
+      {cummins.map((product) => (
+        <Link 
+          key={product.slug} 
+          href={`/generators/${product.category}/${product.slug}`}
+        >
+          {product.title}
+        </Link>
+      ))}
+    </div>
+  );
+}
+
+// Then in your return statement, add the component:
 export default async function CumminsGeneratorsPage({
   searchParams
 }: {
@@ -131,6 +150,10 @@ export default async function CumminsGeneratorsPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
+      
+      {/* ADD THIS LINE - Hidden links for crawlers */}
+      <HiddenProductLinks />
+      
       <CumminsGeneratorsClient searchParams={resolvedSearchParams} />
     </>
   );
