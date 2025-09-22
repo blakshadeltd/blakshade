@@ -22,8 +22,8 @@ export const menuData: MenuData = {
             { name: 'Home Generators', href: '/generators/home' },
             { name: 'Silent Generators', href: '/generators/silent' },
             { name: 'Open Generators', href: '/generators/open' },
-            { name: '50Hz Generators', href: '/generators/50hz' },
-            { name: '60Hz Generators', href: '/generators/60hz' },
+            { name: '50Hz Generators', href: '/generators/50Hz' },
+            { name: '60Hz Generators', href: '/generators/60Hz' },
 
         ],
         Rating: [
