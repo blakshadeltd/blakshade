@@ -145,42 +145,44 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
 
             {/* Main Page UI */}
             <section>
-{/* Hero Section */}
-<div
-    className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden"
-    style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
->
-    <div className="container h-full flex items-end justify-between pb-4">
-        {/* Product Title - Left side */}
-        <h2 className="text-[var(--background,#f4f3f3)] text-2xl md:text-4xl">
-            {product.title}
-        </h2>
-        
-        {/* Breadcrumbs - Right side */}
-        <nav className="text-sm text-[var(--background)]">
-            <Link href="/" className="hover:text-gray-500 transition-colors">Home</Link>
-            <span className="mx-2">/</span>
-            <Link href="/generators" className="hover:text-gray-500 transition-colors">Generators</Link>
-            <span className="mx-2">/</span>
-            <Link href="/generators/cummins" className="hover:text-gray-500 transition-colors">Cummins</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[var(--background)] font-medium">{product.title}</span>
-        </nav>
-    </div>
-</div>
+                {/* Hero Section */}
+                <div
+                    className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden"
+                    style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
+                >
+                    <div className="container h-full flex items-end justify-between pb-4">
+                        {/* Product Title - Left side */}
+                        <h2 className="text-[var(--background,#f4f3f3)] text-2xl md:text-4xl">
+                            {product.title}
+                        </h2>
+
+                        {/* Breadcrumbs - Right side */}
+                        <nav className="text-sm text-[var(--background)]">
+                            <Link href="/" className="hover:text-gray-500 transition-colors">Home</Link>
+                            <span className="mx-2">/</span>
+                            <Link href="/generators" className="hover:text-gray-500 transition-colors">Generators</Link>
+                            <span className="mx-2">/</span>
+                            <Link href="/generators/cummins" className="hover:text-gray-500 transition-colors">Cummins</Link>
+                            <span className="mx-2">/</span>
+                            <span className="text-[var(--background)] font-medium">{product.title}</span>
+                        </nav>
+                    </div>
+                </div>
 
                 {/* Image + Info */}
                 <div className="container py-12 flex flex-col md:flex-row mt-3 gap-6 items-start">
-                    {/* Image */}
                     <div className="w-full md:w-[50%]">
-                        <Image
-                            src={product.image}
-                            alt={product.title}
-                            width={800}
-                            height={600}
-                            className="rounded-xl shadow-md w-full object-cover"
-                        />
+                        <a href={product.image} target="_blank" rel="noopener noreferrer">
+                            <img
+                                src={product.image}
+                                alt={product.title}
+                                width={800}
+                                height={600}
+                                className="rounded-xl shadow-md w-full object-cover"
+                            />
+                        </a>
                     </div>
+
 
                     {/* Content */}
                     <div className="w-full space-y-6">

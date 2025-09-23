@@ -7,14 +7,6 @@ Disallow: /private/
 Disallow: /api/
 Disallow: /search/
 
-# Block all paginated URLs for generators
-Disallow: /generators?page=
-Disallow: /generators/home?page=
-Disallow: /generators/silent?page=
-Disallow: /generators/open?page=
-Disallow: /generators/cummins?page=
-Disallow: /generators/cat?page=
-Disallow: /generators/50Hz?page=
 
 # Sitemap location
 Sitemap: https://blakshade.com/sitemap.xml

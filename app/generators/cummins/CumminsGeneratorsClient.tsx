@@ -181,9 +181,15 @@ const CumminsGeneratorsClient: React.FC<CumminsGeneratorsClientProps> = ({ searc
                 <a
                   key={idx}
                   href={`${pathname}?page=${idx + 1}`}
-                  className={`px-3 py-1 border rounded cursor-pointer ${
-                    currentPage === idx + 1 ? "btn-primary shine-effect" : "btn-third shine-effect"
-                  }`}
+                  rel={
+                    idx + 1 === currentPage - 1
+                      ? "prev"
+                      : idx + 1 === currentPage + 1
+                        ? "next"
+                        : undefined
+                  }
+                  className={`px-3 py-1 border rounded cursor-pointer ${currentPage === idx + 1 ? "btn-primary shine-effect" : "btn-third shine-effect"
+                    }`}
                 >
                   {idx + 1}
                 </a>
