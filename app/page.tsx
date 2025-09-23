@@ -81,7 +81,7 @@ const orgSchema = {
         name: "BlakShade Ltd",
         logo: {
           "@type": "ImageObject",
-          url: "https://cdn.blakshade.com/assets/img/logo/ade-logo-dark-square.png"
+          url: "https://blakshade.com/BlakShade-Ltd-logo-01.jpg"
         }
       },
       datePublished: "2021-10-11",
