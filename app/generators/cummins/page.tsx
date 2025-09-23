@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Cummins diesel generators from BlakShade. Reliable power solutions from 20kVA to 3000kVA for industrial & commercial applications.",
   keywords: "Cummins diesel generators, Cummins generator sets, Cummins standby generators, Cummins industrial generators",
   authors: [{ name: "BlakShade Ltd" }],
-  
+
   robots: "index, follow",
   openGraph: {
     title: "Cummins Diesel Generators | BlakShade Ltd",
@@ -115,19 +115,22 @@ export const viewport: Viewport = {
 };
 
 interface SearchParams {
+  page?: string;
   frequency?: string;
   fuelType?: string;
   phase?: string;
   [key: string]: string | undefined;
 }
 
-// Then in your return statement, add the component:
-export default async function CumminsGeneratorsPage({
-  searchParams
+export default async function CumminsGenerators({
+  searchParams,
 }: {
-  searchParams: Promise<SearchParams>
+  searchParams: Promise<SearchParams>;
 }) {
   const resolvedSearchParams = await searchParams;
+
+  // Parse current page from searchParams, default to 1
+  const currentPage = parseInt(resolvedSearchParams.page || "1", 10);
 
   return (
     <>
@@ -135,10 +138,8 @@ export default async function CumminsGeneratorsPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
-      
-      {/* ADD THIS LINE - Hidden links for crawlers */}
-      
-      <CumminsGeneratorsClient searchParams={resolvedSearchParams} />
+      <CumminsGeneratorsClient searchParams={{ ...resolvedSearchParams, page: String(currentPage) }}
+      />
     </>
   );
 }

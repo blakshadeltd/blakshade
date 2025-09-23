@@ -112,18 +112,22 @@ export const viewport: Viewport = {
 };
 
 interface SearchParams {
+  page?: string;
   frequency?: string;
   fuelType?: string;
   phase?: string;
   [key: string]: string | undefined;
 }
 
-export default async function CatGeneratorsPage({
-  searchParams
+export default async function CatGenerators({
+  searchParams,
 }: {
-  searchParams: Promise<SearchParams>
+  searchParams: Promise<SearchParams>;
 }) {
   const resolvedSearchParams = await searchParams;
+
+  // Parse current page from searchParams, default to 1
+  const currentPage = parseInt(resolvedSearchParams.page || "1", 10);
 
   return (
     <>
@@ -131,7 +135,8 @@ export default async function CatGeneratorsPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
-      <CatGeneratorsClient searchParams={resolvedSearchParams} />
+      <CatGeneratorsClient searchParams={{ ...resolvedSearchParams, page: String(currentPage) }}
+      />
     </>
   );
 }

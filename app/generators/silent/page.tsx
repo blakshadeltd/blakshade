@@ -111,6 +111,7 @@ export const viewport: Viewport = {
 };
 
 interface SearchParams {
+  page?: string;
   frequency?: string;
   fuelType?: string;
   phase?: string;
@@ -118,11 +119,14 @@ interface SearchParams {
 }
 
 export default async function SilentGeneratorsPage({
-  searchParams
+  searchParams,
 }: {
-  searchParams: Promise<SearchParams>
+  searchParams: Promise<SearchParams>;
 }) {
   const resolvedSearchParams = await searchParams;
+
+  // Parse current page from searchParams, default to 1
+  const currentPage = parseInt(resolvedSearchParams.page || "1", 10);
 
   return (
     <>
@@ -130,7 +134,8 @@ export default async function SilentGeneratorsPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
-      <SilentGeneratorsClient searchParams={resolvedSearchParams} />
+      <SilentGeneratorsClient searchParams={{ ...resolvedSearchParams, page: String(currentPage) }}
+      />
     </>
   );
 }

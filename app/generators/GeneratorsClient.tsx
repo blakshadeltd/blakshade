@@ -9,14 +9,10 @@ import { cats } from "@/data/generators/cat/catProducts";
 import { usePathname } from "next/navigation";
 
 interface SearchParams {
+  page?: string;
   frequency?: string;
   fuelType?: string;
   phase?: string;
-  brand?: string;
-  emission?: string;
-  buildType?: string;
-  kvaRating?: string;
-  page?: string;
   [key: string]: string | undefined;
 }
 

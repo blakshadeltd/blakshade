@@ -1,7 +1,7 @@
-// components/SilentGeneratorsClient.tsx
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { FaSlidersH } from "react-icons/fa";
 import GeneratorsCard from "@/app/generators/GeneratorsCard";
 import GeneratorsSidebar from "@/app/component/GeneratorsSidebar";
@@ -9,6 +9,7 @@ import { cummins } from "@/data/generators/cummins/cumminsProducts";
 import { cats } from "@/data/generators/cat/catProducts";
 
 interface SearchParams {
+  page?: string;
   frequency?: string;
   fuelType?: string;
   phase?: string;
@@ -20,32 +21,29 @@ interface SilentGeneratorsClientProps {
 }
 
 const SilentGeneratorsClient: React.FC<SilentGeneratorsClientProps> = ({ searchParams }) => {
-  // Initialize states from URL params with "Silent" as default build type
-  const [selectedBrand, setSelectedBrand] = useState<string>("All");
-  const [selectedEmission, setSelectedEmission] = useState<string>("All");
-  const [selectedFrequency, setSelectedFrequency] = useState<string>(
-    searchParams.frequency || "All"
-  );
-  const [selectedFuelType, setSelectedFuelType] = useState<string>(
-    searchParams.fuelType || "Diesel"
-  );
+  const pathname = usePathname();
+
+  // Initialize states from URL params or defaults
+  const [selectedBrand, setSelectedBrand] = useState<string>(searchParams.brand || "All");
+  const [selectedEmission, setSelectedEmission] = useState<string>(searchParams.emission || "All");
+  const [selectedFrequency, setSelectedFrequency] = useState<string>(searchParams.frequency || "All");
+  const [selectedFuelType, setSelectedFuelType] = useState<string>(searchParams.fuelType || "Diesel");
   const [selectedPhase, setSelectedPhase] = useState<string>(
     searchParams.phase ? `${searchParams.phase} Phase` : "All"
   );
-  const [selectedBuildType, setSelectedBuildType] = useState<string>("Silent");
-  const [selectedKvaRating, setSelectedKvaRating] = useState<string>("All");
+  const [selectedBuildType, setSelectedBuildType] = useState<string>(searchParams.buildType || "Silent");
+  const [selectedKvaRating, setSelectedKvaRating] = useState<string>(searchParams.kvaRating || "All");
   const [showFilters, setShowFilters] = useState<boolean>(false);
   const [sortOrder, setSortOrder] = useState<string>("asc");
   const [itemsPerPage, setItemsPerPage] = useState<number>(16);
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  
+
+  const currentPage = parseInt(searchParams.page || "1", 10);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [currentPage]);
 
-  const allGenerators = useMemo(() => {
-    return [...cummins, ...cats];
-  }, []);
+  const allGenerators = useMemo(() => [...cummins, ...cats], []);
 
   const sortedProducts = useMemo(() => {
     return [...allGenerators].sort((a, b) =>
@@ -53,7 +51,7 @@ const SilentGeneratorsClient: React.FC<SilentGeneratorsClientProps> = ({ searchP
     );
   }, [sortOrder, allGenerators]);
 
-  const filteredall = useMemo(() => {
+  const filteredAll = useMemo(() => {
     return sortedProducts.filter((product) => {
       const matchBrand = selectedBrand === "All" || product.brand === selectedBrand;
       const matchEmission = selectedEmission === "All" || product.emission === selectedEmission;
@@ -74,9 +72,9 @@ const SilentGeneratorsClient: React.FC<SilentGeneratorsClientProps> = ({ searchP
         matchEmission &&
         matchFrequency &&
         matchFuelType &&
-        matchKvaRating &&
         matchPhase &&
-        matchBuildType
+        matchBuildType &&
+        matchKvaRating
       );
     });
   }, [
@@ -85,21 +83,19 @@ const SilentGeneratorsClient: React.FC<SilentGeneratorsClientProps> = ({ searchP
     selectedEmission,
     selectedFrequency,
     selectedFuelType,
-    selectedKvaRating,
     selectedPhase,
     selectedBuildType,
+    selectedKvaRating,
   ]);
 
-  const totalItems = filteredall.length;
+  const totalItems = filteredAll.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
-  const currentPageClamped = Math.min(currentPage, totalPages);
-  const startIdx = (currentPageClamped - 1) * itemsPerPage;
+  const startIdx = (currentPage - 1) * itemsPerPage;
   const endIdx = Math.min(startIdx + itemsPerPage, totalItems);
-  const paginatedProducts = filteredall.slice(startIdx, endIdx);
+  const paginatedProducts = filteredAll.slice(startIdx, endIdx);
 
   const handleItemsPerPageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setItemsPerPage(Number(e.target.value));
-    setCurrentPage(1);
   };
 
   return (
@@ -109,19 +105,16 @@ const SilentGeneratorsClient: React.FC<SilentGeneratorsClientProps> = ({ searchP
         style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
       >
         <div className="container h-full flex items-end pb-4">
-          <h1 className="text-[var(--background)] text-2xl md:text-4xl">
-            Silent Generators
-          </h1>
+          <h1 className="text-[var(--background)] text-2xl md:text-4xl">Cummins Generators</h1>
         </div>
       </div>
-      
+
       <div className="flex justify-between items-center mx-4 mt-6 lg:hidden">
         <button
-          onClick={() => setShowFilters((prev) => !prev)}
+          onClick={() => setShowFilters(prev => !prev)}
           className="btn-third px-4 py-2 inline-flex items-center gap-2"
         >
-          <FaSlidersH />
-          {showFilters ? "Hide Filters" : "Show Filters"}
+          <FaSlidersH /> {showFilters ? "Hide Filters" : "Show Filters"}
         </button>
       </div>
 
@@ -148,46 +141,33 @@ const SilentGeneratorsClient: React.FC<SilentGeneratorsClientProps> = ({ searchP
           <div className="flex flex-col md:flex-row items-center justify-between mb-6 gap-4">
             <div className="text-gray-600">
               Showing{" "}
-              <span>
-                {itemsPerPage === Infinity
-                  ? 1
-                  : (currentPageClamped - 1) * itemsPerPage + 1}
-              </span>{" "}
-              -{" "}
-              <span>
-                {itemsPerPage === Infinity
-                  ? totalItems
-                  : Math.min(currentPageClamped * itemsPerPage, totalItems)}
-              </span>{" "}
-              of <span>{totalItems}</span>
+              <span>{itemsPerPage === Infinity ? 1 : startIdx + 1}</span> -{" "}
+              <span>{itemsPerPage === Infinity ? totalItems : endIdx}</span> of <span>{totalItems}</span>
             </div>
 
-<div className="flex items-center gap-4">
-  <label htmlFor="sortOrder">Sort by Size:</label>
-  <select
-    id="sortOrder"
-    value={sortOrder}
-    onChange={(e) => setSortOrder(e.target.value)}
-    className="border rounded px-2 py-1 cursor-pointer"
-  >
-    <option value="asc">Low to High</option>
-    <option value="desc">High to Low</option>
-  </select>
+            <div className="flex items-center gap-4">
+              <label htmlFor="sortOrder">Sort by Size:</label>
+              <select
+                id="sortOrder"
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value)}
+                className="border rounded px-2 py-1 cursor-pointer"
+              >
+                <option value="asc">Low to High</option>
+                <option value="desc">High to Low</option>
+              </select>
 
-  <label htmlFor="itemsPerPage" className="ml-4">
-    Items per page:
-  </label>
-  <select
-    id="itemsPerPage"
-    onChange={handleItemsPerPageChange}
-    className="border rounded px-2 py-1 cursor-pointer"
-  >
-    <option value={16}>16</option>
-    <option value={24}>24</option>
-    <option value={48}>48</option>
-  </select>
-</div>
-
+              <label htmlFor="itemsPerPage" className="ml-4">Items per page:</label>
+              <select
+                id="itemsPerPage"
+                onChange={handleItemsPerPageChange}
+                className="border rounded px-2 py-1 cursor-pointer"
+              >
+                <option value={16}>16</option>
+                <option value={24}>24</option>
+                <option value={48}>48</option>
+              </select>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
@@ -199,17 +179,15 @@ const SilentGeneratorsClient: React.FC<SilentGeneratorsClientProps> = ({ searchP
           {totalPages > 1 && (
             <div className="flex justify-center mt-8 gap-2">
               {Array.from({ length: totalPages }, (_, idx) => (
-                <button
+                <a
                   key={idx}
-                  onClick={() => setCurrentPage(idx + 1)}
+                  href={`${pathname}?page=${idx + 1}`}
                   className={`px-3 py-1 border rounded cursor-pointer ${
-                    currentPageClamped === idx + 1
-                      ? "btn-primary shine-effect"
-                      : "btn-third shine-effect"
+                    currentPage === idx + 1 ? "btn-primary shine-effect" : "btn-third shine-effect"
                   }`}
                 >
                   {idx + 1}
-                </button>
+                </a>
               ))}
             </div>
           )}

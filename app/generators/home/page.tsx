@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Reliable home diesel generators for backup power. Keep your household running during outages with BlakShade's quiet, efficient solutions.",
   keywords: "home diesel generators, residential diesel generators, house generators, backup power for homes, home standby generators",
   authors: [{ name: "BlakShade Ltd" }],
-  
+
   robots: "index, follow",
   openGraph: {
     title: "Home Diesel Generators | BlakShade Ltd",
@@ -112,6 +112,7 @@ export const viewport: Viewport = {
 };
 
 interface SearchParams {
+  page?: string;
   frequency?: string;
   fuelType?: string;
   phase?: string;
@@ -119,11 +120,14 @@ interface SearchParams {
 }
 
 export default async function HomeGeneratorsPage({
-  searchParams
+  searchParams,
 }: {
-  searchParams: Promise<SearchParams>
+  searchParams: Promise<SearchParams>;
 }) {
   const resolvedSearchParams = await searchParams;
+
+  // Parse current page from searchParams, default to 1
+  const currentPage = parseInt(resolvedSearchParams.page || "1", 10);
 
   return (
     <>
@@ -131,7 +135,8 @@ export default async function HomeGeneratorsPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
-      <HomeGeneratorsClient searchParams={resolvedSearchParams} />
+      <HomeGeneratorsClient searchParams={{ ...resolvedSearchParams, page: String(currentPage) }}
+      />
     </>
   );
 }

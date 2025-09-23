@@ -1,8 +1,7 @@
 
 import { Metadata, Viewport } from "next";
-import { Suspense } from "react";
-import OpenGeneratorsClient from "./HzGeneratorsClient";
 import Script from "next/script";
+import HzGeneratorsClient from "./HzGeneratorsClient";
 
 export const metadata: Metadata = {
     title: "50Hz Diesel Generators | BlakShade Ltd",
@@ -113,29 +112,31 @@ export const viewport: Viewport = {
 };
 
 interface SearchParams {
-    frequency?: string;
-    fuelType?: string;
-    phase?: string;
-    [key: string]: string | undefined;
+  page?: string;
+  frequency?: string;
+  fuelType?: string;
+  phase?: string;
+  [key: string]: string | undefined;
 }
 
-
-export default async function HzGeneratorsPage({
-    searchParams
+export default async function HzGenerators({
+  searchParams,
 }: {
-    searchParams: Promise<SearchParams>
+  searchParams: Promise<SearchParams>;
 }) {
-    const resolvedSearchParams = await searchParams;
+  const resolvedSearchParams = await searchParams;
 
-    return (
-        <>
-            <Script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
-            />
-            <Suspense fallback={<div>Loading...</div>}>
-                <OpenGeneratorsClient searchParams={resolvedSearchParams} />
-            </Suspense>
-        </>
-    );
+  // Parse current page from searchParams, default to 1
+  const currentPage = parseInt(resolvedSearchParams.page || "1", 10);
+
+  return (
+    <>
+      <Script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
+      <HzGeneratorsClient searchParams={{ ...resolvedSearchParams, page: String(currentPage) }}
+      />
+    </>
+  );
 }
