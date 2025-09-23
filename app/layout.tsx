@@ -1,5 +1,4 @@
 import "./globals.css";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import HeaderMobileNav from "./component/MobileNav";
 import DesktopNav from "./component/DesktopNav";
 import StickyNav from "./component/StickyNav";
@@ -32,14 +31,14 @@ export default function RootLayout({
           `}
         </Script>
 
-        <SpeedInsights />
+
             <DesktopNav />
             <StickyNav />
             <HeaderMobileNav />
             <main className="bg-[var(--background)] mt-4">{children}</main>
             <CallToAction />
             <Footer />
-        <SpeedInsights />
+
       </body>
     </html>
   );

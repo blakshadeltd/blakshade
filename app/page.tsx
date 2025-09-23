@@ -150,7 +150,9 @@ export default function Home() {
 
 
       <Script
+        id="org-schema"
         type="application/ld+json"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
 
