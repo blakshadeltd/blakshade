@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-// app/layout.tsx
-"use client";
->>>>>>> 00aacd49b93cf94a5a7fbd3c8d26a7646676ccfe
 
 import "./globals.css";
 import Script from "next/script";
