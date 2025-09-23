@@ -3,7 +3,7 @@ import { Metadata, Viewport } from "next";
 import CatGeneratorsClient from "./CatGeneratorsClient";
 import Script from "next/script";
 
-export const metadata: Metadata = {
+export let metadata: Metadata = {
   title: "Cat Diesel Generators | BlakShade Ltd",
     description: "Durable Cat diesel generators from BlakShade Ltd. Industrial-grade power solutions from 20kVA to 4000kVA for construction & heavy industry.",
   keywords: "Cat diesel generators, Cat generator sets, Cat standby generators, Cat industrial generators",
@@ -128,7 +128,13 @@ export default async function CatGenerators({
 
   // Parse current page from searchParams, default to 1
   const currentPage = parseInt(resolvedSearchParams.page || "1", 10);
-
+  // Update robots dynamically for page 2+
+  if (currentPage > 1) {
+    metadata = {
+      ...metadata,
+      robots: "noindex, follow",
+    };
+  }
   return (
     <>
       <Script

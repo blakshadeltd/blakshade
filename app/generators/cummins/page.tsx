@@ -5,7 +5,7 @@ import Script from "next/script";
 import { cummins } from "@/data/generators/cummins/cumminsProducts";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export let metadata: Metadata = {
   title: "Cummins Diesel Generators | BlakShade Ltd",
   description: "Cummins diesel generators from BlakShade. Reliable power solutions from 20kVA to 3000kVA for industrial & commercial applications.",
   keywords: "Cummins diesel generators, Cummins generator sets, Cummins standby generators, Cummins industrial generators",
@@ -131,7 +131,13 @@ export default async function CumminsGenerators({
 
   // Parse current page from searchParams, default to 1
   const currentPage = parseInt(resolvedSearchParams.page || "1", 10);
-
+  // Update robots dynamically for page 2+
+  if (currentPage > 1) {
+    metadata = {
+      ...metadata,
+      robots: "noindex, follow",
+    };
+  }
   return (
     <>
       <Script

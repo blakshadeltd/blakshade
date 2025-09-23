@@ -3,7 +3,7 @@ import { Metadata, Viewport } from "next";
 import OpenGeneratorsClient from "./OpenGeneratorsClient";
 import Script from "next/script";
 
-export const metadata: Metadata = {
+export let metadata: Metadata = {
   title: "Open Diesel Generators | BlakShade Ltd",
   description: "Robust open diesel generators for industrial & construction use. High-power solutions from BlakShade built for demanding applications.",
   keywords: "open diesel generators, industrial generators, prime power generators, heavy duty generators",
@@ -127,7 +127,13 @@ export default async function OpenGeneratorsPage({
 
   // Parse current page from searchParams, default to 1
   const currentPage = parseInt(resolvedSearchParams.page || "1", 10);
-
+  // Update robots dynamically for page 2+
+  if (currentPage > 1) {
+    metadata = {
+      ...metadata,
+      robots: "noindex, follow",
+    };
+  }
   return (
     <>
       <Script
