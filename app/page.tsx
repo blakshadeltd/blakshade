@@ -3,6 +3,7 @@ import HowItWorks from "./component/HowItWorks";
 import Link from "next/link";
 import { Metadata, Viewport } from "next";
 import Script from "next/script";
+import Image from "next/image";
 
 
 export const metadata: Metadata = {
@@ -150,7 +151,9 @@ export default function Home() {
 
 
       <Script
+        id="org-schema"
         type="application/ld+json"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
 
@@ -313,7 +316,15 @@ export default function Home() {
 
             {/* Image Box */}
             <div className="w-full lg:w-1/2 flex items-center justify-center mt-8 lg:mt-0">
-              <div className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] bg-[url('/controlpanel.avif')] bg-contain bg-no-repeat bg-center">
+              <div className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px]">
+                <Image
+                  src="/controlpanel.avif"
+                  alt="" // empty alt prevents indexing for SEO purposes
+                  fill // makes the image fill the parent div
+                  style={{ objectFit: "contain", objectPosition: "center" }} // mimics bg-contain + bg-center
+                  loading="lazy" // lazy-load the image
+                  aria-hidden="true" // optional, hides from screen readers
+                />
               </div>
             </div>
           </div>
