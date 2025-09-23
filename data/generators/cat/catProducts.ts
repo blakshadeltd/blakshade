@@ -41,7 +41,7 @@ export const cats: CatProduct[] = [
   "Standby power generator 33 kVA"
 ],
     slug: "de33gc",
-    image: "/generators/cat/22kva-28kva-cummins-silent-diesel-generator.webp",
+    image: "/generators/cat/CAT-DE33-GC.webp",
     fullspec: "/generators/cat/DE33GC.pdf",
     brand: "CAT",
     category: "cat",
