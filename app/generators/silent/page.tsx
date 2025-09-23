@@ -3,7 +3,7 @@ import { Metadata, Viewport } from "next";
 import SilentGeneratorsClient from "./SilentGeneratorsClient";
 import Script from "next/script";
 
-export let metadata: Metadata = {
+export const metadata: Metadata = {
   title: "Silent Diesel Generators | BlakShade Ltd",
   description: "BlakShade's silent diesel generators provide ultra-quiet power for noise-sensitive applications. Perfect for events, hospitals & urban areas.",
   keywords: "silent diesel generators, quiet diesel generators, low noise generators, soundproof generators",
@@ -127,13 +127,7 @@ export default async function SilentGeneratorsPage({
 
   // Parse current page from searchParams, default to 1
   const currentPage = parseInt(resolvedSearchParams.page || "1", 10);
-  // Update robots dynamically for page 2+
-  if (currentPage > 1) {
-    metadata = {
-      ...metadata,
-      robots: "noindex, follow",
-    };
-  }
+
   return (
     <>
       <Script

@@ -3,7 +3,7 @@ import { Metadata, Viewport } from "next";
 import HomeGeneratorsClient from "./HomeGeneratorsClient";
 import Script from "next/script";
 
-export let metadata: Metadata = {
+export const metadata: Metadata = {
   title: "Home Diesel Generators | BlakShade Ltd",
   description: "Reliable home diesel generators for backup power. Keep your household running during outages with BlakShade's quiet, efficient solutions.",
   keywords: "home diesel generators, residential diesel generators, house generators, backup power for homes, home standby generators",
@@ -128,13 +128,7 @@ export default async function HomeGeneratorsPage({
 
   // Parse current page from searchParams, default to 1
   const currentPage = parseInt(resolvedSearchParams.page || "1", 10);
-  // Update robots dynamically for page 2+
-  if (currentPage > 1) {
-    metadata = {
-      ...metadata,
-      robots: "noindex, follow",
-    };
-  }
+
   return (
     <>
       <Script

@@ -3,7 +3,7 @@ import { Metadata, Viewport } from "next";
 import Script from "next/script";
 import HzGeneratorsClient from "./HzGeneratorsClient";
 
-export let metadata: Metadata = {
+export const metadata: Metadata = {
     title: "50Hz Diesel Generators | BlakShade Ltd",
     description: "50Hz diesel generators for global applications. Compliant with international power standards. Reliable solutions from BlakShade Ltd.",
     keywords: "50Hz diesel generators, 50Hz generators, 50Hz generator sets, 50Hz frequency generators",
@@ -128,13 +128,7 @@ export default async function HzGenerators({
 
   // Parse current page from searchParams, default to 1
   const currentPage = parseInt(resolvedSearchParams.page || "1", 10);
-  // Update robots dynamically for page 2+
-  if (currentPage > 1) {
-    metadata = {
-      ...metadata,
-      robots: "noindex, follow",
-    };
-  }
+
   return (
     <>
       <Script
