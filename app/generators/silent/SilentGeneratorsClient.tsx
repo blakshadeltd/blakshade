@@ -105,7 +105,7 @@ const SilentGeneratorsClient: React.FC<SilentGeneratorsClientProps> = ({ searchP
         style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
       >
         <div className="container h-full flex items-end pb-4">
-          <h1 className="text-[var(--background)] text-2xl md:text-4xl">Cummins Generators</h1>
+          <h1 className="text-[var(--background)] text-2xl md:text-4xl">Silent Generators</h1>
         </div>
       </div>
 

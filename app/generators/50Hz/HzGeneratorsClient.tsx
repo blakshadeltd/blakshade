@@ -105,7 +105,7 @@ const HzGeneratorsClient: React.FC<HzGeneratorsClientProps> = ({ searchParams })
         style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
       >
         <div className="container h-full flex items-end pb-4">
-          <h1 className="text-[var(--background)] text-2xl md:text-4xl">Cummins Generators</h1>
+          <h1 className="text-[var(--background)] text-2xl md:text-4xl">50Hz Generators</h1>
         </div>
       </div>
 
