@@ -176,7 +176,7 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
         <div className="container h-full flex items-end pb-4">
           <h1 className="text-[var(--background)] text-2xl md:text-4xl">
             {isBaseGeneratorsPage() ? 'Diesel Generators' : 
-             selectedKvaRating !== "All" ? `${selectedKvaRating} Diesel Generators` : 'Filtered Diesel Generators'}
+             selectedKvaRating !== "All" ? `${selectedKvaRating} Diesel Generators` : 'Diesel Generators'}
           </h1>
         </div>
       </div>
