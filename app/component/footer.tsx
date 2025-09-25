@@ -75,9 +75,9 @@ export default function Footer() {
             <div className="space-y-2">
               {Object.entries(menuData.Generators).map(([category, items]) => (
                 <div key={category} className="mb-3">
-                  <h5 className="font-medium text-[var(--foreground,#2b2926)] mb-1 text-sm uppercase tracking-wider">{category}</h5>
+                  <h5 className="text-[var(--foreground,#2b2926)] mb-1 text-sm uppercase tracking-wider">{category}</h5>
                   <ul className="space-y-1">
-                    {items.slice(0, 3).map((item) => (
+                    {items.slice(0, 5).map((item) => (
                       <li key={item.name}>
                         <Link
                           href={item.href}
@@ -163,7 +163,7 @@ export default function Footer() {
             <div className="mt-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center px-4 py-2 bg-[var(--foreground)] text-[var(--background)] rounded-[10px] hover:rounded-[15px] transition-all duration-300 shine-effect font-medium text-sm"
+                className="inline-flex items-center px-4 py-2 bg-[var(--foreground)] text-[var(--background)] rounded-[10px] hover:rounded-[15px] transition-all duration-300 shine-effect text-sm"
               >
                 Get a Quote
                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
