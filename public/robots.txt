@@ -6,7 +6,7 @@ Disallow: /_next/
 Disallow: /private/
 Disallow: /api/
 Disallow: /search/
-
+Disallow: /generators?kvaRating=
 
 # Sitemap location
 Sitemap: https://blakshade.com/sitemap.xml
