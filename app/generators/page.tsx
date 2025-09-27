@@ -11,12 +11,12 @@ interface SearchParams {
   [key: string]: string | undefined;
 }
 
-// Base metadata (page 1 default)
 export let metadata: Metadata = {
   title: "Diesel Generators | BlakShade Ltd",
   description:
     "Reliable diesel generators for businesses, disaster relief & remote industries. Customizable power solutions from BlakShade Ltd.",
-  keywords: "diesel generators, backup generators, industrial generators, commercial generators",
+  keywords:
+    "diesel generators, backup generators, industrial generators, commercial generators",
   authors: [{ name: "BlakShade Ltd" }],
   robots: "index, follow",
   openGraph: {
@@ -37,7 +37,7 @@ export let metadata: Metadata = {
       "Reliable diesel generators for businesses, disaster relief & remote industries. Customizable power solutions from BlakShade Ltd.",
   },
   alternates: {
-    canonical: "https://blakshade.com/generators",
+    canonical: "https://blakshade.com/generators", // Always point pagination back to main page
   },
 };
 
