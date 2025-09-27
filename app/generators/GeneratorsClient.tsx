@@ -71,7 +71,7 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
     } else {
       setSelectedKvaRating(decodeKvaRating(currentKvaRating));
     }
-    
+
     // Update other filters from URL
     setSelectedBrand(searchParams.brand || "All");
     setSelectedEmission(searchParams.emission || "All");
@@ -129,7 +129,7 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
   // Function to build URL with all current parameters
   const buildPageUrl = (page: number) => {
     const params = new URLSearchParams();
-    
+
     // Add all existing search parameters except page
     if (searchParams.brand && searchParams.brand !== "All") params.set('brand', searchParams.brand);
     if (searchParams.emission && searchParams.emission !== "All") params.set('emission', searchParams.emission);
@@ -138,23 +138,23 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
     if (searchParams.phase && searchParams.phase !== "All") params.set('phase', searchParams.phase.replace(' Phase', ''));
     if (searchParams.buildType && searchParams.buildType !== "All") params.set('buildType', searchParams.buildType);
     if (searchParams.kvaRating && searchParams.kvaRating !== "All") params.set('kvaRating', searchParams.kvaRating);
-    
+
     // Add page number
     if (page > 1) params.set('page', page.toString());
-    
+
     const queryString = params.toString();
     return queryString ? `${pathname}?${queryString}` : pathname;
   };
 
   // Function to check if we're on the base generators page (no filters)
   const isBaseGeneratorsPage = () => {
-    return !currentKvaRating && 
-           !searchParams.brand && 
-           !searchParams.emission && 
-           !searchParams.frequency && 
-           (!searchParams.fuelType || searchParams.fuelType === "Diesel") && 
-           !searchParams.phase && 
-           !searchParams.buildType;
+    return !currentKvaRating &&
+      !searchParams.brand &&
+      !searchParams.emission &&
+      !searchParams.frequency &&
+      (!searchParams.fuelType || searchParams.fuelType === "Diesel") &&
+      !searchParams.phase &&
+      !searchParams.buildType;
   };
 
   const totalItems = filteredAll.length;
@@ -168,7 +168,7 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
   };
 
   return (
-    
+
     <section>
       <div
         className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden"
@@ -176,8 +176,8 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
       >
         <div className="container h-full flex items-end pb-4">
           <h1 className="text-[var(--background)] text-2xl md:text-4xl">
-            {isBaseGeneratorsPage() ? 'Diesel Generators' : 
-             selectedKvaRating !== "All" ? `${selectedKvaRating} Diesel Generators` : 'Diesel Generators'}
+            {isBaseGeneratorsPage() ? 'Diesel Generators' :
+              selectedKvaRating !== "All" ? `${selectedKvaRating} Diesel Generators` : 'Diesel Generators'}
           </h1>
         </div>
       </div>
@@ -259,18 +259,14 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
                 <a
                   key={idx}
                   href={buildPageUrl(idx + 1)}
-                  rel={
-                    idx + 1 === currentPage - 1
-                      ? "prev"
-                      : idx + 1 === currentPage + 1
-                        ? "next"
-                        : undefined
-                  }
-                  className={`px-3 py-1 border rounded cursor-pointer ${currentPage === idx + 1 ? "btn-primary shine-effect" : "btn-third shine-effect"
+                  className={`px-3 py-1 border rounded cursor-pointer ${currentPage === idx + 1
+                      ? "btn-primary shine-effect"
+                      : "btn-third shine-effect"
                     }`}
                 >
                   {idx + 1}
                 </a>
+
               ))}
             </div>
           )}
