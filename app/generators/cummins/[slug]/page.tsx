@@ -1,5 +1,4 @@
 import { use } from "react";
-import Image from "next/image";
 import SpecItem from "@/app/component/SpecItem";
 import { notFound } from "next/navigation";
 import { CumminsProduct, cummins } from "@/data/generators/cummins/cumminsProducts";
@@ -18,10 +17,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         title: product.metaTitle,
         description: product.metaDescription,
         keywords: product.keywords,
+        alternates: {
+            canonical: `https://blakshade.com/generators/cummins/${product.slug}`, // Always point pagination back to main page
+        },
         openGraph: {
             title: product.metaTitle,
             description: product.metaDescription,
-            url: `https://blakshade.com/generators/${product.slug}`,
+            url: `https://blakshade.com/generators/cummins/${product.slug}`,
             siteName: "BlakShade Ltd",
             images: [
                 {

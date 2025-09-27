@@ -37,7 +37,7 @@ export let metadata: Metadata = {
       "Reliable diesel generators for businesses, disaster relief & remote industries. Customizable power solutions from BlakShade Ltd.",
   },
   alternates: {
-    canonical: "https://blakshade.com/generators", // Always point pagination back to main page
+    canonical: "https://blakshade.com/generators",
   },
 };
 
@@ -126,14 +126,6 @@ export default async function GeneratorsPage({
 
   // Parse current page from searchParams, default to 1
   const currentPage = parseInt(resolvedSearchParams.page || "1", 10);
-
-  // Update robots dynamically for page 2+
-  if (currentPage > 1) {
-    metadata = {
-      ...metadata,
-      robots: "noindex, follow",
-    };
-  }
 
   return (
     <>
