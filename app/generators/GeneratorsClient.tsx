@@ -31,7 +31,6 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
   // Function to decode URL parameter values
   const decodeKvaRating = (rating: string): string => {
     const decoded = decodeURIComponent(rating);
-    // Handle the special case for 1000+ kVA
     if (decoded.includes('1000+') || decoded.includes('1000%2B')) {
       return '1000+ kVA';
     }
@@ -40,6 +39,10 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
 
   // Get current kvaRating from URL search params
   const currentKvaRating = searchParamsObj?.get('kvaRating');
+
+  // Get current page from URL or default to 1
+  const currentPageFromUrl = parseInt(searchParamsObj?.get('page') || "1", 10);
+  const [currentPage, setCurrentPage] = useState<number>(currentPageFromUrl);
 
   // Initialize states from URL params or defaults
   const [selectedBrand, setSelectedBrand] = useState<string>(searchParams.brand || "All");
@@ -57,14 +60,16 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
   const [sortOrder, setSortOrder] = useState<string>("asc");
   const [itemsPerPage, setItemsPerPage] = useState<number>(16);
 
-  const currentPage = parseInt(searchParams.page || "1", 10);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [currentPage]);
 
   // Update all states when URL parameters change
   useEffect(() => {
+    // Update current page from URL
+    const newPage = parseInt(searchParamsObj?.get('page') || "1", 10);
+    setCurrentPage(newPage);
+
     // Reset kvaRating if not in URL
     if (!currentKvaRating) {
       setSelectedKvaRating("All");
@@ -79,7 +84,7 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
     setSelectedFuelType(searchParams.fuelType || "Diesel");
     setSelectedPhase(searchParams.phase ? `${searchParams.phase} Phase` : "All");
     setSelectedBuildType(searchParams.buildType || "All");
-  }, [currentKvaRating, searchParams]);
+  }, [currentKvaRating, searchParams, searchParamsObj]);
 
   const allGenerators = useMemo(() => [...cummins, ...cats], []);
 
@@ -130,7 +135,7 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
   const buildPageUrl = (page: number) => {
     const params = new URLSearchParams();
 
-    // Add all existing search parameters except page
+    // Add all existing search parameters
     if (searchParams.brand && searchParams.brand !== "All") params.set('brand', searchParams.brand);
     if (searchParams.emission && searchParams.emission !== "All") params.set('emission', searchParams.emission);
     if (searchParams.frequency && searchParams.frequency !== "All") params.set('frequency', searchParams.frequency);
@@ -139,7 +144,7 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
     if (searchParams.buildType && searchParams.buildType !== "All") params.set('buildType', searchParams.buildType);
     if (searchParams.kvaRating && searchParams.kvaRating !== "All") params.set('kvaRating', searchParams.kvaRating);
 
-    // Add page number
+    // Add page number (except for page 1)
     if (page > 1) params.set('page', page.toString());
 
     const queryString = params.toString();
@@ -165,11 +170,13 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
 
   const handleItemsPerPageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setItemsPerPage(Number(e.target.value));
+    // Reset to page 1 when changing items per page
+    setCurrentPage(1);
   };
 
   return (
-
     <section>
+      {/* ... rest of your JSX remains exactly the same ... */}
       <div
         className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden"
         style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
@@ -266,7 +273,6 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
                 >
                   {idx + 1}
                 </a>
-
               ))}
             </div>
           )}
