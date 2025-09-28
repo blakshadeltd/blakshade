@@ -5,27 +5,26 @@ import Script from "next/script";
 
 export let metadata: Metadata = {
   title: "Cat Diesel Generators | BlakShade Ltd",
-    description: "Durable Cat diesel generators from BlakShade Ltd. Industrial-grade power solutions from 20kVA to 4000kVA for construction & heavy industry.",
+  description: "Durable Cat diesel generators from BlakShade Ltd. Industrial-grade power solutions from 20kVA to 4000kVA for construction & heavy industry.",
   keywords: "Cat diesel generators, Cat generator sets, Cat standby generators, Cat industrial generators",
   authors: [{ name: "BlakShade Ltd" }],
   
   robots: "index, follow",
   openGraph: {
     title: "Cat Diesel Generators | BlakShade Ltd",
-      description: "Durable Cat diesel generators from BlakShade Ltd. Industrial-grade power solutions from 20kVA to 4000kVA for construction & heavy industry.",
+    description: "Durable Cat diesel generators from BlakShade Ltd. Industrial-grade power solutions from 20kVA to 4000kVA for construction & heavy industry.",
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
-    url: "https://blakshade.com/generators/cat", // Add specific URL
+    url: "https://blakshade.com/generators/cat",
   },
   twitter: {
     card: "summary_large_image",
     site: "@BlakShade_Ltd",
     creator: "@BlakShade_Ltd",
-    title: "Cat Diesel Generators | BlakShade Ltd", // More specific title
-      description: "Durable Cat diesel generators from BlakShade Ltd. Industrial-grade power solutions from 20kVA to 4000kVA for construction & heavy industry.", // More specific description
+    title: "Cat Diesel Generators | BlakShade Ltd",
+    description: "Durable Cat diesel generators from BlakShade Ltd. Industrial-grade power solutions from 20kVA to 4000kVA for construction & heavy industry.",
   },
-  // Add canonical URL
   alternates: {
     canonical: "https://blakshade.com/generators/cat",
   }
@@ -40,7 +39,7 @@ const orgSchema = {
       name: "BlakShade Ltd",
       alternateName: "BlakShade",
       url: "https://blakshade.com/",
-      logo: "https://blakshade.com/BlakShade-Ltd-logo-01.jpg", // Replace with actual logo URL
+      logo: "https://blakshade.com/BlakShade-Ltd-logo-01.jpg",
       contactPoint: [
         {
           "@type": "ContactPoint",
@@ -59,13 +58,13 @@ const orgSchema = {
       ],
     },
     {
-      "@type": "CollectionPage", // More appropriate than Article for a category page
+      "@type": "CollectionPage",
       mainEntityOfPage: {
         "@type": "WebPage",
         "@id": "https://blakshade.com/generators/cat"
       },
       name: "Cat Diesel Generators",
-        description: "Durable Cat diesel generators from BlakShade Ltd. Industrial-grade power solutions from 20kVA to 4000kVA for construction & heavy industry.",
+      description: "Durable Cat diesel generators from BlakShade Ltd. Industrial-grade power solutions from 20kVA to 4000kVA for construction & heavy industry.",
       author: {
         "@type": "Organization",
         name: "BlakShade Ltd"
@@ -79,7 +78,7 @@ const orgSchema = {
         }
       },
       datePublished: "2021-10-11",
-      dateModified: new Date().toISOString().split('T')[0] // Dynamic date
+      dateModified: new Date().toISOString().split('T')[0]
     },
     {
       "@type": "BreadcrumbList",
@@ -106,13 +105,13 @@ const orgSchema = {
     },
   ],
 };
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1.0,
 };
 
 interface SearchParams {
-  page?: string;
   frequency?: string;
   fuelType?: string;
   phase?: string;
@@ -126,23 +125,13 @@ export default async function CatGenerators({
 }) {
   const resolvedSearchParams = await searchParams;
 
-  // Parse current page from searchParams, default to 1
-  const currentPage = parseInt(resolvedSearchParams.page || "1", 10);
-  // Update robots dynamically for page 2+
-  if (currentPage > 1) {
-    metadata = {
-      ...metadata,
-      robots: "noindex, follow",
-    };
-  }
   return (
     <>
       <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
-      <CatGeneratorsClient searchParams={{ ...resolvedSearchParams, page: String(currentPage) }}
-      />
+      <CatGeneratorsClient searchParams={resolvedSearchParams} />
     </>
   );
 }

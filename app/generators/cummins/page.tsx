@@ -1,9 +1,7 @@
-// app/generators/Cummins/page.tsx
+
 import { Metadata, Viewport } from "next";
 import CumminsGeneratorsClient from "./CumminsGeneratorsClient";
 import Script from "next/script";
-import { cummins } from "@/data/generators/cummins/cumminsProducts";
-import Link from "next/link";
 
 export let metadata: Metadata = {
   title: "Cummins Diesel Generators | BlakShade Ltd",
@@ -18,16 +16,15 @@ export let metadata: Metadata = {
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
-    url: "https://blakshade.com/generators/cummins", // Add specific URL
+    url: "https://blakshade.com/generators/cummins",
   },
   twitter: {
     card: "summary_large_image",
     site: "@BlakShade_Ltd",
     creator: "@BlakShade_Ltd",
-    title: "Cummins Diesel Generators | BlakShade Ltd", // More specific title
-    description: "Cummins diesel generators from BlakShade. Reliable power solutions from 20kVA to 3000kVA for industrial & commercial applications.", // More specific description
+    title: "Cummins Diesel Generators | BlakShade Ltd",
+    description: "Cummins diesel generators from BlakShade. Reliable power solutions from 20kVA to 3000kVA for industrial & commercial applications.",
   },
-  // Add canonical URL
   alternates: {
     canonical: "https://blakshade.com/generators/cummins",
   }
@@ -42,7 +39,7 @@ const orgSchema = {
       name: "BlakShade Ltd",
       alternateName: "BlakShade",
       url: "https://blakshade.com/",
-      logo: "https://blakshade.com/BlakShade-Ltd-logo-01.jpg", // Replace with actual logo URL
+      logo: "https://blakshade.com/BlakShade-Ltd-logo-01.jpg",
       contactPoint: [
         {
           "@type": "ContactPoint",
@@ -61,7 +58,7 @@ const orgSchema = {
       ],
     },
     {
-      "@type": "CollectionPage", // More appropriate than Article for a category page
+      "@type": "CollectionPage",
       mainEntityOfPage: {
         "@type": "WebPage",
         "@id": "https://blakshade.com/generators/cummins"
@@ -81,7 +78,7 @@ const orgSchema = {
         }
       },
       datePublished: "2021-10-11",
-      dateModified: new Date().toISOString().split('T')[0] // Dynamic date
+      dateModified: new Date().toISOString().split('T')[0]
     },
     {
       "@type": "BreadcrumbList",
@@ -115,7 +112,6 @@ export const viewport: Viewport = {
 };
 
 interface SearchParams {
-  page?: string;
   frequency?: string;
   fuelType?: string;
   phase?: string;
@@ -129,23 +125,13 @@ export default async function CumminsGenerators({
 }) {
   const resolvedSearchParams = await searchParams;
 
-  // Parse current page from searchParams, default to 1
-  const currentPage = parseInt(resolvedSearchParams.page || "1", 10);
-  // Update robots dynamically for page 2+
-  if (currentPage > 1) {
-    metadata = {
-      ...metadata,
-      robots: "noindex, follow",
-    };
-  }
   return (
     <>
       <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
-      <CumminsGeneratorsClient searchParams={{ ...resolvedSearchParams, page: String(currentPage) }}
-      />
+      <CumminsGeneratorsClient searchParams={resolvedSearchParams} />
     </>
   );
 }

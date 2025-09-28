@@ -6,10 +6,9 @@ import GeneratorsCard from "@/app/generators/GeneratorsCard";
 import GeneratorsSidebar from "@/app/component/GeneratorsSidebar";
 import { cummins } from "@/data/generators/cummins/cumminsProducts";
 import { cats } from "@/data/generators/cat/catProducts";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 interface SearchParams {
-  page?: string;
   frequency?: string;
   fuelType?: string;
   phase?: string;
@@ -25,12 +24,12 @@ interface GeneratorsClientProps {
 }
 
 const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => {
-  const pathname = usePathname();
   const searchParamsObj = useSearchParams();
 
   // Function to decode URL parameter values
   const decodeKvaRating = (rating: string): string => {
     const decoded = decodeURIComponent(rating);
+    // Handle the special case for 1000+ kVA
     if (decoded.includes('1000+') || decoded.includes('1000%2B')) {
       return '1000+ kVA';
     }
@@ -39,10 +38,6 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
 
   // Get current kvaRating from URL search params
   const currentKvaRating = searchParamsObj?.get('kvaRating');
-
-  // Get current page from URL or default to 1
-  const currentPageFromUrl = parseInt(searchParamsObj?.get('page') || "1", 10);
-  const [currentPage, setCurrentPage] = useState<number>(currentPageFromUrl);
 
   // Initialize states from URL params or defaults
   const [selectedBrand, setSelectedBrand] = useState<string>(searchParams.brand || "All");
@@ -58,25 +53,16 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
   );
   const [showFilters, setShowFilters] = useState<boolean>(false);
   const [sortOrder, setSortOrder] = useState<string>("asc");
-  const [itemsPerPage, setItemsPerPage] = useState<number>(16);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [currentPage]);
 
   // Update all states when URL parameters change
   useEffect(() => {
-    // Update current page from URL
-    const newPage = parseInt(searchParamsObj?.get('page') || "1", 10);
-    setCurrentPage(newPage);
-
     // Reset kvaRating if not in URL
     if (!currentKvaRating) {
       setSelectedKvaRating("All");
     } else {
       setSelectedKvaRating(decodeKvaRating(currentKvaRating));
     }
-
+    
     // Update other filters from URL
     setSelectedBrand(searchParams.brand || "All");
     setSelectedEmission(searchParams.emission || "All");
@@ -84,7 +70,7 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
     setSelectedFuelType(searchParams.fuelType || "Diesel");
     setSelectedPhase(searchParams.phase ? `${searchParams.phase} Phase` : "All");
     setSelectedBuildType(searchParams.buildType || "All");
-  }, [currentKvaRating, searchParams, searchParamsObj]);
+  }, [currentKvaRating, searchParams]);
 
   const allGenerators = useMemo(() => [...cummins, ...cats], []);
 
@@ -131,60 +117,29 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
     selectedKvaRating,
   ]);
 
-  // Function to build URL with all current parameters
-  const buildPageUrl = (page: number) => {
-    const params = new URLSearchParams();
-
-    // Add all existing search parameters
-    if (searchParams.brand && searchParams.brand !== "All") params.set('brand', searchParams.brand);
-    if (searchParams.emission && searchParams.emission !== "All") params.set('emission', searchParams.emission);
-    if (searchParams.frequency && searchParams.frequency !== "All") params.set('frequency', searchParams.frequency);
-    if (searchParams.fuelType && searchParams.fuelType !== "Diesel") params.set('fuelType', searchParams.fuelType);
-    if (searchParams.phase && searchParams.phase !== "All") params.set('phase', searchParams.phase.replace(' Phase', ''));
-    if (searchParams.buildType && searchParams.buildType !== "All") params.set('buildType', searchParams.buildType);
-    if (searchParams.kvaRating && searchParams.kvaRating !== "All") params.set('kvaRating', searchParams.kvaRating);
-
-    // Add page number (except for page 1)
-    if (page > 1) params.set('page', page.toString());
-
-    const queryString = params.toString();
-    return queryString ? `${pathname}?${queryString}` : pathname;
-  };
-
   // Function to check if we're on the base generators page (no filters)
   const isBaseGeneratorsPage = () => {
-    return !currentKvaRating &&
-      !searchParams.brand &&
-      !searchParams.emission &&
-      !searchParams.frequency &&
-      (!searchParams.fuelType || searchParams.fuelType === "Diesel") &&
-      !searchParams.phase &&
-      !searchParams.buildType;
+    return !currentKvaRating && 
+           !searchParams.brand && 
+           !searchParams.emission && 
+           !searchParams.frequency && 
+           (!searchParams.fuelType || searchParams.fuelType === "Diesel") && 
+           !searchParams.phase && 
+           !searchParams.buildType;
   };
 
   const totalItems = filteredAll.length;
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
-  const startIdx = (currentPage - 1) * itemsPerPage;
-  const endIdx = Math.min(startIdx + itemsPerPage, totalItems);
-  const paginatedProducts = filteredAll.slice(startIdx, endIdx);
-
-  const handleItemsPerPageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setItemsPerPage(Number(e.target.value));
-    // Reset to page 1 when changing items per page
-    setCurrentPage(1);
-  };
 
   return (
     <section>
-      {/* ... rest of your JSX remains exactly the same ... */}
       <div
         className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden"
         style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
       >
         <div className="container h-full flex items-end pb-4">
           <h1 className="text-[var(--background)] text-2xl md:text-4xl">
-            {isBaseGeneratorsPage() ? 'Diesel Generators' :
-              selectedKvaRating !== "All" ? `${selectedKvaRating} Diesel Generators` : 'Diesel Generators'}
+            {isBaseGeneratorsPage() ? 'Diesel Generators' : 
+             selectedKvaRating !== "All" ? `${selectedKvaRating} Diesel Generators` : 'Diesel Generators'}
           </h1>
         </div>
       </div>
@@ -220,9 +175,7 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
         <main className="w-full lg:w-3/4">
           <div className="flex flex-col md:flex-row items-center justify-between mb-6 gap-4">
             <div className="text-gray-600">
-              Showing{" "}
-              <span>{itemsPerPage === Infinity ? 1 : startIdx + 1}</span> -{" "}
-              <span>{itemsPerPage === Infinity ? totalItems : endIdx}</span> of <span>{totalItems}</span>
+              Showing all <span>{totalItems}</span> products
               {selectedKvaRating !== "All" && (
                 <span> for <strong>{selectedKvaRating}</strong></span>
               )}
@@ -239,41 +192,18 @@ const GeneratorsClient: React.FC<GeneratorsClientProps> = ({ searchParams }) => 
                 <option value="asc">Low to High</option>
                 <option value="desc">High to Low</option>
               </select>
-
-              <label htmlFor="itemsPerPage" className="ml-4">Items per page:</label>
-              <select
-                id="itemsPerPage"
-                value={itemsPerPage}
-                onChange={handleItemsPerPageChange}
-                className="border rounded px-2 py-1 cursor-pointer"
-              >
-                <option value={16}>16</option>
-                <option value={24}>24</option>
-                <option value={48}>48</option>
-              </select>
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
-            {paginatedProducts.map((product) => (
+            {filteredAll.map((product) => (
               <GeneratorsCard key={product.slug} product={product} />
             ))}
           </div>
 
-          {totalPages > 1 && (
-            <div className="flex justify-center mt-8 gap-2">
-              {Array.from({ length: totalPages }, (_, idx) => (
-                <a
-                  key={idx}
-                  href={buildPageUrl(idx + 1)}
-                  className={`px-3 py-1 border rounded cursor-pointer ${currentPage === idx + 1
-                      ? "btn-primary shine-effect"
-                      : "btn-third shine-effect"
-                    }`}
-                >
-                  {idx + 1}
-                </a>
-              ))}
+          {filteredAll.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-lg text-gray-600">No products found matching your filters.</p>
             </div>
           )}
         </main>

@@ -15,16 +15,15 @@ export let metadata: Metadata = {
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
-    url: "https://blakshade.com/generators/silent", // Add specific URL
+    url: "https://blakshade.com/generators/silent",
   },
   twitter: {
     card: "summary_large_image",
     site: "@BlakShade_Ltd",
     creator: "@BlakShade_Ltd",
-    title: "Silent Diesel Generators | BlakShade Ltd", // More specific title
-    description: "BlakShade's silent diesel generators provide ultra-quiet power for noise-sensitive applications. Perfect for events, hospitals & urban areas.", // More specific description
+    title: "Silent Diesel Generators | BlakShade Ltd",
+    description: "BlakShade's silent diesel generators provide ultra-quiet power for noise-sensitive applications. Perfect for events, hospitals & urban areas.",
   },
-  // Add canonical URL
   alternates: {
     canonical: "https://blakshade.com/generators/silent",
   }
@@ -39,7 +38,7 @@ const orgSchema = {
       name: "BlakShade Ltd",
       alternateName: "BlakShade",
       url: "https://blakshade.com/",
-      logo: "https://blakshade.com/BlakShade-Ltd-logo-01.jpg", // Replace with actual logo URL
+      logo: "https://blakshade.com/BlakShade-Ltd-logo-01.jpg",
       contactPoint: [
         {
           "@type": "ContactPoint",
@@ -58,7 +57,7 @@ const orgSchema = {
       ],
     },
     {
-      "@type": "CollectionPage", // More appropriate than Article for a category page
+      "@type": "CollectionPage",
       mainEntityOfPage: {
         "@type": "WebPage",
         "@id": "https://blakshade.com/generators/silent"
@@ -78,7 +77,7 @@ const orgSchema = {
         }
       },
       datePublished: "2021-10-11",
-      dateModified: new Date().toISOString().split('T')[0] // Dynamic date
+      dateModified: new Date().toISOString().split('T')[0]
     },
     {
       "@type": "BreadcrumbList",
@@ -105,13 +104,13 @@ const orgSchema = {
     },
   ],
 };
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1.0,
 };
 
 interface SearchParams {
-  page?: string;
   frequency?: string;
   fuelType?: string;
   phase?: string;
@@ -125,23 +124,13 @@ export default async function SilentGeneratorsPage({
 }) {
   const resolvedSearchParams = await searchParams;
 
-  // Parse current page from searchParams, default to 1
-  const currentPage = parseInt(resolvedSearchParams.page || "1", 10);
-  // Update robots dynamically for page 2+
-  if (currentPage > 1) {
-    metadata = {
-      ...metadata,
-      robots: "noindex, follow",
-    };
-  }
   return (
     <>
       <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
-      <SilentGeneratorsClient searchParams={{ ...resolvedSearchParams, page: String(currentPage) }}
-      />
+      <SilentGeneratorsClient searchParams={resolvedSearchParams} />
     </>
   );
 }

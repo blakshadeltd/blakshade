@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { usePathname } from "next/navigation";
 import { FaSlidersH } from "react-icons/fa";
 import GeneratorsCard from "@/app/generators/GeneratorsCard";
@@ -8,7 +8,6 @@ import GeneratorsSidebar from "@/app/component/GeneratorsSidebar";
 import { cummins } from "@/data/generators/cummins/cumminsProducts";
 
 interface SearchParams {
-  page?: string;
   frequency?: string;
   fuelType?: string;
   phase?: string;
@@ -34,13 +33,6 @@ const CumminsGeneratorsClient: React.FC<CumminsGeneratorsClientProps> = ({ searc
   const [selectedKvaRating, setSelectedKvaRating] = useState<string>(searchParams.kvaRating || "All");
   const [showFilters, setShowFilters] = useState<boolean>(false);
   const [sortOrder, setSortOrder] = useState<string>("asc");
-  const [itemsPerPage, setItemsPerPage] = useState<number>(16);
-
-  const currentPage = parseInt(searchParams.page || "1", 10);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [currentPage]);
 
   const allGenerators = useMemo(() => [...cummins], []);
 
@@ -88,14 +80,6 @@ const CumminsGeneratorsClient: React.FC<CumminsGeneratorsClientProps> = ({ searc
   ]);
 
   const totalItems = filteredAll.length;
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
-  const startIdx = (currentPage - 1) * itemsPerPage;
-  const endIdx = Math.min(startIdx + itemsPerPage, totalItems);
-  const paginatedProducts = filteredAll.slice(startIdx, endIdx);
-
-  const handleItemsPerPageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setItemsPerPage(Number(e.target.value));
-  };
 
   return (
     <section>
@@ -139,9 +123,7 @@ const CumminsGeneratorsClient: React.FC<CumminsGeneratorsClientProps> = ({ searc
         <main className="w-full lg:w-3/4">
           <div className="flex flex-col md:flex-row items-center justify-between mb-6 gap-4">
             <div className="text-gray-600">
-              Showing{" "}
-              <span>{itemsPerPage === Infinity ? 1 : startIdx + 1}</span> -{" "}
-              <span>{itemsPerPage === Infinity ? totalItems : endIdx}</span> of <span>{totalItems}</span>
+              Showing all <span>{totalItems}</span> Cummins generators
             </div>
 
             <div className="flex items-center gap-4">
@@ -155,45 +137,18 @@ const CumminsGeneratorsClient: React.FC<CumminsGeneratorsClientProps> = ({ searc
                 <option value="asc">Low to High</option>
                 <option value="desc">High to Low</option>
               </select>
-
-              <label htmlFor="itemsPerPage" className="ml-4">Items per page:</label>
-              <select
-                id="itemsPerPage"
-                onChange={handleItemsPerPageChange}
-                className="border rounded px-2 py-1 cursor-pointer"
-              >
-                <option value={16}>16</option>
-                <option value={24}>24</option>
-                <option value={48}>48</option>
-              </select>
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
-            {paginatedProducts.map((product) => (
+            {filteredAll.map((product) => (
               <GeneratorsCard key={product.slug} product={product} />
             ))}
           </div>
 
-          {totalPages > 1 && (
-            <div className="flex justify-center mt-8 gap-2">
-              {Array.from({ length: totalPages }, (_, idx) => (
-                <a
-                  key={idx}
-                  href={`${pathname}?page=${idx + 1}`}
-                  rel={
-                    idx + 1 === currentPage - 1
-                      ? "prev"
-                      : idx + 1 === currentPage + 1
-                        ? "next"
-                        : undefined
-                  }
-                  className={`px-3 py-1 border rounded cursor-pointer ${currentPage === idx + 1 ? "btn-primary shine-effect" : "btn-third shine-effect"
-                    }`}
-                >
-                  {idx + 1}
-                </a>
-              ))}
+          {filteredAll.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-lg text-gray-600">No Cummins generators found matching your filters.</p>
             </div>
           )}
         </main>

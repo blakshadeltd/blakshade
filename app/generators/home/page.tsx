@@ -16,16 +16,15 @@ export let metadata: Metadata = {
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
-    url: "https://blakshade.com/generators/home", // Add specific URL
+    url: "https://blakshade.com/generators/home",
   },
   twitter: {
     card: "summary_large_image",
     site: "@BlakShade_Ltd",
     creator: "@BlakShade_Ltd",
-    title: "Home Diesel Generators | BlakShade Ltd", // More specific title
-    description: "Reliable home diesel generators for backup power. Keep your household running during outages with BlakShade's quiet, efficient solutions.", // More specific description
+    title: "Home Diesel Generators | BlakShade Ltd",
+    description: "Reliable home diesel generators for backup power. Keep your household running during outages with BlakShade's quiet, efficient solutions.",
   },
-  // Add canonical URL
   alternates: {
     canonical: "https://blakshade.com/generators/home",
   }
@@ -40,7 +39,7 @@ const orgSchema = {
       name: "BlakShade Ltd",
       alternateName: "BlakShade",
       url: "https://blakshade.com/",
-      logo: "https://blakshade.com/BlakShade-Ltd-logo-01.jpg", // Replace with actual logo URL
+      logo: "https://blakshade.com/BlakShade-Ltd-logo-01.jpg",
       contactPoint: [
         {
           "@type": "ContactPoint",
@@ -59,7 +58,7 @@ const orgSchema = {
       ],
     },
     {
-      "@type": "CollectionPage", // More appropriate than Article for a category page
+      "@type": "CollectionPage",
       mainEntityOfPage: {
         "@type": "WebPage",
         "@id": "https://blakshade.com/generators/home"
@@ -79,7 +78,7 @@ const orgSchema = {
         }
       },
       datePublished: "2021-10-11",
-      dateModified: new Date().toISOString().split('T')[0] // Dynamic date
+      dateModified: new Date().toISOString().split('T')[0]
     },
     {
       "@type": "BreadcrumbList",
@@ -106,13 +105,13 @@ const orgSchema = {
     },
   ],
 };
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1.0,
 };
 
 interface SearchParams {
-  page?: string;
   frequency?: string;
   fuelType?: string;
   phase?: string;
@@ -126,23 +125,13 @@ export default async function HomeGeneratorsPage({
 }) {
   const resolvedSearchParams = await searchParams;
 
-  // Parse current page from searchParams, default to 1
-  const currentPage = parseInt(resolvedSearchParams.page || "1", 10);
-  // Update robots dynamically for page 2+
-  if (currentPage > 1) {
-    metadata = {
-      ...metadata,
-      robots: "noindex, follow",
-    };
-  }
   return (
     <>
       <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
-      <HomeGeneratorsClient searchParams={{ ...resolvedSearchParams, page: String(currentPage) }}
-      />
+      <HomeGeneratorsClient searchParams={resolvedSearchParams} />
     </>
   );
 }
