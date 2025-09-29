@@ -5,7 +5,6 @@ import { CumminsProduct, cummins } from "@/data/generators/cummins/cumminsProduc
 import type { Metadata } from "next";
 import ProductPageClient from "./ProductPageClient";
 import Link from "next/link";
-import Head from "next/head";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const resolvedParams = await params;
@@ -136,12 +135,12 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
 
     return (
         <>
-      <Head>
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
-      </Head>
+
 
 
             {/* Main Page UI */}
