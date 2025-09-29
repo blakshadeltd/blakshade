@@ -315,17 +315,8 @@ export default function Home() {
             </div>
 
             {/* Image Box */}
-            <div className="w-full lg:w-1/2 flex items-center justify-center mt-8 lg:mt-0">
-              <div className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px]">
-                <Image
-                  src="/controlpanel.avif"
-                  alt="" // empty alt prevents indexing for SEO purposes
-                  fill // makes the image fill the parent div
-                  style={{ objectFit: "contain", objectPosition: "center" }} // mimics bg-contain + bg-center
-                  loading="lazy" // lazy-load the image
-                  aria-hidden="true" // optional, hides from screen readers
-                />
-              </div>
+            <div className="w-full lg:w-1/2 flex items-center justify-center">
+              <div className="w-full h-[300px] sm:h-[400px] bg-[url('/controlpanel1.png')] bg-contain bg-no-repeat bg-center"></div>
             </div>
           </div>
         </section>
