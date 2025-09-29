@@ -1,6 +1,5 @@
 import { Metadata, Viewport } from 'next';
 import ContactForm from './ContactForm';
-import Script from 'next/script';
 
 export const metadata: Metadata = {
     title: "Contact Us | BlakShade Ltd",
@@ -106,7 +105,7 @@ export const viewport: Viewport = {
 export default function ContactPage() {
     return (
         <>
-            <Script
+            <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
                 <div className="min-h-screen">

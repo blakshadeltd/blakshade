@@ -1,7 +1,6 @@
 // app/generators/page.tsx
 import { Metadata, Viewport } from "next";
 import GeneratorsClient from "./GeneratorsClient";
-import Script from "next/script";
 
 interface SearchParams {
   frequency?: string;
@@ -125,7 +124,7 @@ export default async function GeneratorsPage({
 
   return (
     <>
-      <Script
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />

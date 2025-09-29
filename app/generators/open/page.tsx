@@ -1,6 +1,5 @@
 import { Metadata, Viewport } from "next";
 import OpenGeneratorsClient from "./OpenGeneratorsClient";
-import Script from "next/script";
 
 export let metadata: Metadata = {
   title: "Open Diesel Generators | BlakShade Ltd",
@@ -125,7 +124,7 @@ export default async function OpenGeneratorsPage({
 
   return (
     <>
-      <Script
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />

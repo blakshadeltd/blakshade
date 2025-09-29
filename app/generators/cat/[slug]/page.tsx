@@ -3,7 +3,6 @@ import Link from "next/link";
 import SpecItem from "@/app/component/SpecItem";
 import { notFound } from "next/navigation";
 import { CatProduct, cats } from "@/data/generators/cat/catProducts";
-import Script from "next/script";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -134,12 +133,12 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
     return (
         <>
             {/* Inject schema data */}
-            <Script
+            <script
                 type="application/ld+json"
                 id="org-schema"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
             />
-            <Script
+            <script
                 type="application/ld+json"
                 id="product-schema"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}

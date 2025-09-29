@@ -1,6 +1,4 @@
 import { Metadata, Viewport } from 'next';
-import Script from 'next/script';
-import React from 'react';
 
 
 export const metadata: Metadata = {
@@ -90,7 +88,7 @@ export const viewport: Viewport = {
 const AboutPage = () => {
   return (
     <section>
-          <><Script
+          <><script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
             </>

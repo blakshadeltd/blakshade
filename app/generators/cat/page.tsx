@@ -1,7 +1,6 @@
 // app/generators/Cat/page.tsx
 import { Metadata, Viewport } from "next";
 import CatGeneratorsClient from "./CatGeneratorsClient";
-import Script from "next/script";
 
 export let metadata: Metadata = {
   title: "Cat Diesel Generators | BlakShade Ltd",
@@ -127,7 +126,7 @@ export default async function CatGenerators({
 
   return (
     <>
-      <Script
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />

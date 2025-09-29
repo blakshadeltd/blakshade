@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         description: product.metaDescription,
         keywords: product.keywords,
         alternates: {
-            canonical: `https://blakshade.com/generators/cummins/${product.slug}`,
+            canonical: `https://blakshade.com/generators/cummins/${product.slug}`, // Always point pagination back to main page
         },
         openGraph: {
             title: product.metaTitle,
@@ -50,12 +50,11 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
     if (!product) return notFound();
 
     // Schema Data
-    const schemaData = {
+    const orgSchema = {
         "@context": "https://schema.org",
         "@graph": [
             {
                 "@type": "Organization",
-                "@id": "https://blakshade.com/#organization",
                 name: "BlakShade Ltd",
                 alternateName: "BlakShade",
                 url: "https://blakshade.com/",
@@ -78,16 +77,19 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
             },
             {
                 "@type": "WebSite",
-                "@id": "https://blakshade.com/#website",
-                url: "https://blakshade.com/",
                 name: "BlakShade Ltd",
-                publisher: { "@id": "https://blakshade.com/#organization" },
+                url: "https://blakshade.com/",
             },
+        ],
+    };
+
+    const productSchema = {
+        "@context": "https://schema.org/",
+        "@graph": [
             {
                 "@type": "Product",
-                "@id": `https://blakshade.com/generators/cummins/${product.slug}#product`,
                 name: product.metaTitle,
-                image: [`https://blakshade.com${product.image}`],
+                image: `https://blakshade.com${product.image}`,
                 description: product.metaDescription,
                 brand: {
                     "@type": "Brand",
@@ -98,8 +100,8 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                     ratingValue: "5",
                     bestRating: "5",
                     worstRating: "1",
-                    ratingCount: "13",
-                },
+                    ratingCount: "13"
+                }
             },
             {
                 "@type": "BreadcrumbList",
@@ -113,35 +115,34 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                     {
                         "@type": "ListItem",
                         position: 2,
-                        name: "Generators",
+                        name: "Diesel Generators",
                         item: "https://blakshade.com/generators/",
                     },
                     {
                         "@type": "ListItem",
                         position: 3,
                         name: "Cummins Generators",
-                        item: "https://blakshade.com/generators/cummins/",
-                    },
-                    {
-                        "@type": "ListItem",
-                        position: 4,
-                        name: product.title,
-                        item: `https://blakshade.com/generators/cummins/${product.slug}`,
+                        item: `https://blakshade.com/generators/cummins`,
                     },
                 ],
             },
         ],
     };
 
+
     return (
         <>
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-        />
-
-
+            {/* Inject schema data */}
+            <script
+                type="application/ld+json"
+                id="org-schema"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                id="product-schema"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+            />
 
             {/* Main Page UI */}
             <section>
@@ -183,11 +184,13 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                         </a>
                     </div>
 
+
                     {/* Content */}
                     <div className="w-full space-y-6">
                         <h1 className="text-[var(--foreground,#2b2926)] text-2xl md:text-3xl">
                             {product.metaTitle}
                         </h1>
+                        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-0 text-base text-[var(--foreground,#2b2926)] pb-4 max-w-4xl mx-auto"></dl>
 
                         {/* Short Specs */}
                         <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-base text-[var(--foreground,#2b2926)] pb-4">
@@ -203,15 +206,14 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                             ].map((spec, i) => (
                                 <div
                                     key={i}
-                                    className="flex justify-between items-center border-b border-gray-200 last:border-0 pb-2"
-                                >
+                                    className="flex justify-between items-center border-b border-gray-200 last:border-0 pb-2">
                                     <dt>{spec.label}:</dt>
                                     <dd>{spec.value}</dd>
                                 </div>
                             ))}
                         </dl>
 
-                        {/* Interactive client component */}
+                        {/* Use the client component for interactive parts */}
                         <ProductPageClient product={product} />
                     </div>
                 </div>

@@ -1,6 +1,5 @@
 import { Metadata, Viewport } from "next";
 import HzGeneratorsClient from "./HzGeneratorsClient";
-import Script from "next/script";
 
 export let metadata: Metadata = {
     title: "60Hz Diesel Generators | BlakShade Ltd",
@@ -126,7 +125,7 @@ export default async function HzGenerators({
 
   return (
     <>
-      <Script
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />

@@ -1,7 +1,6 @@
 
 import { Metadata, Viewport } from "next";
 import CumminsGeneratorsClient from "./CumminsGeneratorsClient";
-import Script from "next/script";
 
 export let metadata: Metadata = {
   title: "Cummins Diesel Generators | BlakShade Ltd",
@@ -127,7 +126,7 @@ export default async function CumminsGenerators({
 
   return (
     <>
-      <Script
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />

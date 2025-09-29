@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { Metadata, Viewport } from 'next';
-import Script from 'next/script';
 
 export const metadata: Metadata = {
     title: "Company Info | BlakShade Ltd",
@@ -130,7 +129,7 @@ const InfoPage = () => {
 
     return (
         <>
-            <Script
+            <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
             />
