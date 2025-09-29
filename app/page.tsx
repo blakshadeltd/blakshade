@@ -311,7 +311,7 @@ export default function Home() {
 
             {/* Image Box */}
             <div className="w-full lg:w-1/2 flex items-center justify-center">
-              <div className="w-full h-[300px] sm:h-[400px] bg-[url('/controlpanel1.png')] bg-contain bg-no-repeat bg-center"></div>
+              <div className="w-full h-[300px] sm:h-[400px] bg-[url('/controlpanel.avif')] bg-contain bg-no-repeat bg-center"></div>
             </div>
           </div>
         </section>
