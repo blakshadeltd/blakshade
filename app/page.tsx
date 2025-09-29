@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Metadata, Viewport } from "next";
 import Script from "next/script";
 import Image from "next/image";
+import Head from "next/head";
 
 
 export const metadata: Metadata = {
@@ -150,12 +151,12 @@ export default function Home() {
     <>
 
 
-      <Script
-        id="org-schema"
-        type="application/ld+json"
-        strategy="beforeInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
-      />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
+      </Head>
 
 
       <main className="relative overflow-hidden">

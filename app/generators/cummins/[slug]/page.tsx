@@ -2,10 +2,10 @@ import { use } from "react";
 import SpecItem from "@/app/component/SpecItem";
 import { notFound } from "next/navigation";
 import { CumminsProduct, cummins } from "@/data/generators/cummins/cumminsProducts";
-import Script from "next/script";
 import type { Metadata } from "next";
 import ProductPageClient from "./ProductPageClient";
 import Link from "next/link";
+import Head from "next/head";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const resolvedParams = await params;
@@ -136,13 +136,12 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
 
     return (
         <>
-            {/* Inject schema data */}
-            <Script
-                id="page-schema"
-                type="application/ld+json"
-                strategy="beforeInteractive"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-            />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
+      </Head>
 
 
             {/* Main Page UI */}
