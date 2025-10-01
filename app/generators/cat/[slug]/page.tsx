@@ -4,6 +4,7 @@ import SpecItem from "@/app/component/SpecItem";
 import { notFound } from "next/navigation";
 import { CatProduct, cats } from "@/data/generators/cat/catProducts";
 import type { Metadata } from "next";
+import ProductPageClient from "./ProductPageClient";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const resolvedParams = await params;
@@ -151,10 +152,17 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                     className="bg-[var(--foreground)] h-[120px] md:h-[180px] rounded-[30px] mx-4 relative overflow-hidden"
                     style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
                 >
-                    <div className="container h-full flex items-end pb-4">
-                        <h2 className="text-[var(--background)] text-xl md:text-2xl">
-                            {product.metaTitle}
-                        </h2>
+                    <div className="container h-full flex items-end justify-between pb-4">
+                        {/* Breadcrumbs - Right side */}
+                        <nav className="text-sm text-[var(--background)]">
+                            <Link href="/" className="hover:text-gray-500 transition-colors">Home</Link>
+                            <span className="mx-2">/</span>
+                            <Link href="/generators" className="hover:text-gray-500 transition-colors">Generators</Link>
+                            <span className="mx-2">/</span>
+                            <Link href="/generators/cat" className="hover:text-gray-500 transition-colors">Cat</Link>
+                            <span className="mx-2">/</span>
+                            <span className="text-[var(--background)] font-medium">{product.title}</span>
+                        </nav>
                     </div>
                 </div>
 
@@ -171,15 +179,16 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                     </div>
 
 
+
                     {/* Content */}
                     <div className="w-full space-y-6">
-                        <h1 className="text-[var(--foreground)] text-xl md:text-2xl lg:text-4xl">
+                        <h1 className="text-[var(--foreground,#2b2926)] text-3xl md:text-4xl">
                             {product.title}
                         </h1>
-                        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-0 text-base text-[var(--foreground)] pb-4 max-w-4xl mx-auto"></dl>
+                        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-0 text-base text-[var(--foreground,#2b2926)] pb-4 max-w-4xl mx-auto"></dl>
 
                         {/* Short Specs */}
-                        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-base text-[var(--foreground)] pb-4">
+                        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-base text-[var(--foreground,#2b2926)] pb-4">
                             {[
                                 { label: "Standby", value: product.standbyPower },
                                 { label: "Voltage", value: product.voltage },
@@ -199,25 +208,13 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                             ))}
                         </dl>
 
-                        {/* Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <button
-                                className="w-full lg:w-1/2 px-6 md:px-8 lg:px-10 py-3 text-left btn-primary shine-effect cursor-pointer"
-                            >
-                                Enquiry
-                            </button>
-                            <Link
-                                href={product.fullspec}
-                                className="w-full lg:w-1/2 px-6 md:px-8 lg:px-10 py-3 text-left btn-second shine-effect"
-                            >
-                                Full Specification
-                            </Link>
-                        </div>
+                        {/* Use the client component for interactive parts */}
+                        <ProductPageClient product={product} />
                     </div>
                 </div>
 
                 {/* Description + Specs */}
-                <div className="container mt-16 text-[var(--foreground)] max-w-4xl space-y-14">
+                <div className="container mt-16 text-[var(--foreground,#2b2926)] max-w-4xl space-y-14 mb-16">
                     <div
                         className="text-base leading-relaxed"
                         dangerouslySetInnerHTML={{ __html: product.description }}
@@ -226,9 +223,9 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                         {product.specs.map((section, i) => (
                             <section key={i}>
-                                <h3 className="text-xl font-base text-[var(--foreground)] mb-4 border-b pb-2">
+                                <h2 className="text-xl font-base text-[var(--foreground,#2b2926)] mb-4 border-b pb-2">
                                     {section.group}
-                                </h3>
+                                </h2>
                                 <div className="grid grid-cols-1 gap-4">
                                     {section.items.map((item, idx) => (
                                         <SpecItem key={idx} label={item.label} value={item.value} />
@@ -238,8 +235,6 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                         ))}
                     </div>
                 </div>
-
-
             </section>
         </>
     );

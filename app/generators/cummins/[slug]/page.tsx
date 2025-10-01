@@ -152,11 +152,6 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                     style={{ background: "linear-gradient(90deg, var(--foreground), var(--hover))" }}
                 >
                     <div className="container h-full flex items-end justify-between pb-4">
-                        {/* Product Title - Left side */}
-                        <h2 className="text-[var(--background,#f4f3f3)] text-2xl md:text-4xl">
-                            {product.title}
-                        </h2>
-
                         {/* Breadcrumbs - Right side */}
                         <nav className="text-sm text-[var(--background)]">
                             <Link href="/" className="hover:text-gray-500 transition-colors">Home</Link>
@@ -186,8 +181,8 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
 
                     {/* Content */}
                     <div className="w-full space-y-6">
-                        <h1 className="text-[var(--foreground,#2b2926)] text-2xl md:text-3xl">
-                            {product.metaTitle}
+                        <h1 className="text-[var(--foreground,#2b2926)] text-3xl md:text-4xl">
+                            {product.title}
                         </h1>
                         <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-0 text-base text-[var(--foreground,#2b2926)] pb-4 max-w-4xl mx-auto"></dl>
 
