@@ -128,13 +128,12 @@ export default function ContactPage() {
                         <div className="space-y-4 md:space-y-6 md:border-r md:border-gray-200 pb-6 md:pb-0 md:pr-8">
                             <div>
                                 <h3 className="text-lg md:text-xl mb-3 md:mb-4 text-[var(--foreground)]">
-                                    Head Office
+                                    Office Location
                                 </h3>
                                 <p className="text-sm md:text-base">
-                                    DieselGen Middle East<br />
-                                    Warehouse Complex 45<br />
-                                    Jebel Ali Free Zone<br />
-                                    Dubai, UAE
+                                    182 High St N,<br />
+                                     London E6 2JA,<br />
+                                     United Kingdom
                                 </p>
                             </div>
 
@@ -143,8 +142,8 @@ export default function ContactPage() {
                                     24/7 Support
                                 </h3>
                                 <p className="text-sm md:text-base">
-                                    📞 +971 4 278 3400<br />
-                                    📧 emergency@dieselgen.ae
+                                    📞 +44 7380 491992<br />
+                                    📧 info@blakshade.com
                                 </p>
                             </div>
 
@@ -153,8 +152,8 @@ export default function ContactPage() {
                                     Business Hours
                                 </h3>
                                 <p className="text-sm md:text-base">
-                                    Saturday - Thursday: 8AM - 6PM<br />
-                                    Friday: Closed
+                                    Thursday - Friday: 8AM - 5PM<br />
+                                    Saturday- Sunday: Closed
                                 </p>
                             </div>
                         </div>

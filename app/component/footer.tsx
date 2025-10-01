@@ -24,7 +24,7 @@ export default function Footer() {
                   href="https://www.facebook.com/blakshadeltd"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full text-[var(--foreground,#2b2926)] flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  className="w-10 h-10 rounded-[20px] text-[var(--foreground,#2b2926)] flex items-center justify-center bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-colors"
                   aria-label="Follow us on Facebook"
                 >
                   <Facebook className="w-5 h-5" />
@@ -33,7 +33,7 @@ export default function Footer() {
                   href="https://x.com/BlakShade_Ltd"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full text-[var(--foreground,#2b2926)] flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  className="w-10 h-10 rounded-[20px] text-[var(--foreground,#2b2926)] flex items-center justify-center bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-colors"
                   aria-label="Follow us on Twitter"
                 >
                   <Twitter className="w-5 h-5" />
@@ -42,7 +42,7 @@ export default function Footer() {
                   href="https://www.instagram.com/blakshadeltd/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full text-[var(--foreground,#2b2926)] flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  className="w-10 h-10 rounded-[20px] text-[var(--foreground,#2b2926)] flex items-center justify-center bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-colors"
                   aria-label="Follow us on Instagram"
                 >
                   <Instagram className="w-5 h-5" />
@@ -51,7 +51,7 @@ export default function Footer() {
                   href="https://www.linkedin.com/company/blakshade-ltd/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full text-[var(--foreground,#2b2926)] flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  className="w-10 h-10 rounded-[20px] text-[var(--foreground,#2b2926)] flex items-center justify-center bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-colors"
                   aria-label="Follow us on LinkedIn"
                 >
                   <Linkedin className="w-5 h-5" />
@@ -60,12 +60,13 @@ export default function Footer() {
                   href="https://www.threads.net/@blakshadeltd"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full text-[var(--foreground,#2b2926)] flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  className="w-10 h-10 rounded-[20px] text-[var(--foreground,#2b2926)] flex items-center justify-center bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-colors"
                   aria-label="Follow us on Threads"
                 >
                   <MessageCircle className="w-5 h-5" />
                 </a>
               </div>
+
             </div>
           </div>
 

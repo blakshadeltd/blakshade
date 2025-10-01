@@ -53,9 +53,7 @@ function CheckboxOption({
           </svg>
         )}
       </div>
-      <span className={`font-normal ${checked ? "text-gray-700" : "text-gray-700"}`}>
-        {children}
-      </span>
+      <span className="font-normal text-gray-700">{children}</span>
     </div>
   );
 }
@@ -87,7 +85,7 @@ function BrandPreferenceSection({
             onChange={(e) => onInputChange(e.target.value)}
             disabled={noPreferenceChecked}
             placeholder={placeholder}
-            className="w-full bg-white rounded-lg p-3 pl-4 pr-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
+            className="w-full bg-white rounded-lg p-3 pl-4 pr-4 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
           />
         </div>
       </div>
@@ -106,9 +104,7 @@ function BrandPreferenceSection({
               </svg>
             )}
           </div>
-          <span className={`font-normal ${noPreferenceChecked ? "text-gray-700" : "text-gray-700"}`}>
-            No Preference
-          </span>
+          <span className="font-normal text-gray-700">No Preference</span>
         </div>
       </div>
     </div>
@@ -116,18 +112,23 @@ function BrandPreferenceSection({
 }
 
 export default function BuildGenset() {
-  const [duty, setDuty] = useState<string>("Standby");
-  const [phase, setPhase] = useState<string>("Single Phase");
-  const [frequency, setFrequency] = useState<string>("50Hz");
-  const [applicationType, setApplicationType] = useState<string>("Stationary Power");
-  const [weather, setWeather] = useState<string>("Normal");
+  // All unselected by default
+  const [duty, setDuty] = useState<string>("");
+  const [phase, setPhase] = useState<string>("");
+  const [frequency, setFrequency] = useState<string>("");
+  const [applicationType, setApplicationType] = useState<string>("");
+  const [weather, setWeather] = useState<string>("");
+
   const [engineBrandInput, setEngineBrandInput] = useState<string>("");
-  const [engineNoPreference, setEngineNoPreference] = useState<boolean>(true);
+  const [engineNoPreference, setEngineNoPreference] = useState<boolean>(false);
+
   const [alternatorBrandInput, setAlternatorBrandInput] = useState<string>("");
-  const [alternatorNoPreference, setAlternatorNoPreference] = useState<boolean>(true);
+  const [alternatorNoPreference, setAlternatorNoPreference] = useState<boolean>(false);
+
   const [exactPower, setExactPower] = useState<string>("");
   const [hasATS, setHasATS] = useState<boolean>(false);
   const [hasExtraFuelTank, setHasExtraFuelTank] = useState<boolean>(false);
+
   const [showModal, setShowModal] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [succeeded, setSucceeded] = useState(false);
@@ -146,39 +147,54 @@ export default function BuildGenset() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-const handleSubmitEnquiry = () => {
-  // Prepare configuration data locally
-  const configurationData = {
-    duty,
-    phase,
-    frequency,
-    applicationType,
-    weather,
-    engineBrand: engineNoPreference ? "No Preference" : engineBrandInput,
-    alternatorBrand: alternatorNoPreference ? "No Preference" : alternatorBrandInput,
-    exactPower,
-    hasATS,
-    hasExtraFuelTank
+  const handleSubmitEnquiry = () => {
+    const newErrors: string[] = [];
+
+    if (!duty) newErrors.push("Please select Generator Set Duty.");
+    if (!phase) newErrors.push("Please select Phase.");
+    if (!frequency) newErrors.push("Please select Frequency.");
+    if (!applicationType) newErrors.push("Please select Application Type.");
+    if (!weather) newErrors.push("Please select Environment.");
+
+    if (!engineNoPreference && !engineBrandInput) {
+      newErrors.push("Please specify an Engine Brand Preference or select No Preference.");
+    }
+    if (!alternatorNoPreference && !alternatorBrandInput) {
+      newErrors.push("Please specify an Alternator Brand Preference or select No Preference.");
+    }
+
+    if (newErrors.length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    const configurationData = {
+      duty,
+      phase,
+      frequency,
+      applicationType,
+      weather,
+      engineBrand: engineNoPreference ? "No Preference" : engineBrandInput,
+      alternatorBrand: alternatorNoPreference ? "No Preference" : alternatorBrandInput,
+      exactPower,
+      hasATS,
+      hasExtraFuelTank
+    };
+
+    setErrors([]);
+    setShowModal(true);
   };
-
-  // You can pass configurationData directly to your API when submitting
-  // For now just show the modal
-  setShowModal(true);
-};
-
 
   const handleModalSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
     setErrors([]);
 
-    // Honeypot check
     if ((e.target as HTMLFormElement).website?.value) {
       setErrors(["Bot detected"]);
       setSubmitting(false);
       return;
     }
-
     if (!captchaToken) {
       setErrors(["Please complete the CAPTCHA"]);
       setSubmitting(false);
@@ -213,7 +229,6 @@ const handleSubmitEnquiry = () => {
 
       if (res.ok && result.ok) {
         setSucceeded(true);
-        // Close modal after a short delay
         setTimeout(() => {
           setShowModal(false);
           setFormData({ name: "", company: "", email: "", phone: "", message: "" });
@@ -401,7 +416,7 @@ const handleSubmitEnquiry = () => {
                         const onlyNumbers = e.target.value.replace(/\D/g, "");
                         setExactPower(onlyNumbers);
                       }}
-                      className="w-full bg-white rounded-lg p-3 pl-4 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-500 rounded-lg focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
+                      className="w-full bg-white rounded-lg p-3 pl-4 pr-12 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:rounded-[15px] transition-all duration-500 text-sm md:text-base"
                       placeholder="Enter kVA"
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--foreground)] font-normal">
@@ -429,6 +444,15 @@ const handleSubmitEnquiry = () => {
                   </CheckboxOption>
                 </div>
               </div>
+
+              {/* Show validation errors */}
+              {errors.length > 0 && (
+                <div className="p-3 bg-red-50 text-red-700 rounded-lg">
+                  {errors.map((err, idx) => (
+                    <p key={idx}>{err}</p>
+                  ))}
+                </div>
+              )}
 
               {/* Submit Button */}
               <button

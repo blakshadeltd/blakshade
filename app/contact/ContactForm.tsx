@@ -143,7 +143,7 @@ export default function ContactForm() {
       </div>
 
       {/* CAPTCHA + Submit */}
-      <div className="flex flex-col md:flex-row md:items-center gap-4 mt-2">
+      <div className="flex flex-col md:flex-row md:items-center gap-3 mt-2">
         <button
           type="submit"
           disabled={submitting}
