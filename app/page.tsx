@@ -6,13 +6,13 @@ import { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
   title: "Bespoke Diesel Generators Solutions | BlakShade Ltd",
-  description: "BlakShade Ltd offers Bespoke Diesel Generators Solutions to meet your specific power needs. Wherever you need it.",
+  description: "BlakShade Ltd specializes in custom diesel generator solutions designed to fit your specific power requirements. Experience reliable energy, no matter the location.",
   keywords: "BlakShade Ltd, generators, power solutions, diesel generators",
   authors: [{ name: "BlakShade Ltd" }],
   robots: "index, follow",
   openGraph: {
     title: "Bespoke Diesel Generators Solutions | BlakShade Ltd",
-    description: "BlakShade Ltd offers Bespoke Diesel Generators Solutions to meet your specific power needs. Wherever you need it.",
+    description: "BlakShade Ltd specializes in custom diesel generator solutions designed to fit your specific power requirements. Experience reliable energy, no matter the location.",
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     site: "@BlakShade_Ltd",
     creator: "@BlakShade_Ltd",
     title: "Bespoke Diesel Generators Solutions | BlakShade Ltd",
-    description: "BlakShade Ltd offers Bespoke Diesel Generators Solutions to meet your specific power needs. Wherever you need it.",
+    description: "BlakShade Ltd specializes in custom diesel generator solutions designed to fit your specific power requirements. Experience reliable energy, no matter the location.",
   },
   // Add canonical URL
   alternates: {
