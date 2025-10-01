@@ -2,7 +2,6 @@ User-agent: *
 Allow: /
 
 # Block Next.js system files
-Disallow: /_next/
 Disallow: /private/
 Disallow: /api/
 Disallow: /search/
