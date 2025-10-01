@@ -173,16 +173,18 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                 {/* Image + Info */}
                 <div className="container py-12 flex flex-col md:flex-row mt-3 gap-6 items-start">
                     <div className="w-full md:w-[50%]">
-                        <a href={product.image} target="_blank" rel="noopener noreferrer">
-                            <img
-                                src={product.image}
-                                alt={product.title}
-                                width={800}
-                                height={600}
-                                className="rounded-xl shadow-md w-full object-cover"
-                            />
-                        </a>
+                        <img
+                            src={product.image}
+                            alt={product.title}
+                            width={800}
+                            height={600}
+                            className="rounded-xl shadow-md w-full object-cover"
+                            onContextMenu={(e) => e.preventDefault()} // disables right-click
+                            draggable="false" // disables drag
+                        />
+
                     </div>
+
 
 
                     {/* Content */}

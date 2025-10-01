@@ -1,4 +1,4 @@
-import {use } from "react";
+import { use } from "react";
 import Link from "next/link";
 import SpecItem from "@/app/component/SpecItem";
 import { notFound } from "next/navigation";
@@ -6,40 +6,40 @@ import { CatProduct, cats } from "@/data/generators/cat/catProducts";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const resolvedParams = await params;
-  const product = cats.find((p) => p.slug === resolvedParams.slug);
+    const resolvedParams = await params;
+    const product = cats.find((p) => p.slug === resolvedParams.slug);
 
-  if (!product) return notFound();
+    if (!product) return notFound();
 
-  return {
-    title: product.metaTitle,
-    description: product.metaDescription,
-    keywords: product.keywords,
-      alternates: {
-    canonical: `https://blakshade.com/generators/cat/${product.slug}`, // Always point pagination back to main page
-  },
-    openGraph: {
-      title: product.metaTitle,
-      description: product.metaDescription,
-      url: `https://blakshade.com/generators/cat/${product.slug}`,
-      siteName: "BlakShade Ltd",
-      images: [
-        {
-          url: `https://blakshade.com${product.image}`,
-          width: 800,
-          height: 600,
-          alt: product.title,
+    return {
+        title: product.metaTitle,
+        description: product.metaDescription,
+        keywords: product.keywords,
+        alternates: {
+            canonical: `https://blakshade.com/generators/cat/${product.slug}`, // Always point pagination back to main page
         },
-      ],
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: product.metaTitle,
-      description: product.metaDescription,
-      images: [`https://blakshade.com${product.image}`],
-    },
-  };
+        openGraph: {
+            title: product.metaTitle,
+            description: product.metaDescription,
+            url: `https://blakshade.com/generators/cat/${product.slug}`,
+            siteName: "BlakShade Ltd",
+            images: [
+                {
+                    url: `https://blakshade.com${product.image}`,
+                    width: 800,
+                    height: 600,
+                    alt: product.title,
+                },
+            ],
+            type: "website",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: product.metaTitle,
+            description: product.metaDescription,
+            images: [`https://blakshade.com${product.image}`],
+        },
+    };
 }
 
 
@@ -93,16 +93,16 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                 image: `https://blakshade.com${product.image}`,
                 description: product.metaDescription,
                 brand: {
-                        "@type": "Brand",
-                        name: "CAT",
-                    },
-                    aggregateRating: {
-                        "@type": "AggregateRating",
-                        ratingValue: "5",
-                        bestRating: "5",
-                        worstRating: "1",
-                        ratingCount: "9"
-                    }
+                    "@type": "Brand",
+                    name: "CAT",
+                },
+                aggregateRating: {
+                    "@type": "AggregateRating",
+                    ratingValue: "5",
+                    bestRating: "5",
+                    worstRating: "1",
+                    ratingCount: "9"
+                }
             },
             {
                 "@type": "BreadcrumbList",
@@ -161,16 +161,18 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                 {/* Image + Info */}
                 <div className="container py-12 flex flex-col md:flex-row mt-3 gap-6 items-start">
                     <div className="w-full md:w-[50%]">
-                        <a href={product.image} target="_blank" rel="noopener noreferrer">
-                            <img
-                                src={product.image}
-                                alt={product.title}
-                                width={800}
-                                height={600}
-                                className="rounded-xl shadow-md w-full object-cover"
-                            />
-                        </a>
+                        <img
+                            src={product.image}
+                            alt={product.title}
+                            width={800}
+                            height={600}
+                            className="rounded-xl shadow-md w-full object-cover"
+                            onContextMenu={(e) => e.preventDefault()} // disables right-click
+                            draggable="false" // disables drag
+                        />
+
                     </div>
+
 
                     {/* Content */}
                     <div className="w-full space-y-6">
@@ -217,28 +219,28 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                     </div>
                 </div>
 
-{/* Description + Specs */}
-<div className="container mt-16 text-[var(--foreground)] max-w-4xl space-y-14">
-  <div
-    className="text-base leading-relaxed"
-    dangerouslySetInnerHTML={{ __html: product.description }}
-  />
+                {/* Description + Specs */}
+                <div className="container mt-16 text-[var(--foreground)] max-w-4xl space-y-14">
+                    <div
+                        className="text-base leading-relaxed"
+                        dangerouslySetInnerHTML={{ __html: product.description }}
+                    />
 
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-    {product.specs.map((section, i) => (
-      <section key={i}>
-        <h3 className="text-xl font-base text-[var(--foreground)] mb-4 border-b pb-2">
-          {section.group}
-        </h3>
-        <div className="grid grid-cols-1 gap-4">
-          {section.items.map((item, idx) => (
-            <SpecItem key={idx} label={item.label} value={item.value} />
-          ))}
-        </div>
-      </section>
-    ))}
-  </div>
-</div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        {product.specs.map((section, i) => (
+                            <section key={i}>
+                                <h3 className="text-xl font-base text-[var(--foreground)] mb-4 border-b pb-2">
+                                    {section.group}
+                                </h3>
+                                <div className="grid grid-cols-1 gap-4">
+                                    {section.items.map((item, idx) => (
+                                        <SpecItem key={idx} label={item.label} value={item.value} />
+                                    ))}
+                                </div>
+                            </section>
+                        ))}
+                    </div>
+                </div>
 
 
             </section>
