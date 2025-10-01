@@ -304,7 +304,3 @@ nav:not(.sticky-nav)::before {
 .animate-slide-up {
   animation: slide-up 0.3s ease-out;
 }
-
-img {
-  pointer-events: none;
-}

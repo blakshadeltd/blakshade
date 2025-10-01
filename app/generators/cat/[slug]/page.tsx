@@ -167,10 +167,7 @@ export default function GeneratorSpecPage(props: { params: Promise<{ slug: strin
                             width={800}
                             height={600}
                             className="rounded-xl shadow-md w-full object-cover"
-                            onContextMenu={(e) => e.preventDefault()} // disables right-click
-                            draggable="false" // disables drag
                         />
-
                     </div>
 
 
