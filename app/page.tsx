@@ -6,13 +6,13 @@ import { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
   title: "Bespoke Diesel Generators Solutions | BlakShade Ltd",
-  description: "BlakShade Ltd specializes in custom diesel generator solutions designed to fit your specific power requirements. Experience reliable energy, no matter the location.",
+  description: "BlakShade Ltd specializes in diesel generators and bespoke generators, offering custom power solutions tailored to your specific needs. Reliable energy anywhere.",
   keywords: "BlakShade Ltd, generators, power solutions, diesel generators",
   authors: [{ name: "BlakShade Ltd" }],
   robots: "index, follow",
   openGraph: {
     title: "Bespoke Diesel Generators Solutions | BlakShade Ltd",
-    description: "BlakShade Ltd specializes in custom diesel generator solutions designed to fit your specific power requirements. Experience reliable energy, no matter the location.",
+    description: "BlakShade Ltd specializes in diesel generators and bespoke generators, offering custom power solutions tailored to your specific needs. Reliable energy anywhere.",
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     site: "@BlakShade_Ltd",
     creator: "@BlakShade_Ltd",
     title: "Bespoke Diesel Generators Solutions | BlakShade Ltd",
-    description: "BlakShade Ltd specializes in custom diesel generator solutions designed to fit your specific power requirements. Experience reliable energy, no matter the location.",
+    description: "BlakShade Ltd specializes in diesel generators and bespoke generators, offering custom power solutions tailored to your specific needs. Reliable energy anywhere.",
   },
   // Add canonical URL
   alternates: {
@@ -292,9 +292,15 @@ export default function Home() {
                 Powering the World with Unrivaled Reliability
               </h2>
               <p className="text-base md:text-lg leading-relaxed opacity-90">
-                From disaster relief to remote industries, our solutions ensure power flows uninterrupted,
-                no matter the conditions. We're committed to delivering diesel generator systems that combine performance,
-                efficiency, and uncompromising quality — globally.
+                BlakShade Ltd provides diesel generators that deliver unmatched reliability
+                across industries and environments. Our team engineers custom power solutions
+                tailored to each project, ensuring consistent performance whether for emergency backup,
+                industrial operations, or remote sites.
+              </p>
+              <p className="text-base md:text-lg leading-relaxed opacity-90">
+                We take pride in offering bespoke generators designed with precision and
+                innovation, combining durability with flexibility to meet your exact requirements.
+                With BlakShade, you don’t just get power — you get resilience engineered for the future.
               </p>
               <div className="mt-4 md:mt-6">
                 <Link
