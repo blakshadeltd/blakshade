@@ -68,8 +68,8 @@ const orgSchema = {
         "@type": "WebPage",
         "@id": "https://blakshade.com/"
       },
-      headline: "BlakShade Ltd",
-      description: "Bespoke Diesel Generators Solutions to meet your specific power needs. Wherever you need it.",
+      headline: "Diesel Generators & Custom Power Solutions | Bespoke Generators by BlakShade Ltd",
+      description: "BlakShade Ltd specializes in diesel generators and bespoke generators, offering custom power solutions tailored to your specific needs. Reliable energy anywhere.",
       author: {
         "@type": "Organization",
         name: "BlakShade Ltd"
