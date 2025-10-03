@@ -5,14 +5,14 @@ import { Metadata, Viewport } from "next";
 
 
 export const metadata: Metadata = {
-  title: "Diesel Generators & Custom Power Solutions | Bespoke Generators by BlakShade Ltd",
-  description: "BlakShade Ltd specializes in diesel generators and bespoke generators, offering custom power solutions tailored to your specific needs. Reliable energy anywhere.",
+  title: "Diesel Generators & Custom Power Solutions | BlakShade Ltd",
+  description: "BlakShade Ltd specializes in diesel generators and bespoke generators, offering custom power solutions tailored to your specific needs worldwide.",
   keywords: "BlakShade Ltd, generators, power solutions, diesel generators",
   authors: [{ name: "BlakShade Ltd" }],
   robots: "index, follow",
   openGraph: {
-    title: "Diesel Generators & Custom Power Solutions | Bespoke Generators by BlakShade Ltd",
-    description: "BlakShade Ltd specializes in diesel generators and bespoke generators, offering custom power solutions tailored to your specific needs. Reliable energy anywhere.",
+    title: "Diesel Generators & Custom Power Solutions | BlakShade Ltd",
+    description: "BlakShade Ltd specializes in diesel generators and bespoke generators, offering custom power solutions tailored to your specific needs worldwide.",
     type: "website",
     locale: "en_UK",
     siteName: "BlakShade Ltd",
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@BlakShade_Ltd",
     creator: "@BlakShade_Ltd",
-    title: "Diesel Generators & Custom Power Solutions | Bespoke Generators by BlakShade Ltd",
-    description: "BlakShade Ltd specializes in diesel generators and bespoke generators, offering custom power solutions tailored to your specific needs. Reliable energy anywhere.",
+    title: "Diesel Generators & Custom Power Solutions | BlakShade Ltd",
+    description: "BlakShade Ltd specializes in diesel generators and bespoke generators, offering custom power solutions tailored to your specific needs worldwide.",
   },
   // Add canonical URL
   alternates: {
@@ -68,8 +68,8 @@ const orgSchema = {
         "@type": "WebPage",
         "@id": "https://blakshade.com/"
       },
-      headline: "Diesel Generators & Custom Power Solutions | Bespoke Generators by BlakShade Ltd",
-      description: "BlakShade Ltd specializes in diesel generators and bespoke generators, offering custom power solutions tailored to your specific needs. Reliable energy anywhere.",
+      headline: "Diesel Generators & Custom Power Solutions | BlakShade Ltd",
+      description: "BlakShade Ltd specializes in diesel generators and bespoke generators, offering custom power solutions tailored to your specific needs worldwide.",
       author: {
         "@type": "Organization",
         name: "BlakShade Ltd"
