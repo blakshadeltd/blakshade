@@ -2,12 +2,12 @@
 import "./globals.css";
 import Script from "next/script";
 import localFont from "next/font/local";
-
 import DesktopNav from "./component/DesktopNav";
 import HeaderMobileNav from "./component/MobileNav";
 import StickyNav from "./component/StickyNav";
 import CallToAction from "./component/CallToAction";
 import Footer from "./component/footer";
+import ClarityInit from "./component/clarity.init";
 
 // Local font with fallback swap
 const MillingDuplex1mm = localFont({
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={MillingDuplex1mm.className}>
       <body className="bg-[var(--background)]">
         <GoogleAnalytics />
-
+<ClarityInit/>
         {/* Header Section */}
         <header>
           <DesktopNav />
